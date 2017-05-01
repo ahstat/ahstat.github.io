@@ -49,7 +49,7 @@ We can observe the remarkable Martian dichotomy and find:
 	<li>the <a title="Hellas Planitia wiki page" href="http://en.wikipedia.org/wiki/Hellas_Planitia" target="_blank">Hellas Planitia</a> impact crater on the left of the map.</li>
 </ul>
 
-That's all! If you're interested by how to make those maps and to create your own maps, read the following section.
+That's all! If you're interested to plot those maps yourself and to create new ones, you can continue reading the next sections.
 
 **To go further**
 <ul>
@@ -100,4 +100,4 @@ m=2880; awk -v m=$m '!((NR-1)%m) {n=!n} !n' moon1-0.txt &gt;moon1-1.txt
 ```
 
 <p lang="en">I finally obtain a readable 2880<b>×</b>1440 lines file.</p>
-<p lang="en"><strong>Plot data and make html. </strong><span style="color: #000000;">I use R and the functions "contour" and "filled.contour" to plot data. The R file is available on <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">this repository</a>. For those plots, I take the <a title="Wikipedia conventions for topographic maps" href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps" target="_blank">Wikipedia conventions for topographic maps</a>.</span></p>
+<p lang="en"><strong>Plot data. </strong><span style="color: #000000;">I use R and the functions "contour" and "filled.contour" to plot data. The R file is available on <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">this repository</a>. For those plots, I take the <a title="Wikipedia conventions for topographic maps" href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps" target="_blank">Wikipedia conventions for topographic maps</a>.</span></p>
