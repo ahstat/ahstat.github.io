@@ -49,7 +49,9 @@ We can observe the remarkable Martian dichotomy and find:
 	<li>the <a title="Hellas Planitia wiki page" href="http://en.wikipedia.org/wiki/Hellas_Planitia" target="_blank">Hellas Planitia</a> impact crater on the left of the map.</li>
 </ul>
 
-**Related posts**
+That's all! If you're interested by how to make those maps and to create your own maps, read the following section.
+
+**To go further**
 <ul>
 	<li><a title="Flood simulation" href="http://flood.firetree.net/" target="_blank">Flood simulation from 0m to 60m</a> and the related <a title="Flood simulation blog post" href="http://blog.firetree.net/2006/05/18/more-about-flood-maps/" target="_blank">blog post</a>.</li>
 	<li><a title="If all the ice melted" href="http://ngm.nationalgeographic.com/2013/09/rising-seas/if-ice-melted-map" target="_blank">If all the ice melted</a> from National Geographic.</li>
