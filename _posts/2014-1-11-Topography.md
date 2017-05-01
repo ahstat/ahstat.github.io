@@ -1,14 +1,19 @@
 ---
 layout: post
-title: Watering and draining the Earth (and other celestial objects)
+title: Watering and draining planets
 published: true
 ---
-<a href="http://ahstat.wordpress.com/2013/12/29/watering-and-draining-the-earth-and-other-celestial-objects/#more-15"><img class="alignleft" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="292" height="168" /></a>What the Earth would look like if the sea level suddenly changed? And what would be the Moon, Mars and Venus with as much water as on the Earth?
-Show this on the following sets of maps and compare our Earth with other<b> astronomical</b> objects.
+![Sea level increased by 500m]({{site.baseurl}}/images/2014-1-11-Topography/world500.png =292x168) 
 
-<!-- more --><!--more-->
+<img class="alignleft" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="292" height="168" />
+What the Earth would look like if the sea level suddenly changed? 
+And what would be the Moon, Mars and Venus with as much water as on the Earth?
+Show this on the following sets of maps and compare our Earth with other 
+astronomical objects.
 
-<strong>World maps.</strong> On this first set of maps, you can show how the world would be if the sea level decreased or increased from -100m to +100m by steps of 10m. Click to enlarge and browse maps.
+<strong>World maps.</strong> On this first set of maps, you can show how the
+world would be if the sea level decreased or increased from -100m to +100m by
+steps of 10m. Click to enlarge and browse maps.
 <p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde100.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1280.html" target="_blank">1280x720</a></span></p>
 <strong>Other world maps.</strong> On this second set of maps, the sea level goes from -1000m to +1000m by steps of 100m. Click to enlarge and browse maps.
 <p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1280.html" target="_blank">1280x720</a></span></p>
