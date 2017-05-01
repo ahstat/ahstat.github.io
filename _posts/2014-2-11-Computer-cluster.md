@@ -10,6 +10,7 @@ Using a computer cluster to run some program is useful if your program needs:
 </ul>
 In those cases, you can follow this short tutorial, designed for the <a title="ICJ website" href="http://math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">ICJ</a> cluster.
 
+
 <strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
 
 <img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/>
@@ -66,6 +67,6 @@ killall -u username
 ```
 Related posts:
 <ul>
-	<li>More about ssh on <a href="http://www.tuteurs.ens.fr/internet/loin/ssh.html">tuteurs.ens.fr</a> (in french).</li>
-	<li>For ICJ users, you can also see <a href="http://math.univ-lyon1.fr/intranet/spip.php?article52">this</a> and <a href="http://math.univ-lyon1.fr/intranet/spip.php?article300">this for Matlab users </a>(in french).</li>
+	<li>More about ssh on <a href="http://www.tuteurs.ens.fr/internet/loin/ssh.html">tuteurs.ens.fr</a> (in French).</li>
+	<li>For ICJ users, you can also see <a href="http://math.univ-lyon1.fr/intranet/spip.php?article52">this</a> and <a href="http://math.univ-lyon1.fr/intranet/spip.php?article300">this for Matlab users </a>(in French).</li>
 </ul>
