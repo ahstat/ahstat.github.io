@@ -49,6 +49,9 @@ url: http://ahstat.github.io/
 # then add in the baseurl here, like this: "/repository-name"
 baseurl: ""
 
+# Excerpt separator
+excerpt_separator: "\n\n\n"
+
 #
 # !! You don't need to change any of the configuration flags below !!
 #
