@@ -3,7 +3,14 @@ layout: post
 title: Watering and draining planets
 published: true
 ---
+test1
 ![Sea level increased by 500m]({{site.baseurl}}/images/2014-1-11-Topography/world500.png =292x168) 
+
+test2
+![Sea level increased by 500m](../images/2014-1-11-Topography/world500.png =292x168) 
+
+test3
+![Sea level increased by 500m](https://ahstat.github.io/images/2014-1-11-Topography/world500.png) 
 
 <img class="alignleft" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="292" height="168" />
 What the Earth would look like if the sea level suddenly changed? 
