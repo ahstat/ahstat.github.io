@@ -14,9 +14,9 @@ In those cases, you can follow this short tutorial, designed for the <a title="I
 
 <a href="../images/2014-2-11-Computer-cluster/apercuClusters4.png"><img class="aligncenter" src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4" width="462" height="262" /></a>By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
-<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png"><img class="size-full wp-image-176 aligncenter" src="http://ahstat.files.wordpress.com/2014/02/availablememorycpu.png" alt="availableMemoryCPU" width="378" height="93" /></a>You also find how the memory and the CPU are used (for the memory, white and green colours correspond to available memory). For example, we get that about 3GB of memory and 50% of the CPU are used for the cluster 10.
+<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png"><img class="size-full wp-image-176 aligncenter" src="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png" alt="availableMemoryCPU" width="378" height="93" /></a>You also find how the memory and the CPU are used (for the memory, white and green colours correspond to available memory). For example, we get that about 3GB of memory and 50% of the CPU are used for the cluster 10.
 
-<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png"><img class="size-full wp-image-177 aligncenter" src="http://ahstat.files.wordpress.com/2014/02/availablememorycpugraph.png" alt="availableMemoryCPUgraph" width="403" height="360" /></a><strong>Step two:</strong> connect yourself to the cluster. Open a terminal and type (where X is the chosen cluster number):
+<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png"><img class="size-full wp-image-177 aligncenter" src="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png" alt="availableMemoryCPUgraph" width="403" height="360" /></a><strong>Step two:</strong> connect yourself to the cluster. Open a terminal and type (where X is the chosen cluster number):
 <pre>ssh clusterX-math.univ-lyon1.fr</pre>
 You then have to confirm the access and then enter your password. If you are outside the university, you can use this command:
 <pre>ssh username@clusterX-math.univ-lyon1.fr</pre>
