@@ -16,7 +16,7 @@ world would be if the sea level increased by +100m.
 On this second map, the sea level increased by +1000m.
 ![1000m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world1000.png) 
 
-You can browse many other sea level shifts <a href=https://github.com/ahstat/topography/tree/master/outputs/world/outputs1920>here</a>.
+You can browse many other sea level shifts <a href="https://github.com/ahstat/topography/tree/master/outputs/world/outputs1920">here</a>.
 
 Note that the maps are bedrock, i.e. without any ice surface. That's why
 <a href="http://nsidc.org/data/atlas/news/bedrock_elevation.html" target="_blank">Antarctica forms several islands</a> 
