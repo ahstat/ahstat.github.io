@@ -78,6 +78,16 @@ git add
 git commit
 ```
 
+<blockquote>
+<pre style="text-align: center;">gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt</pre>
+</blockquote>
+
+<blockquote>
+gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt
+</blockquote>
+
+<pre style="text-align: center;">gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt</pre>
+
 ```
 gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt
 ```
