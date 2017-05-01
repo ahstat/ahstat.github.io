@@ -4,7 +4,6 @@ title: Watering and draining the Earth (and other celestial objects)
 published: true
 ---
 <a href="http://ahstat.wordpress.com/2013/12/29/watering-and-draining-the-earth-and-other-celestial-objects/#more-15"><img class="alignleft" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="292" height="168" /></a>What the Earth would look like if the sea level suddenly changed? And what would be the Moon, Mars and Venus with as much water as on the Earth?
-
 Show this on the following sets of maps and compare our Earth with other<b> astronomical</b> objects.
 
 <!-- more --><!--more-->
