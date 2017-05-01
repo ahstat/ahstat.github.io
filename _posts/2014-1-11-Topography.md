@@ -3,30 +3,28 @@ layout: post
 title: Watering and draining planets
 published: true
 ---
-test1
-![Sea level increased by 500m]({{site.baseurl}}/images/2014-1-11-Topography/world500.png =292x168) 
-
-test2
-![Sea level increased by 500m](../images/2014-1-11-Topography/world500.png =292x168) 
-
-test3
-![Sea level increased by 500m](https://ahstat.github.io/images/2014-1-11-Topography/world500.png) 
-
-<img class="alignleft" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="292" height="168" />
 What the Earth would look like if the sea level suddenly changed? 
 And what would be the Moon, Mars and Venus with as much water as on the Earth?
 Show this on the following sets of maps and compare our Earth with other 
 astronomical objects.
 
-<strong>World maps.</strong> On this first set of maps, you can show how the
-world would be if the sea level decreased or increased from -100m to +100m by
-steps of 10m. Click to enlarge and browse maps.
-<p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde100.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde100-1280.html" target="_blank">1280x720</a></span></p>
-<strong>Other world maps.</strong> On this second set of maps, the sea level goes from -1000m to +1000m by steps of 100m. Click to enlarge and browse maps.
-<p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/monde500.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde1000-1280.html" target="_blank">1280x720</a></span></p>
-Note that the maps are bedrock, i.e. without any ice surface. That's why <a href="http://nsidc.org/data/atlas/news/bedrock_elevation.html" target="_blank">Antarctica forms several islands</a> and <a title="Greenland ice sheet and bedrock" href="http://en.wikipedia.org/wiki/Greenland_ice_sheet" target="_blank">a hole is on the center of Greenland</a>.
 
-<a title="Map with a fall of 100m of the sea level" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde/sorties1920/monde-100.png" target="_blank">The map associated with a fall of 100m</a> of the sea level might represent <a title="Post glacial sea level rise" href="http://commons.wikimedia.org/wiki/File:Post-Glacial_Sea_Level.png" target="_blank">the bedrock Earth 18000 years ago</a> (ignoring the plate tectonic effects). On that map, you can observe that Russia and the USA merge together, as the United Kingdom with mainland Europe. For comparison, if all the ice melted on the Earth, the sea level would <a title="Map with a rise of 60m of the sea level" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/monde/sorties1920/monde60.png" target="_blank">increase by 60m</a>.
+<strong>World maps.</strong> On this first map, you can show how the
+world would be if the sea level increased by +100m.
+![100m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world100.png) 
+
+On this second map, the sea level increased by +1000m
+![1000m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world1000.png) 
+
+Note that the maps are bedrock, i.e. without any ice surface. That's why
+<a href="http://nsidc.org/data/atlas/news/bedrock_elevation.html" target="_blank">Antarctica forms several islands</a> 
+and 
+<a title="Greenland ice sheet and bedrock" href="http://en.wikipedia.org/wiki/Greenland_ice_sheet" target="_blank">a hole is on the center of Greenland</a>.
+
+[The map associated with a fall of 100m]({{site.baseurl}}/images/2014-1-11-Topography/world-100.png) 
+of the sea level might represent <a title="Post glacial sea level rise" href="http://commons.wikimedia.org/wiki/File:Post-Glacial_Sea_Level.png" target="_blank">the bedrock Earth 18000 years ago</a> (ignoring the plate tectonic effects). On that map, you can observe that Russia and the USA merge together, as the United Kingdom with mainland Europe.
+For comparison, if all the ice melted on the Earth, the sea level would 
+[increase by 60m]({{site.baseurl}}/images/2014-1-11-Topography/world60.png) 
 
 <strong>Celestial objects maps.</strong> On this final set of maps, let's see the Moon, Venus and Mars with about 70% of them surface covered by water. Click to enlarge and browse maps.
 <p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/lune3051.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1280.html" target="_blank">1280x720</a></span></p>
