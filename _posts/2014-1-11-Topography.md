@@ -13,8 +13,10 @@ astronomical objects.
 world would be if the sea level increased by +100m.
 ![100m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world100.png) 
 
-On this second map, the sea level increased by +1000m
+On this second map, the sea level increased by +1000m.
 ![1000m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world1000.png) 
+
+You can browse many other sea level shifts <a href=https://github.com/ahstat/topography/tree/master/outputs/world/outputs1920>here</a>.
 
 Note that the maps are bedrock, i.e. without any ice surface. That's why
 <a href="http://nsidc.org/data/atlas/news/bedrock_elevation.html" target="_blank">Antarctica forms several islands</a> 
@@ -26,18 +28,29 @@ of the sea level might represent <a title="Post glacial sea level rise" href="ht
 For comparison, if all the ice melted on the Earth, the sea level would 
 [increase by 60m]({{site.baseurl}}/images/2014-1-11-Topography/world60.png) 
 
-<strong>Celestial objects maps.</strong> On this final set of maps, let's see the Moon, Venus and Mars with about 70% of them surface covered by water. Click to enlarge and browse maps.
-<p style="text-align: center;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1280.html" target="_blank"><img class="aligncenter" style="margin-bottom: 0;" alt="" src="http://ahstat.files.wordpress.com/2013/12/lune3051.png" width="480" height="270" /></a><span style="float: right; margin-right: 50px;"><a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1024.html" target="_blank">1024x576</a>  <a href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres-1280.html" target="_blank">1280x720</a></span></p>
-The Moon is full of craters, and strangely the far side (on the center of the map) is higher than the near side (on the right and on the left).
+<strong>Celestial objects maps.</strong> On this final set of maps, we can see the Moon, 
+Venus and Mars with about 70% of their surface covered by water.
 
-<a title="Watered Venus" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres/sorties1920/venus965.png" target="_blank">Venus</a> is a quite flat planet, except on <a title="Ishtar Terra wiki page" href="http://en.wikipedia.org/wiki/Ishtar_Terra" target="_blank">Ishtar Terra</a> (on the north) and on <a title=" Aphrodite Terra wiki page" href="http://en.wikipedia.org/wiki/Aphrodite_Terra" target="_blank">Aphrodite Terra</a> (on the right on the map).
+*The Moon*
+![The Moon with about 70% of the surface covered by water](outputs/moon/outputs1920/moon305.png) 
+The Moon is full of craters, and strangely the far side (on the center of the map)
+is higher than the near side (on the right and on the left).
 
-Finally, observe the remarkable <a title="Watered Mars" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres/sorties1920/mars1436.png" target="_blank">Martian dichotomy</a> and try to find:
+*Venus*
+![Venus with about 70% of the surface covered by water](outputs/venus/outputs1920/venus965.png) 
+Venus is a quite flat planet, except on <a title="Ishtar Terra wiki page" href="http://en.wikipedia.org/wiki/Ishtar_Terra" target="_blank">Ishtar Terra</a> (on the north) and on <a title=" Aphrodite Terra wiki page" href="http://en.wikipedia.org/wiki/Aphrodite_Terra" target="_blank">Aphrodite Terra</a> (on the right on the map).
+
+*Mars*
+![Mars with about 70% of the surface covered by water](outputs/mars/outputs1920/mars1436.png) 
+We can observe the remarkable <a title="Watered Mars" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres/sorties1920/mars1436.png" target="_blank">Martian dichotomy</a> and find:
 <ul>
 	<li>the <a title="Valles Marineris wiki page" href="http://en.wikipedia.org/wiki/Valles_Marineris" target="_blank">Valles Marineris</a> canyon on the right of the map (near the <a title="Tharsis volcanic plateau wiki page" href="http://en.wikipedia.org/wiki/Tharsis" target="_blank">Tharsis volcanic plateau</a>),</li>
 	<li>the <a title="Olympus Mons wiki page" href="http://en.wikipedia.org/wiki/Olympus_Mons" target="_blank">Olympus Mons</a>, an alone snow-covered island close to Tharsis,</li>
 	<li>the <a title="Hellas Planitia wiki page" href="http://en.wikipedia.org/wiki/Hellas_Planitia" target="_blank">Hellas Planitia</a> impact crater on the left of the map.</li>
 </ul>
+
+---
+
 Disclaimer: those maps have been designed for entertainment and this post does not pretend to be a scientific production.
 
 Related posts:
