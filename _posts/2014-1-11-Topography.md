@@ -42,16 +42,14 @@ Venus is a quite flat planet, except on <a title="Ishtar Terra wiki page" href="
 
 *Mars*
 ![Mars with about 70% of the surface covered by water]({{site.baseurl}}/images/2014-1-11-Topography/mars1436.png) 
-We can observe the remarkable <a title="Watered Mars" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/astres/sorties1920/mars1436.png" target="_blank">Martian dichotomy</a> and find:
+We can observe the remarkable Martian dichotomy and find:
 <ul>
 	<li>the <a title="Valles Marineris wiki page" href="http://en.wikipedia.org/wiki/Valles_Marineris" target="_blank">Valles Marineris</a> canyon on the right of the map (near the <a title="Tharsis volcanic plateau wiki page" href="http://en.wikipedia.org/wiki/Tharsis" target="_blank">Tharsis volcanic plateau</a>),</li>
 	<li>the <a title="Olympus Mons wiki page" href="http://en.wikipedia.org/wiki/Olympus_Mons" target="_blank">Olympus Mons</a>, an alone snow-covered island close to Tharsis,</li>
 	<li>the <a title="Hellas Planitia wiki page" href="http://en.wikipedia.org/wiki/Hellas_Planitia" target="_blank">Hellas Planitia</a> impact crater on the left of the map.</li>
 </ul>
 
-Disclaimer: those maps have been designed for entertainment and this post does not pretend to be a scientific production.
-
-Related posts:
+**Related posts**
 <ul>
 	<li><a title="Flood simulation" href="http://flood.firetree.net/" target="_blank">Flood simulation from 0m to 60m</a> and the related <a title="Flood simulation blog post" href="http://blog.firetree.net/2006/05/18/more-about-flood-maps/" target="_blank">blog post</a>.</li>
 	<li><a title="If all the ice melted" href="http://ngm.nationalgeographic.com/2013/09/rising-seas/if-ice-melted-map" target="_blank">If all the ice melted</a> from National Geographic.</li>
@@ -74,21 +72,21 @@ How to make those plots? I proceed in five steps.
 <pre>gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt</pre>
 <p lang="en"><strong>Files are big, reduce them. </strong>On my personal computer, it is difficult to manage text files with a size greater than 100 MB. Here, the data files for Venus and the Moon are respectively 1.5 GB and 500 MB. To read them, I reduce them by taking only some lines. I take the Moon data file as an example. I work here under Linux, but the following can be adapted in other operating systems. To read the beginning of the file, I use the "head" command:</p>
 
-<pre>head -30000 lalt_topo_ver3.grd.txt &gt;firstLines.txt</pre>
+<source>head -30000 lalt_topo_ver3.grd.txt &gt;firstLines.txt</source>
 
 I observe that there is 5760 lines for each latitude, then using the "split" command,
 
-<pre>split -d -l5760 -a4 lalt_topo_ver3.grd.txt</pre>
+<source>split -d -l5760 -a4 lalt_topo_ver3.grd.txt</source>
 
 I show that the data consider 5760<b>×</b>2880 lines.
 <p lang="en">Then, I delete every two lines with sed:</p>
 
-<pre>sed 'n;d' lalt_topo_ver3.grd.txt &gt;moon1-0.txt</pre>
+<source>sed 'n;d' lalt_topo_ver3.grd.txt &gt;moon1-0.txt</source>
 
 <p lang="en">The new file has now 2880<b>×</b>2880 lines.</p>
 Next, to delete m lines every 2m with m=2880, I run this awk script (thanks to <a title="How to delete m lines every 2m" href="http://www.commentcamarche.net/forum/affich-27923467-suppression-de-m-lignes-modulo-2m-avec-sed" target="_blank">dubcek</a>):
 
-<pre>m=2880; awk -v m=$m '!((NR-1)%m) {n=!n} !n' moon1-0.txt &gt;moon1-1.txt</pre>
+<source>m=2880; awk -v m=$m '!((NR-1)%m) {n=!n} !n' moon1-0.txt &gt;moon1-1.txt</source>
 
 <p lang="en">I finally obtain a readable 2880<b>×</b>1440 lines file.</p>
 <p lang="en"><strong>Plot data and make html. </strong><span style="color: #000000;">I use R and the functions "contour" and "filled.contour" to plot data. The R file is available <a title="R plotting file" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/topography-global.R" target="_blank">here</a>. Notice that for those plots, I take the <a title="Wikipedia conventions for topographic maps" href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps" target="_blank">Wikipedia conventions for topographic maps</a>. Finally, I bring together the map pictures with a jQuery image slider called <a title="Coin Slider page" href="http://workshop.rs/projects/coin-slider/" target="_blank">Coin Slider</a>.</span></p>
