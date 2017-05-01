@@ -12,15 +12,15 @@ In those cases, you can follow this short tutorial, designed for the <a title="I
 
 <strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
 
-<a href="../images/2014-2-11-Computer-cluster/apercuClusters4.png"><src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4" width="462" height="262" /></a>
+<src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/>
 
 By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
-<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png"><src="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png" alt="availableMemoryCPU" width="378" height="93" /></a>
+<src="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png" alt="availableMemoryCPU"/>
 
 You also find how the memory and the CPU are used (for the memory, white and green colours correspond to available memory). For example, we get that about 3GB of memory and 50% of the CPU are used for the cluster 10.
 
-<a href="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png"><src="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png" alt="availableMemoryCPUgraph" width="403" height="360" /></a>
+<src="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png" alt="availableMemoryCPUgraph"/>
 
 <strong>Step two:</strong> connect yourself to the cluster. Open a terminal and type (where X is the chosen cluster number):
 ```
