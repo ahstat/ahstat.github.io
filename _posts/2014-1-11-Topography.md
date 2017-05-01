@@ -8,10 +8,10 @@ And what would be the Moon, Mars and Venus with as much water as on the Earth?
 Show this on the following maps and compare our Earth with other 
 astronomical objects.
 
-
 <strong>World maps.</strong> On this first map, we can show how the
 world would be if the sea level increased by +100m.
 ![100m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world100.png) 
+
 
 On this second map, the sea level increased by +1000m.
 ![1000m increase of the sea level]({{site.baseurl}}/images/2014-1-11-Topography/world1000.png) 
