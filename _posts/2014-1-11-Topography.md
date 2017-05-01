@@ -69,25 +69,6 @@ How to make those plots? I proceed in five steps.
 <p lang="en"><strong>Get the data.</strong> I get topographic data of the Earth from the NOAA website (see <a title="Main page to download datafiles" href="http://www.ngdc.noaa.gov/mgg/global/global.html" target="_blank">this</a>, <a title="Page to dowload lower resolution topographic maps" href="http://www.ngdc.noaa.gov/mgg/gdas/gd_designagrid.html" target="_blank">this</a> and <a title="Page to dowload custom grids using the mouse" href="http://maps.ngdc.noaa.gov/viewers/wcs-client/" target="_blank">this</a>). I took the bedrock file version with xyz grid format and 10' cell size. For the Moon, I find data from the <a title="Get Moon data" href="http://www.miz.nao.ac.jp/rise-pub/en/content/pub-data/topo_grid" target="_blank">NAOJ website</a> (you have to create a free account before downloading). For Venus, you can pick the file <a title="Get Venus data" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/Magellan_GTDR.grd.bz2" target="_blank">here</a>. Finally, for Mars, data are available on the <a title="Get Mars data" href="http://pds-geosciences.wustl.edu/missions/mgs/megdr.html" target="_blank">MOLA subsite</a> of the NASA (I took megt90n000cb img and lbl files). I didn't find any data for Mercury (I would be grateful if someone could send it to me).</p>
 <p lang="en"><strong>Transform it to text files.</strong> Some files are not in raw text files, i.e. some files cannot be open directly with a text editor. Those are Mars and Venus data files, which have respectively ".img" and ".grd" filename extensions. I convert them into xyz files, i.e. text files with on each line the longitude, the latitude and the height. Thanks to <a title="Post asking how to convert img to xyz files" href="http://geoweb.rsl.wustl.edu/community/index.php?/topic/236-opening-img-binary-files-bis/" target="_blank">K.J. Bennett</a>, I was able to do this with the gdal-bin package and the following line code.</p>
 
-Use `git status` to list all new or modified files that haven't yet been committed.
-
-Some basic Git commands are:
-```
-git status
-git add
-git commit
-```
-
-<blockquote>
-<pre style="text-align: center;">gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt</pre>
-</blockquote>
-
-<blockquote>
-gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt
-</blockquote>
-
-<pre style="text-align: center;">gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt</pre>
-
 ```
 gdal_translate -of XYZ megt90n000cb.lbl megt90n000cb.txt
 ```
