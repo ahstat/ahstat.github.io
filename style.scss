@@ -291,20 +291,24 @@ footer {
 
 // Added by myself to have tables
 table {
-    border:#ccc 1px solid;
+    //border:#ccc 1px solid;
+    border:#f00 1px solid;
     border-radius:3px;
 }
 table th {
-    padding:21px 25px 22px 25px;
-    border-top:1px solid #fafafa;
-    border-bottom:1px solid #e0e0e0;
+    //padding:21px 25px 22px 25px;
+    padding:5px 5px 5px 5px;
+    border-top:1px solid #0f0;
+    border-bottom:1px solid #00f;
 }
 table tr {
-    padding-left:20px;
+    //padding-left:20px;
+    padding-left:5px;
 }
 table td {
-    padding:18px;
-    border-top: 1px solid #e0e0e0;
-    border-bottom:1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
+    //padding:18px;
+    padding:5px;
+    border-top: 1px solid #0ff;
+    border-bottom:1px solid #f0f; //#e0e0e0;
+    border-left: 1px solid #ff0;
 }
