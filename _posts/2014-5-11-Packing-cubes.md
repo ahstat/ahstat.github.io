@@ -7,6 +7,8 @@ How to make a 3×3×3 cube with six 2×2×1 cuboids and three 1×1×1 cubes, i.e
 
 <img src="../images/2014-5-11-Packing-cubes/finalCubes.png" alt="packingCubesImage"/>
 
+
+
 Related sites:
 <ul>
 	<li><a href="http://www.experiencingmaths.org/" target="_blank">Experiencing mathematics</a>,a good website with initiations to many fields of mathematics. You can play this cube problem in the section "filling space", subsection "complex problems", but it's more fun to play with real cubes,</li>
