@@ -7,7 +7,7 @@ Like other Romance languages, French nouns are divided in two almost distinct ge
 
 On the following plots, we check out the distribution of the gender across the letters. We then learn a simple tip to choose the gender of an unknown noun.
 
-<img src="../images/2014-4-11-Gender-french-nouns/genderLetterIntro.png" alt="genderLetterIntro"/>
+<img src="../images/2014-4-11-Gender-french-nouns/gender_letter_last1_cens2000_hi.png" alt="genderLetterIntro"/>
 
 
 
