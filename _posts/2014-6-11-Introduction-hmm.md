@@ -7,6 +7,8 @@ Here is my slides of a talk given for doctoral students in 2013. It is an introd
 
 <a href="../images/2014-6-11-Introduction-hmm/HMM_introduction.pdf" target="_blank"><img src = "../images/2014-6-11-Introduction-hmm/HMM_introduction.png"></a>
 
+Source code of simulations are available <a href="https://github.com/ahstat/introduction-hmm>on my github</a>.
+
 
 
 I explain what is a hidden Markov model and what are common issues with these objects. Then, some algorithms are taken into consideration: Forward decomposition, Viterbi algorithm and a simple EM algorithm.
