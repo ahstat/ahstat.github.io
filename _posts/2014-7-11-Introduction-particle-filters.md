@@ -13,9 +13,9 @@ Source code of simulations are available <a href="https://github.com/ahstat/intr
 
 I think it’s preferable to have read <a href="https://ahstat.github.io/Introduction-hmm/">the previous presentation (on discrete hidden Markov models)</a> before this one (on continuous hidden Markov models).
 
-In the following, I describe two important algorithms for particle filtering: the Sequential Importance Sampling algorithm (SIS) and the Sequential Importance Sampling Resampling algorithm (SISR). The example is here to understand how work the algorithms and to focus on the difference between them, especially through the weights degeneracy problem.
+In the following, I describe two important algorithms for particle filtering: the Sequential Importance Sampling algorithm (SIS) and the Sequential Importance Sampling Resampling algorithm (SISR). The example intends to show how the algorithms work, and to focus on the difference between them, especially through the weights degeneracy problem.
 
-Related content:
+Related contents:
 <ul>
 	<li>O. Cappé, E. Moulines, and T. Rydén. Inference in hidden Markov models. Springer, 2005.</li>
 	<li><a href="../images/2014-7-11-Introduction-particle-filters/arulampalam2002tutorial_particle_filters.pdf" target="_blank">M. S. Arulampalam, S. Maskell, N. Gordon, and T. Clapp. A tutorial on particle filters for online nonlinear/non-gaussian Bayesian tracking. IEEE Transactions on Signal Processing, 2002</a>.</li>
