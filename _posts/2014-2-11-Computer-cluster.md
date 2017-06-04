@@ -13,7 +13,7 @@ In those cases, you can follow this short tutorial, designed for the <a title="I
 
 <strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
 
-<img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/>
+-><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/><-
 
 By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
