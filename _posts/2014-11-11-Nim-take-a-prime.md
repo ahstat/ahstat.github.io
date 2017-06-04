@@ -112,7 +112,7 @@ In the math way, the problem seems really difficult to solve! I went to <a href=
 
 A common method to go further is to generalize the problem, that is to study the sequence (a Nim function) for each subset of $$\mathbb{N}$$. Some of them are easy to solve (take $$\mathbb{N}$$ as a subset...) and others seems very chaotic (with the set of prime numbers for example). Insights have been done in the dissertation of Achim Flammenkamp (see here, "<a href="http://wwwhomes.uni-bielefeld.de/cgi-bin/cgiwrap/achim/index.cgi#longperiods" target="_blank">Long periods in subtraction games</a>"), where many subsets of $$\mathbb{N}$$ are considered. But I was not able to find more information related to "my" conjectures.
 
-Finally, we can see that if we append the number 1 in addition with the set of the prime numbers, we get a really simple pattern of "0, 1, 2, 3" (and it¡¯s easy to prove it).
+Finally, we can see that if we append the number 1 in addition with the set of the prime numbers, we get a really simple pattern of "0, 1, 2, 3" (and it's easy to prove it).
 On the contrary, if we remove 2 of the set of the prime numbers, we still get a sequence with strange patterns (beginning with "0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 0, 3, 4, 1, 4, 3")!
 
 Related contents:
