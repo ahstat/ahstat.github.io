@@ -13,7 +13,7 @@ We define this sequence $$(u_n)$$ recursively. For all $$n$$ in $$\mathbb{N}$$ (
 
 To understand this definition, we detail how to compute the first terms. For $$n=0$$, no prime number verifies $$n-p \geq 0$$, then $$u_n$$ is the lowest number in $$\mathbb{N}$$ and $$u_0=0$$. We get the same for $$n=1$$ and get $$u_1=0$$.
 
-For $$n=2$$, the only prime number $$p$$ which verifies $$n-p \geq 0$$ is $$p=2$$. Then, the condition means that we have to find the lowest number in $$\mathbb{N}$$ which is different from $$u_{n¨Cp} = u_{2¨C2} = u_0 = 0$$. We finally select $$u_2=1$$.
+For $$n=2$$, the only prime number $$p$$ which verifies $$n-p \geq 0$$ is $$p=2$$. Then, the condition means that we have to find the lowest number in $$\mathbb{N}$$ which is different from $$u_{n-p} = u_{2-2} = u_0 = 0$$. We finally select $$u_2=1$$.
 
 For $$n=3$$, $$u_3$$ has to differ from $$u_{3-2}=0$$ and $$u_{3-3}=0$$, then $$u_3=1$$.
 
