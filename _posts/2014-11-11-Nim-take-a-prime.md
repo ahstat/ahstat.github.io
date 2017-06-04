@@ -19,34 +19,3 @@ For $$n=3$$, $$u_3$$ has to differ from $$u_{3-2}=0$$ and $$u_{3-3}=0$$, then $$
 
 For $$n=4$$, $$u_4$$ has to differ from $$u_{4-2}=1$$ and $$u_{4-3}=0$$, then $$u_4=2$$.
 
-For now, this sequence doesn't seem very strange. But if we look at the first 100 terms from $$u_0$$ to $$u_{99}$$, we get (I skipped lines to reveal some patterns of the sequence):
-
-```
-0, 0, 1, 1, 2, 2, 3, 3, 4, 
-0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 
-0, 4, 1, 5, 2, 6, 3, 4, 7, 
-0, 0, 1, 1, 2, 2, 3, 3, 
-4, 8, 5, 7, 6, 8, 9, 
-0, 4, 1, 5, 2, 6, 
-0, 4, 1, 5, 2, 6, 3, 
-4, 7, 5, 8, 4, 10, 5, 7, 6, 8, 
-4, 7, 5, 8, 6, 10, 9, 7, 
-4, 8, 5, 10, 6, 
-0, 4, 1, 5, 2, 6, 
-0, 4, 1, 5, 2, 6, 3, 4, 7.
-```
-
-We show that the recursion definition of the sequence makes it to adopt some patterns like "0, 4, 1, 5, 2, 6".
-
-To go forward in the computational way, we write a program to obtain a few million terms of the sequence (see <a href="https://github.com/ahstat/nim-take-a-prime" target="_blank">outputs and code in C++ in my github</a>). We can make two interesting conjectures:
-<ul>
-	<li>First, the proportions of 0, 1, 2, etc. in the sequence (between 0 and an integer $$n$$) seem to tend towards constant proportions (as $$n$$ goes to infinity), as we can see on the following plot.</li>
-</ul>
-
-<img src="../images/2014-11-11-Nim-take-a-prime/percent_stack_large.png" alt="proportions nim"/>
-
-Legend: stacked plot of proportions to obtain values from 0 to 11 as the length of the sequence increases. The proportions are stacked from 0 to 11: 0 is on the bottom (in dark orange) and 11 is on the top (in pink).
-
-<ul>
-	<li>Next, the sequence seems to take only values from 0 to 11. Actually, by showing at the index of the first occurence of values, we speculate that no new value (above 11) appears after the site 156.</li>
-</ul>
