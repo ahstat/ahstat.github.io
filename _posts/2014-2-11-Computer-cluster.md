@@ -13,15 +13,15 @@ In those cases, you can follow this short tutorial, designed for the <a title="I
 
 <strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
 
--><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/><-
+<center><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/></center>
 
 By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
-<img src="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png" alt="availableMemoryCPU"/>
+<center><img src="../images/2014-2-11-Computer-cluster/availableMemoryCPU.png" alt="availableMemoryCPU"/></center>
 
 You also find how the memory and the CPU are used (for the memory, white and green colours correspond to available memory). For example, we get that about 3GB of memory and 50% of the CPU are used for the cluster 10.
 
-<img src="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png" alt="availableMemoryCPUgraph"/>
+<center><img src="../images/2014-2-11-Computer-cluster/availableMemoryCPUgraph.png" alt="availableMemoryCPUgraph"/></center>
 
 <strong>Step two:</strong> connect yourself to the cluster. Open a terminal and type (where X is the chosen cluster number):
 ```
