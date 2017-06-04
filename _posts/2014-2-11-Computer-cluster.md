@@ -10,10 +10,11 @@ Using a computer cluster to run some program is useful if your program needs:
 </ul>
 In those cases, you can follow this short tutorial, designed for the <a title="ICJ website" href="http://math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">ICJ</a> cluster.
 
+<center><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/></center>
+
+
 
 <strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
-
-<center><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/></center>
 
 By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
