@@ -110,16 +110,15 @@ Legend: stacked plot of proportions to obtain values from 0 to 11 as the length 
 </tbody>
 </table>
 
-In the math way, the problem seems really difficult to solve! I went to <a href="https://oeis.org/" target="_blank">the encyclopedia of integer sequences</a> (OEIS) and found the sequence and its name: <a href="https://oeis.org/A014589" target="_blank">Nim function for take-a-prime game</a>.
+From a mathematical perspective, the problem seems really difficult to solve! I went to <a href="https://oeis.org/" target="_blank">the encyclopedia of integer sequences</a> (OEIS) and found the sequence and its name: <a href="https://oeis.org/A014589" target="_blank">Nim function for take-a-prime game</a>.
 
 A common method to go further is to generalize the problem, that is to study the sequence (a Nim function) for each subset of $$\mathbb{N}$$. Some of them are easy to solve (take $$\mathbb{N}$$ as a subset...) and others seems very chaotic (with the set of prime numbers for example). Insights have been done in the dissertation of Achim Flammenkamp (see here, "<a href="http://wwwhomes.uni-bielefeld.de/cgi-bin/cgiwrap/achim/index.cgi#longperiods" target="_blank">Long periods in subtraction games</a>"), where many subsets of $$\mathbb{N}$$ are considered. But I was not able to find more information related to "my" conjectures.
 
 Finally, we can see that if we append the number 1 in addition with the set of the prime numbers, we get a really simple pattern of "0, 1, 2, 3" (and it's easy to prove it).
 On the contrary, if we remove 2 of the set of the prime numbers, we still get a sequence with strange patterns (beginning with "0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 0, 3, 4, 1, 4, 3")!
-
 Related contents:
 <ul>
 	<li>C++ code (with an easy way to change the set of numbers chosen) and R script for plots are <a href="https://github.com/ahstat/nim-take-a-prime" target="_blank">on my github</a>.</li>
-	<li>Computations of the sequence, obtained with the first <a href="../images/2014-11-11-Nim-take-a-prime/A014589_1K.txt" target="_blank">1K</a>, <a href="../images/2014-11-11-Nim-take-a-prime/A014589_10K.txt" target="_blank">10K</a>, <a href="../images/2014-11-11-Nim-take-a-prime/A014589_100K.txt" target="_blank">100K</a> and <a href="../images/2014-11-11-Nim-take-a-prime/A014589_1000K.txt" target="_blank">1M</a> prime numbers.</li>
+	<li>Computations of <a href="https://github.com/ahstat/nim-take-a-prime/tree/master/outputs/primes/nims" target="_blank">the 32452843 first terms of the sequence</a> (i.e. up to the two millionth prime number).</li>
 	<li><a href="../images/2014-11-11-Nim-take-a-prime/diss.ps.gz" target="_blank">Dissertation of Achim Flammenkamp</a> (in German), which talks amongst others of the period lengths of those Nim functions (bounds, etc.).</li>
 </ul>
