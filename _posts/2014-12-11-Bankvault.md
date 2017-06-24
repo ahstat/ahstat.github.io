@@ -5,9 +5,7 @@ published: true
 ---
 *Bank vault holdup* is a game where you have to guess a secret pass to open the bank vault and get the reward! There is no hint, you just have to follow your intuition.
 
-<center><img src="../images/2014-12-11-Bankvault/screen.png" alt="title screen of the game"/></center>
-
-<a href="https://bankvault.herokuapp.com" target="_blank"><img src="../images/2014-12-11-Bankvault/screen.png" alt="title screen of the game"/></a>
+<center><a href="https://bankvault.herokuapp.com" target="_blank"><img src="../images/2014-12-11-Bankvault/screen.png" alt="title screen of the game"/></a></center>
 
 Click on the screen to launch the game in your browser. The loading may take some seconds.
 
