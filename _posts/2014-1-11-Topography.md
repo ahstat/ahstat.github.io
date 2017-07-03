@@ -49,7 +49,11 @@ We can observe the remarkable Martian dichotomy and find:
 	<li>the <a title="Hellas Planitia wiki page" href="http://en.wikipedia.org/wiki/Hellas_Planitia" target="_blank">Hellas Planitia</a> impact crater on the left of the map.</li>
 </ul>
 
-That's all! If you're interested to plot those maps yourself and to create new ones, you can continue reading the next sections.
+*Mercury* (update 2017)
+![Mercury above 55th parallel north]({{site.baseurl}}/images/2014-1-11-Topography/mercury_polar55N4656.8625.png) 
+Here is Mercury above 55th parallel north, where the center of the map is the North Pole 
+
+That's all! If you're interested to plot those maps yourself and to create new ones, you can continue reading the next sections or directly <a title="Topography github rep" href="https://github.com/ahstat/topography" target="_blank">check the github repository here</a>.
 
 **To go further**
 <ul>
@@ -66,6 +70,7 @@ How to make those plots? I proceed in five steps.
 	<li>Transform it to raw files (with <a title="Official GDAL page" href="http://www.gdal.org/" target="_blank">gdal</a>)</li>
 	<li>Files are big, reduce them (with the stream editors <a title="Official sed page" href="http://www.gnu.org/software/sed/" target="_blank">sed</a> and awk)</li>
 	<li>Plot data (with <a title="Official R page" href="http://www.r-project.org/" target="_blank">R</a>)</li>
+	<li>For some maps, conversion from png (or jpg) to pgm file extension.</li>
 </ol>
 <p lang="en"><strong>Get the data.</strong> I get topographic data of the Earth from the NOAA website (see <a title="Main page to download datafiles" href="http://www.ngdc.noaa.gov/mgg/global/global.html" target="_blank">this</a>, <a title="Page to dowload lower resolution topographic maps" href="http://www.ngdc.noaa.gov/mgg/gdas/gd_designagrid.html" target="_blank">this</a> and <a title="Page to dowload custom grids using the mouse" href="http://maps.ngdc.noaa.gov/viewers/wcs-client/" target="_blank">this</a>). I took the bedrock file version with xyz grid format and 10' cell size. For the Moon, I find data from the <a title="Get Moon data" href="http://www.miz.nao.ac.jp/rise-pub/en/content/pub-data/topo_grid" target="_blank">NAOJ website</a> (you have to create a free account before downloading). For Venus, you can pick the file <a title="Get Venus data" href="http://math.univ-lyon1.fr/homes-www/huet/documents/2-topography/Magellan_GTDR.grd.bz2" target="_blank">here</a>. Finally, for Mars, data are available on the <a title="Get Mars data" href="http://pds-geosciences.wustl.edu/missions/mgs/megdr.html" target="_blank">MOLA subsite</a> of the NASA (I took megt90n000cb img and lbl files). I didn't find any data for Mercury (I would be grateful if someone could send it to me).</p>
 <p lang="en"><strong>Transform it to text files.</strong> Some files are not in raw text files, i.e. some files cannot be open directly with a text editor. Those are Mars and Venus data files, which have respectively ".img" and ".grd" filename extensions. I convert them into xyz files, i.e. text files with on each line the longitude, the latitude and the height. Thanks to <a title="Post asking how to convert img to xyz files" href="http://geoweb.rsl.wustl.edu/community/index.php?/topic/236-opening-img-binary-files-bis/" target="_blank">K.J. Bennett</a>, I was able to do this with the gdal-bin package and the following line code.</p>
@@ -101,3 +106,12 @@ m=2880; awk -v m=$m '!((NR-1)%m) {n=!n} !n' moon1-0.txt &gt;moon1-1.txt
 
 <p lang="en">I finally obtain a readable 2880<b>×</b>1440 lines file.</p>
 <p lang="en"><strong>Plot data. </strong><span style="color: #000000;">I use R and the functions "contour" and "filled.contour" to plot data. The R file is available on <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">this repository</a>. For those plots, I take the <a title="Wikipedia conventions for topographic maps" href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps" target="_blank">Wikipedia conventions for topographic maps</a>.</span></p>
+
+<p lang="en"><strong>Conversion png to pgm. </strong><span style="color: #000000;">For some maps, it is difficult to retrieve raw data, and we only have the png (or a jpg) file. The <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">plotting program</a> is able to plot new maps from those images after converting them to the pgm file extension (which is very close to the xyz file format). You can do as follows:
+<ol>
+	<li>Open the png file with GIMP, a software to manipulate pictures,</li>
+	<li>Go to Image, Mode, Indexed colors, and choose to generate an optimal palette of 255 colors, without dither</li>
+	<li>Go to Colors, Map, Reorganize palette, and choose by hue, en invert order (to have a map from the blue to the red)</li>
+	<li>Go to Colors, Map, Define palette, and choose 256gray (defined as a palette from #000000 to #FFFFFF in greyscale)</li>
+	<li>Export to a .pgm, with the option ASCII.</li>
+</ol>
