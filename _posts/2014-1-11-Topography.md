@@ -107,11 +107,11 @@ m=2880; awk -v m=$m '!((NR-1)%m) {n=!n} !n' moon1-0.txt &gt;moon1-1.txt
 <p lang="en">I finally obtain a readable 2880<b>×</b>1440 lines file.</p>
 <p lang="en"><strong>Plot data. </strong><span style="color: #000000;">I use R and the functions "contour" and "filled.contour" to plot data. The R file is available on <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">this repository</a>. For those plots, I take the <a title="Wikipedia conventions for topographic maps" href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps" target="_blank">Wikipedia conventions for topographic maps</a>.</span></p>
 
-<p lang="en"><strong>Conversion png to pgm. </strong><span style="color: #000000;">For some maps, it is difficult to retrieve raw data, and we only have the png (or a jpg) file. The <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">plotting program</a> is able to plot new maps from those images after converting them to the pgm file extension (which is very close to the xyz file format). You can do as follows:
+<p lang="en"><strong>Conversion png to pgm. </strong><span style="color: #000000;">For some maps, it is difficult to retrieve raw data, and we only have a png (or a jpg) file. The <a title="R plotting file" href="https://github.com/ahstat/topography" target="_blank">plotting program</a> is able to plot new maps from those images after converting them to a file format named pgm (which is very close to the xyz file format). You can do as follows:
 <ol>
 	<li>Open the png file with GIMP, a software to manipulate pictures,</li>
-	<li>Go to Image, Mode, Indexed colors, and choose to generate an optimal palette of 255 colors, without dither</li>
-	<li>Go to Colors, Map, Reorganize palette, and choose by hue, en invert order (to have a map from the blue to the red)</li>
-	<li>Go to Colors, Map, Define palette, and choose 256gray (defined as a palette from #000000 to #FFFFFF in greyscale)</li>
-	<li>Export to a .pgm, with the option ASCII.</li>
+	<li>Go to Image, Mode, Indexed colors. Choose to generate an optimal palette of 255 colors, without dither,</li>
+	<li>Go to Colors, Map, Reorganize palette, Choose to reorganize by hue, and invert order (to have a map from the blue to the red),</li>
+	<li>Go to Colors, Map, Define palette. Choose 256gray, defined as a greyscale palette from #000000 to #FFFFFF,</li>
+	<li>Export the image to .pgm, with the ASCII option.</li>
 </ol>
