@@ -32,19 +32,19 @@ For each drawing, we collect the first cells discovered. We obtain density plots
 
 <img src="../images/2015-5-11-Anabasis/room_top_5_large.png" alt="density inside room (top 5 for each draw)"/>
 
-Legend: Density plot inside a room where data are the first 5 cells of each drawing.
+*Legend: Density plot inside a room where data are the first 5 cells of each drawing.*
 
 When a player arrives in a room, there is a strong preference for selecting top-left cell, and then drawing a diagonal towards the center.
 
 <img src="../images/2015-5-11-Anabasis/room_top_100_large.png" alt="density inside room (top 100 for each draw)"/>
 
-Legend: Density plot inside a room where data are the first 100 cells of each drawing.
+*Legend: Density plot inside a room where data are the first 100 cells of each drawing.*
 
 After 100 cells discovered (among 10000), density concentrates on the center cells and on diagonals.
 
 <img src="../images/2015-5-11-Anabasis/room_top_5000_large.png" alt="density inside room (top 5000 for each draw)"/>
 
-Legend: Density plot inside a room where data are the first 5000 cells of each drawing.
+*Legend: Density plot inside a room where data are the first 5000 cells of each drawing.*
 
 When many cells have been discovered, concentric circles from the center with decaying densites clearly appear, with a preference for diagonals and the middle cross cells (columns and rows 5 and 6).
 
@@ -56,7 +56,7 @@ The following pictures show four draws where one color is assigned to (almost) o
 
 <img src="../images/2015-5-11-Anabasis/pic_9_large.png" alt="draw 9 with one id for one color"/>
 
-<img src="../images/2015-5-11-Anabasis/pic_25_large.png" alt="draw 25 with one id for one color"/>
+<img src="../images/2015-5-11-Anabasis/pic_15_large.png" alt="draw 15 with one id for one color"/>
 
 <img src="../images/2015-5-11-Anabasis/pic_29_large.png" alt="draw 29 with one id for one color"/>
 
