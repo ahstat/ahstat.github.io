@@ -6,6 +6,10 @@ published: true
 
 In this post, we explore data collected with <a href="https://ahstat.github.io/Anabasis/" target="_blank">Anabasis webapp</a>. 144674 records have been retrieved consisting of date, picture number, cell position and user id. First, we get density plots to know where players prefer to click. Then, we show how players share the work together on some selected pictures.
 
+<center><img src="../images/2015-6-11-Clickstream/room_top_5000.png" alt="density inside room (top 5000 for each draw)"/></center>
+
+
+
 **Where players prefer to click in the whole area?**
 
 For each drawing, we collect the first 5000 cells discovered and obtain density plot of cells:

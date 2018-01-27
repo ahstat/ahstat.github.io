@@ -10,8 +10,8 @@ The work is finished when one special cell among ten thousand has been found. At
 
 <center><a href="https://anabasis.herokuapp.com" target="_blank"><img src="../images/2015-5-11-Anabasis/screen.png" alt="title screen of the game"/></a></center>
 
-
-
 Click on the screen to launch the game in your browser. The loading may take some seconds.
+
+
 
 This app follows <a href="https://ahstat.github.io/Bankvault/" target="_blank">Bankvault webapp</a> and shares a great part of the code. I released the whole source of Anabasis <a href="https://github.com/ahstat/anabasis" target="_blank">in my github</a>!
