@@ -31,3 +31,7 @@ And then:
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_11566.png" alt="step 11566 of the classic Langton's ant" width="24%"/>
 
 So blablabla
+
+About rules,
+<img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="49%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="49%"/>
