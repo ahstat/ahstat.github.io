@@ -34,13 +34,13 @@ So blablabla
 
 About rules,
 
-<table cellpadding="0" cellspacing="0" border="0">
+<table cellpadding="0" cellspacing="0" border="0" align="center">
 <tr>
 <td>
-<img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="35%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="80%"/>
 </td>
 <td>
-<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="35%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="80%"/>
 </td>
 </tr>
 </table>
