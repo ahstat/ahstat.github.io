@@ -18,7 +18,7 @@ published: true
 And then:
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_10_smaller.png" alt="step 10 of the classic Langton's ant" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/classic/iter_50.png" alt="step 50 of the classic Langton's ant" width="19"/>
+<img src="../images/2016-12-11-Langton-Voronoi/classic/iter_50.png" alt="step 50 of the classic Langton's ant" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_100.png" alt="step 100 of the classic Langton's ant" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_500.png" alt="step 500 of the classic Langton's ant" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1000.png" alt="step 1000 of the classic Langton's ant" width="19%"/>
