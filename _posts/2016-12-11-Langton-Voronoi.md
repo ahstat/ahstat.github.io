@@ -33,5 +33,11 @@ And then:
 So blablabla
 
 About rules,
-<img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="49%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="49%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="35%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="35%"/>
+
+Ok
+and then can get results
+
+
