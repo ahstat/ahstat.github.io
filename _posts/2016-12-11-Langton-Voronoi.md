@@ -3,6 +3,12 @@ layout: post
 title: Langton's ant extended to Voronoi tesselations
 published: true
 ---
+<img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/>
+
+Here blabla
+
+
+
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1.png" alt="step 1 of the classic Langton's ant" width="9%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_2.png" alt="step 2 of the classic Langton's ant" width="9%"/>
