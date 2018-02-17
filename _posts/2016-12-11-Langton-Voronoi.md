@@ -160,28 +160,141 @@ And with translated SL
 
 And evolution for one SP
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_10.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_50.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_100.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_500.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_600.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_700.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_800.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_900.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_1000.png" alt="Evolution with SP" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_2000.png" alt="Evolution with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_10.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_50.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_100.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_500.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_600.png" alt="Evolution with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_700.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_800.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_900.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_1000.png" alt="Evolution with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_2000.png" alt="Evolution with SP" width="19%"/>
 
 And evolution for one RL
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_10.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_50.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_100.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_500.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_600.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_700.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_800.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_900.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_1000.png" alt="Evolution with RL" width="9%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_2000.png" alt="Evolution with RL" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_10.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_50.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_100.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_500.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_600.png" alt="Evolution with RL" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_700.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_800.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_900.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_1000.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_2000.png" alt="Evolution with RL" width="19%"/>
+
+And evolution for one SR
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_10.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_50.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_100.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_500.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_600.png" alt="Evolution with SR" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_700.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_800.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_900.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_1000.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_2000.png" alt="Evolution with SR" width="19%"/>
+
+And evolution for one SL
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_10.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_50.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_100.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_500.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_600.png" alt="Evolution with SL" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_700.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_800.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_900.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_1000.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_2000.png" alt="Evolution with SL" width="19%"/>
 
 
+Bounded circle
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_1.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_10.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_20.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_30.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_40.png" alt="Bounded circle with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_50.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_60.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_70.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_80.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_90.png" alt="Bounded circle with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_100.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_200.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_300.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_400.png" alt="Bounded circle with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_500.png" alt="Bounded circle with SP" width="19%"/>
+
+Smaller bounded
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_1.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_2.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_3.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_4.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_5.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_6.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_7.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_8.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_9.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_10.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_11.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_12.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_13.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_14.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_15.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_16.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_17.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_18.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_19.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_20.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_21.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_22.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_23.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_24.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_25.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_26.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_27.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_28.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_29.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_30.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_31.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_32.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_33.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_34.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_35.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_36.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_37.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_38.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_39.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_40.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_41.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_42.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_43.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_44.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_45.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_46.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_47.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_48.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_49.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_50.png" alt="Bounded with SP" width="19%"/>
+
+And voila.
