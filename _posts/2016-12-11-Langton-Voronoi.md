@@ -1,13 +1,27 @@
 ---
 layout: post
-title: Langton's ant extended to Voronoi tesselations
+title: Langton's ant extended to Voronoi tessellations
 published: true
 ---
-<img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/>
+<center><img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/></center>
+<a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Langton's ant</a> is a cellular automaton moving on the square tessellation and following two rules. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to any Voronoi tessellation of the plane. Simulations show interesting evolutions for some specific tessellations, such as chaotic structures, highway patterns and even bounded evolutions.
 
-Here blabla
 
 
+
+
+**Recall the classic Langton's ant**
+
+First recall Langton's ant rules and behavior
+
+The two rules are...
+
+We initialize the ant with the first 2 images.
+Then follow the rules.
+
+When the ant has not reached a cell, then white.
+If reached an odd number of times, then red, and means than next time the ant should move to the left.
+If reached a positive even number of times, then blue, and means than next time the ant should move the right.
 
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1.png" alt="step 1 of the classic Langton's ant" width="9%"/>
