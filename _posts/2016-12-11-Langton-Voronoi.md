@@ -202,17 +202,17 @@ And evolution for one SR
 
 And evolution for one SL
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_10.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_50.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_100.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_500.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_600.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_10.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_50.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_100.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_500.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_600.png" alt="Evolution with SL" width="19%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_700.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_800.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_900.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_1000.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/each_SL_5000_seed_2000.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_700.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_800.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_900.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_1000.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_2000.png" alt="Evolution with SL" width="19%"/>
 
 
 Bounded circle
