@@ -38,9 +38,26 @@ About rules,
 <img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="35%"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/2016-12-11-Langton-Voronoi/ink/7.svg" alt="Rule explanations on an heptagon" width="35%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/8.svg" alt="Rule explanations on an heptagon" width="35%"/>
 
 Ok
 and then can get results
+
+For SP
+
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_10_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_11_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_23_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_67_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_57_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_70_390.png" alt="1000 iterations with SP rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_94_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_88_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_80_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+
+And for ...
+
 
 
