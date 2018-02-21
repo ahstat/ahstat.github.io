@@ -384,63 +384,58 @@ We build the Voronoi tesselations as in section "A bounded trajectory with a per
 
 I like the previous version of SP48 because some figures appear such as a turtle, a pelican and a dog (can you see them?). However, some edges are small to check. Here is a clear version of SP48.
 
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/1.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/2.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/3.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/4.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/5.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/1.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/2.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/3.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/4.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/5.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/6.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/7.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/8.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/9.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/10.png" alt="Bounded with SP" width="9%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/6.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/7.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/8.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/9.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/10.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/11.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/12.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/13.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/14.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/15.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/16.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/17.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/18.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/19.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/20.png" alt="Bounded with SP" width="9%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/11.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/12.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/13.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/14.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/15.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/21.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/22.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/23.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/24.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/25.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/26.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/27.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/28.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/29.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/30.png" alt="Bounded with SP" width="9%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/16.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/17.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/18.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/19.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/20.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/31.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/32.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/33.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/34.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/35.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/36.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/37.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/38.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/39.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/40.png" alt="Bounded with SP" width="9%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/21.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/22.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/23.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/24.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/25.png" alt="Bounded with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/26.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/27.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/28.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/29.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/30.png" alt="Bounded with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/31.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/32.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/33.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/34.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/35.png" alt="Bounded with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/36.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/37.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/38.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/39.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/40.png" alt="Bounded with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/41.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/42.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/43.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/44.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/45.png" alt="Bounded with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/46.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/47.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/48.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/49.png" alt="Bounded with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/50.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/41.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/42.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/43.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/44.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/45.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/46.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/47.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/48.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/49.png" alt="Bounded with SP" width="9%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/50.png" alt="Bounded with SP" width="9%"/>
 
