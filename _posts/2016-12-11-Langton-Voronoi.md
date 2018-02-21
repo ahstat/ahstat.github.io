@@ -223,7 +223,7 @@ To simulate regular tilings, we sample a limited number of points in a unit squa
 
 After computing trajectories for a lot of tilings, we observe that some evolutions are bounded. 
 
-The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48". It can be reduced to a graph with 20 vertices, 30 edges and 12 faces... Maybe a dodecahedron?
+The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48". It can be reduced to a graph with 20 vertices, 30 edges and 12 faces... Maybe there is a name for this particular dodecahedron?
 Here are the 50 first steps from 1 to 50 (there are some small edges):
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_1.png" alt="Bounded with SP" width="19%"/>
