@@ -4,10 +4,7 @@ title: Langton's ant extended to Voronoi tessellations
 published: true
 ---
 <center><img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/></center>
-<a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Langton's ant</a> is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partition of the plane, including chaotic structures, highway patterns and even bounded evolutions.
-
-
-
+Langton's ant is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partition of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
 **Remind of classic Langton's ant**
 
@@ -232,7 +229,8 @@ Some questions arise from this example: Can we get a number of steps lower than 
 **References**
 - I discovered Langton's ant from <a href="https://www.youtube.com/watch?v=qZRYGxF6D3w" target="_blank">this nice video of David Louapre(in French)</a>
 - Experience hexagonal Langton's ant online in <a href="https://brtmr.de/2015/10/05/hexadecimal-langtons-ant-2.html" target="_blank">this post of Bastian Reitemeier</a>. I took the same notations to name the directions.
-- Code and outputs are available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>.
+- Code and outputs are available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>
+- <a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Wikipedia page</a> describing Langton's ant and some extensions.
 
 <hr />
 
