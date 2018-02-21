@@ -8,6 +8,4 @@ I'm Alexis Huet. I got a PhD of mathematics in 2014 from University of Lyon (Fra
 
 ### Contact me
 
-Don't be shy!
-
-[ahstat@qq.com]
+ahstat@qq.com

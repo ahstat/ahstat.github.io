@@ -4,14 +4,14 @@ title: Langton's ant extended to Voronoi tessellations
 published: true
 ---
 <center><img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/></center>
-Langton's ant is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partition of the plane, including chaotic structures, highway patterns and even bounded evolutions.
+Langton's ant is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partitions of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
 
 
 
 **Remind of classic Langton's ant**
 
-Langton's ant runs on a square lattice. Initially, all cells are white and we identify one square as the "ant". At each step, the ant moves according to the following rules:
+Langton's ant runs on a square lattice. Initially, all cells are white and we place the ant on a square. At each step, the ant moves according to the following rules:
 
 * If the cell is white or blue: Turn to the right, color current cell in red, and move forward;
 
@@ -72,100 +72,159 @@ This chaotic behavior continues during ten thousand steps. After that, the ant s
 
 Given a finite set of points of the plane, we apply a <a href="https://en.wikipedia.org/wiki/Voronoi_diagram" target="_blank">Voronoi teselation</a> with Euclidian distance. We obtain a partition of this plane into convex polygonal cells.
 
-Each cell can have a different number of edges. For this reason, we must get a generic definition of "going to the left" or "going to the right" for the ant.
-
-We define the directions backward (B), starboard (S), right (R), forward (F), left (L), and port (P) as follows:
+Each cell can have a more than four edges, which means more possible directions. We define the following ones: backward (B), starboard (S), right (R), forward (F), left (L), and port (P). When the cell is a pentagon or an octagon, we obtain respectively:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="../images/2016-12-11-Langton-Voronoi/ink/5.svg" alt="Rule explanations on a pentagon" width="35%"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../images/2016-12-11-Langton-Voronoi/ink/8.svg" alt="Rule explanations on an octogon" width="35%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/ink/8.svg" alt="Rule explanations on an octagon" width="35%"/>
 
-Given previous and current cells, we obtain the direction of the ant (red arrow) and of the last edge crossed (bold edge). Relative to this direction, we number the edges from 0 to E-1 (where E is the number of edges of the current cell). B is edge 0; S is edge 1; R is median edge minus one; F is only defined for even polygons and is median edge; L is median edge plus one; P is last edge.
+Here is the definition for a general polygon. Given previous cell and current cell, we obtain the direction of the ant (red arrow) and of the last edge crossed (bold edge). Relative to this direction, we number edges from 1 to E (where E is the number of edges of the current cell). B is edge 1; S is edge 2; R is the median edge minus one; F is only defined for even polygons and is the median edge; L is the median edge plus one; P is the last edge. 
 
-For example, each cell of the classic Langton's ant is driven by alterning "going right" (R) and "going left" (L). We summarize this scheme using the word RL. Note that in this case, since each cell is a quadrilateral, the rules SP, RL, SR, SL are all identical.
 
-**Simulation of four trajectories**
 
-Four simulations are computed with four different rules: SP, RL, SR, SL.
+For example, each cell of the classic Langton's ant is driven by alterning "going right" (R) and "going left" (L). We summarize this scheme using the word RL. Note that in this case, since each cell has four edges, the rules SP, RL, SR and SL are all identical.
 
-For each simulation, we sample 5000 points in a unit square from uniform distribution; obtain a Voronoi tessellation from them; define an initial configuration of the ant; and compute evolution for 2000 steps.
 
-For each simulation, we show trajectories at ten steps: First line of pictures corresponds to steps 10, 50, 100, 500 and 600. Second line to steps 700, 800, 900, 1000 and 2000.
 
-Source code is available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>. Note that rendering of the next pictures is better with Firefox over Chrome.
 
-*Evolution with SP rule* 
+**Nine trajectories for each rule**
 
-The ant circles forward and draws snake patterns. Crossed cells are all in blue, except for the initial cell and the last cells. It could be interesting to prove that we always have this kind of evolution under some conditions (note that evolution is similar for hexagonal Langton's ant; however, evolution is different when we can identify direction S with R and direction P with L, such as classic and triangular Langton's ant).
+For each simulation of a trajectory, we sample 5000 points in a unit square from uniform distribution; Obtain a Voronoi tessellation from them; Define an initial configuration of the ant; And compute evolution during 1000 steps (or until reaching a border of the area).
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_10.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_50.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_100.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_500.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_600.png" alt="Evolution with SP" width="19%"/>
+We plot 9 pictures for each rule SP, RL, SR and SL. Each picture represents the state after the evolution. Those pictures help to understand the different kind of behavior of the ant.
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_700.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_800.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_900.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_1000.png" alt="Evolution with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_2000.png" alt="Evolution with SP" width="19%"/>
+*Evolution with SP rule*
 
-*Evolution with RL rule* 
+The ant circles forward and draws snake patterns. Cells where the ant has traveled are all in blue, except for the initial cell and for the last cells.
 
-The ant initially makes circles and builds complex patterns (in red in pictures 1 to 4), before to backtrack a large part of the trajectory (in blue in pictures 5 to 9). This is caused by the symmetry between direction R and L.
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_10_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_11_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_23_1000.png" alt="1000 iterations with SP rule" width="32%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_10.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_50.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_100.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_500.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_600.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_67_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_57_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_70_390.png" alt="1000 iterations with SP rule" width="32%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_700.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_800.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_900.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_1000.png" alt="Evolution with RL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_RL_5000_seed_4/5000_seed_4_2000.png" alt="Evolution with RL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_94_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_88_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_80_1000.png" alt="1000 iterations with SP rule" width="32%"/>
+
+*Evolution with RL rule*
+
+The ant initially makes circles and builds complex patterns (in red), before to backtrack a large part of the trajectory (in blue). This is caused by the symmetry between direction R and L, and can be shown through the large area in red and blue.
+
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_11_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_12_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_23_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_66_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_100_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_67_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_69_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_72_1000.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_81_1000.png" alt="1000 iterations with RL rule" width="32%"/>
 
 *Evolution with SR rule*
 
-The ant really wants to turn to starboard! It makes a lot of chaotic circles in an increasing area.
+The ant really wants to turn to starboard, but makes a lot of chaotic circles in an increasing area.
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_10.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_50.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_100.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_500.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_600.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_7_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_14_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_27_1000.png" alt="1000 iterations with SR rule" width="32%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_700.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_800.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_900.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_1000.png" alt="Evolution with SR" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SR_5000_seed_78/5000_seed_78_2000.png" alt="Evolution with SR" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_33_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_57_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_83_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_84_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_38_1000.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_96_1000.png" alt="1000 iterations with SR rule" width="32%"/>
 
 *Evolution with SL rule*
 
-The rule is asymmetric but keeps balance between moving to the left and to the right. Pictures show a chaotic trajectory.
+The rule is asymmetric but keeps balance between moving to the left and to the right. Pictures show a chaotic trajectories.
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_10.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_50.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_100.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_500.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_600.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_1_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_2_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_3_1000.png" alt="1000 iterations with SL rule" width="32%"/>
 
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_700.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_800.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_900.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_1000.png" alt="Evolution with SL" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_2000.png" alt="Evolution with SL" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_10_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_14_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_23_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_72_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_94_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_95_1000.png" alt="1000 iterations with SL rule" width="32%"/>
+
+**Nine trajectories for each rule with translated tesselations**
+
+To simulate regular tilings, we sample a limited number of points in a unit square, translate these points in all directions, and obtain a Voronoi tessellation from them. Then we proceed as in the last section. Trajectories exhibit three kinds of behavior: chaotic structures, highway patterns and bounded evolutions.
+
+*Evolution with SP rule and a translated tesselation*
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_1.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_8.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_12.png" alt="1000 iterations with SP rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_25.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/12_seed_4.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_38.png" alt="1000 iterations with SP rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_74.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_76.png" alt="1000 iterations with SP rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_81.png" alt="1000 iterations with SP rule" width="32%"/>
+
+*Evolution with RL rule and a translated tesselation*
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_1.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_2.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_3.png" alt="1000 iterations with RL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_4.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_99.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_5.png" alt="1000 iterations with RL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_91.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_85.png" alt="1000 iterations with RL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_72.png" alt="1000 iterations with RL rule" width="32%"/>
+
+*Evolution with SR rule and a translated tesselation*
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_4.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_19.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_20.png" alt="1000 iterations with SR rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_66.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_54.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_88.png" alt="1000 iterations with SR rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_93.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_67.png" alt="1000 iterations with SR rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_73.png" alt="1000 iterations with SR rule" width="32%"/>
+
+*Evolution with SL rule and a translated tesselation*
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_2.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_24.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_41.png" alt="1000 iterations with SL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_39.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_36.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_49.png" alt="1000 iterations with SL rule" width="32%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_96.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_89.png" alt="1000 iterations with SL rule" width="32%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_98.png" alt="1000 iterations with SL rule" width="32%"/>
 
 **A bounded trajectory with a period of 48 steps**
 
-To simulate regular tilings, we sample a limited number of points in a unit square, translate these points in all directions, and obtain a Voronoi tessellation from them. After computing trajectories for a lot of tilings, we extract and analyze bounded evolutions.
+After computing trajectories for a lot of tilings, we observe that some evolutions are bounded. 
 
-The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48". It is a graph with 20 vertices, 30 edges and 12 faces... Maybe a dodecahedron?
-Here are the 50 first steps from 1 to 50 (there are some small edges, a clear version is available at the end of this page):
+The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48". It can be reduced to a graph with 20 vertices, 30 edges and 12 faces... Maybe a dodecahedron?
+Here are the 50 first steps from 1 to 50 (there are some small edges):
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_1.png" alt="Bounded with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_2.png" alt="Bounded with SP" width="19%"/>
@@ -227,164 +286,6 @@ Here are the 50 first steps from 1 to 50 (there are some small edges, a clear ve
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_49.png" alt="Bounded with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_50.png" alt="Bounded with SP" width="19%"/>
 
-Some questions arise from this example: Can we get a number of steps lower than 48 for this rule? Can we get a bounded trajectory for all rules?
-
-**References**
-- I discovered Langton's ant from <a href="https://www.youtube.com/watch?v=qZRYGxF6D3w" target="_blank">this nice video of David Louapre(in French)</a>
-- Experience hexagonal Langton's ant online in <a href="https://brtmr.de/2015/10/05/hexadecimal-langtons-ant-2.html" target="_blank">this post of Bastian Reitemeier</a>. I took the same notations to name the directions.
-- Code and outputs are available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>
-- <a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Wikipedia page</a> describing Langton's ant and some extensions.
-
-<hr />
-
-In this annex, we show more plots and simulations!
-
-
-**A bounded trajectory forming a ring**
-
-For a specific tesselation and using SP rule, the ant will draw a ring! The following pictures show steps 1, 10, 20, 30, 40; 50, 60, 70, 80, 90; 100, 200, 300, 400, 500.
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_1.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_10.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_20.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_30.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_40.png" alt="Bounded circle with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_50.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_60.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_70.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_80.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_90.png" alt="Bounded circle with SP" width="19%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_100.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_200.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_300.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_400.png" alt="Bounded circle with SP" width="19%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_500.png" alt="Bounded circle with SP" width="19%"/>
-
-**Nine trajectories for each rule**
-
-We build the Voronoi tesselations as in section "Simulation of four trajectories". For each rule, we plot 9 pictures. Each picture represents a simulation after 1000 steps or after reaching a border of the defined area. Those pictures help to understand the different kind of behavior of the ant.
-
-*Evolution with SP rule*
-
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_10_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_11_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_23_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_67_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_57_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_70_390.png" alt="1000 iterations with SP rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_94_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_88_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SP/5000_seed_80_1000.png" alt="1000 iterations with SP rule" width="32%"/>
-
-*Evolution with RL rule*
-
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_11_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_12_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_23_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_66_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_100_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_67_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_69_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_72_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_81_1000.png" alt="1000 iterations with RL rule" width="32%"/>
-
-*Evolution with SR rule*
-
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_7_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_14_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_27_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_33_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_57_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_83_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_84_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_38_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_96_1000.png" alt="1000 iterations with SR rule" width="32%"/>
-
-*Evolution with SL rule*
-
-
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_1_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_2_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_3_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_10_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_14_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_23_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_72_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_94_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_95_1000.png" alt="1000 iterations with SL rule" width="32%"/>
-
-**Nine trajectories for each rule with translated tesselations**
-
-We build the Voronoi tesselations as in section "A bounded trajectory with a period of 48 steps". For each rule, we plot 9 pictures. Each picture represents a simulation after 1000 steps or after reaching a border of the defined area. Those pictures exhibit three kinds of behavior: chaotic structures, highway patterns and bounded evolutions.
-
-*Evolution with SP rule and a translated tesselation*
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_1.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_8.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_12.png" alt="1000 iterations with SP rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_25.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/12_seed_4.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_38.png" alt="1000 iterations with SP rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_74.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_76.png" alt="1000 iterations with SP rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SP/11_seed_81.png" alt="1000 iterations with SP rule" width="32%"/>
-
-*Evolution with RL rule and a translated tesselation*
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_1.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_2.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_3.png" alt="1000 iterations with RL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_4.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_99.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_5.png" alt="1000 iterations with RL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_91.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_85.png" alt="1000 iterations with RL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_RL/11_seed_72.png" alt="1000 iterations with RL rule" width="32%"/>
-
-*Evolution with SR rule and a translated tesselation*
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_4.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_19.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_20.png" alt="1000 iterations with SR rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_66.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_54.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_88.png" alt="1000 iterations with SR rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_93.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_67.png" alt="1000 iterations with SR rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SR/11_seed_73.png" alt="1000 iterations with SR rule" width="32%"/>
-
-*Evolution with SL rule and a translated tesselation*
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_2.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_24.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_41.png" alt="1000 iterations with SL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_39.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_36.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_49.png" alt="1000 iterations with SL rule" width="32%"/>
-
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_96.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_89.png" alt="1000 iterations with SL rule" width="32%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/translated_SL/11_seed_98.png" alt="1000 iterations with SL rule" width="32%"/>
-
-**SP48 with larger edges**
-
 I like the previous version of SP48 because some figures appear such as a turtle, a pelican and a dog (can you see them?). However, some edges are small to check. Here is a clear version of SP48.
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/1.png" alt="Bounded with SP" width="9%"/>
@@ -442,3 +343,13 @@ I like the previous version of SP48 because some figures appear such as a turtle
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/49.png" alt="Bounded with SP" width="9%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/50.png" alt="Bounded with SP" width="9%"/>
 
+Some questions arise from this example: Can we get a number of steps lower than 48 for this rule? Can we get a bounded trajectory for all rules?
+
+**Note**
+Introductive set of pictures is a bounded trajectory describing a ring, computed with rule SP and plotted at steps 1, 10, 20, ..., 90, 100, 200, ..., 500.
+
+**References**
+- I discovered Langton's ant from <a href="https://www.youtube.com/watch?v=qZRYGxF6D3w" target="_blank">this nice video of David Louapre (in French)</a>
+- Experience hexagonal Langton's ant online in <a href="https://brtmr.de/2015/10/05/hexadecimal-langtons-ant-2.html" target="_blank">this post of Bastian Reitemeier</a>. I took the same notations to name the directions.
+- Code and outputs are available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>
+- <a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Wikipedia page</a> describing Langton's ant and some extensions.
