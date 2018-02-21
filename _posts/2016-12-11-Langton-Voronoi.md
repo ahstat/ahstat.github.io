@@ -92,15 +92,13 @@ Four simulations are computed with four different rules: SP, RL, SR, SL.
 
 For each simulation, we sample 5000 points in a unit square from uniform distribution; obtain a Voronoi tessellation from them; define an initial configuration of the ant; and compute evolution for 2000 steps.
 
-We show trajectories at ten steps: 10, 50, 100, 500, 600; 700, 800, 900, 1000, 2000.
+For each simulation, we show trajectories at ten steps: First line of pictures corresponds to steps 10, 50, 100, 500 and 600. Second line to steps 700, 800, 900, 1000 and 2000.
 
-Source code is available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>. Note that rendering of next pictures is better with Firefox over Chrome.
+Source code is available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>. Note that rendering of the next pictures is better with Firefox over Chrome.
 
 *Evolution with SP rule* 
 
 The ant circles forward and draws snake patterns. Crossed cells are all in blue, except for the initial cell and the last cells. It could be interesting to prove that we always have this kind of evolution under some conditions (note that evolution is similar for hexagonal Langton's ant; however, evolution is different when we can identify direction S with R and direction P with L, such as classic and triangular Langton's ant).
-
-First line of pictures corresponds to steps 10, 50, 100, 500 and 600. Second line to steps 700, 800, 900, 1000 and 2000.
 
 <img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_10.png" alt="Evolution with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/each_SP_5000_seed_11/5000_seed_11_50.png" alt="Evolution with SP" width="19%"/>
@@ -162,10 +160,12 @@ The rule is asymmetric but keeps balance between moving to the left and to the r
 <img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_1000.png" alt="Evolution with SL" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/each_SL_5000_seed_8/5000_seed_8_2000.png" alt="Evolution with SL" width="19%"/>
 
-**A bounded trajectory over 48 steps**
+**A bounded trajectory with a period of 48 steps**
 
+To simulate regular tilings, we sample a limited number of points in a unit square, translate these points in all directions, and obtain a Voronoi tessellation from them. After computing trajectories for a lot of tilings, we extract and analyze bounded evolutions.
 
-Smaller bounded
+The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48".
+Here are the 50 first steps from 1 to 50:
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_1.png" alt="Bounded with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_2.png" alt="Bounded with SP" width="19%"/>
@@ -227,21 +227,20 @@ Smaller bounded
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_49.png" alt="Bounded with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_50.png" alt="Bounded with SP" width="19%"/>
 
-And voila.
+Some questions arise from this example: Can we get a number of steps lower than 48 for this rule? Can we get a bounded trajectory for all rules?
 
 **References**
-
-Note about source code: Quite slow
+- I discovered Langton's ant from <a href="https://www.youtube.com/watch?v=qZRYGxF6D3w" target="_blank">this nice video of David Louapre(in French)</a>
+- Experience hexagonal Langton's ant online in <a href="https://brtmr.de/2015/10/05/hexadecimal-langtons-ant-2.html" target="_blank">this post of Bastian Reitemeier</a>. I took the same notations to name the directions.
+- Code and outputs are available <a href="https://github.com/ahstat/langton-voronoi" target="_blank">on my github</a>.
 
 <hr />
 
 In this annex, we show more plots and simulations!
 
+**A bounded trajectory forming a ring**
 
-**A bounded trajectory forming a circle**
-
-
-Bounded circle
+For a specific tesselation and using SP rule, the ant will draw a ring! The following pictures show steps 1, 10, 20, 30, 40; 50, 60, 70, 80, 90; 100, 200, 300, 400, 500.
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_1.png" alt="Bounded circle with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_10.png" alt="Bounded circle with SP" width="19%"/>
@@ -261,9 +260,9 @@ Bounded circle
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_400.png" alt="Bounded circle with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_circle/9_500.png" alt="Bounded circle with SP" width="19%"/>
 
-
-
 **Nine trajectories for each rule**
+
+We build the Voronoi tesselations as in section "Simulation of four trajectories". For each rule, we plot 9 pictures. Each picture represents a simulation after 1000 steps or after reaching a border of the defined area. Those pictures help to understand the different kind of behavior of the ant.
 
 *Evolution with SP rule*
 
@@ -323,6 +322,8 @@ Bounded circle
 <img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_95_1000.png" alt="1000 iterations with SL rule" width="32%"/>
 
 **Nine trajectories for each rule with translated tesselations**
+
+We build the Voronoi tesselations as in section "A bounded trajectory with a period of 48 steps". For each rule, we plot 9 pictures. Each picture represents a simulation after 1000 steps or after reaching a border of the defined area. Those pictures exhibit three kinds of behavior: chaotic structures, highway patterns and bounded evolutions.
 
 *Evolution with SP rule and a translated tesselation*
 
