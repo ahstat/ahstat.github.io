@@ -11,7 +11,7 @@ Langton's ant is a cellular automaton driven by a simple set of rules and runnin
 
 **Remind of classic Langton's ant**
 
-Langton's ant runs on a square lattice. Initially, all cells are white and we place the ant on a square. At each step, the ant moves according to the following rules:
+Langton's ant runs on a square lattice. Initially, all cells are white and we place an ant on a square. At each step, the ant moves according to the following rules:
 
 * If the cell is white or blue: Turn to the right, color current cell in red, and move forward;
 
@@ -113,7 +113,7 @@ The ant circles forward and draws snake patterns. Cells where the ant has travel
 
 *Evolution with RL rule*
 
-The ant initially makes circles and builds complex patterns (in red), before to backtrack a large part of the trajectory (in blue). This is caused by the symmetry between direction R and L, and can be shown through the large area in red and blue.
+The ant initially makes circles and builds complex patterns (in red), before to backtrack a large part of the trajectory (in blue). This is caused by the symmetry between direction R and L, and can be shown through the large areas in red and blue.
 
 <img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_11_1000.png" alt="1000 iterations with RL rule" width="32%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/RL/5000_seed_12_1000.png" alt="1000 iterations with RL rule" width="32%"/>
@@ -129,7 +129,7 @@ The ant initially makes circles and builds complex patterns (in red), before to 
 
 *Evolution with SR rule*
 
-The ant really wants to turn to starboard, but makes a lot of chaotic circles in an increasing area.
+The ant really wants to turn to starboard, but makes a lot of chaotic circles, generally in an increasing area.
 
 <img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_7_1000.png" alt="1000 iterations with SR rule" width="32%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/SR/5000_seed_14_1000.png" alt="1000 iterations with SR rule" width="32%"/>
@@ -145,7 +145,7 @@ The ant really wants to turn to starboard, but makes a lot of chaotic circles in
 
 *Evolution with SL rule*
 
-The rule is asymmetric but keeps balance between moving to the left and to the right. Pictures show a chaotic trajectories.
+The rule is asymmetric but keeps balance between moving to the left and to the right. Pictures show chaotic trajectories.
 
 <img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_1_1000.png" alt="1000 iterations with SL rule" width="32%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/SL/5000_seed_2_1000.png" alt="1000 iterations with SL rule" width="32%"/>
@@ -345,8 +345,9 @@ I like the previous version of SP48 because some figures appear such as a turtle
 
 Some questions arise from this example: Can we get a number of steps lower than 48 for this rule? Can we get a bounded trajectory for all rules?
 
-**Note**
-Introductive set of pictures is a bounded trajectory describing a ring, computed with rule SP and plotted at steps 1, 10, 20, ..., 90, 100, 200, ..., 500.
+**Front cover images**
+
+Front set of pictures shows a bounded trajectory describing a ring, computed with rule SP and plotted at steps 1, 10, 20, ..., 90, 100, 200, ..., 500.
 
 **References**
 - I discovered Langton's ant from <a href="https://www.youtube.com/watch?v=qZRYGxF6D3w" target="_blank">this nice video of David Louapre (in French)</a>
