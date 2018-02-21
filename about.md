@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+I'm Alexis Huet. I got a PhD of mathematics in 2014 from University of Lyon (France). I'm currently working in data science.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+Don't be shy!
+
+[ahstat@qq.com]

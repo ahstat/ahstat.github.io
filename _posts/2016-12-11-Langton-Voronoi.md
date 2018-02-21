@@ -6,6 +6,9 @@ published: true
 <center><img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/></center>
 Langton's ant is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partition of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
+
+
+
 **Remind of classic Langton's ant**
 
 Langton's ant runs on a square lattice. Initially, all cells are white and we identify one square as the "ant". At each step, the ant moves according to the following rules:
