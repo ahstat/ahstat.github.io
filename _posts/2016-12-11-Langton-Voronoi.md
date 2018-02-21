@@ -162,7 +162,7 @@ The rule is asymmetric but keeps balance between moving to the left and to the r
 To simulate regular tilings, we sample a limited number of points in a unit square, translate these points in all directions, and obtain a Voronoi tessellation from them. After computing trajectories for a lot of tilings, we extract and analyze bounded evolutions.
 
 The following example is the smallest bounded trajectory obtained until now with the rule SP. It has a period of 48 steps, so it is called "SP48".
-Here are the 50 first steps from 1 to 50:
+Here are the 50 first steps from 1 to 50 (there are some small edges):
 
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_1.png" alt="Bounded with SP" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_smaller/234_2.png" alt="Bounded with SP" width="19%"/>
@@ -235,6 +235,71 @@ Some questions arise from this example: Can we get a number of steps lower than 
 <hr />
 
 In this annex, we show more plots and simulations!
+
+**SP48 with larger edges**
+
+I like the previous version of SP48 because some figures appear such as a turtle, a pelican and a dog (can you see them?). However, some edges are small to check. Here is a clear version of SP48.
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/1.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/2.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/3.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/4.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/5.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/6.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/7.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/8.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/9.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/10.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/11.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/12.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/13.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/14.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/15.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/16.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/17.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/18.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/19.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/20.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/21.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/22.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/23.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/24.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/25.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/26.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/27.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/28.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/29.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/30.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/31.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/32.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/33.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/34.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/35.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/36.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/37.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/38.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/39.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/40.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/41.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/42.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/43.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/44.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/45.png" alt="Bounded with SP" width="19%"/>
+
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/46.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/47.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/48.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/49.png" alt="Bounded with SP" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/bounded_SP_48_circled/50.png" alt="Bounded with SP" width="19%"/>
+
 
 **A bounded trajectory forming a ring**
 
