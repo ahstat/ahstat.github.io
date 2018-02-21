@@ -13,12 +13,11 @@ published: true
 
 Langton's ant runs on a square lattice. Initially, all cells are white and we identify one square as the "ant". At each step, the ant moves according to the following rules:
 
-* If the cell is white or blue, the ant: Turn to the right, color current cell in red, and move forward,
+* If the cell is white or blue: Turn to the right, color current cell in red, and move forward;
 
-* If the cell is red, the ant: Turn to the left, color current cell in blue, and move forward.
+* If the cell is red: Turn to the left, color current cell in blue, and move forward.
 
 That's all! 
-
 Here is the evolution of the ant from an initial configuration to step one:
 
 <img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_0_0.png" alt="step 0 of the classic Langton's ant" width="24%"/>
@@ -35,15 +34,13 @@ And from step one to step two:
 
 The ant goes round until reaching a red cell at step 4. At that step, the ant turns to the left:
 
-<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_0.png" alt="step 1 of the classic Langton's ant" width="24%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_2_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_3_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_4_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
-<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_5_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_0.png" alt="step 1 of the classic Langton's ant" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_2_0.png" alt="step 2 of the classic Langton's ant" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_3_0.png" alt="step 2 of the classic Langton's ant" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_4_0.png" alt="step 2 of the classic Langton's ant" width="19%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_5_0.png" alt="step 2 of the classic Langton's ant" width="19%"/>
 
-The evolution is described by very simple rules. Go:
-
-
+During the ten first steps, the ant draws a simple pattern (following pictures represent steps 1 to 10): 
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1.png" alt="step 1 of the classic Langton's ant" width="9%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_2.png" alt="step 2 of the classic Langton's ant" width="9%"/>
@@ -56,7 +53,7 @@ The evolution is described by very simple rules. Go:
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_9.png" alt="step 9 of the classic Langton's ant" width="9%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_10.png" alt="step 10 of the classic Langton's ant" width="9%"/>
 
-And then:
+The ant continues to draw symmetric or almost symmetric patterns during the first hundred steps. After step 500, the ant begins to adopt a chaotic behavior (following pictures represent steps 10, 50, 100, 500 and 1000):
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_10_smaller.png" alt="step 10 of the classic Langton's ant" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_50.png" alt="step 50 of the classic Langton's ant" width="19%"/>
@@ -64,12 +61,16 @@ And then:
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_500.png" alt="step 500 of the classic Langton's ant" width="19%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1000.png" alt="step 1000 of the classic Langton's ant" width="19%"/>
 
-And then:
+This chaotic behavior continues during ten thousand steps. After that, the ant starts building a regular pattern of 104 steps called "highway" and walking to infinity (following pictures represent steps 1000, 5000, 10000 and 11566):
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1000_smaller.png" alt="step 1000 of the classic Langton's ant" width="24%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_5000.png" alt="step 5000 of the classic Langton's ant" width="24%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_10000.png" alt="step 10000 of the classic Langton's ant" width="24%"/>
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_11566.png" alt="step 11566 of the classic Langton's ant" width="24%"/>
+
+**Extension to Voronoi tesselations**
+
+
 
 So blablabla
 
