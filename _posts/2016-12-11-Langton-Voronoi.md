@@ -4,24 +4,45 @@ title: Langton's ant extended to Voronoi tessellations
 published: true
 ---
 <center><img src="../images/2016-12-11-Langton-Voronoi/intro.png" alt="Bounded evolution of the ant"/></center>
-<a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Langton's ant</a> is a cellular automaton moving on the square tessellation and following two rules. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to any Voronoi tessellation of the plane. Simulations show interesting evolutions for some specific tessellations, such as chaotic structures, highway patterns and even bounded evolutions.
+<a href="https://en.wikipedia.org/wiki/Langton%27s_ant" target="_blank">Langton's ant</a> is a cellular automaton driven by a simple set of rules and running on a square lattice. It is one of the most simple system leading to an emergent behavior. In this post, the system is extended to run on any Voronoi tessellation of the plane. Simulations show interesting walks for some partition of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
 
 
 
+**Remind of classic Langton's ant**
 
-**Recall the classic Langton's ant**
+Langton's ant runs on a square lattice. Initially, all cells are white and we identify one square as the "ant". At each step, the ant moves according to the following rules:
 
-First recall Langton's ant rules and behavior
+* If the cell is white or blue, the ant: Turn to the right, color current cell in red, and move forward,
 
-The two rules are...
+* If the cell is red, the ant: Turn to the left, color current cell in blue, and move forward.
 
-We initialize the ant with the first 2 images.
-Then follow the rules.
+That's all! 
 
-When the ant has not reached a cell, then white.
-If reached an odd number of times, then red, and means than next time the ant should move to the left.
-If reached a positive even number of times, then blue, and means than next time the ant should move the right.
+Here is the evolution of the ant from an initial configuration to step one:
+
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_0_0.png" alt="step 0 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_0_1.png" alt="step 0 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_0_2.png" alt="step 0 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_0.png" alt="step 1 of the classic Langton's ant" width="24%"/>
+
+And from step one to step two:
+
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_0.png" alt="step 1 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_1.png" alt="step 1 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_2.png" alt="step 1 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_2_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+
+The ant goes round until reaching a red cell at step 4. At that step, the ant turns to the left:
+
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_1_0.png" alt="step 1 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_2_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_3_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_4_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+<img src="../images/2016-12-11-Langton-Voronoi/with_ant/iter_5_0.png" alt="step 2 of the classic Langton's ant" width="24%"/>
+
+The evolution is described by very simple rules. Go:
+
 
 
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_1.png" alt="step 1 of the classic Langton's ant" width="9%"/>
@@ -51,6 +72,8 @@ And then:
 <img src="../images/2016-12-11-Langton-Voronoi/classic/iter_11566.png" alt="step 11566 of the classic Langton's ant" width="24%"/>
 
 So blablabla
+
+Turn to the right = Ambiguous for general polygon. So there:
 
 About rules,
 
