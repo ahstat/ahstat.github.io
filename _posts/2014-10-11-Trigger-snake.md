@@ -66,7 +66,6 @@ A component allows the player to display various graphical statistics in-game. I
 <center><em>Density of each cell (novice player)</em></center>
 
 <br>
-<br>
 
 *By typing E*, density of snake's head directions appears. For each cell, there are four edges represented with four triangles.
 
@@ -75,14 +74,12 @@ A component allows the player to display various graphical statistics in-game. I
 <center><em>Density of directions</em></center>
 
 <br>
-<br>
 
 *By typing W*, density of non-oriented directions appears. Each edge of the board is represented with a square.
 
 <center><img src="../images/2014-10-11-Trigger-snake/end_ne.png" alt="non-oriented edges' density"/>
 </center>
 
-<br>
 <br>
 
 *By typing "A"*, density of apples' positions appears. 
