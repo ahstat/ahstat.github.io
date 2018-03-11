@@ -22,7 +22,7 @@ Gameplay becomes repetitive when the snake has reached a large length. In that c
 </li>
 </ul>
 
-In *trigger snake*, the game is kept as simple as possible without introducing fancy gameplay elements. We only add a few features to make the game fast and challenging.
+In *trigger snake*, the game is kept as simple as possible without introducing fancy gameplay elements. We only add two features to make the game fast and challenging: reward for speed, and score limit.
 
 **Reward for speed.**
 There is a reward for speed. The apple appears fresh and green, yielding potentially 100 points. Then, apple begins to fade away, and score slowly decreases. After a while, apple eventually turn into a gray shape making only 1 point. This behavior encourages player to take the shortest path on the torus.
@@ -36,8 +36,6 @@ The game stops after reaching a score of 3000. This usually prevents the snake t
 <center><img src="../images/2014-10-11-Trigger-snake/end2.png" alt="end of game after winning"/>
 </center>
 <center><em>End of the game after winning</em></center>
-
-No more gameplay elements are added.
 
 **In-game pictures.**
 Here are two screenshots of the game.
@@ -67,16 +65,25 @@ A component allows the player to display various graphical statistics in-game. I
 </center>
 <center><em>Density of each cell (novice player)</em></center>
 
+<br>
+<br>
+
 *By typing E*, density of snake's head directions appears. For each cell, there are four edges represented with four triangles.
 
 <center><img src="../images/2014-10-11-Trigger-snake/end_e.png" alt="edges' density"/>
 </center>
 <center><em>Density of directions</em></center>
 
+<br>
+<br>
+
 *By typing W*, density of non-oriented directions appears. Each edge of the board is represented with a square.
 
 <center><img src="../images/2014-10-11-Trigger-snake/end_ne.png" alt="non-oriented edges' density"/>
 </center>
+
+<br>
+<br>
 
 *By typing "A"*, density of apples' positions appears. 
 
