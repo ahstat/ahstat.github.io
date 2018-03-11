@@ -61,6 +61,8 @@ A component allows the player to display various graphical statistics in-game. I
 </center>
 <center><em>Density of each cell (good player)</em></center>
 
+<br>
+
 <center><img src="../images/2014-10-11-Trigger-snake/end_d_new.png" alt="snake's density (novice player)"/>
 </center>
 <center><em>Density of each cell (novice player)</em></center>
