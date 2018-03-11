@@ -28,7 +28,7 @@ In *trigger snake*, the game is kept as simple as possible without introducing f
 There is a reward for speed. The apple appears fresh and green, yielding potentially 100 points. Then, apple begins to fade away, and score slowly decreases. After a while, apple eventually turn into a gray shape making only 1 point. This behavior encourages player to take the shortest path on the torus.
 <center><img src="../images/2014-10-11-Trigger-snake/fade_apple.png" alt="apple fading with time"/>
 </center>
-*Apple fading away, from 100 points to 1 point*
+<center><em>Apple fading away, from 100 points to 1 point</em></center>
 
 **Score limit.**
 The game stops after reaching a score of 3000. This usually prevents the snake to have an unreasonable length. We offer bonus for this performance, based on two components: How much time it took? How many apples have been eaten? If the game was quick enough, final score can attain 15000 or 16000.
