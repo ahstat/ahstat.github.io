@@ -35,18 +35,18 @@ The game stops after reaching a score of 3000. This usually prevents the snake t
 
 <center><img src="../images/2014-10-11-Trigger-snake/end2.png" alt="end of game after winning"/>
 </center>
-*End of the game after winning*
+<center><em>End of the game after winning</em></center>
 
 **In-game pictures.**
 Here are two screenshots of the game.
 
 <center><img src="../images/2014-10-11-Trigger-snake/ingame.png" alt="in game picture"/>
 </center>
-*Screenshot of game during a play*
+<center><em>Screenshot of game during a play</em></center>
 
 <center><img src="../images/2014-10-11-Trigger-snake/lose.png" alt="losing picture"/>
 </center>
-*Screenshot of game after losing*
+<center><em>Screenshot of game after losing</em></center>
 
 **Statistic components.**
 
