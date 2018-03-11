@@ -79,6 +79,7 @@ A component allows the player to display various graphical statistics in-game. I
 
 <center><img src="../images/2014-10-11-Trigger-snake/end_ne.png" alt="non-oriented edges' density"/>
 </center>
+<center><em>Density of crossed edges</em></center>
 
 <br>
 
@@ -86,6 +87,7 @@ A component allows the player to display various graphical statistics in-game. I
 
 <center><img src="../images/2014-10-11-Trigger-snake/end_a.png" alt="apple's density"/>
 </center>
+<center><em>Density of apples' positions</em></center>
 
 **Sources.**
 This game can be <a href="https://github.com/ahstat/trigger-snake/blob/master/release/trigger-snake_win8.zip">downloaded here for Windows</a>. If you are interested in the source code, follow <a href="https://github.com/ahstat/trigger-snake">this github link</a>. The game was made with C++/Qt4, so you can compile code to run it with Linux.
