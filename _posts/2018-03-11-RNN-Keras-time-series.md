@@ -78,7 +78,8 @@ nb_units = 10
 model.add(LSTM(input_shape=(None, dim_in),
                return_sequences=True, 
                units=nb_units))
-model.add(TimeDistributed(Dense(activation='linear', units=dim_out)))
+model.add(TimeDistributed(Dense(activation='linear', 
+                                units=dim_out)))
 model.compile(loss = 'mse', optimizer = 'rmsprop')
 
 ##
@@ -86,8 +87,10 @@ model.compile(loss = 'mse', optimizer = 'rmsprop')
 ##
 # 2 seconds for each epoch
 np.random.seed(1337)
-history = model.fit(inputs, outputs, epochs = 500, batch_size = 32,
-                    validation_data=(inputs_test, outputs_test))
+history = model.fit(inputs, outputs, 
+                    epochs = 500, batch_size = 32,
+                    validation_data=(inputs_test, 
+                                     outputs_test))
 plotting(history)
 ```
 
