@@ -1,36 +1,45 @@
 ---
 layout: post
-title: Recurrent Neural Networks with Keras&#58; Predicting time series
+title: RNN with Keras&#58; Predicting time series
 published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-This tutorial provides a complete introduction on time series prediction with RNN.
-We begin by predicting *short* time series using classic LSTM. Computations give good results for this kind of series (part A).
-A problem arises when *long* time series are considered. In that case, stateless LSTM models lead to poor results (part B).
-To circumvent this issue, **stateful LSTM** are trained. Stateful models are tricky with Keras, because you need to be careful on how you cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose. 
-Computations give incredible predictions of long time series for our problem (part C and D).
+This tutorial provides a complete introduction on time series prediction with Recurrent Neural Networks (RNN).
 
-Companion source code for this post is [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
+In part A, we predict *short* time series using stateless LSTM. Computations give good results for this kind of series.
 
-We focus on the following problem.
-Let $$x_1, x_2, x_3, x_4$$ four time series following the uniform distribution on $$[0, 1]$$. Each time series is indexed by $$\lbrace 0, 1, \ldots, T-1$$.
+In part B, we try to predict *long* time series using stateless LSTM. In that case, models lead to poor results. 
 
-Let $$y_1, y_2, y_3$$ three time series defined as:
+In part C, we circumvent this issue by training **stateful LSTM**. We deal with the case of one input and one output. Stateful models are tricky with Keras, because you need to be careful on how you cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose.
 
-* $$y_1[t] = x_1[t-2]$$ for $$t \geq 2$$,
-* $$y_2[t] = x_2[t-1] \times x3[t-2]$$ for $$t \geq 2$$,
-* $$y_3[t] = x_4[t-3]$$ for $$t \geq 3$$.
-
-Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1$$ (First undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
-
-Our task is to predict the three lagged time series $$y = (y_1, y_2, y_3)$$ based on inputs $$x = (x_1, x_2, x_3, x_4)$$. To this end, we will train different RNN models.
-The following figure shows the framework when $$T=10$$.
+In part D, stateful LSTM is used to predict multiple outputs from multiple inputs.
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/intro14.png" alt="framework with T=10"/></center>
 
 
 
 *Fig. 1. Framework with input time series on the left, RNN model in the middle, and output time series on the right*
+
+
+
+
+
+Companion source code for this post is [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
+
+We focus on the following problem.
+Let $$x_1, x_2, x_3, x_4$$ four time series following the uniform distribution on $$[0, 1]$$. Each time series is indexed by $$\lbrace 0, 1, \ldots, T-1 \rbrace$$.
+
+Let $$y_1, y_2, y_3$$ three time series defined as:
+
+* $$y_1[t] = x_1[t-2]$$ for $$t \geq 2$$,
+* $$y_2[t] = x_2[t-1] \times x_3[t-2]$$ for $$t \geq 2$$,
+* $$y_3[t] = x_4[t-3]$$ for $$t \geq 3$$.
+
+Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1$$ (First undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
+
+Our task is to predict the three lagged time series $$y = (y_1, y_2, y_3)$$ based on inputs $$x = (x_1, x_2, x_3, x_4)$$. To this end, we will train different RNN models.
+Fig. 1 represents the framework when $$T=10$$.
+
 
 ###Training and test sets
 
