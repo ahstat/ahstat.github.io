@@ -26,6 +26,8 @@ In part D, stateful LSTM is used to predict multiple outputs from multiple input
 
 Companion source code for this post is [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
 
+### Description of the problem
+
 We focus on the following problem.
 Let $$x_1, x_2, x_3, x_4$$ four time series following the uniform distribution on $$[0, 1]$$. Each time series is indexed by $$\lbrace 0, 1, \ldots, T-1 \rbrace$$.
 
@@ -41,7 +43,7 @@ Our task is to predict the three lagged time series $$y = (y_1, y_2, y_3)$$ base
 Fig. 1 represents the framework when $$T=10$$.
 
 
-###Training and test sets
+### Training and test sets
 
 Two parameters are used to define training and test sets: $$N$$ the number of sample elements and $$T$$ the length of each time series. Each sample element consists of inputs $$x = (x_1, x_2, x_3, x_4)$$ (four time series of length $$T$$) and outputs $$y = (y_1, y_2, y_3)$$ (three time series of length $$T$$).
 
@@ -57,7 +59,7 @@ $$(x^{i,\text{train}}, y^{i,\text{train}})$$, which is the $$i$$-th element of t
 
 This is implemented with the function `sample_time_series_roll`
 
-##Part A: Short time series with stateless LSTM
+## Part A: Short time series with stateless LSTM
 
 We consider short time series of length $$T = 37$$ and sample size $$N = 663$$.
 
@@ -111,7 +113,7 @@ Results are also checked visually, here for $$i=0$$ (blue for true output; orang
 
 **Conclusion of this part:** LSTM models works well to learn short sequences.
 
-##Part B: Problem to predict long time series with stateless LSTM
+## Part B: Problem to predict long time series with stateless LSTM
 
 We consider long time series of length $$T = 1443$$ and sample size $$N = 17$$.
 Note that product $$N \times T$$ is the same in parts A and B (so computation of $$500$$ epochs takes the same time).
@@ -141,15 +143,15 @@ In general, not working well, and we need to switch to statefull LSTM.
 
 
 
-##Part C: Long time series with stateful LSTM
+## Part C: Long time series with stateful LSTM
 we consider stateful LSTM to perform prediction with long
 time series (with user defined number of cuts and batches).
 
-##Part D: Long time series prediction involving multiple inputs and outputs
+## Part D: Long time series prediction involving multiple inputs and outputs
 we apply those predictions with multiple inputs and outputs
 
 
-###References
+## References
 To deal with part C, we consider a 0/1 time series described by Philippe
 Remy in http://philipperemy.github.io/keras-stateful-lstm/ and we follow
 stateful implementation in Keras according to 
