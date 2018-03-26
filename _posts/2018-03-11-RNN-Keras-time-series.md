@@ -37,9 +37,9 @@ Let $$y_1, y_2, y_3$$ three time series defined as:
 * $$y_2(t) = x_2(t-1) \times x_3(t-2)$$ for $$t \geq 2$$,
 * $$y_3(t) = x_4(t-3)$$ for $$t \geq 3$$.
 
-Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1$$ (First undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
+Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1 \rbrace$$ (first undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
 
-Our task is to predict the three lagged time series $$y = (y_1, y_2, y_3)$$ based on inputs $$x = (x_1, x_2, x_3, x_4)$$. To this end, we will train different RNN models.
+Our task is to predict the three time series $$y = (y_1, y_2, y_3)$$ based on inputs $$x = (x_1, x_2, x_3, x_4)$$. To this end, we will train different RNN models.
 Fig. 1 represents the framework when $$T=10$$.
 
 
@@ -133,7 +133,7 @@ Results are also checked visually for the $$50$$ first elements, here for $$i=0$
 
 Results are also checked visually, here for $$i=0$$ (blue for true output; orange for predicted outputs):
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y1.png" alt="true and predicting outputs for y1"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_B_y1_from_x1_ts0.png" alt="true and predicting outputs for y1"/></center>
 
 *Fig. 5. Prediction for $$y_1$$ for long time series with stateless LSTM, restricted to the $$50$$ first dates*
 
@@ -147,6 +147,9 @@ In general, not working well, and we need to switch to statefull LSTM.
 
 
 ## Part C: Long time series with stateful LSTM
+
+TODO before 31th March 2018.
+
 we consider stateful LSTM to perform prediction with long
 time series (with user defined number of cuts and batches).
 
