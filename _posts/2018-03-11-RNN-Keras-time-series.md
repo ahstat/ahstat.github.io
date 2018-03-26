@@ -4,13 +4,13 @@ title: RNN with Keras&#58; Predicting time series
 published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-This tutorial provides a complete introduction on time series prediction with Recurrent Neural Networks (RNN).
+This tutorial provides a complete introduction of time series prediction with RNN.
 
 In part A, we predict *short* time series using stateless LSTM. Computations give good results for this kind of series.
 
 In part B, we try to predict *long* time series using stateless LSTM. In that case, models lead to poor results. 
 
-In part C, we circumvent this issue by training **stateful LSTM**. We deal with the case of one input and one output. Stateful models are tricky with Keras, because you need to be careful on how you cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose.
+In part C, we circumvent this issue by training **stateful LSTM**. We consider the case of one input and one output. Stateful models are tricky with Keras, because you need to be careful on how to cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose.
 
 In part D, stateful LSTM is used to predict multiple outputs from multiple inputs.
 
@@ -24,7 +24,7 @@ In part D, stateful LSTM is used to predict multiple outputs from multiple input
 
 
 
-Companion source code for this post is [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
+Companion source code for this post is available [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
 
 ### Description of the problem
 
@@ -33,9 +33,9 @@ Let $$x_1, x_2, x_3, x_4$$ four time series following the uniform distribution o
 
 Let $$y_1, y_2, y_3$$ three time series defined as:
 
-* $$y_1[t] = x_1[t-2]$$ for $$t \geq 2$$,
-* $$y_2[t] = x_2[t-1] \times x_3[t-2]$$ for $$t \geq 2$$,
-* $$y_3[t] = x_4[t-3]$$ for $$t \geq 3$$.
+* $$y_1(t) = x_1(t-2)$$ for $$t \geq 2$$,
+* $$y_2(t) = x_2(t-1) \times x_3(t-2)$$ for $$t \geq 2$$,
+* $$y_3(t) = x_4(t-3)$$ for $$t \geq 3$$.
 
 Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1$$ (First undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
 
