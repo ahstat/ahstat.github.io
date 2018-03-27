@@ -8,9 +8,9 @@ This tutorial provides a complete introduction of time series prediction with RN
 
 In part A, we predict *short* time series using stateless LSTM. Computations give good results for this kind of series.
 
-In part B, we try to predict *long* time series using stateless LSTM. In that case, models lead to poor results. 
+In part B, we try to predict *long* time series using stateless LSTM. In that case, model leads to poor results. 
 
-In part C, we circumvent this issue by training **stateful LSTM**. We consider the case of one input and one output. Stateful models are tricky with Keras, because you need to be careful on how to cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose.
+In part C, we circumvent this issue by training **stateful LSTM**. Stateful models are tricky with Keras, because you need to be careful on how to cut time series, select batch size, and reset states. I wrote a wrapper function working in all cases for that purpose.
 
 In part D, stateful LSTM is used to predict multiple outputs from multiple inputs.
 
@@ -19,10 +19,6 @@ In part D, stateful LSTM is used to predict multiple outputs from multiple input
 
 
 *Fig. 1. Framework with input time series on the left, RNN model in the middle, and output time series on the right*
-
-
-
-
 
 Companion source code for this post is available [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
 
@@ -37,11 +33,10 @@ Let $$y_1, y_2, y_3$$ three time series defined as:
 * $$y_2(t) = x_2(t-1) \times x_3(t-2)$$ for $$t \geq 2$$,
 * $$y_3(t) = x_4(t-3)$$ for $$t \geq 3$$.
 
-Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1 \rbrace$$ (first undefined elements of $$y_1, y_2, y_3$$ are randomly sampled).
+Each time series is also indexed by $$\lbrace 0, 1, \ldots, T-1 \rbrace$$ (first undefined elements of $$y_1, y_2, y_3$$ are sampled randomly).
 
 Our task is to predict the three time series $$y = (y_1, y_2, y_3)$$ based on inputs $$x = (x_1, x_2, x_3, x_4)$$. To this end, we will train different RNN models.
 Fig. 1 represents the framework when $$T=10$$.
-
 
 ### Training and test sets
 
@@ -57,7 +52,7 @@ $$(x^{i,\text{test}}, y^{i,\text{test}}).$$
 For example, $$x^{i,\text{train}}_2(t) \in [0, 1]$$ is the value at date $$t$$ of the time series $$x^{i,\text{train}}_2$$, which is the second input of 
 $$(x^{i,\text{train}}, y^{i,\text{train}})$$, which is the $$i$$-th element of the training set.
 
-This is implemented with the function `sample_time_series_roll`
+This is implemented in function `sample_time_series_roll`.
 
 ## Part A: Short time series with stateless LSTM
 
@@ -100,7 +95,7 @@ Training performs well (see Fig. 2), and after $$500$$ epochs, training and test
 
 *Fig. 2. MSE loss as a function of the number of epochs for short time series with stateless LSTM*
 
-Results are also checked visually, here for $$i=0$$ (blue for true output; orange for predicted outputs):
+Results are also checked visually, here for sample $$i=0$$ (blue for true output; orange for predicted outputs):
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y1.png" alt="true and predicting outputs for y1"/></center>
 
@@ -108,52 +103,70 @@ Results are also checked visually, here for $$i=0$$ (blue for true output; orang
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y2.png" alt="true and predicting outputs for y2"/></center>
 
-*Fig. 3.a. Prediction for $$y_2$$ for short time series with stateless LSTM*
+*Fig. 3.b. Prediction for $$y_2$$ for short time series with stateless LSTM*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y3.png" alt="true and predicting outputs for y3"/></center>
 
-*Fig. 3.a. Prediction for $$y_3$$ for short time series with stateless LSTM*
+*Fig. 3.c. Prediction for $$y_3$$ for short time series with stateless LSTM*
 
-**Conclusion of this part:** LSTM models works well to learn short sequences.
+**Conclusion of this part:** LSTM models work well to learn short sequences.
 
 ## Part B: Problem to predict long time series with stateless LSTM
 
 We consider long time series of length $$T = 1443$$ and sample size $$N = 17$$.
-Note that product $$N \times T$$ is the same in parts A and B (so computation of $$500$$ epochs takes the same time).
+Note that product $$N \times T$$ is the same in parts A and B (so computation of $$500$$ epochs takes a similar amount of time).
 
 We repeat the methodology described in part A in a simplified setting: We only predict $$y_1$$ (the first time series output) as a function of $$x_1$$ (the first time series input).
 Even in this case, predictions are not satisfactory after $$500$$ epochs.
-Training and test losses have decreased to $$0.036$$ (see Fig. 6), but it is not enough to give accurate predictions (see Fig. 7). 
-
-Results are also checked visually for the $$50$$ first elements, here for $$i=0$$ (blue for true output; orange for predicted outputs):
+Training and test losses have decreased to $$0.036$$ (see Fig. 4), but it is not enough to give accurate predictions (see Fig. 5). 
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_B_y1_from_x1.png" alt="decreasing MSE loss for long time series model with stateless LSTM"/></center>
+<center><em>Fig. 4. MSE loss as a function of the number of epochs for long time series with stateless LSTM</em></center>
 
-*Fig. 4. MSE loss as a function of the number of epochs for long time series with stateless LSTM*
-
-Results are also checked visually, here for $$i=0$$ (blue for true output; orange for predicted outputs):
+In Fig. 5, we check output time series for sample $$i=0$$ and for the $$50$$ first elements (blue for true output; orange for predicted outputs).
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_B_y1_from_x1_ts0.png" alt="true and predicting outputs for y1"/></center>
 
 *Fig. 5. Prediction for $$y_1$$ for long time series with stateless LSTM, restricted to the $$50$$ first dates*
 
 
+**Conclusion of this part:** Stateless LSTM models work poorly in practice to learn long time series, even for $$y_t = x_{t-2}$$.
+The network is able to learn such dependence, but convergence is too slow. In this case, we need to switch to stateful LSTM as seen in part C.
 
-Conclusion: not so good to learn $$y_t = x_{t-2}$$. We need more epochs to continue learning.
-In general, not working well, and we need to switch to statefull LSTM.
-
-
-
+## Part C: Wrapper function to use stateful LSTM with time series
 
 
-## Part C: Long time series with stateful LSTM
+Issue of part B: long time series of length $$T = 1443$$ and sample size $$N = 17$$.
+
+Idea: We want to cut this for example $$T_after_cut = 37$$ and number of cuts $$nb_cuts = 39$$. Illustration in Fig. 6.
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/C/*.*.." alt="*.*.."/></center>
+
+*Fig. 6. *
+
+Problem if we apply this directly.
+
+Idea of stateful LSTM: do not reset states.
+
+Another parameter: batch_size
+
+Function to cut correctly automatically! Here
+
+
+
+### Function `stateful_cut`
+
+There are designed to manage multiple inputs, outputs, also with user defined 
+batch size and number of cuts.
+
+
 
 TODO before 31th March 2018.
 
 we consider stateful LSTM to perform prediction with long
 time series (with user defined number of cuts and batches).
 
-## Part D: Long time series prediction involving multiple inputs and outputs
+## Part D: Long time series with stateful LSTM
 we apply those predictions with multiple inputs and outputs
 
 
