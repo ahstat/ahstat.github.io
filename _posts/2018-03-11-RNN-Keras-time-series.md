@@ -162,13 +162,13 @@ batch size and number of cuts.
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="400"/></center>
 *Fig. 7. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="400"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="1000"/></center>
 *Fig. 8. Aaa*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="400"/></center>
 *Fig. 9. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="400"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="1000"/></center>
 *Fig. 10. Aaa*
 
 
