@@ -18,7 +18,7 @@ In part D, stateful LSTM is used to predict multiple outputs from multiple input
 
 
 
-<em><center>Fig. 1. Framework with input time series on the left, RNN model in the middle, and output time series on the right</em></center>
+*Fig. 1. Framework with input time series on the left, RNN model in the middle, and output time series on the right*
 
 Companion source code for this post is available [here](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py).
 
@@ -93,21 +93,21 @@ Training performs well (see Fig. 2), and after $$500$$ epochs, training and test
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234.png" alt="decreasing MSE loss for short time series model"/></center>
 
-<em><center>Fig. 2. MSE loss as a function of epochs for short time series with stateless LSTM</em></center>
+*Fig. 2. MSE loss as a function of epochs for short time series with stateless LSTM*
 
 Results are also checked visually, here for sample $$i=0$$ (blue for true output; orange for predicted outputs):
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y1.png" alt="true and predicting outputs for y1"/></center>
 
-<em><center>Fig. 3.a. Prediction for $$y_1$$ for short time series with stateless LSTM</em></center>
+*Fig. 3.a. Prediction for $$y_1$$ for short time series with stateless LSTM*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y2.png" alt="true and predicting outputs for y2"/></center>
 
-<em><center>Fig. 3.b. Prediction for $$y_2$$ for short time series with stateless LSTM</em></center>
+*Fig. 3.b. Prediction for $$y_2$$ for short time series with stateless LSTM*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_A_y123_from_x1234_ts0_y3.png" alt="true and predicting outputs for y3"/></center>
 
-<em><center>Fig. 3.c. Prediction for $$y_3$$ for short time series with stateless LSTM</em></center>
+*Fig. 3.c. Prediction for $$y_3$$ for short time series with stateless LSTM*
 
 **Conclusion of this part:** LSTM models work well to learn short sequences.
 
@@ -121,13 +121,13 @@ Even in this case, predictions are not satisfactory after $$500$$ epochs.
 Training and test losses have decreased to $$0.036$$ (see Fig. 4), but it is not enough to give accurate predictions (see Fig. 5). 
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_B_y1_from_x1.png" alt="decreasing MSE loss for long time series model with stateless LSTM"/></center>
-<center><em>Fig. 4. MSE loss as a function of epochs for long time series with stateless LSTM</em></center>
+*Fig. 4. MSE loss as a function of epochs for long time series with stateless LSTM*
 
 In Fig. 5, we check output time series for sample $$i=0$$ and for the $$50$$ first elements (blue for true output; orange for predicted outputs).
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/A/4_B_y1_from_x1_ts0.png" alt="true and predicting outputs for y1"/></center>
 
-<em><center>Fig. 5. Prediction for $$y_1$$ for long time series with stateless LSTM, restricted to the $$50$$ first dates</em></center>
+*Fig. 5. Prediction for $$y_1$$ for long time series with stateless LSTM, restricted to the $$50$$ first dates*
 
 
 **Conclusion of this part:** Stateless LSTM models work poorly in practice to learn long time series, even for $$y_t = x_{t-2}$$.
@@ -159,17 +159,17 @@ Function to cut correctly automatically! Here
 There are designed to manage multiple inputs, outputs, also with user defined 
 batch size and number of cuts.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt=""/></center>
-<center><em>Fig. 7. Aaa</em></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="400"/></center>
+*Fig. 7. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt=""/></center>
-<center><em>Fig. 8. Aaa</em></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="400"/></center>
+*Fig. 8. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt=""/></center>
-<center><em>Fig. 9. Aaa</em></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="400"/></center>
+*Fig. 9. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt=""/></center>
-<center><em>Fig. 10. Aaa</em></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="400"/></center>
+*Fig. 10. Aaa*
 
 
 TODO before 31th March 2018.
