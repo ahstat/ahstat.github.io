@@ -130,59 +130,72 @@ In Fig. 5, we check output time series for sample $$i=0$$ and for the $$50$$ fir
 *Fig. 5. Prediction for $$y_1$$ for long time series with stateless LSTM, restricted to the $$50$$ first dates*
 
 
-**Conclusion of this part:** Stateless LSTM models work poorly in practice to learn long time series, even for $$y_t = x_{t-2}$$.
+**Conclusion of this part:** Stateless LSTM models work poorly in practice for learning long time series, even for $$y_t = x_{t-2}$$.
 The network is able to learn such dependence, but convergence is too slow. In this case, we need to switch to stateful LSTM as seen in part C.
 
 ## Part C: Wrapper function to use stateful LSTM with time series
 
+We have seen in part B that learning with LSTM can be very slow for long time series.
 
-Issue of part B: long time series of length $$T = 1443$$ and sample size $$N = 17$$.
+A natural idea is to cut the series into smaller pieces and treat each one separately.
 
-Idea: We want to cut this for example $$T_{\text{after_cut}} = 37$$ and number of cuts $$\text{nb_cuts} = 39$$. Illustration in Fig. 6.
+An issue arises by applying this method directly: 
+Between two pieces, the network will reset hidden states, 
+preventing share of information.
+For example, with $$y_1(t) = x_1(t-2)$$ and a series cut into $$2$$ pieces, the first element of piece $$2$$ cannot access to any information kept in memory from piece $$1$$, and will be unable to produce a correct output.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/C/*.*.." alt="*.*.."/></center>
+Here is coming stateful LSTM. 
+Using this model, we cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This idea is illustrated in Fig. 6 with a series of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
 
-*Fig. 6. *
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/C/" alt=""/></center>
 
-Problem if we apply this directly.
+*Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
-Idea of stateful LSTM: do not reset states.
+*Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow: Compute gradient of piece $$1$$; Update parameters; Keep hidden states; Compute gradient of piece $$2$$; Update parameters; Reset hidden states*
 
-Another parameter: batch_size
+In practice, we also need to paid attention of the batch size during cut.
 
-Function to cut correctly automatically! Here
+The easiest case is when batch size is $$N$$ the number of elements in the sample.
+In that case, we only reset states after each epoch.
 
+Another simple case is when batch size is $$1$$.
+In that case, we present each series in a lineup, and reset states after each series.
+This case is illustrated in Fig. 7.
 
+The tricky case is when $$\text{batch_size} | N$$ and $$\text{batch_size} \not \in \lbrace 1, N \rbrace$$.
+In that case, we present a batch series in a lineup, and reset states after batch series.
+This is illustrated in Fig. 8.
+In the companion source code, 
+cut is done with `stateful_cut` function,
+designed to manage number of cuts, batch size, as well as multiple inputs and outputs.
 
-### Function `stateful_cut`
-
-There are designed to manage multiple inputs, outputs, also with user defined 
-batch size and number of cuts.
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="400"/></center>
-*Fig. 7. Aaa*
+*Fig. 7. a. Aaa*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="720"/></center>
-*Fig. 8. Aaa*
+*Fig. 7. b. Aaa*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="400"/></center>
-*Fig. 9. Aaa*
+*Fig. 8. a. Aaa*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="720"/></center>
-*Fig. 10. Aaa*
+*Fig. 8. b. Aaa*
 
+
+
+
+
+## Part D: Long time series with stateful LSTM
+
+we apply those predictions with multiple inputs and outputs
+Do not forget to reset states.
+A technical problem with validation, as noted by Philippe Remy.
 
 TODO before 31th March 2018.
 
-we consider stateful LSTM to perform prediction with long
-time series (with user defined number of cuts and batches).
-
-## Part D: Long time series with stateful LSTM
-we apply those predictions with multiple inputs and outputs
-
-
 ## References
-To deal with part C, we consider a 0/1 time series described by Philippe
+To deal with part C in companion code, we consider a 0/1 time series described by Philippe
 Remy in http://philipperemy.github.io/keras-stateful-lstm/ and we follow
 stateful implementation in Keras according to 
 https://stackoverflow.com/questions/43882796/
