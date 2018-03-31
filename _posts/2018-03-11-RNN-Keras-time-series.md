@@ -195,9 +195,10 @@ designed to manage number of cuts, batch size, as well as multiple inputs and ou
 
 We consider long time series of length $$T = 1443$$ and sample size $$N = 16$$.
 
-We select $$\text{batch_size} = 8$$ and $$T_{\text{after_cut}} = 37$$*
+We select $$\text{batch_size} = 8$$ and $$T_{\text{after_cut}} = 37$$.
+Consequently, we have: $$\text{nb_cuts} = T / T_{\text{after_cut}}$$.
 
-After cut, we obtain inputs with shape $$(N \times \text{nb_cuts}, T / \text{nb_cuts}, 4) = (624, 37, 3)$$ and outputs with shape $$(624, 37, 4)$$.
+After cut, we obtain inputs with shape $$(N \times \text{nb_cuts}, T / \text{nb_cuts}, 4)$$ i.e. $$(624, 37, 3)$$, and outputs with shape $$(624, 37, 4)$$.
 
 ### Model
 
@@ -222,16 +223,16 @@ model.compile(loss = 'mse', optimizer = 'rmsprop')
 ### Training
 
 For the training part,
-a callback `define_reset_states_class` to reset states after $$\text{nb_cuts}$$ pieces has been written.
+a callback has been written to reset states after $$\text{nb_cuts}$$ pieces
+(function `define_reset_states_class`).
 
 However, this callback is not properly called with validation data, 
 [as noted by Philippe Remy on his blog](http://philipperemy.github.io/keras-stateful-lstm).
-For that purpose, another function `define_stateful_val_loss_class` has been defined.
+Another function `define_stateful_val_loss_class` has been defined for that purpose.
 
 Also, we need to take `shuffle = False` during model fitting.
 
 On the whole, training is performed during $$100$$ epochs as written in the following sample code.
-
 Training and test losses have decreased to $$0.002$$ (see Fig. 9).
 
 ```python
@@ -271,10 +272,10 @@ else:
 Prediction with stateful model through Keras function `model.predict` needs a complete batch, 
 which is not convenient here.
 
-Instead, we write a mime model: we take the same weights, but with a stateless model.
+Instead, we write a mime model: We take the same weights, but packed as a stateless model.
 
 ```python
-## Mime model which is stateless but containing stateful weights
+## Mime model which is stateless but contains stateful weights
 model_stateless = Sequential()
 model_stateless.add(LSTM(input_shape=(None, dim_in),
                          return_sequences=True, units=nb_units))
