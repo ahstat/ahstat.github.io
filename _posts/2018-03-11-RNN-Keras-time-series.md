@@ -154,6 +154,7 @@ We cut the series into smaller pieces, and also keep state of hidden cells from 
 *Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/after_FINAL.svg" alt="" width="68%"/>
+
 *Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow with stateful LSTM: Compute gradient for piece $$1$$; Update parameters; Keep hidden states; Compute gradient for piece $$2$$; Update parameters; Reset hidden states*
 
 ### Considering batch size
@@ -168,9 +169,11 @@ In that case, we present each series in a lineup, and reset states after each se
 This case is illustrated in Fig. 7.
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="68%"/>
+
 *Fig. 7. a. Series before cut. There are $$N = 3$$ series of length $$T = 14$$*
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="85%"/>
+
 *Fig. 7. b. Series after cut with $$\text{batch_size} = 1$$ and $$T_{\text{after_cut}} = 7$$*
 
 The tricky case is when $$\text{batch_size} | N$$ and $$\text{batch_size} \not \in \lbrace 1, N \rbrace$$.
@@ -181,9 +184,11 @@ cut is done with `stateful_cut` function,
 designed to manage number of cuts, batch size, as well as multiple inputs and outputs.
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="85%"/>
+
 *Fig. 8. a. Aaa*
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="85%"/>
+
 *Fig. 8. b. Aaa*
 
 
