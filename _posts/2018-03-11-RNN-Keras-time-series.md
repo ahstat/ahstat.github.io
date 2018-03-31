@@ -211,8 +211,11 @@ nb_units = 10
 
 model = Sequential()
 model.add(LSTM(batch_input_shape=(batch_size, None, dim_in),
-               return_sequences=True, units=nb_units, stateful=True))
-model.add(TimeDistributed(Dense(activation='linear', units=dim_out)))
+               return_sequences=True, 
+               units=nb_units, 
+               stateful=True))
+model.add(TimeDistributed(Dense(activation='linear',
+                                units=dim_out)))
 model.compile(loss = 'mse', optimizer = 'rmsprop')
 ```
 
@@ -245,15 +248,18 @@ if nb_reset > 1:
                                                         outputs_test, 
                                                         batch_size, nb_cuts)
     validation = ValidationCallback()
-    history = model.fit(inputs, outputs, epochs = epochs, 
-                        batch_size = batch_size, shuffle=False,
+    history = model.fit(inputs, outputs, 
+                        epochs = epochs, batch_size = batch_size, 
+                        shuffle=False,
                         callbacks = [ResetStatesCallback(), validation])
     history.history['val_loss'] = ValidationCallback.get_val_loss(validation)
 else:
     # When nb_reset = 1, we do not need to reinitialize state
-    history = model.fit(inputs, outputs, epochs = epochs, 
-                        batch_size = batch_size, shuffle=False,
-                        validation_data=(inputs_test, outputs_test))
+    history = model.fit(inputs, outputs, 
+                        epochs = epochs, batch_size = batch_size, 
+                        shuffle=False,
+                        validation_data=(inputs_test, 
+                                         outputs_test))
 ```
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_D_y123_from_x1234.png" alt="decreasing MSE loss for long time series model"/></center>
@@ -267,12 +273,13 @@ which is not convenient here.
 
 Instead, we write a mime model: we take the same weights, but with a stateless model.
 
-```
+```python
 ## Mime model which is stateless but containing stateful weights
 model_stateless = Sequential()
 model_stateless.add(LSTM(input_shape=(None, dim_in),
-               return_sequences=True, units=nb_units))
-model_stateless.add(TimeDistributed(Dense(activation='linear', units=dim_out)))
+                         return_sequences=True, units=nb_units))
+model_stateless.add(TimeDistributed(Dense(activation='linear', 
+                                          units=dim_out)))
 model_stateless.compile(loss = 'mse', optimizer = 'rmsprop')
 model_stateless.set_weights(model.get_weights())
 ```
