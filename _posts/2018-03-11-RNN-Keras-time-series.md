@@ -177,7 +177,7 @@ This case is illustrated in Fig. 7.
 *Fig. 7. b. Series after cut with $$\text{batch_size} = 1$$ and $$T_{\text{after_cut}} = 7$$*
 
 The tricky case is when $$\text{batch_size} | N$$ and $$\text{batch_size} \not \in \lbrace 1, N \rbrace$$.
-In that case, we present a batch series in a lineup, and reset states after batch series.
+In that case, we present a cut batch series in a lineup, and reset states after a complete batch series.
 This is illustrated in Fig. 8.
 In the companion source code, 
 cut is done with `stateful_cut` function,
@@ -185,32 +185,121 @@ designed to manage number of cuts, batch size, as well as multiple inputs and ou
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="85%"/>
 
-*Fig. 8. a. Aaa*
+*Fig. 8. a. Series before cut. There are $$N = 15$$ series of length $$T = 14$$*
 
 <img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="85%"/>
 
-*Fig. 8. b. Aaa*
-
-
-
-
+*Fig. 8. b. Series after cut. We have selected $$\text{batch_size} = 3$$ and $$T_{\text{after_cut}} = 7$$*
 
 ## Part D: Long time series with stateful LSTM
 
-we apply those predictions with multiple inputs and outputs
-Do not forget to reset states.
-A technical problem with validation, as noted by Philippe Remy.
+We consider long time series of length $$T = 1443$$ and sample size $$N = 16$$.
 
-TODO before 31th March 2018.
+We select $$\text{batch_size} = 8$$ and $$T_{\text{after_cut}} = 37$$*
+
+After cut, we obtain inputs with shape $$(N \times \text{nb_cuts}, T / \text{nb_cuts}, 4) = (624, 37, 3)$$ and outputs with shape $$(624, 37, 4)$$.
+
+### Model
+
+Then, a stateful LSTM model in defined with $$10$$ units.
+
+```
+##
+# Model
+##
+nb_units = 10
+
+model = Sequential()
+model.add(LSTM(batch_input_shape=(batch_size, None, dim_in),
+               return_sequences=True, units=nb_units, stateful=True))
+model.add(TimeDistributed(Dense(activation='linear', units=dim_out)))
+model.compile(loss = 'mse', optimizer = 'rmsprop')
+```
+
+### Training
+
+For the training part,
+a callback `define_reset_states_class` to reset states after $$\text{nb_cuts}$$ pieces has been written.
+
+However, this callback is not properly called with validation data, 
+[as noted by Philippe Remy on his blog](http://philipperemy.github.io/keras-stateful-lstm).
+For that purpose, another function `define_stateful_val_loss_class` has been defined.
+
+Also, we need to take `shuffle = False` during model fitting.
+
+On the whole, training is performed during $$100$$ epochs as written in the following sample code.
+# With batch_size = 8 (i.e. need to reset states): 6s per epoch
+# After 100 epochs: loss: 0.0023 / val_loss: 0.0024
+
+Training and test losses have decreased to $$0.002$$ (see Fig. 9).
+
+```
+##
+# Training
+##
+epochs = 100
+
+nb_reset = int(N / batch_size)
+nb_cuts = int(T / T_after_cut)
+if nb_reset > 1:
+    ResetStatesCallback = define_reset_states_class(nb_cuts)
+    ValidationCallback = define_stateful_val_loss_class(inputs_test, 
+                                                        outputs_test, 
+                                                        batch_size, nb_cuts)
+    validation = ValidationCallback()
+    history = model.fit(inputs, outputs, epochs = epochs, 
+                        batch_size = batch_size, shuffle=False,
+                        callbacks = [ResetStatesCallback(), validation])
+    history.history['val_loss'] = ValidationCallback.get_val_loss(validation)
+else:
+    # When nb_reset = 1, we do not need to reinitialize state
+    history = model.fit(inputs, outputs, epochs = epochs, 
+                        batch_size = batch_size, shuffle=False,
+                        validation_data=(inputs_test, outputs_test))
+```
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_D_y123_from_x1234.png" alt="decreasing MSE loss for long time series model"/></center>
+
+*Fig. 9. MSE loss as a function of epochs for long time series with stateful LSTM*
+
+### Predictions
+
+Prediction with stateful model through Keras function `model.predict` needs a complete batch, 
+which is not convenient here.
+
+Instead, we write a mime model: we take the same weights, but with a stateless model.
+
+```
+## Mime model which is stateless but containing stateful weights
+model_stateless = Sequential()
+model_stateless.add(LSTM(input_shape=(None, dim_in),
+               return_sequences=True, units=nb_units))
+model_stateless.add(TimeDistributed(Dense(activation='linear', units=dim_out)))
+model_stateless.compile(loss = 'mse', optimizer = 'rmsprop')
+model_stateless.set_weights(model.get_weights())
+```
+
+Now, predictions are straighforward.
+Results are checked in Fig. 10 for sample $$n=0$$ and for the $$100$$ first elements (blue for true output; orange for predicted outputs):
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_D_y123_from_x1234_ts0_y1.png" alt="true and predicting outputs for y1"/></center>
+
+*Fig. 10.a. Prediction of $$y_1$$ for long time series with stateful LSTM, restricted to the $$100$$ first dates*
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_D_y123_from_x1234_ts0_y2.png" alt="true and predicting outputs for y2"/></center>
+
+*Fig. 10.b. Prediction of $$y_2$$ for long time series with stateful LSTM, restricted to the $$100$$ first dates*
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_D_y123_from_x1234_ts0_y3.png" alt="true and predicting outputs for y3"/></center>
+
+*Fig. 10.c. Prediction of $$y_3$$ for long time series with stateful LSTM, restricted to the $$100$$ first dates*
+
+**Conclusion of this part:** Our stateful LSTM model works quite well to learn long sequences.
 
 ## References
-To deal with part C in companion code, we consider a 0/1 time series described by Philippe
-Remy in http://philipperemy.github.io/keras-stateful-lstm/ and we follow
-stateful implementation in Keras according to 
-https://stackoverflow.com/questions/43882796/
 
-Model defined in https://stackoverflow.com/questions/41947039
-
-Based on question https://stackoverflow.com/questions/41947039 called
-"Keras RNN with LSTM cells for predicting multiple output time series based 
-on multiple input time series"
+- Tutorial inspired from a StackOverflow question called
+["Keras RNN with LSTM cells for predicting multiple output time series based 
+on multiple input time series"](https://stackoverflow.com/questions/41947039).
+- This [post](https://stackoverflow.com/questions/43882796/) helps me to understand stateful LSTM
+- To deal with part C in companion code, we consider a 0/1 time series [as described by Philippe Remy in his post](http://philipperemy.github.io/keras-stateful-lstm).
