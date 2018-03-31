@@ -149,7 +149,7 @@ For example, with $$y_1(t) = x_1(t-2)$$ and a series cuts into $$2$$ pieces, the
 Here is coming stateful LSTM. 
 We cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This is illustrated in Fig. 6 with a series $$n=0$$ of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="85%"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="50%"/></center>
 
 *Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
