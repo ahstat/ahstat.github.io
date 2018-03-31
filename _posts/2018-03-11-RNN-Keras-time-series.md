@@ -144,17 +144,21 @@ Between two pieces, the network will reset hidden states,
 preventing share of information.
 For example, with $$y_1(t) = x_1(t-2)$$ and a series cuts into $$2$$ pieces, the first element of piece $$2$$ cannot access to any information kept in memory from piece $$1$$, and will be unable to produce a correct output.
 
+### Stateful LSTM
+
 Here is coming stateful LSTM. 
-Using it, we cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This idea is illustrated in Fig. 6 with a series $n=0$ of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
+We cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This is illustrated in Fig. 6 with a series $$n=0$$ of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="85%"/></center>
 
 *Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/after_FINAL.svg" alt="" width="85%"/></center>
-*Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow: Compute gradient of piece $$1$$; Update parameters; Keep hidden states; Compute gradient of piece $$2$$; Update parameters; Reset hidden states*
+*Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow with stateful LSTM: Compute gradient for piece $$1$$; Update parameters; Keep hidden states; Compute gradient for piece $$2$$; Update parameters; Reset hidden states*
 
-In practice, we also need to paid attention of the batch size during cut.
+### Considering batch size
+
+In practice, we also need to pay attention of the batch size during cut.
 
 The easiest case is when batch size is $$N$$ the number of elements in the sample.
 In that case, we only reset states after each epoch.
@@ -163,6 +167,12 @@ Another simple case is when batch size is $$1$$.
 In that case, we present each series in a lineup, and reset states after each series.
 This case is illustrated in Fig. 7.
 
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="85%"/></center>
+*Fig. 7. a. Series before cut. There are $$N = 3$$ series of length $$T = 14$$*
+
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="85%"/></center>
+*Fig. 7. b. Series after cut with $$\text{batch_size} = 1$$ and $$T_{\text{after_cut}} = 7$$*
+
 The tricky case is when $$\text{batch_size} | N$$ and $$\text{batch_size} \not \in \lbrace 1, N \rbrace$$.
 In that case, we present a batch series in a lineup, and reset states after batch series.
 This is illustrated in Fig. 8.
@@ -170,17 +180,10 @@ In the companion source code,
 cut is done with `stateful_cut` function,
 designed to manage number of cuts, batch size, as well as multiple inputs and outputs.
 
-
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="400"/></center>
-*Fig. 7. a. Aaa*
-
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="720"/></center>
-*Fig. 7. b. Aaa*
-
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="400"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/3_batchsize3_before_FINAL.svg" alt="" width="85%"/></center>
 *Fig. 8. a. Aaa*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="720"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/4_batchsize3_after_FINAL.svg" alt="" width="85%"/></center>
 *Fig. 8. b. Aaa*
 
 
