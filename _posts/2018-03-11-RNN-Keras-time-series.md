@@ -44,13 +44,13 @@ Two parameters are used to define training and test sets: $$N$$ the number of sa
 
 We take the same number of elements $$N$$ in the training and the test set.
 
-On the whole, for $$i \in \lbrace 0, ..., N-1 \rbrace$$, the $$i$$-th element of the training set is:
-$$(x^{i,\text{train}}, y^{i,\text{train}}),$$
-and the $$i$$-th element of the test set is:
-$$(x^{i,\text{test}}, y^{i,\text{test}}).$$
+On the whole, for $$n \in \lbrace 0, ..., N-1 \rbrace$$, the $$n$$-th element of the training set is:
+$$(x^{n,\text{train}}, y^{n,\text{train}}),$$
+and the $$n$$-th element of the test set is:
+$$(x^{n,\text{test}}, y^{n,\text{test}}).$$
 
-For example, $$x^{i,\text{train}}_2(t) \in [0, 1]$$ is the value at date $$t$$ of the time series $$x^{i,\text{train}}_2$$, which is the second input of 
-$$(x^{i,\text{train}}, y^{i,\text{train}})$$, which is the $$i$$-th element of the training set.
+For example, $$x^{n,\text{train}}_2(t) \in [0, 1]$$ is the value at date $$t$$ of the time series $$x^{n,\text{train}}_2$$, which is the second input of 
+$$(x^{n,\text{train}}, y^{n,\text{train}})$$, which is the $$n$$-th element of the training set.
 
 This is implemented in function `sample_time_series_roll`.
 
@@ -95,7 +95,7 @@ Training performs well (see Fig. 2), and after $$500$$ epochs, training and test
 
 *Fig. 2. MSE loss as a function of epochs for short time series with stateless LSTM*
 
-Results are also checked visually, here for sample $$i=0$$ (blue for true output; orange for predicted outputs):
+Results are also checked visually, here for sample $$n=0$$ (blue for true output; orange for predicted outputs):
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_A_y123_from_x1234_ts0_y1.png" alt="true and predicting outputs for y1"/></center>
 
@@ -123,7 +123,7 @@ Training and test losses have decreased to $$0.036$$ (see Fig. 4), but it is not
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_B_y1_from_x1.png" alt="decreasing MSE loss for long time series model with stateless LSTM"/></center>
 *Fig. 4. MSE loss as a function of epochs for long time series with stateless LSTM*
 
-In Fig. 5, we check output time series for sample $$i=0$$ and for the $$50$$ first elements (blue for true output; orange for predicted outputs).
+In Fig. 5, we check output time series for sample $$n=0$$ and for the $$50$$ first elements (blue for true output; orange for predicted outputs).
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/python/4_B_y1_from_x1_ts0.png" alt="true and predicting outputs for y1"/></center>
 
@@ -147,10 +147,11 @@ For example, with $$y_1(t) = x_1(t-2)$$ and a series cuts into $$2$$ pieces, the
 Here is coming stateful LSTM. 
 Using it, we cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This idea is illustrated in Fig. 6 with a series of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="20%"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="70%"/></center>
 
 *Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/after_FINAL.svg" alt="" width="70%"/></center>
 *Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow: Compute gradient of piece $$1$$; Update parameters; Keep hidden states; Compute gradient of piece $$2$$; Update parameters; Reset hidden states*
 
 In practice, we also need to paid attention of the batch size during cut.
