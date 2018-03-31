@@ -62,7 +62,7 @@ In this part, the most difficult task is to reshape inputs and outputs correctly
 
 Then, an classic LSTM model is defined and trained with $$10$$ units.
 
-```
+```python
 ##
 # Model
 ##
@@ -203,7 +203,7 @@ After cut, we obtain inputs with shape $$(N \times \text{nb_cuts}, T / \text{nb_
 
 Then, a stateful LSTM model in defined with $$10$$ units.
 
-```
+```python
 ##
 # Model
 ##
@@ -231,7 +231,7 @@ On the whole, training is performed during $$100$$ epochs as written in the foll
 
 Training and test losses have decreased to $$0.002$$ (see Fig. 9).
 
-```
+```python
 ##
 # Training
 ##
