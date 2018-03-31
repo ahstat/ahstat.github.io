@@ -196,13 +196,13 @@ designed to manage number of cuts, batch size, as well as multiple inputs and ou
 We consider long time series of length $$T = 1443$$ and sample size $$N = 16$$.
 
 We select $$\text{batch_size} = 8$$ and $$T_{\text{after_cut}} = 37$$.
-Consequently, we have: $$\text{nb_cuts} = T / T_{\text{after_cut}}$$.
+Consequently, we have: $$\text{nb_cuts} = T / T_{\text{after_cut}} = 39$$.
 
 After cut, we obtain inputs with shape $$(N \times \text{nb_cuts}, T / \text{nb_cuts}, 4)$$ i.e. $$(624, 37, 3)$$, and outputs with shape $$(624, 37, 4)$$.
 
 ### Model
 
-Then, a stateful LSTM model in defined with $$10$$ units.
+A stateful LSTM model in defined with $$10$$ units.
 
 ```python
 ##
