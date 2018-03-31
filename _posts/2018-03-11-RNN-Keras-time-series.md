@@ -167,7 +167,7 @@ Another simple case is when batch size is $$1$$.
 In that case, we present each series in a lineup, and reset states after each series.
 This case is illustrated in Fig. 7.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="60%"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/1_batchsize1_before_FINAL.svg" alt="" width="65%"/></center>
 *Fig. 7. a. Series before cut. There are $$N = 3$$ series of length $$T = 14$$*
 
 <center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/2_batchsize1_after_FINAL.svg" alt="" width="85%"/></center>
