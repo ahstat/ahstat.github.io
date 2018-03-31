@@ -147,11 +147,11 @@ For example, with $$y_1(t) = x_1(t-2)$$ and a series cuts into $$2$$ pieces, the
 Here is coming stateful LSTM. 
 Using it, we cut the series into smaller pieces, and also keep state of hidden cells from one piece to the next. This idea is illustrated in Fig. 6 with a series of length $$T = 14$$ divided into $$2$$ pieces of length $$T_{\text{after_cut}} = 7$$.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="70%"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/before_FINAL.svg" alt="" width="85%"/></center>
 
 *Fig. 6. a. Series before cut. Simplified workflow: Compute gradient of the series; Update parameters; Reset hidden states*
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/after_FINAL.svg" alt="" width="70%"/></center>
+<center><img src="../images/2018-03-11-RNN-Keras-time-series/stateful/after_FINAL.svg" alt="" width="85%"/></center>
 *Fig. 6. b. Series cut into $$2$$ pieces of length $$7$$. Simplified workflow: Compute gradient of piece $$1$$; Update parameters; Keep hidden states; Compute gradient of piece $$2$$; Update parameters; Reset hidden states*
 
 In practice, we also need to paid attention of the batch size during cut.
