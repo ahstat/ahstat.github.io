@@ -228,8 +228,6 @@ For that purpose, another function `define_stateful_val_loss_class` has been def
 Also, we need to take `shuffle = False` during model fitting.
 
 On the whole, training is performed during $$100$$ epochs as written in the following sample code.
-# With batch_size = 8 (i.e. need to reset states): 6s per epoch
-# After 100 epochs: loss: 0.0023 / val_loss: 0.0024
 
 Training and test losses have decreased to $$0.002$$ (see Fig. 9).
 
