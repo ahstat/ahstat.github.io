@@ -18,10 +18,7 @@ with $$N: x \mapsto \frac{x}{\| x \|}$$ and $$ \|.\|$$ the Euclidian norm.
 
 Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
-<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm_540.png" alt="adherent points when applying a rotation with norm 1" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_eucnorm_540.png" alt="adherent points when applying a rotation with norm 2" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_maxnorm_540.png" alt="adherent points when applying a rotation with norm infty" width="31%"/>
-
+<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="adherent points when applying a rotation with norm 1" width=100%"/>
 
 
 With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first steps are illustrated on the following figures.
