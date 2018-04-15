@@ -10,15 +10,13 @@ It is as $$x_1$$ has been attracted to $$x_3$$ but kept at distance.
 We continue by defining $$x_5$$ the point on the ray $$[x_4 x_2)$$ located at a distance $$1$$ of $$x_4$$.
 
 On the whole, we define from $$(x_1, x_2, x_3)$$ a recurrent sequence taking values in $$\mathbb{R}^2$$
-and such that, for $$n \geq 4$$,
+and such that, for $$n \geq 4$$ (with $$N: x \mapsto \frac{x}{\| x \|}$$ and $$ \|.\|$$ the Euclidian norm):
 
-$$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3})$$
-
-with $$N: x \mapsto \frac{x}{\| x \|}$$ and $$ \|.\|$$ the Euclidian norm.
+$$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3}).$$
 
 Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
-<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="adherent points when applying a rotation with norm 1"/>
+<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="Illustration. Adherent points of rotated triangles, when norm one is used instead of Euclidian norm"/>
 
 
 With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first steps are illustrated on the following figures.
