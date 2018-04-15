@@ -21,8 +21,6 @@ We would like to study how behave this sequence for large $n$.
 
 *Figure 1: Illustration explained later in this post, and positioned here to attract your click*
 
-Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
-
 With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first steps are illustrated on the following figures.
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="31%"/>
@@ -50,6 +48,7 @@ With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first step
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/5_end.png" alt="step 6" width="31%"/>
 *Computing $$x_8$$ from $$x_5$$ and $$x_7$$*
 
+Note that, in general, the sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
 
 
