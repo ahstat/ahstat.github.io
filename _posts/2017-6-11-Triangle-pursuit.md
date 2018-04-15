@@ -14,10 +14,14 @@ and such that, for $$n \geq 4$$ (with $$N: x \mapsto \frac{x}{\| x \|}$$ and $$ 
 
 $$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3}).$$
 
-Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
+We would like to study how behave this sequence for large $n$.
 
 <img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="Illustration. Adherent points of rotated triangles, when norm one is used instead of Euclidian norm"/>
 
+
+*Figure 1: Illustration explained later in this post, and positioned here to attract your click*
+
+Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
 With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first steps are illustrated on the following figures.
 
