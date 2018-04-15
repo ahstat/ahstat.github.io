@@ -15,17 +15,17 @@ and such that, for $$n \geq 4$$,
 $$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3})$$
 
 
-with $$N: x \mapsto \frac{x}{||x||}$$
+with $$N: x \mapsto \frac{x}{\left| \left| x \right| \right| }$$
 
-and $$|| . ||$$ the Euclidian norm.
-
-
+and $$ \left| \left| . \right| \right|$$ the Euclidian norm.
 
 For example, with $$x_1=(0,0), x_2=(1,0), x_3=(1,1)$$, first steps are illustrated on the following figure.
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1_arrow.png" alt="step 1 with arrow" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2.png" alt="step 2" width="31%"/>
+
+
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2.png" alt="step 2" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2_arrow.png" alt="step 2 with arrow" width="31%"/>
