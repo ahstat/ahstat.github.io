@@ -14,10 +14,7 @@ and such that, for $$n \geq 4$$,
 
 $$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3})$$
 
-
-with $$N: x \mapsto \frac{x}{\mid \mid x \mid \mid}$$
-
-and $$ \mid \mid . \mid \mid$$ the Euclidian norm.
+with $$N: x \mapsto \frac{x}{\|\| x \|\|}$$ and $$ \|\|.\|\|$$ the Euclidian norm.
 
 For example, with $$x_1=(0,0), x_2=(1,0), x_3=(1,1)$$, first steps are illustrated on the following figure.
 
