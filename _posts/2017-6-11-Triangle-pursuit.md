@@ -18,31 +18,38 @@ with $$N: x \mapsto \frac{x}{\| x \|}$$ and $$ \|.\|$$ the Euclidian norm.
 
 Note that sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
+<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm_540.png" alt="adherent points when applying a rotation with norm 1" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_eucnorm_540.png" alt="adherent points when applying a rotation with norm 2" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_maxnorm_540.png" alt="adherent points when applying a rotation with norm infty" width="31%"/>
 
 
-For example, with $$x_1=(0,0), x_2=(1,0), x_3=(1,1)$$, first steps are illustrated on the following figures.
+
+With $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, construction of the first steps are illustrated on the following figures.
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1_begin.png" alt="step 1 to step 2" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1_end.png" alt="step 2" width="31%"/>
-
+*Computing $$x_4$$ from $$x_1$$ and $$x_3$$*
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2.png" alt="step 2" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2_begin.png" alt="step 2 to step 3" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2_end.png" alt="step 3" width="31%"/>
+*Computing $$x_5$$ from $$x_2$$ and $$x_4$$*
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3.png" alt="step 3" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3_begin.png" alt="step 3 to step 4" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3_end.png" alt="step 4" width="31%"/>
+*Computing $$x_6$$ from $$x_3$$ and $$x_5$$*
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/4.png" alt="step 4" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/4_begin.png" alt="step 4 to step 5" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/4_end.png" alt="step 5" width="31%"/>
+*Computing $$x_7$$ from $$x_4$$ and $$x_6$$*
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/5.png" alt="step 5" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/5_begin.png" alt="step 5 to step 6" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/5_end.png" alt="step 6" width="31%"/>
-
+*Computing $$x_8$$ from $$x_5$$ and $$x_7$$*
 
 
 
