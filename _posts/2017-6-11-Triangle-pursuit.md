@@ -22,7 +22,7 @@ we select the Euclidian norm and identify the plane with the complex plane.
 
 **Understanding the recurrence on an example**
 
-We illustrate the first steps of the sequence when $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$.
+We illustrate the first steps of the sequence when $$x_1=(0,0)$$, $$x_2=(1,0)$$, and $$x_3=(1,1)$$.
 The construction of $$x_4$$ is shown in Fig. 2.
 This can be computed from the formula:
 
@@ -56,7 +56,7 @@ Initial and final steps are shown in Fig. 5.
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/14.png" alt="step 14"/>
 </center>
 
-*Fig. 5. Initial and final step*
+*Fig. 5. Initial and final steps*
 
 Note that the sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
@@ -69,18 +69,17 @@ Each triplet contains $$6$$ real parameters. We will show that we can reduce the
 Suppose that $$(x_n)_n$$ is well-defined from triplet $$(x_1, x_2, x_3)$$.
 Let $$\theta \in [0, 2 \pi)$$ and $$b \in \mathbb{C}$$.
 Let for $$k \in \lbrace 1, 2, 3 \rbrace$$:
-
 $$x'_k := e^{-i \theta} (x_k - b).$$
 
-Then, for $$k \in \lbrace 1, 2, 3 \rbrace$$, $$x_k = e^{i  \theta} x'_k + b$$
-and 
+Then, for $$k \in \lbrace 1, 2, 3 \rbrace$$, $$x_k = e^{i  \theta} x'_k + b.$$
+We rewrite $$x_4$$ as follows:
 
-$$x_4 = x_3 - N(x_3 - x_1) = e^{i  \theta} x'_3 + b - N(e^{i  \theta} x'_3 - e^{i  \theta} x'_1)$$.
+$$x_4 = x_3 - N(x_3 - x_1) = e^{i  \theta} x'_3 + b - N(e^{i  \theta} x'_3 - e^{i  \theta} x'_1).$$
 
-Because $$N(.)$$ is defined with the Euclidian norm, we have:
+Because $$N(.)$$ is defined with the Euclidian norm, we obtain:
 
 $$x_4 = e^{i  \theta} x'_3 + b - e^{i  \theta} N( x'_3 - x'_1)
-= e^{i  \theta} \left(x'_3 - N( x'_3 - x'_1) \right) + b$$
+= e^{i  \theta} \left(x'_3 - N( x'_3 - x'_1) \right) + b.$$
 
 Since $$x_4$$ exists, $$x'_3 - N( x'_3 - x'_1)$$ exists and we define:
 $$x'_4 := x'_3 - N( x'_3 - x'_1).$$
@@ -91,16 +90,60 @@ $$x'_n := e^{i \theta} x'_n + b.$$
 
 ***From 6 to 3 parameters***
 
-Rotation and translation have released $$3$$ degree of freedom.
+Suppose as before that $$(x_n)_n$$ is well-defined from triplet $$(x_1, x_2, x_3)$$.
 
+Rotation and translation have released $$3$$ degree of freedom. 
+In this paragraph, we select $$\theta$$ and $$b$$ to obtain a triplet $$(x'_1, x'_2, x'_3)$$
+verifying those $$3$$ conditions:
 
- From 6 to 1 parameter (with translation and rotation invariance)
+$$x'_1 \text{ on the ray } ]x'3 0),$$
+
+$$x'_2 \in \mathbb{R}^{+},$$
+
+$$\| x'_3 \| = 1.$$
+
+Positions of $$x'_1, x'_2, x'_3$$ are illustrated in Fig. 6.
+
+<img src="../images/2017-6-11-Triangle-pursuit/intro_images/TODO.png" alt="TODO" width="31%"/>
+
+*Fig. 6. TODO*
+
+Calculation is quite tedious, so you can skip it at first reading.
+
+First, we have $$x_3 \neq x_1$$, otherwise $$x_4$$ cannot be defined.
+
+We let:
+
+$$s:= \text{Arg}(x_3 - x_1) \in [0, 2 \pi),$$
+
+$$r:= 1 - \| x_3 - x_1 \| \in (-\infty, 1),$$
+
+$$A \leq 0, t \in [0, 2 \pi) \text{ such that } A e^{-it} = 1 + (x_2 - x_3)e^{-is}.$$
+
+We select:
+
+$$\theta := s - t,$$
+
+$$b:= x_3 - e^{is}.$$
+
+Then:
+
+$$x'_1 = e^{-i \theta}(x_1 - b) = e^{-i s}e^{i t}(x_1 - x_3 + e^{is}).$$
+
+But $$x_1 - x_3 = - \| x_3 - x_1 \| e^{is} = -(1-r) e^{is}$$ so:
+
+$$x'_1 = e^{-i s}e^{i t}e^{is}(-(1-r) + 1) = r e^{it}.$$
+
+$$x'_2 = e^{-i \theta}(x_2 - b) = e^{-is}e^{it}(x_2 - x_3) + e^{it} = e^{it} (1 + (x_2 - x_3) e^{-is}) = A e^{it} e^{-it} = A.$$
+
+$$x'_3 = e^{-i \theta}(x_3 - b) = e^{-is}e^{it}e^{is} = e^{it}.$$
+ 
+So the conclusion.
+
+**From 3 to 1 parameters**
  
  
- **Form for dimension 1**
- 
- 
- **Illustration with other norms**
+**Illustration with other norms**
  
  
 Continue here
