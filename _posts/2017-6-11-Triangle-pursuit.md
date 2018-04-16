@@ -14,7 +14,7 @@ and such that, for $$n \geq 4$$ (with $$N: x \mapsto \frac{x}{\| x \|}$$ where $
 
 $$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3}).$$
 
-We would like to study how behave this sequence for large $$n$$.
+We would like to study how behaves this sequence for large $$n$$.
 
 
 Except for the last part of this post, 
@@ -22,46 +22,50 @@ we select the Euclidian norm and identify the plane with the complex plane.
 
 **Understanding the recurrence on an example**
 
-We illustrate the first steps of the sequence when $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$, and with the Euclidian norm.
+We illustrate the first steps of the sequence when $$x_1=(0,0)$$, $$x_2=(1,0)$$, $$x_3=(1,1)$$.
+The construction of $$x_4$$ is shown in Fig. 2.
+This can be computed from the formula:
 
-We have from the formula:
 $$x_{4} = x_{3} - N(x_{3} - x_{1}) = (1,1) - N((1,1)) = (1 - 1/\sqrt{2}, 1 - 1/\sqrt{2}).$$
-This construction is shown in Fig. 2.
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1_begin.png" alt="step 1 to step 2" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/1_end.png" alt="step 2" width="31%"/>
+
 *Fig. 2. Construction of $$x_4$$ from $$x_1$$ and $$x_3$$*
 
-Next steps are more and more difficult to calculate, and we provide only the construction in Fig. 3 and 4.
+Next points $$x_5$$ and $$x_6$$ are more difficult to calculate from the formula, and we only provide the construction (Fig. 3 and 4).
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2.png" alt="step 2" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2_begin.png" alt="step 2 to step 3" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/2_end.png" alt="step 3" width="31%"/>
+
 *Fig. 3. Construction of $$x_5$$ from $$x_2$$ and $$x_4$$*
 
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3.png" alt="step 3" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3_begin.png" alt="step 3 to step 4" width="31%"/>
 <img src="../images/2017-6-11-Triangle-pursuit/intro_images/3_end.png" alt="step 4" width="31%"/>
+
 *Fig. 4. Construction of $$x_6$$ from $$x_3$$ and $$x_5$$*
 
 After some steps, we obtain $$3$$ adherent points forming an equilateral triangle.
 Initial and final steps are shown in Fig. 5.
 
-<img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/intro_images/20.png" alt="step 20" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="49%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/intro_images/14.png" alt="step 14" width="49%"/>
+
 *Fig. 5. Initial and final step*
 
 Note that the sequence may be undefined for some initial triplets (for example when $$x_1 = x_2 = x_3$$).
 
 **Reducing dimension of the problem**
  
-Each triplet contains $$6$$ real parameters. We will show that we can reduce this problem to $$1$$ parameter without loss of generality. Explicitly, parameter is $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and triplet is $$(x_1, x_2, x_3) = (0, 1, e^{it})$$.
+Each triplet contains $$6$$ real parameters. We will show that we can reduce the *triangle pursuit* problem to $$1$$ parameter without loss of generality. Explicitly, our final parameter will be $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$, related with triplet $$(x_1, x_2, x_3) = (0, 1, e^{it})$$.
 
 ***Applying rotation and translation***
 
 Suppose that $$(x_n)_n$$ is well-defined from triplet $$(x_1, x_2, x_3)$$.
-Let $$\theta \in [0, 2 \pi)$$ and $$b \in mathbb{C}$$.
+Let $$\theta \in [0, 2 \pi)$$ and $$b \in \mathbb{C}$$.
 Let for $$k \in \lbrace 1, 2, 3 \rbrace$$:
 
 $$x'_k := e^{-i \theta} (x_k - b).$$
