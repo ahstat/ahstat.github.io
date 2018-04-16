@@ -96,7 +96,7 @@ Rotation and translation have released $$3$$ degree of freedom.
 In this paragraph, we select $$\theta$$ and $$b$$ to obtain a triplet $$(x'_1, x'_2, x'_3)$$
 verifying those $$3$$ conditions:
 
-$$x'_1 \text{ on the ray } ]x'3 0),$$
+$$x'_1 \text{ on the ray } ]x'_3 0),$$
 
 $$x'_2 \in \mathbb{R}^{+},$$
 
