@@ -51,8 +51,10 @@ Next points $$x_5$$ and $$x_6$$ are more difficult to calculate from the formula
 After some steps, we obtain $$3$$ adherent points forming an equilateral triangle.
 Initial and final steps are shown in Fig. 5.
 
-<img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1" width="49%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/intro_images/14.png" alt="step 14" width="49%"/>
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/intro_images/1.png" alt="step 1"/>
+<img src="../images/2017-6-11-Triangle-pursuit/intro_images/14.png" alt="step 14"/>
+</center>
 
 *Fig. 5. Initial and final step*
 
