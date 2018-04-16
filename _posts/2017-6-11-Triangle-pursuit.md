@@ -71,15 +71,16 @@ Let for $$k \in \lbrace 1, 2, 3 \rbrace$$:
 $$x'_k := e^{-i \theta} (x_k - b).$$
 
 Then, for $$k \in \lbrace 1, 2, 3 \rbrace$$, $$x_k = e^{i  \theta} x'_k + b$$
+and 
 
-and $$x_4 = x_3 - N(x_3 - x_1) = e^{i  \theta} x'_3 + b - N(e^{i  \theta} x'_3 - e^{i  \theta} x'_1)$$.
+$$x_4 = x_3 - N(x_3 - x_1) = e^{i  \theta} x'_3 + b - N(e^{i  \theta} x'_3 - e^{i  \theta} x'_1)$$.
 
-Because $$N$$ is defined with the Euclidian norm, we have:
+Because $$N(.)$$ is defined with the Euclidian norm, we have:
+
 $$x_4 = e^{i  \theta} x'_3 + b - e^{i  \theta} N( x'_3 - x'_1)
 = e^{i  \theta} \left(x'_3 - N( x'_3 - x'_1) \right) + b$$
 
 Since $$x_4$$ exists, $$x'_3 - N( x'_3 - x'_1)$$ exists and we define:
-
 $$x'_4 := x'_3 - N( x'_3 - x'_1).$$
 
 We can continue and define $$(x'_n)$$ such that for all $$n$$:
