@@ -101,7 +101,7 @@ Positions of $$x'_1, x'_2, x'_3$$ are illustrated in Fig. 6.
 
 <center><img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_500.png" alt="positions of x'1 x'2 and x'3 after transformation"/></center>
 
-*Fig. 6. Positions of $$x'1, x'2$$ and $$x'3$$ after transformation*
+*Fig. 6. Typical positions of $$x'_1, x'_2$$ and $$x'_3$$ after transformation*
 
 Calculations are tedious, so you can skip them at first reading.
 
@@ -128,17 +128,41 @@ $$x'_2 = e^{-i \theta}(x_2 - b) = e^{-is}e^{it}(x_2 - x_3) + e^{it} = e^{it} (1 
 
 $$x'_3 = e^{-i \theta}(x_3 - b) = e^{-is}e^{it}e^{is} = e^{it}.$$
  
-So the conclusion.
+$$x'_1, x'_2, x'_3$$ verify the $$3$$ conditions, so the conclusion.
 
 **From 3 to 1 parameters**
+
+We consider $$(x'_1, x'_2, x'_3)$$ as is the last paragraph.
+
+From the recurrence relation, we obtain: $$x'_4 = 0$$ regardless of $$r$$.
+The term $$x'_1$$ is not used for subsequent terms, so we can let $$r = 0$$
+and consider $$(x''_1, x''_2, x''_3) = (0, x'_2, x'_3).$$
+
+Then, we observe that $$A \neq 0$$, otherwise $$x''_5$$ cannot be defined.
+From the recurrence relation, we obtain: $$x''_5 = 0$$ regardless of remaining $$A$$.
+The term $$x''_2$$ is not used for subsequent terms, so we can let $$A = 1$$
+and consider $$(x'''_1, x'''_2, x'''_3) = (0, 1, e^{it}).$$
+
+This construction is illustrated in Fig. 7.
  
- <img src="../images/2017-6-11-Triangle-pursuit/three_param/three_param_300.png" alt="Three parameters" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/three_param/two_param_300.png" alt="Two parameters" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/three_param/one_param_300.png" alt="One parameter" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_300.png" alt="Three parameters" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_params/two_param_300.png" alt="Two parameters" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_params/one_param_300.png" alt="One parameter" width="31%"/>
 
 *Fig. 7. From $$3$$ parameters to $$1$$ parameter*
-
  
+We have reduced the problem to $$1$$ dimension without loss of generality.
+We observe that parameters $$t = 0 \text{ mod } \pi$$ are impossible. 
+We are now interested to understand the behavior of the sequence as a function of $$t$$.
+
+**First terms of the sequence**
+
+Let $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
+
+TODO
+
+
+
 **Illustration with other norms**
  
  
