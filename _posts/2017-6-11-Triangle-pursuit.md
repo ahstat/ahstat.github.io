@@ -159,9 +159,34 @@ We are now interested to understand the behavior of the sequence as a function o
 
 Let $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
 
-TODO
+We separate the recurrence relation into 2 steps, for $$n \geq 4$$:
 
+$$1. w_n := \frac{1}{\| x_{n-1} - x_{n-3} \|},$$
 
+$$2. x_n = (1- w_n) x_{n-1} + w_n x_{n-3}.$$
+
+First terms are easy:
+
+$$w_4 = 1,$$
+
+$$x_4 = 0.$$
+
+$$w_5 = 1,$$
+
+$$x_5 = 1.$$
+
+Then, it is more and more complex.
+We let $$a := \sin(t/2)$$, $$b := \cos(\frac{t + \pi}{4})$$, $$c := \sin(\frac{t + \pi}{8}).$$
+
+$$w_6 = \frac{1}{2a},$$
+
+$$x_6 = \left 1 - \frac{1}{2a} \right + \frac{1}{2a} e^{it} = 2 e^{i \frac{t + \pi}{4}} b.$$
+
+$$w_7 = \frac{1}{2b},$$
+
+$$x_7 = (2b - 1) e^{i \frac{t + \pi}{4}}.$$
+
+$$w_8 = \frac{1}{2c}...$$
 
 **Illustration with other norms**
  
