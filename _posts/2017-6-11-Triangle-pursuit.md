@@ -175,18 +175,20 @@ $$w_5 = 1,$$
 
 $$x_5 = 1.$$
 
-Then, it is more and more complex.
+After that, it is more and more complex (there may be error with absolute values during computation).
 We let $$a := \sin(t/2)$$, $$b := \cos(\frac{t + \pi}{4})$$, $$c := \sin(\frac{t + \pi}{8}).$$
 
-$$w_6 = \frac{1}{2a},$$
+$$w_6 = \frac{1}{2 \mid a \mid},$$
 
-$$x_6 = \left 1 - \frac{1}{2a} \right + \frac{1}{2a} e^{it} = 2 e^{i \frac{t + \pi}{4}} b.$$
+$$x_6 = \left 1 - \frac{1}{2a} \right + \frac{1}{2a} e^{it} = 2 e^{i \frac{t + \pi}{4}} b = (1-\sin\frac{t}{2}) + \cos \frac{t}{2} i.$$
 
 $$w_7 = \frac{1}{2b},$$
 
 $$x_7 = (2b - 1) e^{i \frac{t + \pi}{4}}.$$
 
 $$w_8 = \frac{1}{2c}...$$
+
+Functions with long period appear, all shaped with absolute values everywhere. Maybe some Fourier wizard can help.
 
 **Illustration with other norms**
  
