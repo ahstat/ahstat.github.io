@@ -104,9 +104,9 @@ $$\| x'_3 \| = 1.$$
 
 Positions of $$x'_1, x'_2, x'_3$$ are illustrated in Fig. 6.
 
-<img src="../images/2017-6-11-Triangle-pursuit/intro_images/TODO.png" alt="TODO" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_500.png" alt="positions of x'1 x'2 and x'3 after transformation" width="31%"/>
 
-*Fig. 6. TODO*
+*Fig. 6. Position of $$x'1, x'2$$ and $$x'3 after transformation*
 
 Calculation is quite tedious, so you can skip it at first reading.
 
@@ -142,6 +142,12 @@ So the conclusion.
 
 **From 3 to 1 parameters**
  
+ <img src="../images/2017-6-11-Triangle-pursuit/three_param/three_param_300.png" alt="Three parameters" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_param/two_param_300.png" alt="Two parameters" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/three_param/one_param_300.png" alt="One parameter" width="31%"/>
+
+*Fig. 7. From $$3$$ parameters to $$1$$ parameter*
+
  
 **Illustration with other norms**
  
