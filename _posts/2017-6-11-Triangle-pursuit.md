@@ -190,19 +190,22 @@ $$w_8 = \frac{1}{2c}...$$
 
 Functions with long period appear, all shaped with absolute values everywhere. Maybe some Fourier wizard can help.
 
+TODO: illustration of the first steps
+
 **Illustration with other norms**
  
- 
+TODO: Illustrations
 Continue here
 
-
-
-
-
-
 Remember to add illustration like that
-
 
 <img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="Illustration. Adherent points of rotated triangles, when norm one is used"/>
 
 *Fig. 1. Illustration explained later in this post*
+
+
+TODO: add introduction pictures.
+
+**References**
+
+TODO.
