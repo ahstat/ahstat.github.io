@@ -6,7 +6,7 @@ published: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 Let $$x_1, x_2, x_3$$ be three points in a plane.
 We define $$x_4$$ the point on the ray $$[x_3 x_1)$$ located at a distance $$1$$ of $$x_3$$.
-It is as $$x_1$$ has been attracted to $$x_3$$ but kept at distance.
+It is as $$x_1$$ has been attracted to $$x_3$$ for a distance $$1$$.
 We continue by defining $$x_5$$ the point on the ray $$[x_4 x_2)$$ located at a distance $$1$$ of $$x_4$$.
 
 On the whole, we define from $$(x_1, x_2, x_3)$$ a recurrent sequence taking values in $$\mathbb{R}^2$$
@@ -85,7 +85,6 @@ Since $$x_4$$ exists, $$x'_3 - N( x'_3 - x'_1)$$ exists and we define:
 $$x'_4 := x'_3 - N( x'_3 - x'_1).$$
 
 We can continue and define $$(x'_n)$$ such that for all $$n$$:
-
 $$x'_n := e^{i \theta} x'_n + b.$$
 
 ***From 6 to 3 parameters***
@@ -96,29 +95,24 @@ Rotation and translation have released $$3$$ degree of freedom.
 In this paragraph, we select $$\theta$$ and $$b$$ to obtain a triplet $$(x'_1, x'_2, x'_3)$$
 verifying those $$3$$ conditions:
 
-$$x'_1 \text{ on the ray } ]x'_3 0),$$
-
-$$x'_2 \in \mathbb{R}^{+},$$
-
-$$\| x'_3 \| = 1.$$
+$$x'_1 \text{ on the ray } ]x'_3 0)~~~;~~~x'_2 \in \mathbb{R}^{+}~~~;~~~\| x'_3 \| = 1.$$
 
 Positions of $$x'_1, x'_2, x'_3$$ are illustrated in Fig. 6.
 
-<img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_500.png" alt="positions of x'1 x'2 and x'3 after transformation" width="31%"/>
+<center><img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_500.png" alt="positions of x'1 x'2 and x'3 after transformation"/></center>
 
-*Fig. 6. Position of $$x'1, x'2$$ and $$x'3 after transformation*
+*Fig. 6. Positions of $$x'1, x'2$$ and $$x'3$$ after transformation*
 
-Calculation is quite tedious, so you can skip it at first reading.
+Calculations are tedious, so you can skip them at first reading.
 
 First, we have $$x_3 \neq x_1$$, otherwise $$x_4$$ cannot be defined.
-
-We let:
+Then, we let:
 
 $$s:= \text{Arg}(x_3 - x_1) \in [0, 2 \pi),$$
 
 $$r:= 1 - \| x_3 - x_1 \| \in (-\infty, 1),$$
 
-$$A \leq 0, t \in [0, 2 \pi) \text{ such that } A e^{-it} = 1 + (x_2 - x_3)e^{-is}.$$
+$$A \geq 0 \text{ and } t \in [0, 2 \pi) \text{ such that } A e^{-it} := 1 + (x_2 - x_3)e^{-is}.$$
 
 We select:
 
@@ -126,15 +120,11 @@ $$\theta := s - t,$$
 
 $$b:= x_3 - e^{is}.$$
 
-Then:
+We compute $$x'_1, x'_2, x'_3$$:
 
-$$x'_1 = e^{-i \theta}(x_1 - b) = e^{-i s}e^{i t}(x_1 - x_3 + e^{is}).$$
+$$x'_1 = e^{-i \theta}(x_1 - b) = e^{-i s}e^{i t}(x_1 - x_3 + e^{is}) = e^{-i s}e^{i t}(-(1-r) e^{is} + e^{is}) = r e^{it}.$$
 
-But $$x_1 - x_3 = - \| x_3 - x_1 \| e^{is} = -(1-r) e^{is}$$ so:
-
-$$x'_1 = e^{-i s}e^{i t}e^{is}(-(1-r) + 1) = r e^{it}.$$
-
-$$x'_2 = e^{-i \theta}(x_2 - b) = e^{-is}e^{it}(x_2 - x_3) + e^{it} = e^{it} (1 + (x_2 - x_3) e^{-is}) = A e^{it} e^{-it} = A.$$
+$$x'_2 = e^{-i \theta}(x_2 - b) = e^{-is}e^{it}(x_2 - x_3) + e^{it} = e^{it} (1 + (x_2 - x_3) e^{-is}) =  A.$$
 
 $$x'_3 = e^{-i \theta}(x_3 - b) = e^{-is}e^{it}e^{is} = e^{it}.$$
  
