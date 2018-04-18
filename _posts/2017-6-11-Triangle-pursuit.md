@@ -240,11 +240,11 @@ Let $$x_1=(0,0)$$, $$x_2=(1,0)$$, and $$x_3=(1,1)$$.
 
 ***Map of a rotation***
 
-We are interested to see adherent points of $$e^{i \theta}(x_1, x_2, x_3)$$ for $$\theta \in (-\pi, \pi)$$.
+We are interested to see mapping of $$e^{i \theta}(x_1, x_2, x_3)$$ for $$\theta \in (-\pi, \pi)$$.
 
 When $$\|.\|$$ is the Euclidian norm, we already know the global behavior.
-But when taking one-norm or maximum norm, we obtain strange figures.
-The mappings are shown in Fig.&nbsp;11.
+But with one-norm or maximum norm, strange figures are obtained.
+Those mappings are depicted in Fig.&nbsp;11.
 
 <center>
 <img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_onenorm_700.png" alt="Rotation and one-norm"/>
@@ -258,9 +258,9 @@ The mappings are shown in Fig.&nbsp;11.
 
 ***Map of an homothety***
 
-We are interested to see adherent points of $$\theta \times (x_1, x_2, x_3)$$ for $$\theta \in (-\pi, \pi)$$.
+We are interested to see mapping of $$\theta \times (x_1, x_2, x_3)$$ for $$\theta \in (-\pi, \pi)$$.
 
-The mappings are shown in Fig. 12.
+The mappings are depicted in Fig. 12.
 
 <center>
 <img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/hom_onenorm_700.png" alt="Homothety and one-norm"/>
@@ -274,4 +274,4 @@ The mappings are shown in Fig. 12.
 
 **References**
 - Code is available <a href="https://github.com/ahstat/triangle-pursuit" target="_blank">on my github</a>. Many examples are provided, and contain some generalization with more initial points, higher dimension, etc.
-- I wrote <a href=https://math.stackexchange.com/questions/2265556 target="_blank">a lonely question in math.stackexchange</a> asking about the asymptotic behavior of $$(x_n)_n$$.
+- I wrote [a lonely question in math.stackexchange](https://math.stackexchange.com/questions/2265556) asking about the asymptotic behavior of $$(x_n)_n$$.
