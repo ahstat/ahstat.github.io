@@ -186,9 +186,49 @@ $$w_7 = \frac{1}{2b},~~~ \text{Re}(x_7) = (2b - 1)b,~~~ \text{Im}(x_7) = (2b - 1
 We let $$c := \sin(\frac{t+\pi}{8})$$, and get:
 $$w_8 = \frac{1}{2c}.$$
 
-Functions with long period are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help.
+Functions with long period are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help to get a closed form for $$w_n$$ and $$x_n$$.
 
-TODO: illustration of the first steps
+Construction of the first terms of the sequence for $$t = 0.6$$ is illustrated in Fig. 8.
+
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/1.png" alt="step 1" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/2.png" alt="step 2" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/3.png" alt="step 3" width="31%"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/4.png" alt="step 4" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/5.png" alt="step 5" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/6.png" alt="step 6" width="31%"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/7.png" alt="step 7" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/8.png" alt="step 8" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/9.png" alt="step 9" width="31%"/>
+
+*Fig. 8. Construction of the first steps with initial triplet $$(0, 1, e^{0.6i})$$*
+
+**Adherent points**
+
+For each $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$,
+we observe that $$(x_n)_n$$ has $$3$$ adherent points forming an equilateral triangle.
+
+We map each initial triplet to the corresponding adherent points.
+
+We show in Fig. 9 the mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ to the corresponding adherent points.
+Images of components $$(0, \pi)$$ and $$(\pi, 2 \pi)$$ are symmetric with respect to the x-axis.
+
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/map/begin_2pi.png" alt="Initial elements"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/end_2pi.png" alt="Resulting elements"/>
+</center>
+
+*Fig. 9. Mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ (left) to the corresponding adherent points (right). Bright colors correspond to small values of $$t$$, and faded colors to larger values.*
+
+We restrict the mapping on the interval $$(0, \pi)$$ and show a more detailed plot in Fig. 10. Notice the mapping of $$\pi / 3 \approx 1.05$$ by the mapping.
+
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/map/begin_pi.png" alt="Initial elements"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/end_pi.png" alt="Resulting elements"/>
+</center>
+
+*Fig. 10. Mapping from $$(0, \pi)$$ (left) to the corresponding adherent points (right).*
 
 **Illustration with other norms**
  
@@ -199,9 +239,10 @@ Remember to add illustration like that
 
 <img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="Illustration. Adherent points of rotated triangles, when norm one is used"/>
 
+
+**Example with more adherent points**
+
 *Fig. 1. Illustration explained later in this post*
-
-
 TODO: add introduction pictures.
 
 **References**
