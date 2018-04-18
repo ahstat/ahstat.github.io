@@ -167,26 +167,21 @@ $$x_n = (1- w_n) x_{n-1} + w_n x_{n-3}.$$
 
 First terms are easy:
 
-$$w_4 = 1,$$
-
-$$x_4 = 0.$$
-
-$$w_5 = 1,$$
-
-$$x_5 = 1.$$
+$$w_4 = 1,~~~x_4 = 0,~~~w_5 = 1,~~~x_5 = 1,~~~ $$
 
 After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside).
 
-We let $$a := \sin(t/2)$$, $$a' := \cos(t/2)$$, and get:
-$$w_6 = \frac{1}{2a},~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a'.$$
+We let $$a := \sin(t/2)$$, $$a' := \cos(t/2)$$, 
+$$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$,
+$$c := \sin(\frac{t+\pi}{8})$$, and get:
 
-We let $$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$, and get:
-$$w_7 = \frac{1}{2b},~~~ \text{Re}(x_7) = (2b - 1)b,~~~ \text{Im}(x_7) = (2b - 1)b'.$$
+$$w_6 = 1/(2a),~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a',$$
 
-We let $$c := \sin(\frac{t+\pi}{8})$$, and get:
-$$w_8 = \frac{1}{2c}.$$
+$$w_7 = 1/(2b),~~~ \text{Re}(x_7) = (2b - 1)b,~~~ \text{Im}(x_7) = (2b - 1)b',$$
 
-Functions with long period are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help to get a closed form for $$w_n$$ and $$x_n$$.
+$$w_8 = 1/(2c).$$
+
+Functions with long periods are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help to get a closed form for $$w_n$$ and $$x_n$$.
 
 Construction of the first terms of the sequence for $$t = 0.6$$ is illustrated in Fig. 8.
 
