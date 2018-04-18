@@ -6,7 +6,7 @@ published: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 Let $$x_1, x_2, x_3$$ be three points in a plane.
 We define $$x_4$$ the point on the ray $$[x_3 x_1)$$ located at a distance $$1$$ of $$x_3$$.
-It is as $$x_1$$ has been attracted to $$x_3$$ for a distance $$1$$.
+It is as $$x_1$$ has been attracted to $$x_3$$ but kept at distance.
 We continue by defining $$x_5$$ the point on the ray $$[x_4 x_2)$$ located at a distance $$1$$ of $$x_4$$.
 
 On the whole, we define from $$(x_1, x_2, x_3)$$ a recurrent sequence taking values in $$\mathbb{R}^2$$
@@ -63,6 +63,7 @@ Note that the sequence may be undefined for some initial triplets (for example w
 **Reducing dimension of the problem**
  
 Each triplet contains $$6$$ real parameters. We will show that we can reduce the *triangle pursuit* problem to $$1$$ parameter without loss of generality. Explicitly, our final parameter will be $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$, related with triplet $$(x_1, x_2, x_3) = (0, 1, e^{it})$$.
+Calculations are tedious, so you can skip them at first reading.
 
 ***Applying rotation and translation***
 
@@ -102,8 +103,6 @@ Positions of $$x'_1, x'_2, x'_3$$ are illustrated in Fig. 6.
 <center><img src="../images/2017-6-11-Triangle-pursuit/three_params/three_param_500.png" alt="positions of x'1 x'2 and x'3 after transformation"/></center>
 
 *Fig. 6. Typical positions of $$x'_1, x'_2$$ and $$x'_3$$ after transformation*
-
-Calculations are tedious, so you can skip them at first reading.
 
 First, we have $$x_3 \neq x_1$$, otherwise $$x_4$$ cannot be defined.
 Then, we let:
@@ -169,11 +168,11 @@ First terms are easy:
 
 $$w_4 = 1,~~~x_4 = 0,~~~w_5 = 1,~~~x_5 = 1,~~~ $$
 
-After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside).
+After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside this interval).
 
 We let $$a := \sin(t/2)$$, $$a' := \cos(t/2)$$, 
-$$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$,
-$$c := \sin(\frac{t+\pi}{8})$$, and get:
+$$b := \cos((t+\pi)/4)$$, $$b' := \sin((t+\pi)/4)$$,
+$$c := \sin((t+\pi)/8)$$, and get:
 
 $$w_6 = 1/(2a),~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a',$$
 
@@ -206,7 +205,7 @@ we observe that $$(x_n)_n$$ has $$3$$ adherent points forming an equilateral tri
 
 We map each initial triplet to the corresponding adherent points.
 
-We show in Fig. 9 the mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ to the corresponding adherent points.
+We show in Fig. 9 the mapping from $$(0, 2 \pi) \setminus \lbrace \pi \rbrace$$ to the corresponding adherent points.
 Images of components $$(0, \pi)$$ and $$(\pi, 2 \pi)$$ are symmetric with respect to the x-axis.
 
 <center>
@@ -214,9 +213,9 @@ Images of components $$(0, \pi)$$ and $$(\pi, 2 \pi)$$ are symmetric with respec
 <img src="../images/2017-6-11-Triangle-pursuit/map/end_2pi.png" alt="Resulting elements" width="49%"/>
 </center>
 
-*Fig. 9. Mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ (left) to the corresponding adherent points (right). Bright colors correspond to small values of $$t$$, and faded colors to larger values.*
+*Fig. 9. Mapping from $$(0, 2 \pi) \setminus \lbrace \pi \rbrace$$ (left) to the corresponding adherent points (right). Bright colors correspond to small values of $$t$$, and faded colors to larger values.*
 
-We restrict the mapping on the interval $$(0, \pi)$$ and show a more detailed plot in Fig. 10. Notice the mapping of $$\pi / 3 \approx 1.05$$ by the mapping.
+We restrict the mapping on the interval $$(0, \pi)$$ and show a more detailed plot in Fig. 10. Notice that triangle corresponding to $$t = \pi / 3 \approx 1.05$$ remains unchanged by the mapping.
 
 <center>
 <img src="../images/2017-6-11-Triangle-pursuit/map/begin_pi.png" alt="Initial elements" width="49%"/>
@@ -227,18 +226,41 @@ We restrict the mapping on the interval $$(0, \pi)$$ and show a more detailed pl
 
 **Illustration with other norms**
  
-TODO: Illustrations
-Continue here
+Let $$x_1=(0,0)$$, $$x_2=(1,0)$$, and $$x_3=(1,1)$$.
 
-Remember to add illustration like that
+***Map of a rotation***
 
-<img src="../images/2017-6-11-Triangle-pursuit/illustration/rot_onenorm.png" alt="Illustration. Adherent points of rotated triangles, when norm one is used"/>
+We are interested to see adherent points of $$e^{i \theta}(x_1, x_2, x_3)$$ for $$\theta \in (-pi, pi)$$.
 
+When $$\|.\|$$ is the Euclidian norm, we already know the global behavior.
+But when taking one-norm or maximum norm, we obtain strange figures.
+The mappings are shown in Fig. 11.
 
-**Example with more adherent points**
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_onenorm_700.png" alt="Rotation and one-norm"/>
 
-*Fig. 1. Illustration explained later in this post*
-TODO: add introduction pictures.
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_eucnorm_700.png" alt="Rotation and Euclidian norm"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_maxnorm_700.png" alt="Rotation and maximum norm"/>
+</center>
+
+*Fig. 11. Mapping from $$e^{i \theta}(x_1, x_2, x_3)$$ to the corresponding adherent points for one-norm, Euclidian norm and maximum norm respectively.*
+
+***Map of an homothety***
+
+We are interested to see adherent points of $$\theta (x_1, x_2, x_3)$$ for $$\theta \in (-pi, pi)$$.
+
+The mappings are shown in Fig. 12.
+
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/hom_onenorm_700.png" alt="Homothety and one-norm"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/hom_eucnorm_700.png" alt="Homothety and Euclidian norm"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/hom_maxnorm_700.png" alt="Homothety and maximum norm"/>
+</center>
+
+*Fig. 12. Mapping from $$\theta (x_1, x_2, x_3)$$ to the corresponding adherent points for one-norm, Euclidian norm and maximum norm respectively.*
 
 **References**
 
