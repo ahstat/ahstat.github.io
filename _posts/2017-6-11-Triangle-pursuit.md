@@ -130,7 +130,7 @@ $$x'_3 = e^{-i \theta}(x_3 - b) = e^{-is}e^{it}e^{is} = e^{it}.$$
  
 $$x'_1, x'_2, x'_3$$ verify the $$3$$ conditions, so the conclusion.
 
-**From 3 to 1 parameters**
+***From 3 to 1 parameters***
 
 We consider $$(x'_1, x'_2, x'_3)$$ as is the last paragraph.
 
@@ -210,8 +210,8 @@ We show in Fig. 9 the mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ to the c
 Images of components $$(0, \pi)$$ and $$(\pi, 2 \pi)$$ are symmetric with respect to the x-axis.
 
 <center>
-<img src="../images/2017-6-11-Triangle-pursuit/map/begin_2pi.png" alt="Initial elements"/>
-<img src="../images/2017-6-11-Triangle-pursuit/map/end_2pi.png" alt="Resulting elements"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/begin_2pi.png" alt="Initial elements" width="49%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/end_2pi.png" alt="Resulting elements" width="49%"/>
 </center>
 
 *Fig. 9. Mapping from $$(0, 2 \pi) \setminus \lbrace \pi$$ (left) to the corresponding adherent points (right). Bright colors correspond to small values of $$t$$, and faded colors to larger values.*
@@ -219,8 +219,8 @@ Images of components $$(0, \pi)$$ and $$(\pi, 2 \pi)$$ are symmetric with respec
 We restrict the mapping on the interval $$(0, \pi)$$ and show a more detailed plot in Fig. 10. Notice the mapping of $$\pi / 3 \approx 1.05$$ by the mapping.
 
 <center>
-<img src="../images/2017-6-11-Triangle-pursuit/map/begin_pi.png" alt="Initial elements"/>
-<img src="../images/2017-6-11-Triangle-pursuit/map/end_pi.png" alt="Resulting elements"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/begin_pi.png" alt="Initial elements" width="49%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/map/end_pi.png" alt="Resulting elements" width="49%"/>
 </center>
 
 *Fig. 10. Mapping from $$(0, \pi)$$ (left) to the corresponding adherent points (right).*
