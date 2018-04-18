@@ -25,7 +25,7 @@ We would like to study how behaves this sequence for large $$n$$.
 </center>
 
 
-*Fig. 1. Illustration (see Fig. 11 for more details)*
+*Fig. 1. Illustration (see Fig. 11 for details)*
 
 Except for the last part of this post, 
 we select the Euclidian norm and identify the plane with the complex plane.
@@ -180,9 +180,9 @@ $$w_4 = 1,~~~x_4 = 0,~~~w_5 = 1,~~~x_5 = 1,~~~ $$
 
 After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside this interval).
 
-We let $$a := \sin(t/2)$$, $$a' := \cos(t/2)$$, 
-$$b := \cos((t+\pi)/4)$$, $$b' := \sin((t+\pi)/4)$$,
-$$c := \sin((t+\pi)/8)$$, and get:
+We let $$a := \sin(\frac{t}{2})$$, $$a' := \cos(\frac{t}{2})$$, 
+$$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$,
+$$c := \sin(\frac{t+\pi}{8})$$, and get:
 
 $$w_6 = 1/(2a),~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a',$$
 
