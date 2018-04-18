@@ -161,9 +161,9 @@ Let $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := 
 
 We separate the recurrence relation into 2 steps, for $$n \geq 4$$:
 
-$$1. w_n := \frac{1}{\| x_{n-1} - x_{n-3} \|},$$
+$$w_n := \frac{1}{\| x_{n-1} - x_{n-3} \|}, \text{ and}$$
 
-$$2. x_n = (1- w_n) x_{n-1} + w_n x_{n-3}.$$
+$$x_n = (1- w_n) x_{n-1} + w_n x_{n-3}.$$
 
 First terms are easy:
 
@@ -175,20 +175,18 @@ $$w_5 = 1,$$
 
 $$x_5 = 1.$$
 
-After that, it is more and more complex (there may be error with absolute values during computation).
-We let $$a := \sin(t/2)$$, $$b := \cos(\frac{t + \pi}{4})$$, $$c := \sin(\frac{t + \pi}{8}).$$
+After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside).
 
-$$w_6 = \frac{1}{2 \mid a \mid},$$
+We let $$a := \sin(t/2)$$, $$a' := \cos(t/2)$$, and get:
+$$w_6 = \frac{1}{2a},~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a'.$$
 
-$$x_6 = \left 1 - \frac{1}{2a} \right + \frac{1}{2a} e^{it} = 2 e^{i \frac{t + \pi}{4}} b = (1-\sin\frac{t}{2}) + \cos \frac{t}{2} i.$$
+We let $$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$, and get:
+$$w_7 = \frac{1}{2b},~~~ \text{Re}(x_7) = (2b - 1)b,~~~ \text{Im}(x_7) = (2b - 1)b'.$$
 
-$$w_7 = \frac{1}{2b},$$
+We let $$c := \sin(\frac{t+\pi}{8})$$, and get:
+$$w_8 = \frac{1}{2c}.$$
 
-$$x_7 = (2b - 1) e^{i \frac{t + \pi}{4}}.$$
-
-$$w_8 = \frac{1}{2c}...$$
-
-Functions with long period appear, all shaped with absolute values everywhere. Maybe some Fourier wizard can help.
+Functions with long period are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help.
 
 TODO: illustration of the first steps
 
