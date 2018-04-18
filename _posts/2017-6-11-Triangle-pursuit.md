@@ -16,6 +16,16 @@ $$x_{n} = x_{n-1} - N(x_{n-1} - x_{n-3}).$$
 
 We would like to study how behaves this sequence for large $$n$$.
 
+<center>
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_onenorm_700.png" alt="Rotation and one-norm" width="31%"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_eucnorm_700.png" alt="Rotation and Euclidian norm" width="31%"/>
+
+<img src="../images/2017-6-11-Triangle-pursuit/rotation_homothety/rot_maxnorm_700.png" alt="Rotation and maximum norm" width="31%"/>
+</center>
+
+
+*Fig. 1. Illustration (see Fig. 11 for more details)*
 
 Except for the last part of this post, 
 we select the Euclidian norm and identify the plane with the complex plane.
