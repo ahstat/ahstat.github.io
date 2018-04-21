@@ -174,13 +174,11 @@ $$x_4 = 0,~~~x_5 = 1.$$
   
 After that, I follow [indication provided by achille hui here](https://math.stackexchange.com/questions/2265556).
 
-Let $$u_n = x_{n} - x_{n-1}$$ for $$n \geq 2$$. $$u_n$$ represents the vector from $$x_{n-1}$$ to $$x_n$$. For $$n \geq 4$$, we have $$\|u_n\| = 1$$. So for $$n \geq 5$$, there exists $$\theta_n$$ such that $$e^{i \theta_n} = u_n / u_{n-1}$$. $$\theta_n$$ represents the angle between $$u_n$$ and $$u_{n-1}$$. 
+Let $$u_n = x_{n} - x_{n-1}$$ for $$n \geq 2$$. $$u_n$$ represents the vector from $$x_{n-1}$$ to $$x_n$$. For $$n \geq 4$$, we have $$\|u_n\| = 1$$. So for $$n \geq 5$$, there exists $$\theta_n$$ such that $$e^{i \theta_n} = u_n / u_{n-1}$$. $$\theta_n$$ represents the angle between $$u_{n-1}$$ and $$u_{n}$$. 
 
 For $$n \geq 5$$, we observe that triangle $$(x_{n-2}, x_{n-1}, x_n)$$ is isocele with angles $$\pi - \theta_n$$, $$\pi - \theta_{n+1}$$ and $$\pi - \theta_{n+1}$$ (see the following figure for details). It follows $$\pi = \pi - \theta_n +  2(\pi - \theta_{n+1})$$ i.e. $$\theta_{n+1} = \pi - (1/2) \theta_n.$$
 
-<img src="../images/2017-6-11-Triangle-pursuit/angles/angle1.png" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/angles/angle2.png" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/angles/angle3.png" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/angles/angles.png"/>
 
 It follows 
 
