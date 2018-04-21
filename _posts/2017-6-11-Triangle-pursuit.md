@@ -168,29 +168,24 @@ We are now interested to understand the behavior of the sequence as a function o
 
 Let $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
 
-We separate the recurrence relation into 2 steps, for $$n \geq 4$$:
+First terms are easy to compute:
 
-$$w_n := \frac{1}{\| x_{n-1} - x_{n-3} \|}, \text{ and}$$
+$$x_4 = 0,~~~x_5 = 1.$$
+  
+After that, I follow [indication provided by achille hui here](https://math.stackexchange.com/questions/2265556).
 
-$$x_n = (1- w_n) x_{n-1} + w_n x_{n-3}.$$
+Let $$u_n = x_{n} - x_{n-1}$$ for $$n \geq 2$$. $$u_n$$ represents the vector from $$x_{n-1}$$ to $$x_n$$. For $$n \geq 4$$, we have $$\|u_n\| = 1$$. So for $$n \geq 5$$, there exists $$\theta_n$$ such that $$e^{i \theta_n} = u_n / u_{n-1}$$. $$\theta_n$$ represents the angle between $$u_n$$ and $$u_{n-1}$$. 
 
-First terms are easy:
+For $$n \geq 5$$, we observe that triangle $$(x_{n-2}, x_{n-1}, x_n)$$ is isocele with angles $$\pi - \theta_n$$, $$\pi - \theta_{n+1}$$ and $$\pi - \theta_{n+1}$$ (see the following figure for details). It follows $$\pi = \pi - \theta_n +  2(\pi - \theta_{n+1})$$ i.e. $$\theta_{n+1} = \pi - (1/2) \theta_n.$$
 
-$$w_4 = 1,~~~x_4 = 0,~~~w_5 = 1,~~~x_5 = 1,~~~ $$
+<img src="../images/2017-6-11-Triangle-pursuit/angles/angle1.png" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/angles/angle2.png" width="31%"/>
+<img src="../images/2017-6-11-Triangle-pursuit/angles/angle3.png" width="31%"/>
 
-After that, it is more and more complex. The following formulas are true with $$t \in (0, \pi)$$ (additional care is needed outside this interval).
+It follows 
 
-We let $$a := \sin(\frac{t}{2})$$, $$a' := \cos(\frac{t}{2})$$, 
-$$b := \cos(\frac{t+\pi}{4})$$, $$b' := \sin(\frac{t+\pi}{4})$$,
-$$c := \sin(\frac{t+\pi}{8})$$, and get:
 
-$$w_6 = 1/(2a),~~~ \text{Re}(x_6) = 1 - a,~~~ \text{Im}(x_6) = a',$$
 
-$$w_7 = 1/(2b),~~~ \text{Re}(x_7) = (2b - 1)b,~~~ \text{Im}(x_7) = (2b - 1)b',$$
-
-$$w_8 = 1/(2c).$$
-
-Functions with long periods are appearing, all shaped with absolute values everywhere. Maybe some Fourier wizard can help to get a closed form for $$w_n$$ and $$x_n$$.
 
 Construction of the first terms of the sequence for $$t = 0.6$$ is illustrated in Fig. 8.
 
@@ -207,6 +202,8 @@ Construction of the first terms of the sequence for $$t = 0.6$$ is illustrated i
 <img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/9.png" alt="step 9" width="31%"/>
 
 *Fig. 8. Construction of the first steps with initial triplet $$(0, 1, e^{0.6i})$$*
+
+
 
 **Adherent points**
 
