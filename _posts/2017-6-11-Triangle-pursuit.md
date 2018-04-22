@@ -166,7 +166,7 @@ We are now interested to understand the behavior of the sequence as a function o
 
 **Formula for $$x_n$$**
 
-In this section, we let $$t \in (0, \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
+In this section, we let $$t \in (0, \pi)$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
 
 First terms are easy to compute:
 
@@ -253,5 +253,5 @@ The mappings are depicted in Fig. 12.
 *Fig. 12. Mapping from $$\theta \times (x_1, x_2, x_3)$$ to the corresponding adherent points for one-norm, Euclidian norm and maximum norm respectively.*
 
 **References**
-- Code is available <a href="https://github.com/ahstat/triangle-pursuit" target="_blank">on my github</a>. Many examples are provided, and contain some generalization with more initial points, higher dimension, etc.
+- Code is available <a href="https://github.com/ahstat/triangle-pursuit" target="_blank">on my github</a>. Many examples are provided, and code contains some generalization with more initial points, higher dimension, etc.
 - I wrote [a question in math.stackexchange](https://math.stackexchange.com/questions/2265556) asking about the asymptotic behavior of $$(x_n)_n$$. Thanks for achille hui for his comment.
