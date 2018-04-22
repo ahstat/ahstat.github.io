@@ -166,7 +166,7 @@ We are now interested to understand the behavior of the sequence as a function o
 
 **First terms of the sequence**
 
-Let $$t \in (0, 2 \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
+In this section, we let $$t \in (0, \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
 
 First terms are easy to compute:
 
@@ -176,32 +176,17 @@ After that, I follow [indication provided by achille hui here](https://math.stac
 
 Let $$u_n = x_{n} - x_{n-1}$$ for $$n \geq 2$$. $$u_n$$ represents the vector from $$x_{n-1}$$ to $$x_n$$. For $$n \geq 4$$, we have $$\|u_n\| = 1$$. So for $$n \geq 5$$, there exists $$\theta_n$$ such that $$e^{i \theta_n} = u_n / u_{n-1}$$. $$\theta_n$$ represents the angle between $$u_{n-1}$$ and $$u_{n}$$. 
 
-For $$n \geq 5$$, we observe that triangle $$(x_{n-2}, x_{n-1}, x_n)$$ is isocele with angles $$\pi - \theta_n$$, $$\pi - \theta_{n+1}$$ and $$\pi - \theta_{n+1}$$ (see the following figure for details). It follows $$\pi = \pi - \theta_n +  2(\pi - \theta_{n+1})$$ i.e. $$\theta_{n+1} = \pi - (1/2) \theta_n.$$
+For $$n \geq 5$$, we observe that triangle $$(x_{n-2}, x_{n-1}, x_n)$$ is isocele with angles $$\pi - \theta_n$$, $$\pi - \theta_{n+1}$$ and $$\pi - \theta_{n+1}$$ (see Fig. 8 for details). It follows $$\pi = \pi - \theta_n +  2(\pi - \theta_{n+1})$$ i.e. $$\theta_{n+1} = \pi - (1/2) \theta_n.$$
 
 <img src="../images/2017-6-11-Triangle-pursuit/angles/angles.png"/>
 
-It follows 
+*Fig. 8. Angles in triangle $$(x_{n-2}, x_{n-1}, x_n)$$*
 
+After some calculations, we get for $$n \geq 5$$:
 
+$$x_n = \sum_{k=0}^{n-5} e^{\frac{2ik \pi}{3}} e^{\frac{i}{3}\left( t - \frac{\pi}{3} \right) \left[ 1 - \left(-\frac{1}{2} \right)^k \right]}.$$
 
-
-Construction of the first terms of the sequence for $$t = 0.6$$ is illustrated in Fig. 8.
-
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/1.png" alt="step 1" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/2.png" alt="step 2" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/3.png" alt="step 3" width="31%"/>
-
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/4.png" alt="step 4" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/5.png" alt="step 5" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/6.png" alt="step 6" width="31%"/>
-
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/7.png" alt="step 7" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/8.png" alt="step 8" width="31%"/>
-<img src="../images/2017-6-11-Triangle-pursuit/first_terms_images/9.png" alt="step 9" width="31%"/>
-
-*Fig. 8. Construction of the first steps with initial triplet $$(0, 1, e^{0.6i})$$*
-
-
+[this formula in only valid in the interval $$(0, \pi)$$].
 
 **Adherent points**
 
@@ -269,4 +254,4 @@ The mappings are depicted in Fig. 12.
 
 **References**
 - Code is available <a href="https://github.com/ahstat/triangle-pursuit" target="_blank">on my github</a>. Many examples are provided, and contain some generalization with more initial points, higher dimension, etc.
-- I wrote [a lonely question in math.stackexchange](https://math.stackexchange.com/questions/2265556) asking about the asymptotic behavior of $$(x_n)_n$$.
+- I wrote [a question in math.stackexchange](https://math.stackexchange.com/questions/2265556) asking about the asymptotic behavior of $$(x_n)_n$$. Thanks for achille hui for his comment.
