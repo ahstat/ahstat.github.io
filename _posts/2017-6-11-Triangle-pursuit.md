@@ -164,7 +164,7 @@ We have reduced the problem to $$1$$ dimension without loss of generality.
 We observe that parameters $$t = 0 \text{ mod } \pi$$ are impossible. 
 We are now interested to understand the behavior of the sequence as a function of $$t$$.
 
-**First terms of the sequence**
+**Formula for $$x_n$$**
 
 In this section, we let $$t \in (0, \pi) \setminus \lbrace \pi \rbrace$$ and $$(x_1, x_2, x_3) := (0, 1, e^{it})$$.
 
