@@ -95,13 +95,13 @@ $$[2] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
 $$[3] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
-*Calculation of $$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$.*
+*Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$.*
 
 We define for all $$(k,l)$$:
 
 $$f_k(y_l) = \exp \left( -||y_l - y_k||^2 \right).$$
 
-We have (because $$\nabla_{a} ||a - b||^2 = 2(a-b)$$):
+We have (because $$\nabla_{a} \| a - b \|^2 = 2(a-b)$$):
 
 $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -2(y_l - y_k) f_k(y_l).$$
 
@@ -157,7 +157,7 @@ $$q_{k|l} = \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ so:
 
 $$[1] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \left( \sum_{k \neq l} (y_l - y_k) q_{k|l} \right)  \left( \sum_{j \neq l} p_{j|l} \right)$$
 
-And $$\sum_{j \neq l} p_{j|l} = 1$$, then:
+And $$\sum_{j \neq l} p_{j \mid l} = 1$$, then:
 
 $$[1] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \sum_{k \neq l} (y_l - y_k) q_{k|l}$$
 
@@ -173,7 +173,7 @@ $$[2] = \sum_{i \neq l} p_{l|i} \left( \frac{\nabla_{y_l} f_i(y_l)}{f_i(y_l)} - 
 
 $$[2] = \sum_{i \neq l} p_{l|i} \left( - 2(y_l - y_i) + 2 (y_l - y_i) \frac{f_i(y_l)}{S_i} \right) $$
 
-But we have: $$q_{l|i} = \frac{f_i(y_l)}{S_i}$$, so:
+But we have: $$q_{l \mid i} = \frac{f_i(y_l)}{S_i}$$, so:
 
 $$[2] = -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}.$$
 
@@ -185,13 +185,13 @@ Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
 
 $$ [3] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{(y_l - y_i) f_i(y_l)}{S_i} \right)$$
 
-But we have: $$q_{l|i} = \frac{f_i(y_l)}{S_i}$$, so:
+But we have: $$q_{l \mid i} = \frac{f_i(y_l)}{S_i}$$, so:
 
 $$ [3] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} (y_l - y_i) q_{l|i}$$
 
 $$ [3] = 2 \sum_{i \neq l} \left[ (y_l - y_i) q_{l|i} \left( \sum_{j \neq i,l} p_{j|i} \right) \right]$$
 
-We have: $$\sum_{j \neq i, l} p_{j|i} = 1 - p_{l|i}$$, so finally:
+We have: $$\sum_{j \neq i, l} p_{j \mid i} = 1 - p_{l \mid i}$$, so finally:
 
 $$ [3] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) $$
 
