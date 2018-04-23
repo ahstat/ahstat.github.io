@@ -19,7 +19,7 @@ In the following, we describe how works SNE (which is essentially a rewriting of
 
 ## How works SNE
 
-*High-dimensional points*
+### High-dimensional points
 
 We have points $$(x_i)_i$$ is an high-dimensional space. We can measure distance between two points $$i$$ and $$j$$ with $$\| x_i - x_j \|$$.
 
@@ -31,7 +31,7 @@ $$p_{j \mid i}$$ represents the probability "that $$x_i$$ would pick $$x_j$$ as 
 
 The method for determining $$\sigma_i$$ is presented in [1][1] and is quite related with *perplexity*.
 
-*Low-dimensional mapping*
+### Low-dimensional mapping
 
 We wish points $$(y_i)_i$$ in a two-dimensional space, $$y_i$$ representing the corresponding $$x_i$$.
 
@@ -41,7 +41,7 @@ $$q_{j \mid i} := \frac{\exp \left( - \| y_i - y_j \|^2 \right)}{\sum_{k \neq i}
 
 We let $$q_{i \mid i}:=0$$.
 
-*What is a good map from $$(x_i)_i$$ to $$(y_i)_i$$?*
+### What is a good map from $$(x_i)_i$$ to $$(y_i)_i$$?
 
 A good map from $$(x_i)_i$$ to $$(y_i)_i$$ is a map for which distributions $$P_i: j \mapsto p_{j \mid i}$$ and $$Q_i: j \mapsto q_{j \mid i}$$ are equal (for all $$i$$).
 
@@ -55,7 +55,7 @@ Since we want to minimize them for all $$i$$, we finally define the cost functio
 
 $$C = \sum_i \text{KL}(P_i \mid \mid Q_i).$$
 
-*Asymmetry of $$\text{KL}$$*
+### Asymmetry of $$\text{KL}$$
 
 Recall Fig. 3.6 of the "Deep learning book" to see the asymmetry effect of $$\text{KL}$$. Here, we focus on representing a distribution $$Q_i$$ which is fair for the whole distribution $$P_i$$, then we choose $$\text{KL}(P_i \mid \mid Q_i)$$ (it is more clear on the figure…).
 
@@ -66,7 +66,7 @@ This means:
 On the whole, "the SNE cost function focuses on retaining the local structure of the data in the map".
 
 
-*Gradient descent*
+### Gradient descent
 
 TODO Explain the method
 
@@ -95,7 +95,7 @@ $$[2] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
 $$[3] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
-*Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$.*
+#### Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$.*
 
 We define for all $$(k,l)$$:
 
@@ -107,7 +107,7 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 We define for all $$j$$: $$S_j = \sum_k f_k(y_j)$$ and $$C = S_i^2$$ (definition or not? Confusing with previous $$C$$).
 
-*Case [1].*
+#### Case [1].
 $$q_{j|l}$$ and $$\nabla_{y_l} q_{j|l}$$?
 
 $$q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ 
@@ -121,7 +121,7 @@ $$\nabla_{y_l} q_{j|l} =
 
 (1')
 
-*Case [2].*
+#### Case [2].
 $$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
 
 $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( - ||y_i - y_k ||^2 \right)} =: \frac{f_i(y_l)}{f_i(y_l) + B}$$ 
@@ -132,7 +132,7 @@ $$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \
 
 (2')
 
-*Case [3].*
+#### Case [3].
 $$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$?
 
 $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( -||y_i - y_k||^2 \right)} =: \frac{A}{f_i(y_l) + B}$$ 
