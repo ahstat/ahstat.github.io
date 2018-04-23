@@ -197,6 +197,16 @@ $$ [3] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) $$
 
 ### Final form of the gradient
 
+test
+$$
+\begin{aligned}
+ -\nabla_{y_l} C &= [1] + [2] + [3] \\
+ &= - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}
+\end{aligned}
+$$
+end test
+
+
 $$-\nabla_{y_l} C = [1] + [2] + [3]$$
 
 
