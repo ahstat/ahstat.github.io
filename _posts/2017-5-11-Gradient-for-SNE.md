@@ -8,14 +8,12 @@ published: true
 Many methods exist to visualize high-dimensional data through a two-dimensional map. Those include linear techniques such as PCA and MDS; as well as nonlinear ones such as Isomap, LLE, SNE and t-SNE (resp. Principal Component Analysis, 1933; MultiDimensional Scaling, 1952; Isomap, 2000; Locally Linear Embedding, 2000; Stochastic Neighbor Embedding, 2002; t-Distributed Stochastic Neighbor Embedding, 2008). Some of those dimensionality reduction methods are illustrated in [this sklearn example](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html).
 
 A popular method for nonlinear mapping is t-SNE. This method has been developed by Laurens van der Maaten and Geoffrey Hinton in [\[1\]][1]. It is based on SNE and improves it by addressing the "crowding problem" (tendency of mapped points to aggregate into a unique central cluster).
-You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-tsne/), which allows to explore various examples interactively.
+You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-tsne/), which allows exploration of various examples interactively.
 
-In this post, we propose to derive gradient for SNE algorithm (not to be confused with t-SNE, for which gradient calculation is provided in Appendix A of [1][1]).
+In this post, we propose to derive gradient for the SNE algorithm (not to be confused with t-SNE, for which gradient calculation is detailed in Appendix A of [\[1\]][1]).
+SNE gradient is given in both original and t-SNE article, but neither detailed (see Equation 5 of [\[2\]][2], and Section 2 of [\[1\]][1]). 
 
-Note that formula for SNE gradient is given in both original and t-SNE article, but neither detail calculations (given respectively in Equation 5 of [2][2], and Section 2 of [1][1]). 
-
-
-In the following, we describe how works SNE (which is essentially a rewriting of Section 2 from [1]), before deriving SNE gradient step by step.
+In the following, we describe how works SNE (which is essentially a rewriting of Section 2 from [\[1\]][1]), before deriving SNE gradient step by step.
 
 ## How works SNE
 
