@@ -10,10 +10,10 @@ Many methods exist to visualize high-dimensional data through a two-dimensional 
 A popular method for nonlinear mapping is t-SNE. This method has been developed by Laurens van der Maaten and Geoffrey Hinton in [\[1\]][1]. It is based on SNE and improves it by addressing the "crowding problem" (tendency of mapped points to aggregate into a unique central cluster).
 You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-tsne/), which allows exploration of various examples interactively.
 
-In this post, we propose to derive gradient for the SNE algorithm (not to be confused with t-SNE, for which gradient calculation is detailed in Appendix A of [\[1\]][1]).
+In this post, we propose to derive gradient of the SNE algorithm (not to be confused with t-SNE, for which gradient calculation is detailed in Appendix A of [\[1\]][1]).
 SNE gradient is given in both original and t-SNE article, but neither detailed (see Equation 5 of [\[2\]][2], and Section 2 of [\[1\]][1]). 
 
-In the following, we describe how works SNE (which is essentially a rewriting of Section 2 from [\[1\]][1]), before deriving SNE gradient step by step.
+In the following, we describe how works SNE (which is essentially a rewriting of Section 2 of [\[1\]][1]) before deriving SNE gradient step by step.
 
 ## How works SNE
 
@@ -27,11 +27,11 @@ $$p_{j \mid i} := \frac{\exp \left( - \| x_i - x_j \|^2 / 2 \sigma_i^2 \right)}{
 
 $$p_{j \mid i}$$ represents the probability "that $$x_i$$ would pick $$x_j$$ as its neighbor, if neighbors were picked in proportion to their probability density under a Gaussian centered at $$x_i$$". We let $$p_{i \mid i}:=0$$.
 
-The method for determining $$\sigma_i$$ is presented in [1][1] and is quite related with *perplexity*.
+The method for determining $$\sigma_i$$ is presented in [\[1\]][1] and is quite related with *perplexity*.
 
 ### Low-dimensional mapping
 
-We wish points $$(y_i)_i$$ in a two-dimensional space, $$y_i$$ representing the corresponding $$x_i$$.
+We wish to have points $$(y_i)_i$$ in a two-dimensional space, $$y_i$$ representing a point in the plane corresponding to $$x_i$$.
 
 We define the similarity between points $$i$$ and $$j$$ in this space:
 
@@ -47,7 +47,7 @@ We measure the distance between distributions $$P_i$$ and $$Q_i$$ with the Kullb
 
 $$\text{KL}(P_i \mid \mid Q_i) = \sum_{j} p_{j \mid i} \log \frac{p_{j \mid i}}{q_{j \mid i}}.$$
 
-[See post about KL for more details].
+[See post about KL for more details; and next paragraph].
 
 Since we want to minimize them for all $$i$$, we finally define the cost function as:
 
@@ -55,18 +55,18 @@ $$C = \sum_i \text{KL}(P_i \mid \mid Q_i).$$
 
 ### Asymmetry of $$\text{KL}$$
 
-Recall Fig. 3.6 of the "Deep learning book" to see the asymmetry effect of $$\text{KL}$$. Here, we focus on representing a distribution $$Q_i$$ which is fair for the whole distribution $$P_i$$, then we choose $$\text{KL}(P_i \mid \mid Q_i)$$ (it is more clear on the figure…).
+We remember that $$\text{KL}$$ divergence is asymmetric (see Fig 3.6. from [Deep learning book p.74](http://www.deeplearningbook.org/contents/prob.html)).
+In SNE, we focus on choosing a distribution $$Q_i$$ which fairly represents the whole distribution $$P_i$$, so we optimize $$\text{KL}(P_i \mid \mid Q_i)$$.
 
 This means:
-- If we use widely separated points to represent nearby datapoints, there will be a large cost (i.e. we have a small $$q_{j \mid i}$$ to model a large $$p_{j \mid i}$$, i.e. the points are close on $$X$$ but far away on $$Y$$),
-- If we use nearby points to represent widely separated datapoints, there will be a small cost (i.e. we have a large $$q_{j \mid i}$$ to model a small $$p_{j \mid i}$$, i.e. the points are far away on $$X$$ but close on $$Y$$).
+- If we use widely separated 2D points to represent nearby datapoints, there will be a large cost (i.e. we have a small $$q_{j \mid i}$$ to model a large $$p_{j \mid i}$$, i.e. the points are far away in $$Y$$ but close in $$X$$),
+- If we use nearby 2D points to represent widely separated datapoints, there will be a small cost (i.e. we have a large $$q_{j \mid i}$$ to model a small $$p_{j \mid i}$$, i.e. the points are close in $$Y$$ but far away in $$X$$).
 
 On the whole, "the SNE cost function focuses on retaining the local structure of the data in the map".
 
-
 ### Gradient descent
 
-TODO Explain the method
+The cost function is optimized with a variant of the classic gradient descent (read [\[1\]][1] for details).
 
 
 ## Derivation of the SNE gradient
