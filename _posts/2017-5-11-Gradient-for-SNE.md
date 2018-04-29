@@ -5,9 +5,9 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Many methods exist to visualize high-dimensional data by mapping them into a two-dimensional map. Those include linear techniques such as PCA (Principal Component Analysis, 1933) and MDS (MultiDimensional Scaling, 1952); as well as nonlinear ones such as Isomap (2000), LLE (Locally Linear Embedding, 2000), SNE (Stochastic Neighbor Embedding, 2002), and t-SNE (t-Distributed Stochastic Neighbor Embedding, 2008). Some of those dimensionality reduction methods are illustrated in [this sklearn example](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html).
+Many methods exist to visualize high-dimensional data through a two-dimensional map. Those include linear techniques such as PCA and MDS; as well as nonlinear ones such as Isomap, LLE, SNE and t-SNE (resp. Principal Component Analysis, 1933; MultiDimensional Scaling, 1952; Isomap, 2000; Locally Linear Embedding, 2000; Stochastic Neighbor Embedding, 2002; t-Distributed Stochastic Neighbor Embedding, 2008). Some of those dimensionality reduction methods are illustrated in [this sklearn example](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html).
 
-The most popular method for nonlinear mapping is t-SNE. This method was developed by Laurens van der Maaten and Geoffrey Hinton in [1][1]. It is based on SNE and improves it by addressing the "crowding problem" (tendency of mapped points to aggregate into a unique central cluster).
+A popular method for nonlinear mapping is t-SNE. This method has been developed by Laurens van der Maaten and Geoffrey Hinton in [\[1\]][1]. It is based on SNE and improves it by addressing the "crowding problem" (tendency of mapped points to aggregate into a unique central cluster).
 You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-tsne/), which allows to explore various examples interactively.
 
 In this post, we propose to derive gradient for SNE algorithm (not to be confused with t-SNE, for which gradient calculation is provided in Appendix A of [1][1]).
