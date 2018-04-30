@@ -106,12 +106,12 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 **Case $$[\text{I}]$$**
 
-\begin{align}\label{q1}
+\begin{align}#q1
 q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
 \end{align}
 
 (\ref{q1}) is the first equation.
-
+test of labels
 $$
 \begin{align}\label{q1diff}
 \nabla_{y_l} q_{j|l} =& \frac{\nabla_{y_l} f_j(y_l) \sum_{k \neq l} f_k(y_l) - f_j(y_l) \sum_{k \neq l}\nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2} \\
