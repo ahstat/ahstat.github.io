@@ -95,7 +95,7 @@ $$[\text{III}] := \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q
 
 **Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$**
 
-We define for all $$k,l$$:
+We define for all $$k, l$$:
 
 $$f_k(y_l) := \exp \left( -||y_l - y_k||^2 \right).$$
 
@@ -103,16 +103,14 @@ We have, using $$\nabla_{a} \| a - b \|^2 = 2(a-b)$$:
 
 $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -2(y_l - y_k) f_k(y_l).$$
 
-We define for all $$j$$: 
-
-$$S_j := \sum_k f_k(y_j).$$
 
 **Case $$[\text{I}]$$**
 
-\begin{aligned}
+\begin{aligned}\label{q1}
 q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
 \end{aligned}
 
+(\ref{q1}) is the first equation.
 
 (1)
 
@@ -130,7 +128,7 @@ $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \
 
 (2)
 
-$$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{ \left( \sum_{k \neq i} \exp \left( - ||y_i - y_k||^2 \right) \right)^2} = \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{C}$$ 
+$$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{ \left( \sum_{k \neq i} \exp \left( - ||y_i - y_k||^2 \right) \right)^2} = \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{D}$$ 
 
 (2')
 
@@ -141,7 +139,7 @@ $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \
 
 (3)
 
-$$\nabla_{y_l} q_{j|i} = \frac{-A \nabla_{y_l} f_i(y_l)}{\left( f_i(y_l) + B \right)^2} = \frac{2A(y_l - y_i) f_i(y_l)}{\left( \sum_{k \neq i} \exp \left( - ||y_i - y_k || \right)^2 \right)^2} = \frac{2 A (y_l - y_i) f_i(y_l)}{C}$$
+$$\nabla_{y_l} q_{j|i} = \frac{-A \nabla_{y_l} f_i(y_l)}{\left( f_i(y_l) + B \right)^2} = \frac{2A(y_l - y_i) f_i(y_l)}{\left( \sum_{k \neq i} \exp \left( - ||y_i - y_k || \right)^2 \right)^2} = \frac{2 A (y_l - y_i) f_i(y_l)}{D}$$
 
 ### Calculation of  $$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
 
@@ -167,9 +165,9 @@ $$[\text{I}] = - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l 
 
 ### Calculation of $$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
-$$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}} = \sum_{i \neq l} p_{l|i} \left( \frac{f_i(y_l) + B}{f_i(y_l)} \right) \left( \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{C} \right) $$
+$$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}} = \sum_{i \neq l} p_{l|i} \left( \frac{f_i(y_l) + B}{f_i(y_l)} \right) \left( \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{D} \right) $$
 
-Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
+Since $$S_i = f_i(y_l) + B$$ and $$D = S_i^2$$, we have:
 
 $$[\text{II}] = \sum_{i \neq l} p_{l|i} \left( \frac{\nabla_{y_l} f_i(y_l)}{f_i(y_l)} - \frac{\nabla_{y_l} f_i(y_l)}{S_i} \right) $$
 
@@ -181,9 +179,9 @@ $$[\text{II}] = -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l
 
 ### Calculation of $$[\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
-$$ [\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}} = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{f_i(y_l) + B}{A} \right) \left( \frac{2A (y_l - y_i) f_i(y_l)}{C} \right)$$
+$$ [\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}} = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{f_i(y_l) + B}{A} \right) \left( \frac{2A (y_l - y_i) f_i(y_l)}{D} \right)$$
 
-Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
+Since $$S_i = f_i(y_l) + B$$ and $$D = S_i^2$$, we have:
 
 $$ [\text{III}] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{(y_l - y_i) f_i(y_l)}{S_i} \right)$$
 
