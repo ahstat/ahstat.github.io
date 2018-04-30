@@ -153,7 +153,7 @@ $$
 \end{align}
 $$
 
-### Calculation of  $$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
+### Calculation of  $$[\text{I}]$$
 
 $$
 \begin{align}
@@ -179,7 +179,7 @@ $$
 \end{align}
 $$
 
-### Calculation of $$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
+### Calculation of $$[\text{II}]$$
 
 $$
 \begin{align}
@@ -201,7 +201,7 @@ But $$q_{l \mid i} = \frac{f_i(y_l)}{S}$$, so:
 
 $$[\text{II}] = -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}.$$
 
-### Calculation of $$[\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
+### Calculation of $$[\text{III}]$$
 
 $$
 \begin{align}
@@ -219,13 +219,13 @@ But $$q_{l \mid i} = \frac{f_i(y_l)}{S}$$, so:
 $$
 \begin{align}
 [\text{III}] =& 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} (y_l - y_i) q_{l|i} \\
-=& 2 \sum_{i \neq l} \left[ (y_l - y_i) q_{l|i} \left( \sum_{j \neq i,l} p_{j|i} \right) \right]
+=& 2 \sum_{i \neq l} \left[ (y_l - y_i) q_{l|i} \left( \sum_{j \neq i,l} p_{j|i} \right) \right].
 \end{align}
 $$
 
 We have: $$\sum_{j \neq i, l} p_{j \mid i} = 1 - p_{l \mid i}$$, so finally:
 
-$$ [\text{III}] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) $$
+$$ [\text{III}] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right).$$
 
 ### Final form of the gradient
 
