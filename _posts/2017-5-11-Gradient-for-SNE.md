@@ -253,8 +253,8 @@ $$\nabla_{y_l} C = 2 \sum_{i \neq l} (p_{i|l} - q_{i|l} + p_{l|i} - q_{l|i})(y_l
 The form of this gradient is interpreted in Section 2 of [\[1\]][1].
 
 ## References
-- [\[1\]]: *Visualizing Data using t-SNE* (2008) by Laurens van der Maaten and Geoffrey Hinton,
-- [\[2\]]: *Stochastic Neighbor Embedding* (2002) by Geoffrey Hinton and Sam Roweis.
+- [\[1\]][1]: *Visualizing Data using t-SNE* (2008) by Laurens van der Maaten and Geoffrey Hinton,
+- [\[1\]][1]: *Stochastic Neighbor Embedding* (2002) by Geoffrey Hinton and Sam Roweis.
 
 [1]: http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
 [2]: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
