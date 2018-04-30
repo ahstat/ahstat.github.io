@@ -229,21 +229,20 @@ $$ [\text{III}] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \righ
 
 ### Final form of the gradient
 
-test
 $$
 \begin{align}
  -\nabla_{y_l} C &= [\text{I}] + [\text{II}] + [\text{III}] \\
- &= - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) \\ 
- &+ 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i} + 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) 
+ &= -& 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) \\ 
+ &+& 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i} + 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) 
 \end{align}
 $$
 
-
 So after simplification:
+
 $$
 \begin{align}
--\nabla_{y_l} C =& - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} \\
-+& -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{l|i}
+-\nabla_{y_l} C =& -& 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} \\
+& -& 2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{l|i}
 \end{align}
 $$
 
