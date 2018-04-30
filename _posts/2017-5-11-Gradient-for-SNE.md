@@ -106,42 +106,53 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 **Case $$[\text{I}]$$**
 
-\begin{align}\label{q1}
+We have
+
+$$
+\begin{align}
 q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
 \end{align}
-
-(\ref{q1}) is the first equation.
-test of labels
 $$
-\begin{align}\label{q1diff}
+
+and
+
+$$
+\begin{align}
 \nabla_{y_l} q_{j|l} =& \frac{\nabla_{y_l} f_j(y_l) \sum_{k \neq l} f_k(y_l) - f_j(y_l) \sum_{k \neq l}\nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2} \\
-=& \frac{\nabla_{y_l} f_j(y_l)}{\sum_{k \neq l} f_k(y_l)} - \frac{f_j(y_l) \sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2}
+=& \frac{\nabla_{y_l} f_j(y_l)}{\sum_{k \neq l} f_k(y_l)} - \frac{f_j(y_l) \sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2}.
 \end{align}
-$$ {#eq:description}
-
-@eq:description to cite it
-
-(\ref{q1diff}) is the diff of first equation.
+$$
 
 **Case $$[\text{II}]$$**
-$$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
+
+We have
 
 $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( - ||y_i - y_k ||^2 \right)} =: \frac{f_i(y_l)}{f_i(y_l) + B}$$ 
 
-(2)
+and
 
-$$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{ \left( \sum_{k \neq i} \exp \left( - ||y_i - y_k||^2 \right) \right)^2} = \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{D}$$ 
-
-(2')
+$$
+\begin{align}
+\nabla_{y_l} q_{l|i} =& \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{ \left( \sum_{k \neq i} \exp \left( - ||y_i - y_k||^2 \right) \right)^2} \\
+=& \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{D}.
+\end{align}
+$$
 
 **Case $$[\text{III}]$$**
-$$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$?
+
+We have
 
 $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( -||y_i - y_k||^2 \right)} =: \frac{A}{f_i(y_l) + B}$$ 
 
-(3)
+and
 
-$$\nabla_{y_l} q_{j|i} = \frac{-A \nabla_{y_l} f_i(y_l)}{\left( f_i(y_l) + B \right)^2} = \frac{2A(y_l - y_i) f_i(y_l)}{\left( \sum_{k \neq i} \exp \left( - ||y_i - y_k || \right)^2 \right)^2} = \frac{2 A (y_l - y_i) f_i(y_l)}{D}$$
+$$
+\begin{align}
+\nabla_{y_l} q_{j|i} =& \frac{-A \nabla_{y_l} f_i(y_l)}{\left( f_i(y_l) + B \right)^2} \\
+&= \frac{2A(y_l - y_i) f_i(y_l)}{\left( \sum_{k \neq i} \exp \left( - ||y_i - y_k || \right)^2 \right)^2} \\
+&= \frac{2 A (y_l - y_i) f_i(y_l)}{D}.
+\end{align}
+$$
 
 ### Calculation of  $$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
 
