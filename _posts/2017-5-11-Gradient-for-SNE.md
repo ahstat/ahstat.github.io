@@ -13,10 +13,7 @@ You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-
 In this post, we propose to derive gradient of the SNE algorithm (not to be confused with t-SNE, for which gradient calculation is detailed in Appendix A of [\[1\]][1]).
 SNE gradient is given in both original and t-SNE article, but neither detailed (see Equation 5 of [\[2\]][2], and Section 2 of [\[1\]][1]). 
 
-$$C = \sum_{i} KL(P_i || Q_i) = \sum_{i} \sum_{j \neq i} p_{j|i} \log \frac{p_{j|i}}{q_{j|i}}.$$
-
-$$\nabla_{y_l} C = 2 \sum_{i \neq l} (p_{i|l} - q_{i|l} + p_{l|i} - q_{l|i})(y_l - y_i).$$
-
+<center><img src="../images/2017-5-11-Gradient-for-SNE/intro_illustration.png" alt="Intro illustration with cost and its gradient for SNE"/></center>
 
 
 In the following, we describe how works SNE (which is essentially a rewriting of Section 2 of [\[1\]][1]) before deriving SNE gradient step by step.
