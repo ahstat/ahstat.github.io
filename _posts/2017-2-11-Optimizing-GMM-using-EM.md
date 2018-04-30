@@ -5,12 +5,11 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-*Gaussian Mixture Models* (GMM) are a parametric clustering method which models data as a finite mixture of Gaussians.
-The number of Gaussians $$K$$ is the number of clusters and is initially selected.
+A *Gaussian Mixture Model* (GMM) models data as a finite mixture of Gaussians. It is often used to perform clustering. In this case, the number of Gaussians $$K$$ is the number of clusters and is initially selected.
 Compared to $$K$$-means, GMM allows clusters with uneven variance and density.
 
 Parameters are usually estimated using an *Expectation-Maximization* (EM) algorithm,
-its aim being to iteratively increase likelihood of the set.
+its aim being to iteratively increase likelihood of the dataset.
 GMM is actually a perfect model to understand how EM is working.
 
 Many introductions of GMM and EM exist on the web. 
@@ -24,12 +23,12 @@ This one is self-contained and focuses on math computations. No implementation i
 </center>
 
 
-*Fig. 1. Illustration of clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted means for each Gaussian.*
+*Fig. 1. Clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted means for each Gaussian.*
 
 We begin by describing GMM and list parameters of the model.
 Then, we introduce EM and explain how it is useful to optimize parameters.
 We continue by applying EM to GMM and derive update formulas.
-The final algorithm to update GMM parameters iteratively is finally given.
+The final algorithm to cluster data is finally given.
 
 ## What is GMM?
 
@@ -49,44 +48,45 @@ to be labeled $$k$$ is written as follows:
 
 $$P(Z_i = k).$$
 
-Initially, we only observe $$x_i$$, without any information about related label.
+Initially, we only observe $$x_i$$, without any information about the corresponding label.
 We say that $$Z_i$$ is a latent variable.
-The aim is to identify the most probable label $$k$$ for $$x_i$$.
-
 Using the law of total probability, we reveal the latent variable (in the formula, $$x \in \mathbb{R}^d$$):
 
 $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) P(Z_i = k).$$
 
-On the whole, GMM assumes that three hypotheses are verified:
-- The set of couples $$(X_i, Z_i)_i$$ is an independent vector over the rows $$i$$,
+GMM assumes that three hypotheses are verified:
+- $$(X_i)_i$$ is an independent vector,
 - Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
 - Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and variance $$\Sigma_k$$.
 
-Unknown parameters of the model are grouped together into:
+Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
-We let $$X = (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$Z = (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$.
+We let $$X = (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$Z = (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
 
-The chosen strategy to estimate $\theta$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
+The chosen strategy to estimate $$\theta$$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
-$$L(\theta ; \mathbf{x}) := p_{\theta}(X = \mathbf{x})$$
+$$L(\theta ; \mathbf{x}) := p_{\theta}(X = \mathbf{x}).$$
 
-Using independence hypothesis, we get:
+Using the three hypotheses of GMM, we obtain:
 
-$$L(\theta ; \mathbf{x}) = \prod_{i=1}^n p_{\theta}(X_i = x_i)$$
+$$
+\begin{align}
+L(\theta ; \mathbf{x}) =& \prod_{i=1}^n p_{\theta}(X_i = x_i) \\
+=& \prod_{i=1}^n \left[ \sum_{k = 1}^K p(X_i = x_i | Z_i = k) P(Z_i = k) \right] \\
+=& \prod_{i=1}^n \left[ \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \pi_k \right] \\
+\end{align}
+$$
 
-and then:
 
-$$\log L(\theta ; \mathbf{x}) = \sum_{i=1}^n \sum_{k = 1}^K p(X_i = x_i | Z_i = k) P(Z_i = k) $$
-
-$$L(\theta ; \mathbf{x}) = \sum_{i=1}^n \log p_{\theta}(X_i = x_i)$$
-
-etc.
 
 ## What is EM?
 
 ## Applying EM to GMM
 
-## Final algorithm to update GMM parameters iteratively
+## Final algorithm to cluster data 
 
+update GMM parameters iteratively
+
+The aim is to identify the most probable label $$k$$ for $$x_i$$.
