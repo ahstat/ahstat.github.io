@@ -166,7 +166,7 @@ $$
 \end{align}
 $$
 
-But $$q_{k|l} = \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ so:
+But $$q_{k \mid l} = \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ so:
 
 $$[\text{I}] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \left( \sum_{k \neq l} (y_l - y_k) q_{k|l} \right)  \left( \sum_{j \neq l} p_{j|l} \right),$$
 
