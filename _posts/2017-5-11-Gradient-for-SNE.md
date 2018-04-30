@@ -106,9 +106,9 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 **Case $$[\text{I}]$$**
 
-\begin{aligned}\label{q1}
+\begin{align}\label{q1}
 q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
-\end{aligned}
+\end{align}
 
 (\ref{q1}) is the first equation.
 
