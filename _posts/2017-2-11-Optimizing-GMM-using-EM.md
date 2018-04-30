@@ -64,7 +64,7 @@ On the whole, GMM assumes that three hypotheses are verified:
 
 Unknown parameters of the model are grouped together into:
 
-$$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)__{k \in \lbrace 1, \ldots, K \rbrace}).$$
+$$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
 
 
