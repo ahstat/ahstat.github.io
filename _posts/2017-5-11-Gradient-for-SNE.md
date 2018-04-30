@@ -81,36 +81,38 @@ $$-\nabla_{y_l} C = \sum_{i} \sum_{j \neq i} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}
 
 ### Decomposition into 3 terms
 
-We separate the calculation into 3 terms:
+We separate the calculation as a sum of 3 terms:
 
-$$\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {8}}}$$
+$$-\nabla_{y_l} C = [\text{I}] + [\text{II}] + [\text{III}],$$
 
-$$-\nabla_{y_l} C = [\text{I}] + [\text{II}] + [\text{III}]$$
+where $$[\text{I}]$$ is when $$i=l$$; $$[\text{II}]$$ is when $$j=l$$; and $$[\text{III}]$$ is the remainder term:
 
-where $$[\text{I}]$$ is when $$i=l$$, $$[\text{II}]$$ is when $$j=l$$ and $$[\text{III}]$$ is the remainder term:
+$$[\text{I}] := \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}},$$
 
-$$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
+$$[\text{II}] := \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}},$$
 
-$$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
+$$[\text{III}] := \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}.$$
 
-$$[\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
+**Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$**
 
-#### Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$
+We define for all $$k,l$$:
 
-We define for all $$(k,l)$$:
+$$f_k(y_l) := \exp \left( -||y_l - y_k||^2 \right).$$
 
-$$f_k(y_l) = \exp \left( -||y_l - y_k||^2 \right).$$
-
-We have (because $$\nabla_{a} \| a - b \|^2 = 2(a-b)$$):
+We have, using $$\nabla_{a} \| a - b \|^2 = 2(a-b)$$:
 
 $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -2(y_l - y_k) f_k(y_l).$$
 
-We define for all $$j$$: $$S_j = \sum_k f_k(y_j)$$ and $$C = S_i^2$$ (definition or not? Confusing with previous $$C$$).
+We define for all $$j$$: 
 
-#### Case $$[\text{I}]$$
-$$q_{j|l}$$ and $$\nabla_{y_l} q_{j|l}$$?
+$$S_j := \sum_k f_k(y_j).$$
 
-$$q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ 
+**Case $$[\text{I}]$$**
+
+\begin{aligned}
+q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
+\end{aligned}
+
 
 (1)
 
@@ -121,7 +123,7 @@ $$\nabla_{y_l} q_{j|l} =
 
 (1')
 
-#### Case $$[\text{II}]$$
+**Case $$[\text{II}]$$**
 $$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
 
 $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( - ||y_i - y_k ||^2 \right)} =: \frac{f_i(y_l)}{f_i(y_l) + B}$$ 
@@ -132,7 +134,7 @@ $$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \
 
 (2')
 
-#### Case $$[\text{III}]$$
+**Case $$[\text{III}]$$**
 $$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$?
 
 $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( -||y_i - y_k||^2 \right)} =: \frac{A}{f_i(y_l) + B}$$ 
