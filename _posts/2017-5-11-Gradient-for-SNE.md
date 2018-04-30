@@ -254,7 +254,7 @@ The form of this gradient is interpreted in Section 2 of [\[1\]][1].
 
 ## References
 - [\[1\]][1]: *Visualizing Data using t-SNE* (2008) by Laurens van der Maaten and Geoffrey Hinton,
-- [\[1\]][1]: *Stochastic Neighbor Embedding* (2002) by Geoffrey Hinton and Sam Roweis.
+- [\[2\]][2]: *Stochastic Neighbor Embedding* (2002) by Geoffrey Hinton and Sam Roweis.
 
 [1]: http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
 [2]: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
