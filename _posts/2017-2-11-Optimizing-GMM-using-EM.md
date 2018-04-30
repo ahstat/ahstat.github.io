@@ -63,23 +63,26 @@ Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
-We let $$X := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$Z := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
+We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
 
 The chosen strategy to estimate $$\theta$$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
-$$L(\theta ; \mathbf{x}) := p_{\theta}(X = \mathbf{x}).$$
+$$L(\theta ; \mathbf{x}) := p_{\theta}(\mathbf{X} = \mathbf{x}).$$
 
 Using the three hypotheses of GMM, we obtain:
 
 $$
 \begin{align}
 L(\theta ; \mathbf{x}) =& \prod_{i=1}^n p_{\theta}(X_i = x_i) \\
-=& \prod_{i=1}^n \left[ \sum_{k = 1}^K p_{\theta}(X_i = x_i | Z_i = k) P_{\theta}(Z_i = k) \right] \\
-=& \prod_{i=1}^n \left[ \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \times \pi_k \right] \\
+=& \prod_{i=1}^n \sum_{k = 1}^K \left[ p_{\theta}(X_i = x_i | Z_i = k) P_{\theta}(Z_i = k) \right] \\
+=& \prod_{i=1}^n \sum_{k = 1}^K \left[ f_{(m_k, \Sigma_k)}(x_i) \times \pi_k \right] \\
 \end{align}
 $$
 
-Under this form (a product of a sum), likelihood optimization is intractable. We introduce EM to circumvent this problem.
+However, this likelihood is a product of a sum, for which direct optimization is intractable. We introduce EM to circumvent this problem.
+
+Source for this: Detail with:
+https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard
 
 ## What is EM?
 
