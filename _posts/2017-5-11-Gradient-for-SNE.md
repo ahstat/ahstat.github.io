@@ -13,6 +13,7 @@ You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-
 In this post, we propose to derive gradient of the SNE algorithm (not to be confused with t-SNE, for which gradient calculation is detailed in Appendix A of [\[1\]][1]).
 SNE gradient is given in both original and t-SNE article, but neither detailed (see Equation 5 of [\[2\]][2], and Section 2 of [\[1\]][1]). 
 
+
 In the following, we describe how works SNE (which is essentially a rewriting of Section 2 of [\[1\]][1]) before deriving SNE gradient step by step.
 
 ## How works SNE
@@ -84,15 +85,15 @@ We separate the calculation into 3 terms:
 
 $$\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {8}}}$$
 
-$$-\nabla_{y_l} C = [1] + [2] + [3]$$
+$$-\nabla_{y_l} C = [\text{I}] + [\text{II}] + [\text{III}]$$
 
-where $$[1]$$ is when $$i=l$$, $$[2]$$ is when $$j=l$$ and $$[3]$$ is the remainder term:
+where $$[\text{I}]$$ is when $$i=l$$, $$[\text{II}]$$ is when $$j=l$$ and $$[\text{III}]$$ is the remainder term:
 
-$$[1] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
+$$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
 
-$$[2] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
+$$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
-$$[3] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
+$$[\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
 #### Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$
 
@@ -106,7 +107,7 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 We define for all $$j$$: $$S_j = \sum_k f_k(y_j)$$ and $$C = S_i^2$$ (definition or not? Confusing with previous $$C$$).
 
-#### Case [1]
+#### Case $$[\text{I}]$$
 $$q_{j|l}$$ and $$\nabla_{y_l} q_{j|l}$$?
 
 $$q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ 
@@ -120,7 +121,7 @@ $$\nabla_{y_l} q_{j|l} =
 
 (1')
 
-#### Case [2]
+#### Case $$[\text{II}]$$
 $$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
 
 $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( - ||y_i - y_k ||^2 \right)} =: \frac{f_i(y_l)}{f_i(y_l) + B}$$ 
@@ -131,7 +132,7 @@ $$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \
 
 (2')
 
-#### Case [3]
+#### Case $$[\text{III}]$$
 $$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$?
 
 $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( -||y_i - y_k||^2 \right)} =: \frac{A}{f_i(y_l) + B}$$ 
@@ -140,73 +141,73 @@ $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \
 
 $$\nabla_{y_l} q_{j|i} = \frac{-A \nabla_{y_l} f_i(y_l)}{\left( f_i(y_l) + B \right)^2} = \frac{2A(y_l - y_i) f_i(y_l)}{\left( \sum_{k \neq i} \exp \left( - ||y_i - y_k || \right)^2 \right)^2} = \frac{2 A (y_l - y_i) f_i(y_l)}{C}$$
 
-### Calculation of [1] = $$\sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
+### Calculation of  $$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}}$$
 
-$$[1] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}} = \sum_{j \neq l} p_{j|l}
+$$[\text{I}] = \sum_{j \neq l} p_{j|l} \frac{\nabla_{y_l} q_{j|l}}{q_{j|l}} = \sum_{j \neq l} p_{j|l}
 \frac{\sum_{k \neq l} f_k(y_l)}{f_j(y_l)} \left( \frac{\nabla_{y_l} f_j(y_l)}{\sum_{k \neq l} f_k(y_l)} - \frac{f_j(y_l) \sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2} \right)$$
 
-$$[1] = \sum_{j \neq l} p_{j|l} \left( \frac{\nabla_{y_l} f_j(y_l)}{f_j(y_l)} - \frac{\sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\sum_{k \neq l} f_k(y_l) } \right)$$
+$$[\text{I}] = \sum_{j \neq l} p_{j|l} \left( \frac{\nabla_{y_l} f_j(y_l)}{f_j(y_l)} - \frac{\sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\sum_{k \neq l} f_k(y_l) } \right)$$
 
-$$[1] = \sum_{j \neq l} p_{j|l} \left( -2(y_l - y_j) + \frac{\sum_{k \neq l} 2(y_l - y_k) f_k(y_l)}{\sum_{k \neq l} f_k(y_l) } \right)$$
+$$[\text{I}] = \sum_{j \neq l} p_{j|l} \left( -2(y_l - y_j) + \frac{\sum_{k \neq l} 2(y_l - y_k) f_k(y_l)}{\sum_{k \neq l} f_k(y_l) } \right)$$
 
-$$[1] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \sum_{j \neq l} p_{j|l} \left( \sum_{k \neq l} (y_l - y_k) \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)} \right)$$
+$$[\text{I}] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \sum_{j \neq l} p_{j|l} \left( \sum_{k \neq l} (y_l - y_k) \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)} \right)$$
 
 But we have: 
 $$q_{k|l} = \frac{f_k(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ so:
 
-$$[1] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \left( \sum_{k \neq l} (y_l - y_k) q_{k|l} \right)  \left( \sum_{j \neq l} p_{j|l} \right)$$
+$$[\text{I}] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \left( \sum_{k \neq l} (y_l - y_k) q_{k|l} \right)  \left( \sum_{j \neq l} p_{j|l} \right)$$
 
 And $$\sum_{j \neq l} p_{j \mid l} = 1$$, then:
 
-$$[1] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \sum_{k \neq l} (y_l - y_k) q_{k|l}$$
+$$[\text{I}] = - 2 \sum_{j \neq l} p_{j|l} (y_l - y_j) + 2 \sum_{k \neq l} (y_l - y_k) q_{k|l}$$
 
-$$[1] = - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l}$$
+$$[\text{I}] = - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l}$$
 
-### Calculation of [2] = $$\sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
+### Calculation of $$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
-$$[2] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}} = \sum_{i \neq l} p_{l|i} \left( \frac{f_i(y_l) + B}{f_i(y_l)} \right) \left( \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{C} \right) $$
-
-Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
-
-$$[2] = \sum_{i \neq l} p_{l|i} \left( \frac{\nabla_{y_l} f_i(y_l)}{f_i(y_l)} - \frac{\nabla_{y_l} f_i(y_l)}{S_i} \right) $$
-
-$$[2] = \sum_{i \neq l} p_{l|i} \left( - 2(y_l - y_i) + 2 (y_l - y_i) \frac{f_i(y_l)}{S_i} \right) $$
-
-But we have: $$q_{l \mid i} = \frac{f_i(y_l)}{S_i}$$, so:
-
-$$[2] = -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}.$$
-
-### Calculation of [3] = $$\sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
-
-$$ [3] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}} = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{f_i(y_l) + B}{A} \right) \left( \frac{2A (y_l - y_i) f_i(y_l)}{C} \right)$$
+$$[\text{II}] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}} = \sum_{i \neq l} p_{l|i} \left( \frac{f_i(y_l) + B}{f_i(y_l)} \right) \left( \frac{S_i \nabla_{y_l} f_i(y_l) - f_i(y_l) \nabla_{y_l} f_i(y_l)}{C} \right) $$
 
 Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
 
-$$ [3] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{(y_l - y_i) f_i(y_l)}{S_i} \right)$$
+$$[\text{II}] = \sum_{i \neq l} p_{l|i} \left( \frac{\nabla_{y_l} f_i(y_l)}{f_i(y_l)} - \frac{\nabla_{y_l} f_i(y_l)}{S_i} \right) $$
+
+$$[\text{II}] = \sum_{i \neq l} p_{l|i} \left( - 2(y_l - y_i) + 2 (y_l - y_i) \frac{f_i(y_l)}{S_i} \right) $$
 
 But we have: $$q_{l \mid i} = \frac{f_i(y_l)}{S_i}$$, so:
 
-$$ [3] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} (y_l - y_i) q_{l|i}$$
+$$[\text{II}] = -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}.$$
 
-$$ [3] = 2 \sum_{i \neq l} \left[ (y_l - y_i) q_{l|i} \left( \sum_{j \neq i,l} p_{j|i} \right) \right]$$
+### Calculation of $$[\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
+
+$$ [\text{III}] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}} = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{f_i(y_l) + B}{A} \right) \left( \frac{2A (y_l - y_i) f_i(y_l)}{C} \right)$$
+
+Since $$S_i = f_i(y_l) + B$$ and $$C = S_i^2$$, we have:
+
+$$ [\text{III}] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \left( \frac{(y_l - y_i) f_i(y_l)}{S_i} \right)$$
+
+But we have: $$q_{l \mid i} = \frac{f_i(y_l)}{S_i}$$, so:
+
+$$ [\text{III}] = 2 \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} (y_l - y_i) q_{l|i}$$
+
+$$ [\text{III}] = 2 \sum_{i \neq l} \left[ (y_l - y_i) q_{l|i} \left( \sum_{j \neq i,l} p_{j|i} \right) \right]$$
 
 We have: $$\sum_{j \neq i, l} p_{j \mid i} = 1 - p_{l \mid i}$$, so finally:
 
-$$ [3] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) $$
+$$ [\text{III}] = 2 \sum_{i \neq l} (y_l - y_i) q_{l|i} \left( 1 - p_{l|i} \right) $$
 
 ### Final form of the gradient
 
 test
 $$
 \begin{aligned}
- -\nabla_{y_l} C &= [1] + [2] + [3] \\
+ -\nabla_{y_l} C &= [\text{I}] + [\text{II}] + [\text{III}] \\
  &= - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i}
 \end{aligned}
 $$
 end test
 
 
-$$-\nabla_{y_l} C = [1] + [2] + [3]$$
+$$-\nabla_{y_l} C = [\text{I}] + [\text{II}] + [\text{III}]$$
 
 
 $$-\nabla_{y_l} C = - 2 \sum_{i \neq l} p_{i|l} (y_l - y_i) + 2 \sum_{i \neq l} (y_l - y_i) q_{i|l} -2 \sum_{i \neq l} p_{l|i}  (y_l - y_i) + 2 \sum_{i \neq l} p_{l|i} (y_l - y_i) q_{l|i} $$
