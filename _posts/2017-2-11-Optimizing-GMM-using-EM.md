@@ -55,7 +55,7 @@ Using the law of total probability, we reveal the latent variable (in the formul
 $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) P(Z_i = k).$$
 
 GMM assumes that three hypotheses are verified:
-- $$(X_i)_i$$ is an independent vector,
+- The vector of couples $$(X_i, Z_i)_i$$ forms an independent vector over $$i$$,
 - Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
 - Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and variance $$\Sigma_k$$.
 
@@ -63,7 +63,7 @@ Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
-We let $$X = (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$Z = (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
+We let $$X := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$Z := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
 
 The chosen strategy to estimate $$\theta$$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
@@ -74,14 +74,24 @@ Using the three hypotheses of GMM, we obtain:
 $$
 \begin{align}
 L(\theta ; \mathbf{x}) =& \prod_{i=1}^n p_{\theta}(X_i = x_i) \\
-=& \prod_{i=1}^n \left[ \sum_{k = 1}^K p(X_i = x_i | Z_i = k) P(Z_i = k) \right] \\
-=& \prod_{i=1}^n \left[ \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \pi_k \right] \\
+=& \prod_{i=1}^n \left[ \sum_{k = 1}^K p_{\theta}(X_i = x_i | Z_i = k) P_{\theta}(Z_i = k) \right] \\
+=& \prod_{i=1}^n \left[ \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \times \pi_k \right] \\
 \end{align}
 $$
 
-
+Under this form (a product of a sum), likelihood optimization is intractable. We introduce EM to circumvent this problem.
 
 ## What is EM?
+
+
+$$
+\begin{align}
+L(\theta ; (\mathbf{x}, \mathbf{z})) =& \prod_{i=1}^n p_{\theta}(X_i = x_i, Z_i = z_i) \\
+=& \prod_{i=1}^n \left[ p_{\theta}(Z_i = z_i | X_i = x_i) P_{\theta}(X_i = x_i) \right] \\
+=& \prod_{i=1}^n \left[ p_{\theta}(Z_i = z_i | X_i = x_i) \prod_{i=1}^n P_{\theta}(X_i = x_i) \right] \\
+=& \prod_{i=1}^n \left[ p_{\theta}(Z_i = z_i | X_i = x_i) \right] L(\theta ; \mathbf{x})
+\end{align}
+$$
 
 ## Applying EM to GMM
 
