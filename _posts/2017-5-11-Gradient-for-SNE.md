@@ -112,8 +112,8 @@ q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
 
 (\ref{q1}) is the first equation.
 
-\begin{aligned}\label{q1diff}
-\nabla_{y_l} q_{j|l} =& \frac{\nabla_{y_l} f_j(y_l) \sum_{k \neq l} f_k(y_l) - f_j(y_l) \sum_{k \neq l}\nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2} \\
+\begin{aligned}\\label{q1diff}
+\nabla_{y_l} q_{j|l} =& \frac{\nabla_{y_l} f_j(y_l) \sum_{k \neq l} f_k(y_l) - f_j(y_l) \sum_{k \neq l}\nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2} \\\\
 =& \frac{\nabla_{y_l} f_j(y_l)}{\sum_{k \neq l} f_k(y_l)} - \frac{f_j(y_l) \sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2}
 \end{aligned}
 
