@@ -53,20 +53,36 @@ Initially, we only observe $$x_i$$, without any information about related label.
 We say that $$Z_i$$ is a latent variable.
 The aim is to identify the most probable label $$k$$ for $$x_i$$.
 
-Using the law of total probability, we reveal the hidden variable (for $$x \in \mathbb{R}^d$$):
+Using the law of total probability, we reveal the latent variable (in the formula, $$x \in \mathbb{R}^d$$):
 
 $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) P(Z_i = k).$$
 
 On the whole, GMM assumes that three hypotheses are verified:
-- The set of couples $$(X_i, Z_i)_i$$ is an independent vector over the rows $i$,
-- Each record belongs to a cluster $$Z_i = k \in \lbrace 1, \ldots, K \rbrace$$ with probability $$\pi_k$$,
-- Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean and variance $$m_k, \Sigma_k$$.
+- The set of couples $$(X_i, Z_i)_i$$ is an independent vector over the rows $$i$$,
+- Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
+- Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and variance $$\Sigma_k$$.
 
 Unknown parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
+We let $$X = (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$Z = (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$.
 
+The chosen strategy to estimate $\theta$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
+
+$$L(\theta ; \mathbf{x}) := p_{\theta}(X = \mathbf{x})$$
+
+Using independence hypothesis, we get:
+
+$$L(\theta ; \mathbf{x}) = \prod_{i=1}^n p_{\theta}(X_i = x_i)$$
+
+and then:
+
+$$\log L(\theta ; \mathbf{x}) = \sum_{i=1}^n \sum_{k = 1}^K p(X_i = x_i | Z_i = k) P(Z_i = k) $$
+
+$$L(\theta ; \mathbf{x}) = \sum_{i=1}^n \log p_{\theta}(X_i = x_i)$$
+
+etc.
 
 ## What is EM?
 
