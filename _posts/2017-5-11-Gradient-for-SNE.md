@@ -117,6 +117,8 @@ q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}
 =& \frac{\nabla_{y_l} f_j(y_l)}{\sum_{k \neq l} f_k(y_l)} - \frac{f_j(y_l) \sum_{k \neq l} \nabla_{y_l} f_k(y_l)}{\left( \sum_{k \neq l} f_k(y_l) \right)^2}
 \end{aligned}
 
+(\ref{q1diff}) is the diff of first equation.
+
 **Case $$[\text{II}]$$**
 $$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
 
