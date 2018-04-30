@@ -27,11 +27,11 @@ $$p_{j \mid i} := \frac{\exp \left( - \| x_i - x_j \|^2 / 2 \sigma_i^2 \right)}{
 
 $$p_{j \mid i}$$ represents the probability "that $$x_i$$ would pick $$x_j$$ as its neighbor, if neighbors were picked in proportion to their probability density under a Gaussian centered at $$x_i$$". We let $$p_{i \mid i}:=0$$.
 
-The method for determining $$\sigma_i$$ is presented in [\[1\]][1] and is quite related with *perplexity*.
+The method for determining $$\sigma_i$$ is presented in [\[1\]][1] and is related with the *perplexity* parameter.
 
 ### Low-dimensional mapping
 
-We wish to have points $$(y_i)_i$$ in a two-dimensional space, $$y_i$$ representing a point in the plane corresponding to $$x_i$$.
+We wish to obtain $$(y_i)_i$$ belonging to a two-dimensional space, where each $$y_i$$ represents a point in the plane corresponding to $$x_i$$.
 
 We define the similarity between points $$i$$ and $$j$$ in this space:
 
@@ -47,7 +47,7 @@ We measure the distance between distributions $$P_i$$ and $$Q_i$$ with the Kullb
 
 $$\text{KL}(P_i \mid \mid Q_i) = \sum_{j} p_{j \mid i} \log \frac{p_{j \mid i}}{q_{j \mid i}}.$$
 
-[See post about KL for more details; and next paragraph].
+[See post about KL for more details].
 
 Since we want to minimize them for all $$i$$, we finally define the cost function as:
 
@@ -66,22 +66,23 @@ On the whole, "the SNE cost function focuses on retaining the local structure of
 
 ### Gradient descent
 
-The cost function is optimized with a variant of the classic gradient descent (read [\[1\]][1] for details).
-
+The cost function is optimized with a variant of the classic gradient descent (see [\[1\]][1] for details).
 
 ## Derivation of the SNE gradient
 
-We have with the notations in the article:
+We have using previous notations:
 
 $$C = \sum_{i} KL(P_i || Q_i) = \sum_{i} \sum_{j \neq i} p_{j|i} \log \frac{p_{j|i}}{q_{j|i}}.$$
 
-Taking the gradient, we want to compute
+Taking the gradient, we want to compute:
 
 $$-\nabla_{y_l} C = \sum_{i} \sum_{j \neq i} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
-### Decomposition into 3 terms.
+### Decomposition into 3 terms
 
 We separate the calculation into 3 terms:
+
+$$\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {8}}}$$
 
 $$-\nabla_{y_l} C = [1] + [2] + [3]$$
 
@@ -93,7 +94,7 @@ $$[2] = \sum_{i \neq l} p_{l|i} \frac{\nabla_{y_l} q_{l|i}}{q_{l|i}}$$
 
 $$[3] = \sum_{i \neq l} \sum_{j \neq i,l} p_{j|i} \frac{\nabla_{y_l} q_{j|i}}{q_{j|i}}$$
 
-#### Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$.*
+#### Calculation of $$q_{j \mid i}$$ and $$\nabla_{y_l} q_{j \mid i}$$
 
 We define for all $$(k,l)$$:
 
@@ -105,7 +106,7 @@ $$\nabla_{y_l} f_k(y_l) = -2(y_l - y_k) \exp \left( -||y_l - y_k||^2 \right) = -
 
 We define for all $$j$$: $$S_j = \sum_k f_k(y_j)$$ and $$C = S_i^2$$ (definition or not? Confusing with previous $$C$$).
 
-#### Case [1].
+#### Case [1]
 $$q_{j|l}$$ and $$\nabla_{y_l} q_{j|l}$$?
 
 $$q_{j|l} = \frac{f_j(y_l)}{\sum_{k \neq l} f_k(y_l)}$$ 
@@ -119,7 +120,7 @@ $$\nabla_{y_l} q_{j|l} =
 
 (1')
 
-#### Case [2].
+#### Case [2]
 $$q_{l|i}$$ and $$\nabla_{y_l} q_{l|i}$$?
 
 $$q_{l|i} = \frac{f_i(y_l)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( - ||y_i - y_k ||^2 \right)} =: \frac{f_i(y_l)}{f_i(y_l) + B}$$ 
@@ -130,7 +131,7 @@ $$\nabla_{y_l} q_{l|i} = \frac{\nabla_{y_l} f_i(y_l) (f_i(y_l) + B) - f_i(y_l) \
 
 (2')
 
-#### Case [3].
+#### Case [3]
 $$q_{j|i}$$ and $$\nabla_{y_l} q_{j|i}$$?
 
 $$q_{j|i} = \frac{\exp(-||y_i - y_j||^2)}{f_i(y_l) + \sum_{k \neq \lbrace i, l \rbrace} \exp \left( -||y_i - y_k||^2 \right)} =: \frac{A}{f_i(y_l) + B}$$ 
@@ -237,8 +238,11 @@ In [1]
 
 ## References
 
-[1]: http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf Visualizing Data using t-SNE 
-[2]: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf Stochastic Neighbor Embedding
+Visualizing Data using t-SNE 
+Stochastic Neighbor Embedding
+
+[1]: http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
+[2]: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
 
 
 
