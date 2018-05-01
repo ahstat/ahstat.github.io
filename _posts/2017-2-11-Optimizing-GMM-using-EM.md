@@ -56,7 +56,7 @@ $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) \times P(Z_i = k).$$
 
 GMM assumes that three hypotheses are verified:
 1. The vector of couples $$(X_i, Z_i)_i$$ forms an independent vector over $$i$$,
-2. Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
+2. Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$ (with $$\pi_k > 0$$),
 3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and covariance matrix $$\Sigma_k$$.
 
 We let $$f_{(m, \Sigma)}$$ the density function of a Gaussian with parameters $$m$$ and $$\Sigma$$.
@@ -68,7 +68,7 @@ Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
-We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$. The realization of the couple $$(X_i, Z_i)$$ is noted $$(x_i, z_i)$$ ($$z_i$$ remains unknown and is the true label related to $$x_i$$). We let $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$.
+We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$. The realization of the couple $$(X_i, Z_i)$$ is noted $$(x_i, z_i)$$ ($$z_i$$ remains unknown and is the true label related to $$x_i$$). We let $$\mathbf{z}_{\text{true}} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$.
 
 The chosen strategy to estimate $$\theta$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
@@ -80,14 +80,59 @@ $$
 \begin{align}
 \log L(\theta ; \mathbf{x}) =& \log \prod_{i=1}^n p_{\theta}(X_i = x_i) \\
 =& \sum_{i=1}^n \log p_{\theta}(X_i = x_i) \\
-=& \sum_{i=1}^n \log \left[ \sum_{k = 1}^K \left( p_{\theta}(X_i = x_i | Z_i = k) P_{\theta}(Z_i = k) \right) \right] \\
-=& \sum_{i=1}^n \log \left[ \sum_{k = 1}^K \left( f_{(m_k, \Sigma_k)}(x_i) \times \pi_k \right) \right] \\
+=& \sum_{i=1}^n \log \left[ \sum_{k = 1}^K p_{\theta}(X_i = x_i | Z_i = k) P_{\theta}(Z_i = k) \right] \\
+=& \sum_{i=1}^n \log \left[ \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \times \pi_k \right] \\
 \end{align}
 $$
 
 However, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)). We introduce EM to circumvent this problem (other methods could work, see [this post for a discussion](https://stats.stackexchange.com/questions/158859/why-should-one-use-em-vs-say-gradient-descent-with-mle)).
 
 ## What is EM?
+
+In this section, $$\mathbf{x}$$ is the set of observed data, $$\mathbf{z}_{\text{true}}$$ the set of unobserved latent data, and $$\theta$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_{\text{true}})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
+
+
+
+The context is as follows: Knowing $$(\mathbf{x}, \mathbf{z})$$
+
+
+
+In the following equations, we always consider cases where all terms are well-defined.
+
+We 
+
+What is easy to compute:
+
+density of $$(x, z)$$
+
+density of $$x | z$$
+
+probability of $$z$$
+
+What is difficult to compute:
+
+density of $$x$$
+
+probability of $$z | x$$
+
+
+
+
+
+The straightforward way to express the likelihood of observed values $$\mathbf{x}$$ is to sum over all possible realizations of $$Z$$. The 
+
+$$ \log p_{\theta}(\mathbf{X} = \mathbf{x}) = \log \left[ \sum_{\mathbf{z}} p_{\theta}(\mathbf{X} = \mathbf{x} | \mathbf{Z} = \mathbf{z}) P(\mathbf{Z} = \mathbf{z}) \right].$$
+
+
+
+The likelihood of the couple $$ $$
+$$p_{\theta}(\mathbf{X} = \mathbf{x}, \mathbf{Z} = \mathbf{z}) = P_{\theta}(\mathbf{Z} = \mathbf{z} | \mathbf{X} = \mathbf{x}) p_{\theta}(\mathbf{X} = \mathbf{x})$$
+
+so
+
+$$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{X} = \mathbf{x}) = \log p_{\theta}(\mathbf{X} = \mathbf{x}, \mathbf{Z} = \mathbf{z}) - \log P_{\theta}(\mathbf{Z} = \mathbf{z} | \mathbf{X} = \mathbf{x})$$
+
+
 
 $$
 \begin{align}
@@ -107,3 +152,7 @@ $$\log L(\theta ; \mathbf{x}) = \log L(\theta ; (\mathbf{x}, \mathbf{z})) - \sum
 update GMM parameters iteratively
 
 The aim is to identify the most probable label $$k$$ for $$x_i$$.
+
+## References
+
+English wikipedia https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
