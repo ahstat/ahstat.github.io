@@ -48,22 +48,27 @@ to be labeled $$k$$ is written as follows:
 
 $$P(Z_i = k).$$
 
-Initially, we only observe $$x_i$$, without any information about the corresponding label.
+Initially, we only observe $$x_i$$, *without any information about the corresponding label*.
 We say that $$Z_i$$ is a latent variable.
 Using the law of total probability, we reveal the latent variable (in the formula, $$x \in \mathbb{R}^d$$):
 
 $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) P(Z_i = k).$$
 
 GMM assumes that three hypotheses are verified:
-- The vector of couples $$(X_i, Z_i)_i$$ forms an independent vector over $$i$$,
-- Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
-- Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and variance $$\Sigma_k$$.
+1. The vector of couples $$(X_i, Z_i)_i$$ forms an independent vector over $$i$$,
+2. Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$,
+3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and covariance matrix $$\Sigma_k$$.
+
+We let $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
+Using hypotheses 2 and 3, the last equation is rewritten as follows (for all $$i, x$$):
+
+$$p(X_i = x) = \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \times \pi_k.$$
 
 Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
 
-We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$, and $$f_{(m, \Sigma)}$$ the density of a Gaussian with parameters $$m$$ and $$\Sigma$$.
+We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$. The realization of the couple $$(X_i, Z_i)$$ is noted $$(x_i, z_i)$$ ($$z_i$$ is the true label related to $$x_i$$, which remains unknown). We let $$\mathbf{z} := (z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$.
 
 The chosen strategy to estimate $$\theta$$ is to maximize the likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
@@ -79,10 +84,7 @@ L(\theta ; \mathbf{x}) =& \prod_{i=1}^n p_{\theta}(X_i = x_i) \\
 \end{align}
 $$
 
-However, this likelihood is a product of a sum, for which direct optimization is intractable. We introduce EM to circumvent this problem.
-
-Source for this: Detail with:
-https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard
+However, this likelihood is non-convex (as a function of $$\theta$$) and direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)). We introduce EM to circumvent this problem (other methods could work, see [this post for a discussion](https://stats.stackexchange.com/questions/158859/why-should-one-use-em-vs-say-gradient-descent-with-mle)).
 
 ## What is EM?
 
