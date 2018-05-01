@@ -156,3 +156,7 @@ The aim is to identify the most probable label $$k$$ for $$x_i$$.
 ## References
 
 English wikipedia https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
+
+https://www.cs.utah.edu/~piyush/teaching/EM_algorithm.pdf ?
+
+user.it.uu.se/~thosc112/pubpdf/schonem2009.pdf ?
