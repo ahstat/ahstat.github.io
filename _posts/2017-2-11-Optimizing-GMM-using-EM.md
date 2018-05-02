@@ -110,9 +110,9 @@ The context is as follows: Knowing $$(\mathbf{x}, \mathbf{z})$$
 First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
 
 
-###Two equations.
+### Two equations.
 
-####Knowing $$z$$...
+#### Knowing $$z$$...
 
 $$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
 
@@ -122,7 +122,7 @@ If $$\mathbf{z}$$ is unobserved, we need to sum over all $$\mathbf{z}$$ to compu
 
 $$p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
 
-####Expectation....
+#### Expectation....
 
 $$p_{\theta}(\mathbf{x}, \mathbf{z}) = P_{\theta}(\mathbf{z} | \mathbf{x}) p_{\theta}(\mathbf{x})$$
 
@@ -166,7 +166,7 @@ Try to find it.
 
 $$ -\sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}) \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta_0}(\mathbf{z} | \mathbf{x})?$$
 
-Let $$p = P_{\theta_0}(\mathbf{z} | \mathbf{x})$$, $$q = P_{\theta}(\mathbf{z} | \mathbf{x})$$
+Let $$p = P_{\theta_0}(\mathbf{z} \mid \mathbf{x})$$, $$q = P_{\theta}(\mathbf{z} \mid \mathbf{x})$$
 
 $$ -\sum_{\mathbf{z}} r_\mathbf{z} \log q_\mathbf{z} \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log p_\mathbf{z} ?$$
 
