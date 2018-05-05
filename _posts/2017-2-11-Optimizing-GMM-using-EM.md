@@ -165,31 +165,31 @@ If we can do this, $$H$$ would not be a problem anymore (try to see why now; Hin
 
 We define two distributions $$(p_{\mathbf{z}})$$ and $$(q_{\mathbf{z}})$$:
 
-$$p_{\mathbf{z}} = P_{\theta_0}(\mathbf{z} \mid \mathbf{x}),$$
+$$p_{\mathbf{z}} := P_{\theta_0}(\mathbf{z} \mid \mathbf{x}),$$
 
-$$q_{\mathbf{z}} = P_{\theta}(\mathbf{z} \mid \mathbf{x})$$
+$$q_{\mathbf{z}} := P_{\theta}(\mathbf{z} \mid \mathbf{x}).$$
 
 The inequality $$H(\theta, r) \geq H(\theta_0, r)$$ can be rewritten as follows:
 
-$$ -\sum_{\mathbf{z}} r_\mathbf{z} \log q_\mathbf{z} \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log p_\mathbf{z} ?$$
+$$ -\sum_{\mathbf{z}} r_\mathbf{z} \log q_\mathbf{z} \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log p_\mathbf{z}.$$
 
-and we group terms to obtain:
+We group terms to obtain:
 
-$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq 0 ?$$
+$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq 0.$$
 
 The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try the Jensen's inequality. The following inequality in valid for any distribution $$r$$:
 
 $$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
 
-So by selecting $$r$$ such that $$- \log \sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
+So by selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
 Now the inequality 
 
-$$- \log \sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$
+$$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$
 
 can be rewritten as:
 
-$$\sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.$$
+$$\sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.$$
 
 A natural choice is to select for all  $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
 
