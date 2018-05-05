@@ -145,7 +145,7 @@ We've seen that summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ was not 
 There is another perspective: Summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ corresponds to select all $$\mathbf{z}$$ uniformly. 
 But we also could select any distribution from which get the *expectancy*:
 
-Let $$r_{\mathbf{z}}$$ be some distribution over $$\mathbf{z}$$.
+Let $$(r_{\mathbf{z}})$$ be some distribution over $$\mathbf{z}$$.
 Since $$\log L(\theta ; \mathbf{x})$$ does not depend on $$\mathbf{z}$$, and $$\sum_{\mathbf{z}} r_\mathbf{z}$$ sums to one, we get:
 
 $$\log L(\theta ; \mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
@@ -154,22 +154,18 @@ This is interpreted as the expectancy over a variable $$\hat{\mathbf{Z}}$$ follo
 
 $$\log L(\theta ; \mathbf{x}) = E(\log p_{\theta}(\mathbf{x}, \hat{\mathbf{Z}})) - E(\log P_{\theta}(\hat{\mathbf{Z}} | \mathbf{x})).$$
 
-We've said that second term on the right is the problem, which is named $$H$$:
+We've said that second term on the right is the problem. We name it $$H$$:
 
 $$H(\theta, r) := - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
 We assume that we have selected some current parameters $$\theta_0$$.
-Can we select $$r$$ such that for all choice of $$\theta$$,
+We would like to select $$r$$ such that for all choice of $$\theta$$,
+$$H(\theta, r) \geq H(\theta_0, r).$$
+If we can do this, $$H$$ would not be a problem anymore (we still cannot compute it, but we know it cannot decrease).
+
+....
 
 
-
-
-We would like to select $$r_\mathbf{z}$$ such that $$H$$ cannot decrease.
-previous equation has a special form. Cannot decrease... Ok try it.
-
-
-
-$$H(\theta, r) \geq H(\theta_0, r)?$$
 
 Try to find it.
 
