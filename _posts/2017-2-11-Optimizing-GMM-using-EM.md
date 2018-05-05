@@ -44,9 +44,9 @@ The density of $$X_i$$ in any $$x \in \mathbb{R}^d$$ is written as follows:
 
 $$p(X_i = x).$$
 
-In addition, we assume that $$x_i$$ is labeled with a certain $$z_i \in \lbrace 1, \ldots, K \rbrace$$,
+In addition, we assume that $$x_i$$ is labeled with a certain $$z_i^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace$$,
 where $$K$$ is a fixed integer.
-Those labels exist (and are fixed), but we only observe $$x_i$$, *without explicit knowledge of the corresponding label* $$z_i$$.
+Those labels exist (and are fixed), but we only observe $$x_i$$, *without explicit knowledge of the corresponding label* $$z_i^{(\text{true})}$$.
 The underlying random variable to model the label is noted $$Z_i$$, and the probability
 to be labeled $$k \in \lbrace 1, \ldots, K \rbrace$$ is written as follows:
 
@@ -92,14 +92,7 @@ However, this log-likelihood function is non-convex (as a function of $$\theta$$
 
 ## What is EM algorithm?
 
-EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
-
-It works when we are in the following context:
-"If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
-
-
-
-In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}_{\text{true}} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_{\text{true}})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
+In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_{\text{true}})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
 We continue to use letter $$p$$ for density and $$P$$ for probabilities.
 For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for  $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
@@ -111,6 +104,22 @@ The context is as follows: Knowing $$(\mathbf{x}, \mathbf{z})$$
 
 
 First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
+
+
+
+
+
+
+
+
+
+
+EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
+
+It works when we are in the following context:
+"If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
+
+
 
 
 ### Two equations.
