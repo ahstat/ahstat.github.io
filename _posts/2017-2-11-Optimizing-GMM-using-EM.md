@@ -13,7 +13,8 @@ its aim being to iteratively increase likelihood of the dataset.
 GMM is actually a perfect model to understand how EM is working.
 
 Many introductions of GMM and EM exist on the web. 
-This one is self-contained, use inductive reasoning, and focuses on math computations. No implementation is provided.
+This one starts from the problem and use inductive reasoning to bring out EM.
+No implementation is provided.
 
 <center>
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="2D dataset to cluster" width="49%"/>
@@ -25,32 +26,34 @@ This one is self-contained, use inductive reasoning, and focuses on math computa
 
 *Fig. 1. Clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted mean for each Gaussian.*
 
+[TODO again]
 We begin by describing GMM and list parameters of the model.
 Then, we introduce EM and explain how it is useful to optimize parameters.
 We continue by applying EM to GMM and derive update formulas.
 The final algorithm to cluster data is finally given.
+[TODO again end]
 
 ## What is GMM?
 
 Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ a dataset of $$\mathbb{R}^d$$.
 
 Let $$i$$ any element of $$\lbrace 1, \ldots n \rbrace$$.
-We assume that $$x_i$$ has been sampled from a random variable $$X_i$$.
+We assume that $$x_i \in \mathbb{R}^d$$ has been sampled from a random variable $$X_i$$.
 We assume that $$X_i$$ follows a probability distribution with a certain density.
 The density of $$X_i$$ in any $$x \in \mathbb{R}^d$$ is written as follows:
 
 $$p(X_i = x).$$
 
-In addition, we assume that $$x_i$$ is labeled with a certain $$k \in \lbrace 1, \ldots, K \rbrace$$,
+In addition, we assume that $$x_i$$ is labeled with a certain $$z_i \in \lbrace 1, \ldots, K \rbrace$$,
 where $$K$$ is a fixed integer.
+Those labels exist (and are fixed), but we only observe $$x_i$$, *without explicit knowledge of the corresponding label* $$z_i$$.
 The underlying random variable to model the label is noted $$Z_i$$, and the probability
-to be labeled $$k$$ is written as follows:
+to be labeled $$k \in \lbrace 1, \ldots, K \rbrace$$ is written as follows:
 
 $$P(Z_i = k).$$
 
-Initially, we only observe $$x_i$$, *without any information about the corresponding label*.
 We say that $$Z_i$$ is a latent variable.
-Using the law of total probability, we reveal the latent variable (in the formula, $$x \in \mathbb{R}^d$$):
+Using the law of total probability, we can reveal the latent variable (in the formula, $$x \in \mathbb{R}^d$$):
 
 $$p(X_i = x) = \sum_{k = 1}^K p(X_i = x | Z_i = k) \times P(Z_i = k).$$
 
@@ -59,18 +62,18 @@ GMM assumes that three hypotheses are verified:
 2. Each record belongs to a cluster $$Z_i = k$$ with probability $$\pi_k$$ (with $$\pi_k > 0$$),
 3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with mean $$m_k$$ and covariance matrix $$\Sigma_k$$.
 
-We let $$f_{(m, \Sigma)}$$ the density function of a Gaussian with parameters $$m$$ and $$\Sigma$$.
+We let $$f_{(m, \Sigma)}$$ the density function of a Gaussian with parameters $$m$$ and $$\Sigma$$ on $$\mathbb{R}^d$$.
 Using hypotheses 2 and 3, the last equation is rewritten as follows (for all $$i, x$$):
 
 $$p(X_i = x) = \sum_{k = 1}^K f_{(m_k, \Sigma_k)}(x_i) \times \pi_k.$$
 
 Unknown (fixed) parameters of the model are grouped together into:
 
-$$\theta := ((\pi_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (m_k)_{k \in \lbrace 1, \ldots, K \rbrace}, (\Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace}).$$
+$$\theta^{(\text{true})} := (\pi_k^{(\text{true})}, m_k^{(\text{true})}, \Sigma_k^{(\text{true})})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
 
 We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$. The realization of the couple $$(X_i, Z_i)$$ is noted $$(x_i, z_i)$$ ($$z_i$$ remains unknown and is the true label related to $$x_i$$).
 
-The chosen strategy to estimate $$\theta$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
+The chosen strategy to estimate $$\theta^{(\text{true})}$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
 $$\log L(\theta ; \mathbf{x}) := \log p_{\theta}(\mathbf{X} = \mathbf{x}).$$
 
