@@ -106,7 +106,7 @@ $$
 \end{align}
 $$
 
-We problem of this decomposition is the presence of $$\log$$ before a sum.
+The problem of this decomposition is the presence of $$\log$$ before a sum.
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
 See for example the expression:
@@ -141,12 +141,12 @@ So how to do then? We come back to this formula, which is valid for all $$\mathb
 
 $$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
-We've seen that summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ was not suitable to solve our problem (because of the term on the right).
-There is another perspective: Summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ corresponds to select all $$\mathbf{z}$$ uniformly. 
-But we also could select any distribution from which get the *expectancy*:
+We've seen that summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ is not suitable to solve our problem (because of the term on the right).
+There is another perspective: Summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ corresponds to select each $$\mathbf{z}$$ with the uniform weight $$1 / K^n$$.
+But we could also select any other distribution to weight each element $$\mathbf{z}$$.
 
 Let $$(r_{\mathbf{z}})$$ be some distribution over $$\mathbf{z}$$.
-Since $$\log L(\theta ; \mathbf{x})$$ does not depend on $$\mathbf{z}$$, and $$\sum_{\mathbf{z}} r_\mathbf{z}$$ sums to one, we get:
+Since $$\log L(\theta ; \mathbf{x})$$ does not depend on $$\mathbf{z}$$, and $$r_\mathbf{z}$$ sums to one over $$\mathbf{z}$$, we get:
 
 $$\log L(\theta ; \mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
@@ -161,34 +161,46 @@ $$H(\theta, r) := - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | 
 We assume that we have selected some current parameters $$\theta_0$$.
 We would like to select $$r$$ such that for all choice of $$\theta$$,
 $$H(\theta, r) \geq H(\theta_0, r).$$
-If we can do this, $$H$$ would not be a problem anymore (we still cannot compute it, but we know it cannot decrease).
+If we can do this, $$H$$ would not be a problem anymore (try to see why now; Hint: we still cannot compute $$H$$, but we would know it cannot decrease; Answer in a subsequent paragraph).
 
-....
+We define two distributions $$(p_{\mathbf{z}})$$ and $$(q_{\mathbf{z}})$$:
 
+$$p_{\mathbf{z}} = P_{\theta_0}(\mathbf{z} \mid \mathbf{x}),$$
 
+$$q_{\mathbf{z}} = P_{\theta}(\mathbf{z} \mid \mathbf{x})$$
 
-Try to find it.
-
-$$ -\sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}) \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta_0}(\mathbf{z} | \mathbf{x})?$$
-
-Let $$p = P_{\theta_0}(\mathbf{z} \mid \mathbf{x})$$, $$q = P_{\theta}(\mathbf{z} \mid \mathbf{x})$$
+The inequality $$H(\theta, r) \geq H(\theta_0, r)$$ can be rewritten as follows:
 
 $$ -\sum_{\mathbf{z}} r_\mathbf{z} \log q_\mathbf{z} \geq -\sum_{\mathbf{z}} r_\mathbf{z} \log p_\mathbf{z} ?$$
 
-If we index with $$i$$:
+and we group terms to obtain:
 
-$$ -\sum_{i} r_i \log q_i \geq -\sum_{i} r_i \log p_i ?$$
+$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq 0 ?$$
 
-$$ \sum_{i} r_i \times (-\log q_i/p_i) \geq 0 ?$$
+The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try the Jensen's inequality. The following inequality in valid for any distribution $$r$$:
 
-Sum not easy to compute, but $$-\log$$ is convex, so try Jensen's inequality. We have:
+$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
 
-$$ \sum_{i} r_i \times (-\log q_i/p_i) \geq - \log \sum_{i} r_i q_i/p_i$$
+So by selecting $$r$$ such that $$- \log \sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
-We want $$- \log \sum_{i} r_i q_i/p_i \geq 0$$
-so $$\sum_{i} r_i q_i/p_i \leq 1$$
+Now the inequality 
 
-From here, a natural choice would be: $$r_i := p_i$$.
+$$- \log \sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$
+
+can be rewritten as:
+
+$$\sum_{{\mathbf{z}}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.$$
+
+A natural choice is to select for all  $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
+
+
+
+
+
+
+
+
+From here, a natural choice would be: 
 For this one it is working, and also a nice interpretation with Kullback's divergence.
 
 So we rewrite our notations for $$H$$.
