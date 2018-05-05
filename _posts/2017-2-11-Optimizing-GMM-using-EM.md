@@ -71,11 +71,9 @@ Unknown (fixed) parameters of the model are grouped together into:
 
 $$\theta^{(\text{true})} := (\pi_k^{(\text{true})}, m_k^{(\text{true})}, \Sigma_k^{(\text{true})})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
 
-We let $$\mathbf{X} := (X_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ and $$\mathbf{Z} := (Z_i)_{i \in \lbrace 1, \ldots n \rbrace}$$. The realization of the couple $$(X_i, Z_i)$$ is noted $$(x_i, z_i)$$ ($$z_i$$ remains unknown and is the true label related to $$x_i$$).
+The chosen strategy to estimate $$\theta^{(\text{true})}$$ is to maximize the log-likelihood of observed data $$\mathbf{x} := (x_1, \ldots, x_n)$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
-The chosen strategy to estimate $$\theta^{(\text{true})}$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
-
-$$\log L(\theta ; \mathbf{x}) := \log p_{\theta}(\mathbf{X} = \mathbf{x}).$$
+$$\log L(\theta ; \mathbf{x}) := \log p_{\theta}((X_1, \ldots, X_n) = (x_1, \ldots, x_n)).$$
 
 Using the three hypotheses of GMM, we obtain:
 
@@ -92,12 +90,53 @@ However, this log-likelihood function is non-convex (as a function of $$\theta$$
 
 ## What is EM algorithm?
 
-In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_{\text{true}})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
+In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
 We continue to use letter $$p$$ for density and $$P$$ for probabilities.
 For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for  $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
 
 In the following equations, we always consider cases where all terms are well-defined.
+
+If we decompose log-likelihood as in the previous section, we obtain:
+
+$$
+\begin{align}
+\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x})
+= \log \left[ \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) \right].
+\end{align}
+$$
+
+We problem of this decomposition is the presence of $$\log$$ before a sum.
+We would like to let the $$\log$$ inside the sum 
+(which is not possible directly because $$\log$$ is not linear!).
+See for example the expression:
+$$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
+This expression would be easy to maximize over $$\theta$$ (assuming that $$(\mathbf{X} | \mathbf{Z})$$ and $$\mathbf{Z}$$ are independent and well-known; this is the case for GMM).
+
+Basicly, EM will find a mean to include the $$\log$$ inside the sum.
+To do this, we let $$\mathbf{z}$$ any element of $$\lbrace 1, \ldots, K \rbrace^n$$
+and write:
+
+$$p_{\theta}(\mathbf{x}, \mathbf{z}) = P_{\theta}(\mathbf{z} | \mathbf{x}) p_{\theta}(\mathbf{x}).$$
+
+Taking the $$\log$$, we obtain:
+
+$$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x}) = \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+The previous formula is valid for all $$\mathbf{z}$$.
+This is a great step, because the term of interest $$\log p_{\theta}(\mathbf{x}, \mathbf{z})$$ is here.
+The first idea would be to sum over all $$\mathbf{z} \in \lbrace 1, \ldots, K \rbrace^n$$:
+
+$$\sum_{\mathbf{z}} \log L(\theta ; \mathbf{x}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+On the left, there is no dependence in $$\mathbf{z}$$, so we end with:
+
+$$\log L(\theta ; \mathbf{x}) = \frac{1}{K^n} \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \frac{1}{K^n} \sum_{\mathbf{z}} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+There is a new problem: The term on the right 
+
+$$p_{\theta}(\mathbf{x}, \mathbf{z})$$
+
 
 
 The context is as follows: Knowing $$(\mathbf{x}, \mathbf{z})$$
