@@ -175,13 +175,13 @@ $$ -\sum_{\mathbf{z}} r_\mathbf{z} \log q_\mathbf{z} \geq -\sum_{\mathbf{z}} r_\
 
 We group terms to obtain:
 
-$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq 0.$$
+$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times \left( -\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \right) \geq 0.$$
 
-The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try the Jensen's inequality. The following inequality in valid for any distribution $$r$$:
+The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try the [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality). The following inequality in valid for any distribution $$r$$:
 
-$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times (-\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
+$$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times \left( -\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \right) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
 
-So by selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
+By selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we will end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
 Now the inequality 
 
@@ -191,16 +191,17 @@ can be rewritten as:
 
 $$\sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.$$
 
-A natural choice is to select for all  $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
+A natural choice is to select $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
 
 
 
 
+TODO: Rewrite with new notation for $$H$$, and with $$Q$$.
+Then get an interpretation with KL.
+
+Say that this distribution comes "naturally" when applying on GMM (see next section...)
 
 
-
-
-From here, a natural choice would be: 
 For this one it is working, and also a nice interpretation with Kullback's divergence.
 
 So we rewrite our notations for $$H$$.
