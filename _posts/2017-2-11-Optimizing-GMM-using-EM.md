@@ -90,7 +90,7 @@ However, this log-likelihood function is non-convex (as a function of $$\theta$$
 
 ## What is EM algorithm?
 
-In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}_^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
+In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
 We continue to use letter $$p$$ for density and $$P$$ for probabilities.
 For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for  $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
@@ -133,83 +133,41 @@ On the left, there is no dependence in $$\mathbf{z}$$, so we end with:
 
 $$\log L(\theta ; \mathbf{x}) = \frac{1}{K^n} \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \frac{1}{K^n} \sum_{\mathbf{z}} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
-There is a new problem: The term on the right 
+There is a new problem: The term containing $$P_{\theta}(\mathbf{z} | \mathbf{x})$$ on the right.
+We don't have assumption on the conditional variable $$(\mathbf{Z} | \mathbf{X})$$, and Bayes' formula
+does not help (using it, the denominator is $$p_{\theta}(\mathbf{x})$$ and we're stucked).
 
-$$p_{\theta}(\mathbf{x}, \mathbf{z})$$
+So how to do then? We come back to this formula, which is valid for all $$\mathbf{z}$$:
 
+$$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
+We've seen that summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ was not suitable to solve our problem (because of the term on the right).
+There is another perspective: Summing over all $$\mathbf{z}$$ and dividing by $$K^n$$ corresponds to select all $$\mathbf{z}$$ uniformly. 
+But we also could select any distribution from which get the *expectancy*:
 
-The context is as follows: Knowing $$(\mathbf{x}, \mathbf{z})$$
+Let $$r_{\mathbf{z}}$$ be some distribution over $$\mathbf{z}$$.
+Since $$\log L(\theta ; \mathbf{x})$$ does not depend on $$\mathbf{z}$$, and $$\sum_{\mathbf{z}} r_\mathbf{z}$$ sums to one, we get:
 
+$$\log L(\theta ; \mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
-First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
+This is interpreted as the expectancy over a variable $$\hat{\mathbf{Z}}$$ following $$(r_\mathbf{z})_{\mathbf{z}}$$:
 
+$$\log L(\theta ; \mathbf{x}) = E(\log p_{\theta}(\mathbf{x}, \hat{\mathbf{Z}})) - E(\log P_{\theta}(\hat{\mathbf{Z}} | \mathbf{x})).$$
 
+We've said that second term on the right is the problem, which is named $$H$$:
 
+$$H(\theta, r) := - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
-
-
-
-
-
-
-EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
-
-It works when we are in the following context:
-"If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
-
-
-
-
-### Two equations.
-
-#### Knowing $$z$$...
-
-$$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
-
-If $$\mathbf{x}$$ and $$\mathbf{z}$$ are available, it is easy to compute $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ using this above equation.
-
-If $$\mathbf{z}$$ is unobserved, we need to sum over all $$\mathbf{z}$$ to compute $$p_{\theta}(\mathbf{x})$$, and this is difficult to optimize (as seen in section I)
-
-$$p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
-
-#### Expectation....
-
-$$p_{\theta}(\mathbf{x}, \mathbf{z}) = P_{\theta}(\mathbf{z} | \mathbf{x}) p_{\theta}(\mathbf{x})$$
-
-Something great, the likelihood of observations $$p_{\theta}(\mathbf{x})$$ is here.
-
-We obtain:
-
-$$\log p_{\theta}(\mathbf{x}) = \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \log P_{\theta}(\mathbf{z} | \mathbf{x})$$
-
-The previous equation is valid for any $$z$$.
-
-On the right it is the likelihood; First term on the right is the joint density which is straightforward (see previous equation); Second term on the right is the problematic one. How could we compute this???
-
-Answer: We will not compute this.
-First from the equation, $$\mathbf{z}$$ is any element. 
-So for any distribution $$(r_\mathbf{z})_{\mathbf{z}}$$ (so nonnegative and sum to $$1$$), we have:
-
-$$\sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x})$$
-
-But $$\log p_{\theta}(\mathbf{x})$$ does not depend on $$\mathbf{z}$$, and $$\sum_{\mathbf{z}} r_\mathbf{z}$$ sums to one, so:
-
-$$\log p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
-
-To interpret it now, it is expectancy, as if $$\mathbf{z}$$ has been sampled from $$(r_\mathbf{z})_{\mathbf{z}}$$.
-
-We've said that second term on the right is the problem, so it is:
-
-$$- \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x})$$
-
-We would like to select $$r_\mathbf{z}$$ such that previous equation has a special form. Cannot decrease... Ok try it.
-
-We let:
-$$H(\theta, r) = - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
-
-We assume that we have selected current parameters $$\theta_0$$.
+We assume that we have selected some current parameters $$\theta_0$$.
 Can we select $$r$$ such that for all choice of $$\theta$$,
+
+
+
+
+We would like to select $$r_\mathbf{z}$$ such that $$H$$ cannot decrease.
+previous equation has a special form. Cannot decrease... Ok try it.
+
+
 
 $$H(\theta, r) \geq H(\theta_0, r)?$$
 
@@ -252,6 +210,65 @@ $$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\t
 Maybe a little confuse how this work in detail, especially for the maximization step.
 
 One thing good with GMM, is that in that case, we can have closed form formulas for this maximization steps. Let's see how it works in the next step.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
+
+EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
+
+It works when we are in the following context:
+"If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
+
+
+
+
+### Two equations.
+
+#### Knowing $$z$$...
+
+$$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
+
+If $$\mathbf{x}$$ and $$\mathbf{z}$$ are available, it is easy to compute $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ using this above equation.
+
+If $$\mathbf{z}$$ is unobserved, we need to sum over all $$\mathbf{z}$$ to compute $$p_{\theta}(\mathbf{x})$$, and this is difficult to optimize (as seen in section I)
+
+$$p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
+
+#### Expectation....
+Second term on the right is the problematic one. How could we compute this???
+
+Answer: We will not compute this.
+First from the equation, $$\mathbf{z}$$ is any element. 
+So for any distribution $$(r_\mathbf{z})_{\mathbf{z}}$$ (so nonnegative and sum to $$1$$), we have:
+
+$$\sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x})$$
+
+
 
 ## Applying EM to GMM
 
