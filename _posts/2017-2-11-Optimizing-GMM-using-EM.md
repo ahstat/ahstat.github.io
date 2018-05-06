@@ -325,7 +325,15 @@ It does not say how parameters compare with $$\theta^{\text{(true)}}$$ (really u
 We make a full decomposition of $$Q$$:
 
 $$
-Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} | \mathbf{x})
+Q(\theta | \theta^{(t)}) = \sum_{\mathbf{z}} \log p_{\theta}
+$$
+
+$$
+(\mathbf{x}, \mathbf{z})
+$$
+
+$$
+P_{\theta^{(t)}}(\mathbf{z} | \mathbf{x})
 $$
 
 $$
