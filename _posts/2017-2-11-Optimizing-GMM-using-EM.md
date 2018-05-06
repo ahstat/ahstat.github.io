@@ -325,10 +325,24 @@ It does not say how parameters compare with $$\theta^{\text{(true)}}$$ (really u
 We make a full decomposition of $$Q$$:
 
 $$
+Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} | \mathbf{x})
+$$
+
+$$
+\sum_{\mathbf{z}} \log \left[ p_{\theta}(\mathbf{x} | \mathbf{z}) p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{p_{\theta^{(t)}}(\mathbf{x})}
+$$
+
+$$
+\sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}
+$$
+
+test
+
+$$
 \begin{align}
-Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}) \\
-=& \sum_{\mathbf{z}} \log \left[ p_{\theta}(\mathbf{x} |\mathbf{z}) p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{p_{\theta^{(t)}}(\mathbf{x})} \\
-=& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}.
+Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} | \mathbf{x}) \\
+=& \sum_{\mathbf{z}} \log \left[ p_{\theta}(\mathbf{x} | \mathbf{z}) p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{p_{\theta^{(t)}}(\mathbf{x})} \\
+=& \sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}.
 $$
 
 It should easier to maximize this function of $$\theta$$, compared to the initial log-likelihood function.
@@ -340,25 +354,10 @@ For EM,
 
 $$
 \begin{align}
-Q(\theta | \theta^{(t)}) = \sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}
-\end{align}
-$$
-
-$$
-\begin{align}
-= \sum_{i = 1}^{N} \sum_{z_i = 1}^{K} \left[\log p_{\theta}(x_i |z_i) + \log p_{\theta}(z_i) \right] \frac{p_{\theta^{(t)}}(z_i, x_i)}{\sum_{z_i'} p_{\theta^{(t)}}(z_i', x_i)}
-\end{align}
-$$
-
-$$
-\begin{align}
-= \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log p_{\theta}(x_i | k) + \log p_{\theta}(k) \right] \frac{p_{\theta^{(t)}}(k, x_i)}{\sum_{k' = 1}^{K} p_{\theta^{(t)}}(k', x_i)}
-\end{align}
-$$
-
-$$
-\begin{align}
-= \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log f_{(m_k^{\theta}, \Sigma_k^{\theta})}(x_i) + \log \pi_k^{\theta} \right] \frac{f_{(m_k^{\theta^{(t)}}, \Sigma_k^{\theta^{(t)}})}(x_i) \pi_k^{\theta^{(t)}}}{\sum_{k' = 1}^{K} f_{(m_{k'}^{\theta^{(t)}}, \Sigma_{k'}^{\theta^{(t)}})}(x_i) \pi_{k'}^{\theta^{(t)}}}
+Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} \\
+=& \sum_{i = 1}^{N} \sum_{z_i = 1}^{K} \left[\log p_{\theta}(x_i |z_i) + \log p_{\theta}(z_i) \right] \frac{p_{\theta^{(t)}}(z_i, x_i)}{\sum_{z_i'} p_{\theta^{(t)}}(z_i', x_i)} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log p_{\theta}(x_i | k) + \log p_{\theta}(k) \right] \frac{p_{\theta^{(t)}}(k, x_i)}{\sum_{k' = 1}^{K} p_{\theta^{(t)}}(k', x_i)} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log f_{(m_k^{\theta}, \Sigma_k^{\theta})}(x_i) + \log \pi_k^{\theta} \right] \frac{f_{(m_k^{\theta^{(t)}}, \Sigma_k^{\theta^{(t)}})}(x_i) \pi_k^{\theta^{(t)}}}{\sum_{k' = 1}^{K} f_{(m_{k'}^{\theta^{(t)}}, \Sigma_{k'}^{\theta^{(t)}})}(x_i) \pi_{k'}^{\theta^{(t)}}}
 \end{align}
 $$
 
