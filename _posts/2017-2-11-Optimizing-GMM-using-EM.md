@@ -271,17 +271,55 @@ $$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
 The step of defining $$Q$$ is the *Expectation step*, 
 the step of maximizing $$Q$$ is the *Maximization step*.
 
-### Convergence of EM algorithm
+### Improvement of the likelihood using EM algorithm
 
-Two things:
+We theoretically ensure that likelihood is nondecreasing when EM algorithm is used.
+This paragraph formalizes the previous section.
 
-first increase of likelihood.
+At step $$t$$, we have for all $$\theta$$:
 
-The easy to see bounded (variance > 0).
+$$\log L(\theta ; \mathbf{x}) = Q(\theta | \theta^{(t)}) + H(\theta | \theta^{(t)}).$$
 
-Then warning about MLE, true parameters, and parameters obtained with EM.
-Also output depend on initial parameters.
+with:
 
+$$H(\theta | \theta^{(t)}) = - \sum_{\mathbf{z}} P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+We compute:
+
+$$
+\begin{align}
+\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) =& Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)}) + H(\theta | \theta^{(t)}) - H(\theta^{(t)} | \theta^{(t)})
+\end{align}
+$$
+
+Using [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) or [Gibbs inequality](https://en.wikipedia.org/wiki/Gibbs%27_inequality), we obtain for all $$theta$$:
+
+$$H(\theta | \theta^{(t)}) \geq H(\theta^{(t)} | \theta^{(t)})$$
+
+and so:
+
+$$
+\begin{align}
+\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) \geq Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)})
+\end{align}
+$$
+
+By choosing $$\theta^{(t+1)} = \text{argmax}_{\theta} Q(\theta | \theta^{(t)})$$, we have:
+
+$$Q(\theta^{(t+1)} | \theta^{(t)}) \geq Q(\theta^{(t)} | \theta^{(t)})$$
+
+and so:
+
+$$
+\begin{align}
+\log L(\theta^{(t+1)} ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) \geq 0.
+\end{align}
+$$
+
+This ends the proof.
+
+*A warning:* The previous proof ensures that likelihood is not decreasing. 
+It does not say how parameters compare with $$\theta^{\text{(true)}}$$ (really unknown) or even $$\theta^{\text{(MLE)}}$$ (obtained using maximum likelihood estimate, but intractable).
 
 ### How to compute and maximize $$Q$$ in practice?
 
@@ -298,35 +336,6 @@ $$
 
 It should easier to maximize this function of $$\theta$$, compared to the initial log-likelihood function.
 In the next section, this maximization is made explicitly (closed formulas).
-
-
-
-
-
-
-
-
-
-
-
-
-
-Maybe a little confuse how this work in detail, especially for the maximization step.
-
-One thing good with GMM, is that in that case, we can have closed form formulas for this maximization steps. Let's see how it works in the next step.
-
-
-
-
-
-First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
-
-EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
-
-It works when we are in the following context:
-"If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
-
-
 
 ## Applying EM to GMM
 
