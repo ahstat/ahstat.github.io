@@ -291,7 +291,7 @@ $$
 \end{align}
 $$
 
-Using [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) or [Gibbs inequality](https://en.wikipedia.org/wiki/Gibbs%27_inequality), we obtain for all $$theta$$:
+Using [Jensen's inequality](https://en.wikipedia.org/wiki/Jensen%27s_inequality) or [Gibbs inequality](https://en.wikipedia.org/wiki/Gibbs%27_inequality), we obtain for all $$\theta$$:
 
 $$H(\theta | \theta^{(t)}) \geq H(\theta^{(t)} | \theta^{(t)})$$
 
@@ -337,16 +337,49 @@ In the next section, this maximization is made explicitly (closed formulas).
 
 ## Applying EM to GMM
 
-For EM, 
+For GMM, we explicit $$Q$$.
+We suppose we're at step $$t$$ (for a certain $$t \leq 0$$) and we want to compute $$\theta^{(t+1)}$$.
+
+In the following equalities, we use hypothesis 1 and then hypotheses 2 and 3 of GMM:
 
 $$
 \begin{align}
 Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} \\
 =& \sum_{i = 1}^{N} \sum_{z_i = 1}^{K} \left[\log p_{\theta}(x_i |z_i) + \log p_{\theta}(z_i) \right] \frac{p_{\theta^{(t)}}(z_i, x_i)}{\sum_{z_i'} p_{\theta^{(t)}}(z_i', x_i)} \\
 =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log p_{\theta}(x_i | k) + \log p_{\theta}(k) \right] \frac{p_{\theta^{(t)}}(k, x_i)}{\sum_{k' = 1}^{K} p_{\theta^{(t)}}(k', x_i)} \\
-=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log f_{(m_k^{\theta}, \Sigma_k^{\theta})}(x_i) + \log \pi_k^{\theta} \right] \frac{f_{(m_k^{\theta^{(t)}}, \Sigma_k^{\theta^{(t)}})}(x_i) \pi_k^{\theta^{(t)}}}{\sum_{k' = 1}^{K} f_{(m_{k'}^{\theta^{(t)}}, \Sigma_{k'}^{\theta^{(t)}})}(x_i) \pi_{k'}^{\theta^{(t)}}}
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log f_{\left( m_k^{\theta}, \Sigma_k^{\theta} \right)}(x_i) + \log \pi_k^{\theta} \right] \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}.
 \end{align}
 $$
+
+We define:
+
+$$T_{k, i}^{(t)} := P_{\theta^{(t)}}(Z_i = k | X_i = x_i) = \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}$$
+
+We use explicit formula for the Gaussian distribution (for all $$x \in \mathbb{R}^{d}$$)
+
+$$f_{\left( m, \Sigma \right)}(x) = \frac{1}{(2 \pi)^{K/2} \sqrt{\text{det} \Sigma}} \exp \left( -\frac{1}{2} (x - m)^{T} \Sigma^{-1} (x - m) \right)$$
+
+and obtain:
+
+$$
+\begin{align}
+Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\left( m_k^{\theta}, \Sigma_k^{\theta} \right)}(x_i) + \log \pi_k^{\theta} \right] T_{k, i}^{(t)}
+\end{align} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k^{\theta} -\frac{1}{2} (x - m_k^{\theta})^{T} (\Sigma_k^{\theta})^{-1} (x - m_k^{\theta}) \right] T_{k, i}^{(t)}
+$$
+
+From this shape, we can separate maximization of each couple $$(\m_k, \Sigma_k)$$ (for $$k \in \lbrace 1, \ldots, K \rbrace$$) and maximization of the set $$(\pi_k)_k$$.
+
+### For the means and variances $$(\m_k, \Sigma_k)$$
+
+From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$k$$, so we need to maximize:
+
+$$
+\begin{align}
+- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k^{\theta} + (x - m_k^{\theta})^{T} (\Sigma_k^{\theta})^{-1} (x - m_k^{\theta}) \right] T_{k, i}^{(t)}
+$$
+
+
 
 
 
