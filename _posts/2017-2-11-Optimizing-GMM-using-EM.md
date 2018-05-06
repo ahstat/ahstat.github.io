@@ -230,15 +230,86 @@ This induces a method to increase log-likelihood of the dataset, described in th
 
 ## What is EM algorithm?
 
-Here formal writting and proof.
+We recall notations of the previous section. Let $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters.
+
+Log-likelihood of data is $$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x})$$.
+
+The EM algorithm computes sets of parameters 
+
+$$\theta^{(0)}$$, $$\theta^{(1)}$$, $$\theta^{(2)}, \ldots$$
+
+such that the corresponding log-likelihoods nondecrease:
+
+$$\log L(\theta^{(0)} ; \mathbf{x}) \leq \log L(\theta^{(1)} ; \mathbf{x}) \leq \log L(\theta^{(2)} ; \mathbf{x}), \ldots$$
+
+EM is an iterative algorithm.
+
+### Step 0
+
+We begin with initial parameters $$\theta^{(0)}$$:
+
+$$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
+
+Here, we let for all $$k$$: $$\pi_k^{(0)} = 1 / K$$, $$\Sigma_k^{(0)}$$ the identity matrix of size
+$$K \times K$$, and $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained
+with $$K$$-means.
+
+### Step $$t$$ to $$t+1$$
+
+We have $$\theta^{(t)}$$.
+
+We define for all $$\theta$$:
+
+$$Q(\theta | \theta^{(t)}) := E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta^{(t)})) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}),$$
+
+where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x})$$
+
+We let 
+
+$$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
+
+The step of defining $$Q$$ is the *Expectation step*, 
+the step of maximizing $$Q$$ is the *Maximization step*.
+
+### Convergence of EM algorithm
+
+Two things:
+
+first increase of likelihood.
+
+The easy to see bounded (variance > 0).
+
+Then warning about MLE, true parameters, and parameters obtained with EM.
+Also output depend on initial parameters.
+
+
+### How to compute and maximize $$Q$$ in practice?
+
+We make a full decomposition of $$Q$$:
+
+$$
+\begin{align}
+Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}) \\
+=& \sum_{\mathbf{z}} \log \left[ p_{\theta}(\mathbf{x} |\mathbf{z}) p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{p_{\theta^{(t)}}(\mathbf{x})}
+=& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}
+=& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} |\mathbf{z}) \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} + \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{z}) \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}
+\end{align}
+$$
+
+It should easier to maximize this function of $$\theta$$, compared to the initial log-likelihood function.
+In the next section, this maximization is made explicitly (closed formulas).
 
 
 
-### Maximization
 
-Over $$\theta$$.
 
-$$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
+
+
+
+
+
+
+
 
 Maybe a little confuse how this work in detail, especially for the maximization step.
 
