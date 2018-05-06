@@ -88,7 +88,7 @@ $$
 
 However, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)). We introduce EM to circumvent this problem (other methods could work, see [this post for a discussion](https://stats.stackexchange.com/questions/158859/why-should-one-use-em-vs-say-gradient-descent-with-mle)).
 
-## What is EM algorithm?
+## Step by step advances to the EM algorithm
 
 In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
@@ -209,14 +209,14 @@ The first term of the sum is named $$Q$$:
 $$Q(\theta | \theta_0) := \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log p_{\theta}(\mathbf{x}, \mathbf{z}).$$
 
 [Note that this can be seen as an expectancy. Let $$\hat{Z}_{\theta_0}$$ a random variable following distribution $$P_{\theta_0}(. \mid \mathbf{x})$$. Then:
-$$Q(\theta | \theta_0) = E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta_0})).$$]
+$$Q(\theta | \theta_0) = E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta_0}))$$].
 
 The second term is rewritten $$H$$:
 
 $$H(\theta | \theta_0) := - \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
 [Note that with previous notations, $$H(\theta, p) = H(\theta \mid \theta_0)$$
-and $$H(\theta, q) = H(\theta \mid \theta).$$]
+and $$H(\theta, q) = H(\theta \mid \theta)$$].
 
 On the whole, for all $$\theta, \theta_0$$, the log-likelihood of $$\mathbf{x}$$ given parameters $$\theta$$ is:
 
@@ -226,14 +226,11 @@ and, for all $$\theta, \theta_0$$,
 
 $$H(\theta | \theta_0) \geq H(\theta_0 | \theta_0).$$
 
-This induces a method to increase log-likelihood of the dataset. 
-We let 
-
-
+This induces a method to increase log-likelihood of the dataset, described in the next section.
 
 ## What is EM algorithm?
 
-
+Here formal writting and proof.
 
 
 
