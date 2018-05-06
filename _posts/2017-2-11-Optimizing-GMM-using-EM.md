@@ -193,22 +193,49 @@ $$\sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.
 
 A natural choice is to select $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
 
+This choice has a nice interpretation in terms of entropy.
+By rewriting the difference $$H(\theta, r) - H(\theta_0, r)$$ with $$r = p$$, we get (where $$\text{KL}$$ stands for the Kullback-Leibler divergence):
+
+$$H(\theta, p) - H(\theta_0, p) = - \sum_{\mathbf{z}} p_{\mathbf{z}} \times \log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} =: \text{KL}(p \mid \mid q) \geq 0.$$
+
+[See post about KL for more details].
+
+We put together our advances. For all $$\theta, \theta_0$$, the log-likelihood of $$\mathbf{x}$$ given parameters $$\theta$$ is expressed as:
+
+$$\log L(\theta ; \mathbf{x}) = \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+The first term of the sum is named $$Q$$:
+
+$$Q(\theta | \theta_0) := \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log p_{\theta}(\mathbf{x}, \mathbf{z}).$$
+
+[Note that this can be seen as an expectancy. Let $$\hat{Z}_{\theta_0}$$ a random variable following distribution $$P_{\theta_0}(. \mid \mathbf{x})$$. Then:
+$$Q(\theta | \theta_0) = E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta_0})).$$]
+
+The second term is rewritten $$H$$:
+
+$$H(\theta | \theta_0) := - \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
+
+[Note that with previous notations, $$H(\theta, p) = H(\theta | \theta_0)$$
+and $$H(\theta, q) = H(\theta | \theta).$$]
+
+On the whole, for all $$\theta, \theta_0$$, the log-likelihood of $$\mathbf{x}$$ given parameters $$\theta$$ is:
+
+$$\log L(\theta ; \mathbf{x}) = Q(\theta | \theta_0) + H(\theta | \theta_0).$$
+
+and, for all $$\theta, \theta_0$$,
+
+$$H(\theta | \theta_0) \geq H(\theta_0 | \theta_0).$$
+
+This induces a method to increase log-likelihood of the dataset. 
+We let 
 
 
 
-TODO: Rewrite with new notation for $$H$$, and with $$Q$$.
-Then get an interpretation with KL.
-
-Say that this distribution comes "naturally" when applying on GMM (see next section...)
+## What is EM algorithm?
 
 
-For this one it is working, and also a nice interpretation with Kullback's divergence.
 
-So we rewrite our notations for $$H$$.
 
-Then the equation with $$Q$$ and $$H$$.
-
-What do it say: Expectation.
 
 ### Maximization
 
@@ -224,58 +251,12 @@ One thing good with GMM, is that in that case, we can have closed form formulas 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 First state the algorithm, what we compute. And only after, we make some inductive proof, so this can be skipped in first lecture (Core of EM not that easy!)
 
 EM is "an iterative method to find maximum likelihood estimates of parameters in statistical models, where the model depends on unobserved latent variables" ([Wikipedia](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)).
 
 It works when we are in the following context:
 "If latent variables were observed, then the maximum likelihood estimation would be easy" ([CS229 Lecture](http://cs229.stanford.edu/notes/cs229-notes8.pdf)).
-
-
-
-
-### Two equations.
-
-#### Knowing $$z$$...
-
-$$p_{\theta}(\mathbf{x}, \mathbf{z}) = p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
-
-If $$\mathbf{x}$$ and $$\mathbf{z}$$ are available, it is easy to compute $$p_{\theta}(\mathbf{x}, \mathbf{z})$$ using this above equation.
-
-If $$\mathbf{z}$$ is unobserved, we need to sum over all $$\mathbf{z}$$ to compute $$p_{\theta}(\mathbf{x})$$, and this is difficult to optimize (as seen in section I)
-
-$$p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z})$$
-
-#### Expectation....
-Second term on the right is the problematic one. How could we compute this???
-
-Answer: We will not compute this.
-First from the equation, $$\mathbf{z}$$ is any element. 
-So for any distribution $$(r_\mathbf{z})_{\mathbf{z}}$$ (so nonnegative and sum to $$1$$), we have:
-
-$$\sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}) = \sum_{\mathbf{z}} r_\mathbf{z} \log p_{\theta}(\mathbf{x}, \mathbf{z}) - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | \mathbf{x})$$
 
 
 
