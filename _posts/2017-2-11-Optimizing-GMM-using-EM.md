@@ -215,8 +215,8 @@ The second term is rewritten $$H$$:
 
 $$H(\theta | \theta_0) := - \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
-[Note that with previous notations, $$H(\theta, p) = H(\theta | \theta_0)$$
-and $$H(\theta, q) = H(\theta | \theta).$$]
+[Note that with previous notations, $$H(\theta, p) = H(\theta \mid \theta_0)$$
+and $$H(\theta, q) = H(\theta \mid \theta).$$]
 
 On the whole, for all $$\theta, \theta_0$$, the log-likelihood of $$\mathbf{x}$$ given parameters $$\theta$$ is:
 
