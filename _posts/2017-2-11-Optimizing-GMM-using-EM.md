@@ -184,11 +184,8 @@ $$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times \left( -\log \frac{q_{\mathbf{z}}}{p_
 By selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we will end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
 Now the inequality 
-
-$$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$
-
-can be rewritten as:
-
+$$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$ 
+can be rewritten as: 
 $$\sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \leq 1.$$
 
 A natural choice is to select $$r_{\mathbf{z}} := p_{\mathbf{z}}$$ for all $$\mathbf{z}$$.
@@ -236,7 +233,7 @@ Log-likelihood of data is $$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathb
 
 The EM algorithm computes sets of parameters 
 
-$$\theta^{(0)}$$, $$\theta^{(1)}$$, $$\theta^{(2)}, \ldots$$
+$$\theta^{(0)}, \theta^{(1)}, \theta^{(2)}, \ldots$$
 
 such that the corresponding log-likelihoods nondecrease:
 
@@ -250,9 +247,11 @@ We begin with initial parameters $$\theta^{(0)}$$:
 
 $$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
 
-Here, we let for all $$k$$: $$\pi_k^{(0)} = 1 / K$$, $$\Sigma_k^{(0)}$$ the identity matrix of size
-$$K \times K$$, and $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained
-with $$K$$-means.
+Here, we let for all $$k$$: 
+- $$\pi_k^{(0)} = 1 / K$$, 
+- $$\Sigma_k^{(0)}$$ the identity matrix of size
+$$K \times K$$, and 
+- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained with $$K$$-means.
 
 ### Step $$t$$ to $$t+1$$
 
@@ -329,15 +328,25 @@ $$
 \begin{align}
 Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}) \\
 =& \sum_{\mathbf{z}} \log \left[ p_{\theta}(\mathbf{x} |\mathbf{z}) p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{p_{\theta^{(t)}}(\mathbf{x})} \\
-=& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} \\
-=& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} |\mathbf{z}) \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} + \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{z}) \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}
-\end{align}
+=& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}.
 $$
 
 It should easier to maximize this function of $$\theta$$, compared to the initial log-likelihood function.
 In the next section, this maximization is made explicitly (closed formulas).
 
 ## Applying EM to GMM
+
+For EM, 
+$$
+\begin{align}
+Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} \\
+=& \sum_{i = 1}^{N} \sum_{z_i = 1}^{K} \left[\log p_{\theta}(x_i |z_i) + \log p_{\theta}(z_i) \right] \frac{p_{\theta^{(t)}}(z_i, x_i)}{\sum_{z_i'} p_{\theta^{(t)}}(z_i', x_i)} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log p_{\theta}(x_i | k) + \log p_{\theta}(k) \right] \frac{p_{\theta^{(t)}}(k, x_i)}{\sum_{k' = 1}^{K} p_{\theta^{(t)}}(k', x_i)} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[\log f_{(m_k^{\theta}, \Sigma_k^{\theta})}(x_i) + \log \pi_k^{\theta} \right] \frac{f_{(m_k^{\theta^{(t)}}, \Sigma_k^{\theta^{(t)}})}(x_i) \pi_k^{\theta^{(t)}}}{\sum_{k' = 1}^{K} f_{(m_{k'}^{\theta^{(t)}}, \Sigma_{k'}^{\theta^{(t)}})}(x_i) \pi_{k'}^{\theta^{(t)}}}
+\end{align}
+$$
+
+
 
 Update formulas for mean and variance and the latent proba.
 
