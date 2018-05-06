@@ -369,21 +369,20 @@ and obtain:
 
 $$
 \begin{align}
-Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\left( m_k, \Sigma_k \right)}(x_i) + \log \pi_k \right] T_{k, i}^{(t)}
-\end{align} \\
-=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x - m_k)^{T} (\Sigma_k)^{-1} (x - m_k) \right] T_{k, i}^{(t)}
+Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\left( m_k, \Sigma_k \right)}(x_i) + \log \pi_k \right] T_{k, i}^{(t)} \\
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x - m_k)^{T} \Sigma_k^{-1} (x - m_k) \right] T_{k, i}^{(t)}
 \end{align}
 $$
 
-From this shape, we can separate maximization of each couple $$(\m_k, \Sigma_k)$$ (for $$k \in \lbrace 1, \ldots, K \rbrace$$) and maximization of the set $$(\pi_k)_k$$.
+From this shape, we can separate maximization of each couple $$(m_k, \Sigma_k)$$ (for $$k \in \lbrace 1, \ldots, K \rbrace$$) and maximization of the set $$(\pi_k)_k$$.
 
-### For the means and variances $$(\m_k, \Sigma_k)$$
+### For the means and variances $$(m_k, \Sigma_k)$$
 
 From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$k$$, so we need to maximize:
 
 $$
 \begin{align}
-- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k + (x - m_k)^{T} (\Sigma_k)^{-1} (x - m_k) \right] T_{k, i}^{(t)}
+- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k + (x - m_k)^{T} \Sigma_k^{-1} (x - m_k) \right] T_{k, i}^{(t)}
 \end{align}
 $$
 
