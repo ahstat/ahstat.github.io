@@ -337,6 +337,7 @@ In the next section, this maximization is made explicitly (closed formulas).
 ## Applying EM to GMM
 
 For EM, 
+
 $$
 \begin{align}
 Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \left[\log p_{\theta}(\mathbf{x} |\mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})} \\
