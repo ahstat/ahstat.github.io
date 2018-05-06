@@ -374,17 +374,86 @@ Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\le
 \end{align}
 $$
 
+https://stats.stackexchange.com/questions/27436/how-to-take-derivative-of-multivariate-normal-density
+
+http://www.math.uwaterloo.ca/~hwolkowi//matrixcookbook.pdf
+
+
 From this shape, we can separate maximization of each couple $$(m_k, \Sigma_k)$$ (for $$k \in \lbrace 1, \ldots, K \rbrace$$) and maximization of the set $$(\pi_k)_k$$.
 
-### For the means and variances $$(m_k, \Sigma_k)$$
+### For the mean $$m_k$$
 
-From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$k$$, so we need to maximize:
+From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$m_k \in \mathbb{R}^{d}$$, so we need to maximize:
 
 $$
 \begin{align}
-- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k + (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)}
+A(m_k) := - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)}
 \end{align}
 $$
+
+We take the gradient with respect to $$m_k$$ (see equation (86) of [the matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) and [this post](https://stats.stackexchange.com/questions/27436/how-to-take-derivative-of-multivariate-normal-density) to remember how gradient is calculated in this case):
+
+$$\nabla_{m_k} A(m_k) = - \frac{1}{2} \sum_{i = 1}^{N} \left[ - 2 \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)} =  \sum_{i = 1}^{N} \Sigma_k^{-1} (x_i - m_k) T_{k, i}^{(t)}.$$
+
+We have $$\nabla_{m_k} A(m_k) = 0$$ if and only if:
+$$\sum_{i = 1}^{N} (x_i - m_k) T_{k, i}^{(t)} = 0$$
+from which we deduce:
+
+$$m_k  = \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}.$$
+
+Furthermore, Hessian matrix of $$A(m_k)$$ is given by:
+
+$$- \left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right) \Sigma_k^{-1}$$
+
+which is negative-definite.
+
+*Conclusion:* We select $$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}$$ and $$A(.)$$ is maximized in $$m_k^{(t+1)}$$.
+
+### For the matrix of variance-covariance $$\Sigma_k$$
+
+From previous expression, we can also perform maximization for each fixed $$k$$. Some terms have no dependence on $$\Sigma_k$$, so we need to maximize:
+
+$$
+\begin{align}
+B(\Sigma_k) := - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \log \text{det} \Sigma_k - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k^{(t+1)})^{T} \Sigma_k^{-1} (x_i - m_k^{(t+1)}) \right] T_{k, i}^{(t)}
+\end{align}
+$$
+
+TODO from here ()
+
+We take the gradient with respect to $$\Sigma_k$$ (see ...):
+
+$$\nabla_{\Sigma_k} B(\Sigma_k) = - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \Sigma_k^{-1} - \frac{1}{2} \sum_{i = 1}^{N} \left[ - \Sigma_k^{-1} (x_i - m_k^{(t+1)})^{T} (x_i - m_k^{(t+1)}) \Sigma_k^{-1} \right] T_{k, i}^{(t)}.$$
+
+We have $$\nabla_{\Sigma_k} B(\Sigma_k) = 0$$ if and only if:
+
+
+
+\sum_{i = 1}^{N} T_{k, i}^{(t)} \Sigma_k^{-1} = \sum_{i = 1}^{N} \left[ \Sigma_k^{-1} (x_i - m_k^{(t+1)})^{T} (x_i - m_k^{(t+1)}) \Sigma_k^{-1} \right] T_{k, i}^{(t)}
+
+
+
+$$\sum_{i = 1}^{N} (x_i - m_k) T_{k, i}^{(t)} = 0$$
+from which we deduce:
+
+$$m_k  = \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}.$$
+
+Furthermore, Hessian matrix of $$A(m_k)$$ is given by:
+
+$$- \left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right) \Sigma_k^{-1}$$
+
+which is negative-definite.
+
+*Conclusion:* We select $$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}$$ and $$A(.)$$ is maximized in $$m_k^{(t+1)}$$.
+
+
+
+
+
+https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Alternative_derivation
+https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Maximum-likelihood_estimation_for_the_multivariate_normal_distribution
+
+
 
 
 Update formulas for mean and variance and the latent proba.
