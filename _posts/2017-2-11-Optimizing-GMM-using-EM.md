@@ -370,7 +370,7 @@ and obtain:
 $$
 \begin{align}
 Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\left( m_k, \Sigma_k \right)}(x_i) + \log \pi_k \right] T_{k, i}^{(t)} \\
-=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x - m_k)^{T} \Sigma_k^{-1} (x - m_k) \right] T_{k, i}^{(t)}
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)}
 \end{align}
 $$
 
@@ -382,12 +382,9 @@ From previous expression, we can perform maximization for each fixed $$k$$. Some
 
 $$
 \begin{align}
-- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k + (x - m_k)^{T} \Sigma_k^{-1} (x - m_k) \right] T_{k, i}^{(t)}
+- \frac{1}{2} \sum_{i = 1}^{N} \left[ \log \text{det} \Sigma_k + (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)}
 \end{align}
 $$
-
-
-
 
 
 Update formulas for mean and variance and the latent proba.
