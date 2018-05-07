@@ -558,8 +558,6 @@ Hard label for $$x_i$$ is estimated by taking
 
 $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
 
-## Graphical example
-
 ## References
 
 - [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). For formulas, it's concise. 
