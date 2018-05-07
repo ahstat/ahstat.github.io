@@ -370,7 +370,7 @@ and obtain:
 $$
 \begin{align}
 Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\left( m_k, \Sigma_k \right)}(x_i) + \log \pi_k \right] T_{k, i}^{(t)} \\
-=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)}
+=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ - \frac{K}{2} \log 2 \pi - \frac{1}{2} \log \text{det} \Sigma_k -\frac{1}{2} (x_i - m_k)^{T} \Sigma_k^{-1} (x_i - m_k) + \log \pi_k \right] T_{k, i}^{(t)}
 \end{align}
 $$
 
@@ -448,7 +448,7 @@ And so:
 
 $$
 \begin{align}
-\Sigma_k = \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{\left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right)}.
+\Sigma_k = \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{\sum_{i = 1}^{N} T_{k, i}^{(t)} }.
 \end{align}
 $$
 
@@ -464,28 +464,56 @@ $$
 
 which is negative-definite.
 
-*Conclusion:* We select $$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{\left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right)}.$$ and $$B(.)$$ is maximized in $$\Sigma_k^{(t+1)}$$.
+*Conclusion:* We select $$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{ \sum_{i = 1}^{N} T_{k, i}^{(t)}}.$$ and $$B(.)$$ is maximized in $$\Sigma_k^{(t+1)}$$.
 
 ### For the probabilities $$(\pi_k)_k$$
 
-Since $$(\pi_k)_k$$...
+Probabilities $$(\pi_k)_k$$ are considered all together since there is a constraint: The sum of $$\pi_k$$ over $$k$$ must be $$1$$. We remove this constraint using: $$\pi_K = 1 - (\pi_1 + \ldots + \pi_{K-1})$$.
+From previous expression, we only need to maximize:
 
-From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$m_k \in \mathbb{R}^{d}$$, so we need to maximize:
+$$
+\begin{align}
+C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) :=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} T_{k, i}^{(t)} \log \pi_k
+\end{align}
+$$
+
+We let $$S_k := \sum_{i = 1}^{N} T_{k, i}^{(t)}$$ and rewrite:
+
+$$
+\begin{align}
+C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) =& \sum_{k = 1}^{K-1}   S_k \log \pi_k +   S_K \log \left( 1 - (\pi_1 + \ldots + \pi_{K-1}) \right).
+\end{align}
+$$
+
+For all $$k \in \lbrace 1, \ldots, K-1 \rbrace$$:
+
+$$
+\begin{align}
+\nabla_{\pi_k} C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) = \frac{S_k}{\pi_k} - \frac{S_K}{\pi_K}
+\end{align}
+$$
+
+And $$\nabla_{\pi_k} C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) = 0$$ if and only if $$\pi_k = \frac{S_k}{S_K} \pi_K$$.
+
+Summing on all $$k \in \lbrace 1, \ldots, K-1 \rbrace$$, we obtain:
+
+$$1 - \pi_K = \frac{\sum_{k=1}^{K-1} S_k}{S_K} \pi_K$$ and so: $$\pi_K = \frac{S_K}{\sum_{k=1}^{K} S_k}.$$
+
+It follows for all $$k \in \lbrace 1, \ldots, K \rbrace$$:
+
+$$\pi_k = \frac{S_k}{\sum_{k=1}^{K} S_k} = \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}.$$
 
 
+Furthermore, Hessian matrix of $$C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace})$$ is a diagonal matrix with diagonal coefficients given by:
 
+$$
+-\frac{S_k}{\pi_k^2},
+$$
 
+which is a negative-definite matrix.
 
+*Conclusion:* We select $$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}$$ for all $$k$$ and $$C(.)$$ is maximized in $$(\pi_k^{(t+1)})_{k}$$.
 
-
-
-https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Alternative_derivation
-https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Maximum-likelihood_estimation_for_the_multivariate_normal_distribution
-
-
-
-
-Update formulas for mean and variance and the latent proba.
 
 ## Final algorithm to cluster data 
 
@@ -496,6 +524,10 @@ update GMM parameters iteratively
 The aim is to identify the most probable label $$k$$ for $$x_i$$.
 
 ## References
+
+https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Alternative_derivation
+https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Maximum-likelihood_estimation_for_the_multivariate_normal_distribution
+
 
 English wikipedia. For formulas, it's good and concise. https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
 
