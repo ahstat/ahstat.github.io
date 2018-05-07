@@ -514,26 +514,56 @@ which is a negative-definite matrix.
 
 *Conclusion:* We select $$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}$$ for all $$k$$ and $$C(.)$$ is maximized in $$(\pi_k^{(t+1)})_{k}$$.
 
-
 ## Final algorithm to cluster data 
 
-Here the final simple algorithm.
+Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ a dataset of $$\mathbb{R}^d$$ and $$K$$ an integer.
 
-update GMM parameters iteratively
+### Step 0
 
-The aim is to identify the most probable label $$k$$ for $$x_i$$.
+We define initial parameters. For $$k \in \lbrace 1, \ldots, K \rbrace$$:
+
+- $$\pi_k^{(0)} = 1 / K$$, 
+- $$\Sigma_k^{(0)}$$ the identity matrix of size
+$$K \times K$$, and 
+- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some initial positions obtained with $$K$$-means.
+
+### Step $$t$$ to $$t+1$$
+
+Let $$f_{(m, \Sigma)}$$ the density function of a Gaussian with parameters $$m$$ and $$\Sigma$$ on $$\mathbb{R}^d$$.
+
+Let for all $$k, i$$:
+
+$$T_{k, i}^{(t)} := \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}$$
+
+Let for all $$k$$:
+
+$$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}$$
+
+$$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{ \sum_{i = 1}^{N} T_{k, i}^{(t)}}.$$
+
+$$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}$$
+
+We repeat this step until convergence (see [this article for theoretical results of convergence](http://www3.stat.sinica.edu.tw/statistica/oldpdf/A15n316.pdf)). In general there is no problem for convergence to a local maxima, however it is possible to build some pathological cases.
+
+### Clustering
+
+Given estimated parameters 
+$$\theta^{(\infty)} = (m_k^{(\infty)}, \Sigma_k^{(\infty)}, \pi_k^{(\infty)})_k$$,
+
+we compute the density for $$x_i$$ to be labeled $$k$$ (for all $$x_i, k$$):
+
+p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k) = f_{(m_k^{(\infty)}, \Sigma_k^{(\infty)})}(x_i) \times \pi_k^{(\infty)}
+
+Hard label for $$x_i$$ is estimated by taking 
+
+$$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
+
+## Graphical example
 
 ## References
 
-https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Alternative_derivation
-https://en.wikipedia.org/wiki/Estimation_of_covariance_matrices#Maximum-likelihood_estimation_for_the_multivariate_normal_distribution
+- [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). For formulas, it's concise. 
 
+- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
 
-English wikipedia. For formulas, it's good and concise. https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
-
-This one is great. Quite the same perspective as in this post.
-http://cs229.stanford.edu/notes/cs229-notes8.pdf
-
-https://www.cs.utah.edu/~piyush/teaching/EM_algorithm.pdf ?
-
-user.it.uu.se/~thosc112/pubpdf/schonem2009.pdf ?
+- [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf). I've just discovered it, and it is really useful for reference.
