@@ -26,6 +26,8 @@ No implementation is provided.
 
 *Fig. 1. Clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted mean for each Gaussian.*
 
+TODO: This post is too long. Separate it into EM first and GMM then.
+
 [TODO again]
 We begin by describing GMM and list parameters of the model.
 Then, we introduce EM and explain how it is useful to optimize parameters.
@@ -552,7 +554,7 @@ $$\theta^{(\infty)} = (m_k^{(\infty)}, \Sigma_k^{(\infty)}, \pi_k^{(\infty)})_k$
 
 we compute the density for $$x_i$$ to be labeled $$k$$ (for all $$x_i, k$$):
 
-p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k) = f_{(m_k^{(\infty)}, \Sigma_k^{(\infty)})}(x_i) \times \pi_k^{(\infty)}
+$$p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k) = f_{(m_k^{(\infty)}, \Sigma_k^{(\infty)})}(x_i) \times \pi_k^{(\infty)}.$$
 
 Hard label for $$x_i$$ is estimated by taking 
 
