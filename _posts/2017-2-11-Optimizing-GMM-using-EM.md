@@ -374,11 +374,6 @@ Q(\theta | \theta^{(t)}) =& \sum_{i = 1}^{N} \sum_{k = 1}^{K} \left[ \log f_{\le
 \end{align}
 $$
 
-https://stats.stackexchange.com/questions/27436/how-to-take-derivative-of-multivariate-normal-density
-
-http://www.math.uwaterloo.ca/~hwolkowi//matrixcookbook.pdf
-
-
 From this shape, we can separate maximization of each couple $$(m_k, \Sigma_k)$$ (for $$k \in \lbrace 1, \ldots, K \rbrace$$) and maximization of the set $$(\pi_k)_k$$.
 
 ### For the mean $$m_k$$
@@ -391,7 +386,7 @@ A(m_k) := - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k)^{T} \Sigma_k^{-1} (x
 \end{align}
 $$
 
-We take the gradient with respect to $$m_k$$ (see equation (86) of [the matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) and [this post](https://stats.stackexchange.com/questions/27436/how-to-take-derivative-of-multivariate-normal-density) to remember how gradient is calculated in this case):
+We take the gradient with respect to $$m_k$$ (see formula (86) of [the matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) and [this post](https://stats.stackexchange.com/questions/27436/how-to-take-derivative-of-multivariate-normal-density) to remember how gradient is calculated in this case):
 
 $$\nabla_{m_k} A(m_k) = - \frac{1}{2} \sum_{i = 1}^{N} \left[ - 2 \Sigma_k^{-1} (x_i - m_k) \right] T_{k, i}^{(t)} =  \sum_{i = 1}^{N} \Sigma_k^{-1} (x_i - m_k) T_{k, i}^{(t)}.$$
 
@@ -411,40 +406,74 @@ which is negative-definite.
 
 ### For the matrix of variance-covariance $$\Sigma_k$$
 
-From previous expression, we can also perform maximization for each fixed $$k$$. Some terms have no dependence on $$\Sigma_k$$, so we need to maximize:
+From previous expression, we can also perform maximization of $$\Sigma_k$$ for each fixed $$k$$.
+
+First, it is easier to differentiate with respect to $$\Sigma_k^{-1}$$, so we let $$\Lambda_k := \Sigma_k^{-1}$$ and maximize:
 
 $$
 \begin{align}
-B(\Sigma_k) := - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \log \text{det} \Sigma_k - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k^{(t+1)})^{T} \Sigma_k^{-1} (x_i - m_k^{(t+1)}) \right] T_{k, i}^{(t)}
+B(\Lambda_k) := - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \log \text{det} \Lambda_k^{-1} - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k^{(t+1)})^{T} \Lambda_k (x_i - m_k^{(t+1)}) \right] T_{k, i}^{(t)}
 \end{align}
 $$
 
-TODO from here ()
+Then, we want to differentiate with respect to the matrix $$\Lambda_k$$ of shape $$d \times d$$. This is quite ambiguous: We can either decide to see the matrix as a vector of length $$d^2$$, or to see it as a vector of length $$d(d+1)/2$$ (because $$\Lambda_k$$ is symmetric and many coefficients are identical). Choosing one or another way to differentiate will change the formula for $$\nabla_{\Lambda_k} B(\Lambda_k)$$, which are both valid and give the same maximized variance-covariance matrix $$\Lambda_k^{(t+1)}.$$
 
-We take the gradient with respect to $$\Sigma_k$$ (see ...):
+Let's do the most simple computations (seeing $$\Lambda_k$$ as a vector of length $$d^2$$).
 
-$$\nabla_{\Sigma_k} B(\Sigma_k) = - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \Sigma_k^{-1} - \frac{1}{2} \sum_{i = 1}^{N} \left[ - \Sigma_k^{-1} (x_i - m_k^{(t+1)})^{T} (x_i - m_k^{(t+1)}) \Sigma_k^{-1} \right] T_{k, i}^{(t)}.$$
+Using formula (57) of [the matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf) and that $$\Lambda_k$$ is symmetric and positive-definite:
+
+$$\nabla_{\Lambda_k} \log \text{det} \Lambda_k^{-1} = - \nabla_{\Lambda_k} \log \text{det} | \Lambda_k | = - \Lambda_k^{-1}.$$
+
+Using formula (70) of [the matrix cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf):
+
+$$\nabla_{\Lambda_k} z^{T} \Lambda_k z = z z^{T}.$$
+
+We select $$z:= x_i - m_k^{(t+1)}$$ and obtain:
+
+$$
+\begin{align}
+\nabla_{\Lambda_k} B(\Lambda_k) = - \frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \left( - \Lambda_k^{-1} \right) - \frac{1}{2} \sum_{i = 1}^{N} \left[ (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} \right] T_{k, i}^{(t)}.
+\end{align}
+$$
 
 We have $$\nabla_{\Sigma_k} B(\Sigma_k) = 0$$ if and only if:
 
+$$
+\begin{align}
+\Lambda_k^{-1} \left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right) = \sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}.
+\end{align}
+$$
 
+And so:
 
-\sum_{i = 1}^{N} T_{k, i}^{(t)} \Sigma_k^{-1} = \sum_{i = 1}^{N} \left[ \Sigma_k^{-1} (x_i - m_k^{(t+1)})^{T} (x_i - m_k^{(t+1)}) \Sigma_k^{-1} \right] T_{k, i}^{(t)}
+$$
+\begin{align}
+\Sigma_k = \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{\left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right)}.
+\end{align}
+$$
 
+This matrix is positive-definite.
 
+Furthermore, Hessian matrix of $$B(\Lambda_k)$$ is given by:
 
-$$\sum_{i = 1}^{N} (x_i - m_k) T_{k, i}^{(t)} = 0$$
-from which we deduce:
-
-$$m_k  = \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}.$$
-
-Furthermore, Hessian matrix of $$A(m_k)$$ is given by:
-
-$$- \left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right) \Sigma_k^{-1}$$
+$$
+\begin{align}
+\nabla_{\Lambda_k} B(\Lambda_k) = -\frac{1}{2} \sum_{i = 1}^{N} T_{k, i}^{(t)} \Lambda_k^{-2}.
+\end{align}
+$$
 
 which is negative-definite.
 
-*Conclusion:* We select $$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}$$ and $$A(.)$$ is maximized in $$m_k^{(t+1)}$$.
+*Conclusion:* We select $$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{\left( \sum_{i = 1}^{N} T_{k, i}^{(t)} \right)}.$$ and $$B(.)$$ is maximized in $$\Sigma_k^{(t+1)}$$.
+
+### For the probabilities $$(\pi_k)_k$$
+
+Since $$(\pi_k)_k$$...
+
+From previous expression, we can perform maximization for each fixed $$k$$. Some terms have no dependence on $$m_k \in \mathbb{R}^{d}$$, so we need to maximize:
+
+
+
 
 
 
