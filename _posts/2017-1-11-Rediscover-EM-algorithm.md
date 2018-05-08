@@ -10,6 +10,7 @@ This one starts from the problem and use inductive reasoning to bring out EM.
 No implementation is provided here.
 To understand how to use and implement EM algorithm in practice, please check out [this post explaining how to estimate parameters for GMM using EM](...todo).
 
+
 ## Step by step advances to the EM algorithm
 
 In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.

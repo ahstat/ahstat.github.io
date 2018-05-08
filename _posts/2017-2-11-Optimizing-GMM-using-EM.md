@@ -12,8 +12,6 @@ Parameters are usually estimated using an *Expectation-Maximization* (EM) algori
 its aim being to iteratively increase likelihood of the dataset.
 GMM is actually a perfect model to understand how EM is working.
 
-(Many introductions of GMM exist on the web.)
-
 <center>
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="2D dataset to cluster" width="49%"/>
 
@@ -25,6 +23,8 @@ GMM is actually a perfect model to understand how EM is working.
 *Fig. 1. Clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted mean for each Gaussian.*
 
 TODO: This post is too long. Separate it into EM first and GMM then.
+
+(Many introductions of GMM exist on the web.)
 
 [TODO again]
 We begin by describing GMM and list parameters of the model.
