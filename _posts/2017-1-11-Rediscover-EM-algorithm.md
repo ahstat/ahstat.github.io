@@ -5,6 +5,25 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+
+Introduce EM is 1 or 2 sentences.
+Do a summary (explain the model with latent variables ; explain the problem with intractable likelihood ; ideas from ideas from math perspective (say that other perspective could be fine...) ; after ideas, formalizing: define EM, prove increase of likelihood ; practical computation of Q)
+
+Explain what is the problem and hypotheses (like in GMM, but don't talk about it)
+
+Intractable problem.
+
+How to solve? Ideas to ideas from a mathematical perspective. And we obtain EM.
+[Another perspective could be to remember K-means and to adapt it, this is also a valid way].
+
+
+
+
+
+
+
+
+
 Many introductions of EM exist on the web. 
 This one starts from the problem and use inductive reasoning to bring out EM.
 No implementation is provided here.
