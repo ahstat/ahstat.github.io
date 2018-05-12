@@ -9,48 +9,54 @@ published: true
 It is needed in the case where direct calculation of *maximum likelihood estimation* (MLE) is impractical.
 EM updates parameters of the model iteratively, in order to increase likelihood of the set.
 It generally gives good estimation results, although there is no guarantee of convergence to MLE 
-(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf)).
+(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review).
 
 Many introductions of EM exist on the web. 
 This one starts from the likelihood computation problem and uses inductive reasoning to bring out EM.
-No implementation is provided here.
-To understand how to use and implement EM algorithm for GMM clustering, please check out [this post](2017-2-11-Optimizing-GMM-using-EM).
+No implementation is provided here
+(please check out [this post](../Optimizing-GMM-using-EM) to understand how to use and implement EM algorithm for GMM clustering).
 
-In this post,
+In this following,
 we begin by describing a general model involving latent variables.
 We then explain why direct computation of MLE is intractable.
-After that, ideas are introduced one by one towards...
+After that, ideas are introduced one by one and lead us naturally towards EM.
+Those ideas are formalized afterwards, making EM a practical algorithm to estimate parameters.
 
-We identify the cause 
-
-
-Do a summary (explain the model with latent variables ; explain the problem with intractable likelihood ; ideas from ideas from math perspective (say that other perspective could be fine...) ; after ideas, formalizing: define EM, prove increase of likelihood ; practical computation of Q)
-
-Explain what is the problem and hypotheses (like in GMM, but don't talk about it)
-
-Intractable problem.
-
-How to solve? Ideas to ideas from a mathematical perspective. And we obtain EM.
-[Another perspective could be to remember K-means and to adapt it, this is also a valid way].
+(missing illustration)
 
 
 
 
+## Definition of the model
+
+Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of observed data points, where each $$x_i$$ is in $$\mathbb{R}^d$$.
+
+Let $$\mathbf{z}^{(\text{true})} = (z_i^{(\text{true})})_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of unobserved latent data, where each $$z_i$$ is in $$\lbrace 1, \ldots, K \rbrace$$ and $$K$$ a fixed integer.
+
+The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of a random variable $$(\mathbf{X}, \mathbf{Z})$$.
+
+The distribution of $$(\mathbf{X}, \mathbf{Z})$$ depends on a unknown but fixed parameter $$\theta^{(\text{true})}$$.
+
+In the following, we always consider cases where all terms are well-defined.
+We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
+
+For all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$,
+we assume that it is difficult to compute $$p_{\theta}(\mathbf{x})$$ directly, but easy to compute both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z}).$$
+We can define EM without those assumptions, but there are needed for practical use. 
+
+In GMM for example, $$\mathbf{x} \mapsto p_{\theta}(\mathbf{x} | \mathbf{z})$$ follows a specific multivariate normal distribution, and $$\mathbf{z} \mapsto P_{\theta}(\mathbf{z})$$ also has a simple closed form (see [this post](../Optimizing-GMM-using-EM) talking about GMM in details).
+
+## Direct calculation of MLE is intractable
 
 
+The common strategy to estimate $$\theta^{(\text{true})}$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
+$$\log L(\theta ; \mathbf{x}) := \log p_{\theta}(\mathbf{x}).$$
 
+Using the law of total probability, we can reveal the latent variable by summing over the $$K^n$$ different latent data (the sum in the following equation has $$K^n$$ terms):
 
+$$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
 
-
-## Step by step advances to the EM algorithm
-
-In this section, $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ is the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters. The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of the random variable $$(\mathbf{X}, \mathbf{Z})$$.
-
-We continue to use letter $$p$$ for density and $$P$$ for probabilities.
-For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for  $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
-
-In the following equations, we always consider cases where all terms are well-defined.
 
 If we decompose log-likelihood as in the previous section, we obtain:
 
@@ -67,6 +73,26 @@ We would like to let the $$\log$$ inside the sum
 See for example the expression:
 $$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
 This expression would be easy to maximize over $$\theta$$ (assuming that $$(\mathbf{X} | \mathbf{Z})$$ and $$\mathbf{Z}$$ are independent and well-known; this is the case for GMM).
+
+## Step by step from likelihood towards EM
+
+
+## The EM algorithm
+
+
+
+## References
+
+
+
+
+
+
+
+
+
+
+## Step by step advances to the EM algorithm
 
 Basicly, EM will find a mean to include the $$\log$$ inside the sum.
 To do this, we let $$\mathbf{z}$$ any element of $$\lbrace 1, \ldots, K \rbrace^n$$
