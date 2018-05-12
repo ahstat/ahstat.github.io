@@ -192,30 +192,15 @@ such that the corresponding log-likelihoods nondecrease:
 
 $$\log L(\theta^{(0)} ; \mathbf{x}) \leq \log L(\theta^{(1)} ; \mathbf{x}) \leq \log L(\theta^{(2)} ; \mathbf{x}), \ldots$$
 
-We first see how the $$\theta^{(i)}$$ are defined, before showing that corresponding log-likelihoods nondecrease.
+We see how the $$\theta^{(i)}$$ are defined, before showing that corresponding log-likelihoods nondecrease.
 
-### todo
+### Updating parameters
 
+We begin with some initial parameters $$\theta^{(0)}$$.
+This initialization step is important and different $$\theta^{(0)}$$
+can lead to different estimations.
 
-### Step 0
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We begin with initial parameters $$\theta^{(0)}$$:
-
-$$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
-
-Here, we let for all $$k$$: 
-- $$\pi_k^{(0)} = 1 / K$$, 
-- $$\Sigma_k^{(0)}$$ the identity matrix of size
-$$K \times K$$, and 
-- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained with $$K$$-means.
-
-### Step $$t$$ to $$t+1$$
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We have $$\theta^{(t)}$$.
+Now assume that parameter $$\theta^{(t)}$$ has been defined (for a certain $$t \leq 0$$). We explain how to get $$\theta^{(t+1)}$$.
 
 We define for all $$\theta$$:
 
@@ -231,11 +216,6 @@ The step of defining $$Q$$ is the *Expectation step*,
 the step of maximizing $$Q$$ is the *Maximization step*.
 
 ### Improvement of the likelihood using EM algorithm
-
-"It generally gives good estimation results, although there is no guarantee of convergence to MLE"
-(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review)
-
-
 
 We theoretically ensure that likelihood is nondecreasing when EM algorithm is used.
 This paragraph formalizes the previous section.
@@ -284,6 +264,7 @@ This ends the proof.
 
 *A warning:* The previous proof ensures that likelihood is not decreasing. 
 It does not say how parameters compare with $$\theta^{\text{(true)}}$$ (really unknown) or even $$\theta^{\text{(MLE)}}$$ (obtained using maximum likelihood estimate, but intractable).
+Under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review.
 
 ### How to compute and maximize $$Q$$ in practice?
 
@@ -298,14 +279,12 @@ Q(\theta | \theta^{(t)}) =& \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathb
 $$
 
 It should easier to maximize this function of $$\theta$$, compared to the initial log-likelihood function.
-In the next section, this maximization is made explicitly (closed formulas).
+
+For explicit calculations for GMM, please follow [the next post](../Optimizing-GMM-using-EM).
 
 ## References
 
-see them again
+- [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas, 
 
-- [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). For formulas, it's concise. 
+- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
-
-- [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf). I've just discovered it, and it is really useful for reference.
