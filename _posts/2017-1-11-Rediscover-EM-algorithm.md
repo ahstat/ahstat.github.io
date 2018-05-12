@@ -14,8 +14,7 @@ Many introductions of EM exist on the web.
 This one starts from the likelihood computation problem and uses inductive reasoning to bring out EM.
 No implementation is provided here.
 
-In this following,
-we begin by describing a general model involving latent variables.
+We begin by describing a general model involving latent variables.
 We then explain why direct computation of MLE is intractable.
 After that, ideas are introduced one by one and lead us naturally towards EM.
 Those ideas are formalized afterwards, making EM a practical algorithm to estimate parameters.
@@ -35,7 +34,7 @@ The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of a ra
 
 The distribution of $$(\mathbf{X}, \mathbf{Z})$$ depends on a unknown but fixed parameter $$\theta^{(\text{true})}$$.
 
-In the following, we always consider cases where all terms are well-defined.
+We always consider cases where all terms are well-defined.
 We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
 
 EM algorithm can be always derived, but may not be practical.
@@ -61,21 +60,17 @@ $$\log L(\theta ; \mathbf{x}) := \log p_{\theta}(\mathbf{x}).$$
 Direct maximization of the likelihood over $$\theta$$ is not possible because $$p_{\theta}(\mathbf{x})$$ "difficult to compute".
 Using the law of total probability, we can reveal the latent variable by summing over all possible latent data (the sum in the following equation has $$K^n$$ terms):
 
-$$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
+$$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x}, \mathbf{z}) \right] = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
 
-We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ which are "easy to compute". 
-However, the problem of this decomposition is the presence of $$\log$$ before a sum.
-(Note: We could say "Oh, just optimize likelihood instead of log-likelihood then", but another issue arises: In the typical case where $$\mathbf{X}$$ is an independent vector, we express $$p_{\theta}(\mathbf{x}) = \prod_{i=1}^n p_{\theta}(x_i) $$ and logarithm is necessary to transform the product into a sum. See also [the GMM case](../Optimizing-GMM-using-EM) to see this clearly).
-
-In fact, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable
-
-
+We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$, which are "easy to compute". 
+However, the problem of this decomposition is the presence of the sum of a product.
+This makes the log-likelihood function being non-convex (as a function of $$\theta$$), so direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
 
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
 See for example the expression:
 $$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
-This expression would be easy to maximize over $$\theta$$ (assuming that $$(\mathbf{X} | \mathbf{Z})$$ and $$\mathbf{Z}$$ are independent and well-known; this is the case for GMM).
+This expression would be easy to maximize over $$\theta$$.
 
 ## Step by step from likelihood towards EM
 
