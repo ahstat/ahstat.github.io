@@ -39,11 +39,11 @@ In the following, we always consider cases where all terms are well-defined.
 We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
 
 EM algorithm can be always derived, but may not be practical.
-A good rule of thumb to consider an EM algorithm is when 
-it is "difficult to compute" $$p_{\theta}(\mathbf{x})$$ directly, but "easy to compute" both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
+A good rule of thumb to consider an EM algorithm is when it is "difficult to compute" $$p_{\theta}(\mathbf{x})$$ directly, but 
+"easy to compute" both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
 In the following, we assume that we are in this configuration.
 
-In GMM specifically, $$3$$ hypotheses are set and allow practical use of EM algorithm:
+In GMM specifically, 3 hypotheses are set and allow practical use of EM algorithm:
 1. The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$,
 2. Each record belongs to a cluster $$Z_i = k$$ with a fixed probability,
 3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
@@ -65,6 +65,8 @@ $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathb
 
 We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ which are "easy to compute". 
 However, the problem of this decomposition is the presence of $$\log$$ before a sum.
+(Note: We could say "Oh, just optimize likelihood instead of log-likelihood then", but another issue arises: In the typical case where $$\mathbf{X}$$ is an independent vector, we express $$p_{\theta}(\mathbf{x}) = \prod_{i=1}^n p_{\theta}(x_i) $$ and logarithm is necessary to transform the product into a sum. See also [the GMM case](../Optimizing-GMM-using-EM) to see this clearly).
+
 In fact, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable
 
 
