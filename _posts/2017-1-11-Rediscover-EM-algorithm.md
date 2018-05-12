@@ -5,8 +5,25 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+*Expectation-Maximization* algorithm (EM) is an algorithm used to estimate parameters of statistical models comprising latent variables.
+It is needed in the case where direct calculation of *maximum likelihood estimation* (MLE) is impractical.
+EM updates parameters of the model iteratively, in order to increase likelihood of the set.
+It generally gives good estimation results, although there is no guarantee of convergence to MLE 
+(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf)).
 
-Introduce EM is 1 or 2 sentences.
+Many introductions of EM exist on the web. 
+This one starts from the likelihood computation problem and uses inductive reasoning to bring out EM.
+No implementation is provided here.
+To understand how to use and implement EM algorithm for GMM clustering, please check out [this post](2017-2-11-Optimizing-GMM-using-EM).
+
+In this post,
+we begin by describing a general model involving latent variables.
+We then explain why direct computation of MLE is intractable.
+After that, ideas are introduced one by one towards...
+
+We identify the cause 
+
+
 Do a summary (explain the model with latent variables ; explain the problem with intractable likelihood ; ideas from ideas from math perspective (say that other perspective could be fine...) ; after ideas, formalizing: define EM, prove increase of likelihood ; practical computation of Q)
 
 Explain what is the problem and hypotheses (like in GMM, but don't talk about it)
@@ -24,10 +41,6 @@ How to solve? Ideas to ideas from a mathematical perspective. And we obtain EM.
 
 
 
-Many introductions of EM exist on the web. 
-This one starts from the problem and use inductive reasoning to bring out EM.
-No implementation is provided here.
-To understand how to use and implement EM algorithm in practice, please check out [this post explaining how to estimate parameters for GMM using EM](...todo).
 
 
 ## Step by step advances to the EM algorithm
