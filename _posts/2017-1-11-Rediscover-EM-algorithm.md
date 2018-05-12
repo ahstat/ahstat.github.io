@@ -19,9 +19,13 @@ We then explain why direct computation of MLE is intractable.
 After that, ideas are introduced one by one and lead us naturally towards EM.
 Those ideas are formalized afterwards, making EM a practical algorithm to estimate parameters.
 
-(missing illustration)
+$$Q(\theta | \theta_0) := \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log p_{\theta}(\mathbf{x}, \mathbf{z}).$$
 
+$$H(\theta | \theta_0) := - \sum_{\mathbf{z}} P_{\theta_0}(\mathbf{z} \mid \mathbf{x}) \log P_{\theta}(\mathbf{z} | \mathbf{x}).$$
 
+$$\log L(\theta ; \mathbf{x}) = Q(\theta | \theta_0) + H(\theta | \theta_0).$$
+
+<center><img src="../images/2017-1-11-Rediscover-EM-algorithm/intro_illustration.png" alt="Intro illustration with decomposition of log-likelihood in EM"/></center>
 
 
 ## Definition of the model
