@@ -241,7 +241,7 @@ and so:
 
 $$
 \begin{align}
-\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) \geq Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)})
+\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) \geq Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)}).
 \end{align}
 $$
 
@@ -249,7 +249,7 @@ By choosing $$\theta^{(t+1)} = \text{argmax}_{\theta} Q(\theta \mid \theta^{(t)}
 
 $$Q(\theta^{(t+1)} | \theta^{(t)}) \geq Q(\theta^{(t)} | \theta^{(t)})$$
 
-and so:
+and finally:
 
 $$
 \begin{align}
@@ -283,5 +283,6 @@ For explicit calculations for GMM, please follow [the next post](../Optimizing-G
 
 - [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas, 
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf).
+- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
 
+- [An article detailing parameter convergence results for EM](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf).
