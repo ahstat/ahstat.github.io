@@ -64,33 +64,15 @@ $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathb
 
 We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$, which are "easy to compute". 
 However, the problem of this decomposition is the presence of the sum of a product.
-This makes the log-likelihood function being non-convex (as a function of $$\theta$$), so direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
+This makes the log-likelihood function being non-convex as a function of $$\theta$$, so direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
 
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
-See for example the expression:
+See for example:
 $$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
 This expression would be easy to maximize over $$\theta$$.
 
 ## Step by step from likelihood towards EM
-
-
-## The EM algorithm
-
-
-
-## References
-
-
-
-
-
-
-
-
-
-
-## Step by step advances to the EM algorithm
 
 Basicly, EM will find a mean to include the $$\log$$ inside the sum.
 To do this, we let $$\mathbf{z}$$ any element of $$\lbrace 1, \ldots, K \rbrace^n$$
@@ -204,7 +186,7 @@ $$H(\theta | \theta_0) \geq H(\theta_0 | \theta_0).$$
 
 This induces a method to increase log-likelihood of the dataset, described in the next section.
 
-## What is EM algorithm?
+## The EM algorithm
 
 We recall notations of the previous section. Let $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters.
 
