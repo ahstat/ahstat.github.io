@@ -40,9 +40,10 @@ We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of c
 
 EM algorithm can be always derived, but may not be practical.
 A good rule of thumb to consider an EM algorithm is when 
-it is difficult to compute $$p_{\theta}(\mathbf{x})$$ directly, but easy to compute both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
+it is "difficult to compute" $$p_{\theta}(\mathbf{x})$$ directly, but "easy to compute" both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
+In the following, we assume that we are in this configuration.
 
-In GMM, $$3$$ hypotheses are set and allow practical use of EM algorithm:
+In GMM specifically, $$3$$ hypotheses are set and allow practical use of EM algorithm:
 1. The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$,
 2. Each record belongs to a cluster $$Z_i = k$$ with a fixed probability,
 3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
@@ -53,26 +54,21 @@ From now, we go back to the general setting.
 
 ## Direct calculation of MLE is intractable
 
-
 The common strategy to estimate $$\theta^{(\text{true})}$$ is to maximize the log-likelihood of observed data $$\mathbf{x}$$, as defined by the density of probability to observe $$\mathbf{x}$$ given $$\theta$$:
 
 $$\log L(\theta ; \mathbf{x}) := \log p_{\theta}(\mathbf{x}).$$
 
-Using the law of total probability, we can reveal the latent variable by summing over the $$K^n$$ different latent data (the sum in the following equation has $$K^n$$ terms):
+Direct maximization of the likelihood over $$\theta$$ is not possible because $$p_{\theta}(\mathbf{x})$$ "difficult to compute".
+Using the law of total probability, we can reveal the latent variable by summing over all possible latent data (the sum in the following equation has $$K^n$$ terms):
 
 $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
 
+We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ which are "easy to compute". 
+However, the problem of this decomposition is the presence of $$\log$$ before a sum.
+In fact, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable
 
-If we decompose log-likelihood as in the previous section, we obtain:
 
-$$
-\begin{align}
-\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x})
-= \log \left[ \sum_{\mathbf{z}} p_{\theta}(\mathbf{x}, \mathbf{z}) \right].
-\end{align}
-$$
 
-The problem of this decomposition is the presence of $$\log$$ before a sum.
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
 See for example the expression:
