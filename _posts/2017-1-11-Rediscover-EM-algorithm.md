@@ -12,7 +12,7 @@ It generally gives good estimation results, although there is no guarantee of co
 
 Many introductions of EM exist on the web. 
 This one starts from the likelihood computation problem and uses inductive reasoning to bring out EM.
-No implementation is provided here.
+No implementation is provided.
 
 We begin by describing a general model involving latent variables.
 We then explain why direct computation of MLE is intractable.
@@ -26,27 +26,23 @@ Those ideas are formalized afterwards, making EM a practical algorithm to estima
 
 ## Definition of the model
 
-Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of observed data points, where each $$x_i$$ is in $$\mathbb{R}^d$$.
+Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of observed data points, where each $$x_i$$ stands in $$\mathbb{R}^d$$.
 
-Let $$\mathbf{z}^{(\text{true})} = (z_i^{(\text{true})})_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of unobserved latent data, where each $$z_i$$ is in $$\lbrace 1, \ldots, K \rbrace$$ and $$K$$ a fixed integer.
+Let $$\mathbf{z}^{(\text{true})} = (z_i^{(\text{true})})_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of unobserved latent data, where each $$z_i^{(\text{true})}$$ stands in $$\lbrace 1, \ldots, K \rbrace$$ with $$K$$ is a fixed integer.
 
 The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of a random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
 The distribution of $$(\mathbf{X}, \mathbf{Z})$$ depends on a unknown but fixed parameter $$\theta^{(\text{true})}$$.
 
-We always consider cases where all terms are well-defined.
 We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
 
-EM algorithm can be always derived, but may not be practical.
+EM algorithm can be always derived, but may be impractical.
 A good rule of thumb to consider an EM algorithm is when it is "difficult to compute" $$p_{\theta}(\mathbf{x})$$ directly, but 
 "easy to compute" both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
 In the following, we assume that we are in this configuration.
 
 In GMM specifically, 3 hypotheses are set and allow practical use of EM algorithm:
-1. The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$,
-2. Each record belongs to a cluster $$Z_i = k$$ with a fixed probability,
-3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
-
+The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$; Each record belongs to a cluster $$Z_i = k$$ with a fixed probability; Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
 Please check out [this specific post](../Optimizing-GMM-using-EM) if you are interested on understanding how to use and implement EM algorithm for GMM clustering.
 
 From now, we go back to the general setting.
@@ -63,16 +59,16 @@ Using the law of total probability, we can reveal the latent variable by summing
 $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x}, \mathbf{z}) \right] = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
 
 We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$, which are "easy to compute". 
-However, the problem of this decomposition is the presence of the sum of a product.
-This makes the log-likelihood function being non-convex as a function of $$\theta$$, so direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
+However, the problem in this decomposition is the presence of the sum.
+This makes the log-likelihood function being non-convex as a function of $$\theta$$, so direct optimization is intractable (see [this post for a discussion and the most simple example of non-convexity](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
+
+## Step by step from likelihood towards EM
 
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
 See for example:
 $$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
 This expression would be easy to maximize over $$\theta$$.
-
-## Step by step from likelihood towards EM
 
 Basicly, EM will find a mean to include the $$\log$$ inside the sum.
 To do this, we let $$\mathbf{z}$$ any element of $$\lbrace 1, \ldots, K \rbrace^n$$
@@ -142,7 +138,7 @@ The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try 
 
 $$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times \left( -\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \right) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
 
-By selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we will end up with $$H(\theta, r) \geq H(\theta_0, r).$$
+By selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
 Now the inequality 
 $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$ 
@@ -188,11 +184,7 @@ This induces a method to increase log-likelihood of the dataset, described in th
 
 ## The EM algorithm
 
-We recall notations of the previous section. Let $$\mathbf{x} \in \left(\mathbb{R}^d \right)^n$$ the set of observed data, $$\mathbf{z}^{(\text{true})} \in \lbrace 1, \ldots, K \rbrace^n$$ the set of unobserved latent data, and $$\theta^{(\text{true})}$$ the unknown (fixed) set of parameters.
-
-Log-likelihood of data is $$\log L(\theta ; \mathbf{x}) = \log p_{\theta}(\mathbf{x})$$.
-
-The EM algorithm computes sets of parameters 
+EM algorithm computes iterative parameters 
 
 $$\theta^{(0)}, \theta^{(1)}, \theta^{(2)}, \ldots$$
 
@@ -200,7 +192,10 @@ such that the corresponding log-likelihoods nondecrease:
 
 $$\log L(\theta^{(0)} ; \mathbf{x}) \leq \log L(\theta^{(1)} ; \mathbf{x}) \leq \log L(\theta^{(2)} ; \mathbf{x}), \ldots$$
 
-EM is an iterative algorithm.
+We first see how the $$\theta^{(i)}$$ are defined, before showing that corresponding log-likelihoods nondecrease.
+
+### todo
+
 
 ### Step 0
 
