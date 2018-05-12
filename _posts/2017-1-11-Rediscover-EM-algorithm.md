@@ -28,7 +28,7 @@ Those ideas are formalized afterwards, making EM a practical algorithm to estima
 
 Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of observed data points, where each $$x_i$$ stands in $$\mathbb{R}^d$$.
 
-Let $$\mathbf{z}^{(\text{true})} = (z_i^{(\text{true})})_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of unobserved latent data, where each $$z_i^{(\text{true})}$$ stands in $$\lbrace 1, \ldots, K \rbrace$$ with $$K$$ is a fixed integer.
+Let $$\mathbf{z}^{(\text{true})} = (z_i^{(\text{true})})_{i \in \lbrace 1, \ldots n \rbrace}$$ the set of unobserved latent data, where each $$z_i^{(\text{true})}$$ stands in $$\lbrace 1, \ldots, K \rbrace$$ with $$K$$ a fixed integer.
 
 The couple $$(\mathbf{x}, \mathbf{z}^{(\text{true})})$$ is a realization of a random variable $$(\mathbf{X}, \mathbf{Z})$$.
 
@@ -42,8 +42,8 @@ A good rule of thumb to consider an EM algorithm is when it is "difficult to com
 In the following, we assume that we are in this configuration.
 
 In GMM specifically, 3 hypotheses are set and allow practical use of EM algorithm:
-The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$; Each record belongs to a cluster $$Z_i = k$$ with a fixed probability; Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
-Please check out [this specific post](../Optimizing-GMM-using-EM) if you are interested on understanding how to use and implement EM algorithm for GMM clustering.
+The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$; Each record belongs to a cluster $$Z_i = k$$ with a fixed probability; And each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
+If you are only interested on understanding how to use and implement EM algorithm for GMM clustering, please check out [this specific post](../Optimizing-GMM-using-EM).
 
 From now, we go back to the general setting.
 
@@ -60,15 +60,15 @@ $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathb
 
 We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$, which are "easy to compute". 
 However, the problem in this decomposition is the presence of the sum.
-This makes the log-likelihood function being non-convex as a function of $$\theta$$, so direct optimization is intractable (see [this post for a discussion and the most simple example of non-convexity](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
+This makes the log-likelihood function being non-convex as a function of $$\theta$$, and direct optimization is intractable (see [this post for a discussion and the most simple example of non-convexity](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
 
 ## Step by step from likelihood towards EM
 
 We would like to let the $$\log$$ inside the sum 
 (which is not possible directly because $$\log$$ is not linear!).
 See for example:
-$$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P(\mathbf{z}).$$
-This expression would be easy to maximize over $$\theta$$.
+$$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P_{\theta}(\mathbf{z}).$$
+This expression would be easier to maximize over $$\theta$$ ([at least for GMM, see explicit computations here](../Optimizing-GMM-using-EM)).
 
 Basicly, EM will find a mean to include the $$\log$$ inside the sum.
 To do this, we let $$\mathbf{z}$$ any element of $$\lbrace 1, \ldots, K \rbrace^n$$
@@ -118,7 +118,7 @@ $$H(\theta, r) := - \sum_{\mathbf{z}} r_\mathbf{z} \log P_{\theta}(\mathbf{z} | 
 We assume that we have selected some current parameters $$\theta_0$$.
 We would like to select $$r$$ such that for all choice of $$\theta$$,
 $$H(\theta, r) \geq H(\theta_0, r).$$
-If we can do this, $$H$$ would not be a problem anymore (try to see why now; Hint: we still cannot compute $$H$$, but we would know it cannot decrease; Answer in a subsequent paragraph).
+If we can do this, $$H$$ would not be a problem anymore (try to see why now; Hint: we still cannot compute $$H$$, but we would know it cannot decrease; Answer in a subsequent section).
 
 We define two distributions $$(p_{\mathbf{z}})$$ and $$(q_{\mathbf{z}})$$:
 
@@ -138,7 +138,7 @@ The sum on the right is not easy to compute, but $$-\log$$ is convex, so we try 
 
 $$ \sum_{\mathbf{z}} r_{\mathbf{z}} \times \left( -\log \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \right) \geq - \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}}.$$
 
-By selecting $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, we end up with $$H(\theta, r) \geq H(\theta_0, r).$$
+If we can select $$r$$ such that $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$, then we will end up with $$H(\theta, r) \geq H(\theta_0, r).$$
 
 Now the inequality 
 $$- \log \sum_{\mathbf{z}} r_{\mathbf{z}} \frac{q_{\mathbf{z}}}{p_{\mathbf{z}}} \geq 0$$ 
@@ -174,7 +174,7 @@ and $$H(\theta, q) = H(\theta \mid \theta)$$].
 
 On the whole, for all $$\theta, \theta_0$$, the log-likelihood of $$\mathbf{x}$$ given parameters $$\theta$$ is:
 
-$$\log L(\theta ; \mathbf{x}) = Q(\theta | \theta_0) + H(\theta | \theta_0).$$
+$$\log L(\theta ; \mathbf{x}) = Q(\theta | \theta_0) + H(\theta | \theta_0),$$
 
 and, for all $$\theta, \theta_0$$,
 
@@ -184,36 +184,34 @@ This induces a method to increase log-likelihood of the dataset, described in th
 
 ## The EM algorithm
 
-EM algorithm computes iterative parameters 
-
+EM algorithm computes parameters 
 $$\theta^{(0)}, \theta^{(1)}, \theta^{(2)}, \ldots$$
-
 such that the corresponding log-likelihoods nondecrease:
 
 $$\log L(\theta^{(0)} ; \mathbf{x}) \leq \log L(\theta^{(1)} ; \mathbf{x}) \leq \log L(\theta^{(2)} ; \mathbf{x}), \ldots$$
 
-We see how the $$\theta^{(i)}$$ are defined, before showing that corresponding log-likelihoods nondecrease.
+We describe how to update parameters before showing that corresponding log-likelihoods nondecrease.
 
 ### Updating parameters
 
 We begin with some initial parameters $$\theta^{(0)}$$.
-This initialization step is important and different $$\theta^{(0)}$$
+This initialization step is important, and different $$\theta^{(0)}$$
 can lead to different estimations.
 
-Now assume that parameter $$\theta^{(t)}$$ has been defined (for a certain $$t \leq 0$$). We explain how to get $$\theta^{(t+1)}$$.
+Now assume that parameter $$\theta^{(t)}$$ has been defined (for a certain $$t \geq 0$$). We explain how to get $$\theta^{(t+1)}$$.
 
 We define for all $$\theta$$:
 
 $$Q(\theta | \theta^{(t)}) := E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta^{(t)}})) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}),$$
 
-where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x})$$
+where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x}).$$
 
-We let 
+We let:
 
 $$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
 
-The step of defining $$Q$$ is the *Expectation step*, 
-the step of maximizing $$Q$$ is the *Maximization step*.
+The step of defining $$Q$$ is the *expectation step*, 
+the step of maximizing $$Q$$ is the *maximization step*.
 
 ### Improvement of the likelihood using EM algorithm
 
@@ -232,7 +230,7 @@ We compute:
 
 $$
 \begin{align}
-\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) =& Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)}) + H(\theta | \theta^{(t)}) - H(\theta^{(t)} | \theta^{(t)})
+\log L(\theta ; \mathbf{x}) - \log L(\theta^{(t)} ; \mathbf{x}) =& Q(\theta | \theta^{(t)}) - Q(\theta^{(t)} | \theta^{(t)}) + H(\theta | \theta^{(t)}) - H(\theta^{(t)} | \theta^{(t)}).
 \end{align}
 $$
 
@@ -262,9 +260,9 @@ $$
 
 This ends the proof.
 
-*A warning:* The previous proof ensures that likelihood is not decreasing. 
+*Warning:* The previous proof ensures that likelihood is not decreasing. 
 It does not say how parameters compare with $$\theta^{\text{(true)}}$$ (really unknown) or even $$\theta^{\text{(MLE)}}$$ (obtained using maximum likelihood estimate, but intractable).
-Under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review.
+Under mild conditions, EM converges to a local maximum though, see [this article for a review](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf).
 
 ### How to compute and maximize $$Q$$ in practice?
 
@@ -286,5 +284,5 @@ For explicit calculations for GMM, please follow [the next post](../Optimizing-G
 
 - [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas, 
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
+- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf).
 
