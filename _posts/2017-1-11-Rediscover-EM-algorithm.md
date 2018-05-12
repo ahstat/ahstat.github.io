@@ -8,13 +8,11 @@ published: true
 *Expectation-Maximization* algorithm (EM) is an algorithm used to estimate parameters of statistical models comprising latent variables.
 It is needed in the case where direct calculation of *maximum likelihood estimation* (MLE) is impractical.
 EM updates parameters of the model iteratively, in order to increase likelihood of the set.
-It generally gives good estimation results, although there is no guarantee of convergence to MLE 
-(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review).
+It generally gives good estimation results, although there is no guarantee of convergence to MLE.
 
 Many introductions of EM exist on the web. 
 This one starts from the likelihood computation problem and uses inductive reasoning to bring out EM.
-No implementation is provided here
-(please check out [this post](../Optimizing-GMM-using-EM) to understand how to use and implement EM algorithm for GMM clustering).
+No implementation is provided here.
 
 In this following,
 we begin by describing a general model involving latent variables.
@@ -40,11 +38,18 @@ The distribution of $$(\mathbf{X}, \mathbf{Z})$$ depends on a unknown but fixed 
 In the following, we always consider cases where all terms are well-defined.
 We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of conciseness, we discard notation of the random variable: For example, we write $$P(\mathbf{z})$$ for $$P(\mathbf{Z} = \mathbf{z})$$, and $$p(\mathbf{x})$$ for $$p(\mathbf{X} = \mathbf{x})$$.
 
-For all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$,
-we assume that it is difficult to compute $$p_{\theta}(\mathbf{x})$$ directly, but easy to compute both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z}).$$
-We can define EM without those assumptions, but there are needed for practical use. 
+EM algorithm can be always derived, but may not be practical.
+A good rule of thumb to consider an EM algorithm is when 
+it is difficult to compute $$p_{\theta}(\mathbf{x})$$ directly, but easy to compute both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
 
-In GMM for example, $$\mathbf{x} \mapsto p_{\theta}(\mathbf{x} | \mathbf{z})$$ follows a specific multivariate normal distribution, and $$\mathbf{z} \mapsto P_{\theta}(\mathbf{z})$$ also has a simple closed form (see [this post](../Optimizing-GMM-using-EM) talking about GMM in details).
+In GMM, $$3$$ hypotheses are set and allow practical use of EM algorithm:
+1. The vector of marginal variables $$(X_i, Z_i)_i$$ of $$(\mathbf{X}, \mathbf{Z})$$ forms an independent vector over $$i$$,
+2. Each record belongs to a cluster $$Z_i = k$$ with a fixed probability,
+3. Each conditional variable $$(X_i \mid Z_i = k)$$ follows a Gaussian distribution with fixed parameters.
+
+Please check out [this specific post](../Optimizing-GMM-using-EM) if you are interested on understanding how to use and implement EM algorithm for GMM clustering.
+
+From now, we go back to the general setting.
 
 ## Direct calculation of MLE is intractable
 
@@ -256,6 +261,11 @@ The step of defining $$Q$$ is the *Expectation step*,
 the step of maximizing $$Q$$ is the *Maximization step*.
 
 ### Improvement of the likelihood using EM algorithm
+
+"It generally gives good estimation results, although there is no guarantee of convergence to MLE"
+(under mild conditions, EM converges to a local maximum though, see [this article](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf) for a review)
+
+
 
 We theoretically ensure that likelihood is nondecreasing when EM algorithm is used.
 This paragraph formalizes the previous section.
