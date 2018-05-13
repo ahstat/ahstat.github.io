@@ -320,6 +320,64 @@ $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
 
 ## Illustration of the clustering process
 
+We propose to cluster a 2D dataset into 3 clusters using GMM. 
+The dataset is plotted in Fig. 2 (a).
+We initialize parameters $$\theta^{(0)}$$ with $$K$$-means (related clustering shown in Fig. 2 (b)).
+We update parameters $$\theta^{(1)}$$, $$\theta^{(2)}$$, $$\theta^{(3)}$$ (see Fig. 2 (c,d,e))
+until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (f)).
+
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="before GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_0.png" alt="t=0 of GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_1.png" alt="t=1 of GMM clustering" width="32%"/>
+
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_2.png" alt="t=2 of GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_3.png" alt="t=3 of GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/after.png" alt="after GMM clustering" width="32%"/>
+
+*Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) Step 2; (e) Step 3; (f) GMM clustering after convergence. On each figure from (b) to (f), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
+
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="right">$$t$$</td>
+<td>$$m_1^{(t)}$$</td>
+<td>$$m_2^{(t)}$$</td>
+<td>$$m_3^{(t)}$$</td>
+</tr>
+<tr>
+<td align="right">$$0$$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td align="right">$$1$$</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">$$2$$</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="right">$$3$$</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="right">$$\infty$$</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+
 todo
 
 Likelihood for K-means (t is 0): -4144.924
