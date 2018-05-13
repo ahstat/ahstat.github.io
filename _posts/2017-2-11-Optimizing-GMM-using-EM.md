@@ -342,11 +342,7 @@ cluster $$2$$ is <span style="color:#d95f01;">the orange one</span> on the top,
 cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right.
 
 
-<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed">
-  <colgroup>
-    <col style="width:10%" span="1">
-    <col style="width:25%" span="3">
-  </colgroup>
+<table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
@@ -356,10 +352,10 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-<td>$$\begin{bmatrix}
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\begin{bmatrix}
     -0.95 \\
     -2.94
-\end{bmatrix}$$</td>
+\end{bmatrix}$$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td>$$\begin{bmatrix}
     1.65 \\
     2.93
@@ -406,10 +402,6 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 
 
 <table border="0" cellspacing="0" cellpadding="0">
-  <colgroup>
-    <col style="width:10%" span="1">
-    <col style="width:25%" span="3">
-  </colgroup>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
@@ -486,10 +478,6 @@ $$</td>
 
 
 <table border="0" cellspacing="0" cellpadding="0">
-  <colgroup>
-    <col style="width:10%" span="1">
-    <col style="width:25%" span="3">
-  </colgroup>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
@@ -499,7 +487,7 @@ $$</td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-  <td>$$0.33$$</td>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$0.33$$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   <td>$$0.33$$</td>
   <td>$$0.33$$</td>
 </tr>
