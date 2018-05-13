@@ -348,192 +348,51 @@ cluster $$3$$ is the purple one on the right.
 <td>$$m_1^{(t)}$$</td>
 <td>$$m_2^{(t)}$$</td>
 <td>$$m_3^{(t)}$$</td>
-<td>$$\Sigma_1^{(t)}$$</td>
-<td>$$\Sigma_2^{(t)}$$</td>
-<td>$$\Sigma_3^{(t)}$$</td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-<<<<<<< HEAD
 <td>$$\begin{bmatrix}
-    -1.0 \\
-    -2.9
+    -0.95 \\
+    -2.94
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.6 \\
-    2.9
+    1.65 \\
+    2.93
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    3.0 \\
-    -2.0
+    2.97 \\
+    -2.03
 \end{bmatrix}$$</td>
-=======
-<td>$$(-0.95, -2.94)$$</td>
-<td>$$(1.65, 2.93)$$</td>
-<td>$$(2.97, -2.03)$$</td>
->>>>>>> parent of e113c48... added variance in the table
-<td>$$
-\begin{bmatrix}
-    1 & 0 \\
-    0 & 1
-\end{bmatrix}
-$$</td>
-<td>$$
-\begin{bmatrix}
-    1 & 0 \\
-    0 & 1
-\end{bmatrix}
-$$</td>
-<td>$$
-\begin{bmatrix}
-    1 & 0 \\
-    0 & 1
-\end{bmatrix}
-$$</td>
 </tr>
 <tr>
 <td align="right">$$1$$</td>
-<<<<<<< HEAD
 <td>$$\begin{bmatrix}
-    -0.9 \\
-    -2.9
+    -0.94 \\
+    -2.93
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.7 \\
-    2.9
+    1.66 \\
+    2.93
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    3.0 \\
-    -2.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.9 & -0.1 \\
-    -0.1 & 4.9
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.6 & 0.1 \\
-    0.1 & 0.3
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.3 & 0.0 \\
-    0.0 & 0.2
-\end{bmatrix}$$</td>
-</tr>
-<tr>
-<td align="right">$$2$$</td>
-<td>$$\begin{bmatrix}
-    -0.9 \\
-    -2.4
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.8 \\
-    3.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    3.0 \\
-    -2.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.9 & -0.2 \\
-    -0.2 & 7.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.2 & 0.0 \\
-    0.0 & 0.1
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.3 & 0.0 \\
-    0.0 & 0.2
-\end{bmatrix}$$</td>
-</tr>
-<tr>
-<td align="right">$$3$$</td>
-<td>$$\begin{bmatrix}
-    -0.9 \\
-    -2.1
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.9 \\
-    3.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    3.0 \\
-    -2.0
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.0 & -0.2 \\
-    -0.2 & 7.9
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.0 & 0.0 \\
-    0.0 & 0.1
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.3 & 0.0 \\
-    0.0 & 0.2
+    2.96 \\
+    -2.03
 \end{bmatrix}$$</td>
 </tr>
 <tr>
 <td align="right">$$\infty$$</td>
 <td>$$\begin{bmatrix}
-    -0.9 \\
-    -2.0
+    -0.88 \\
+    -2.01
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.9 \\
-    3.0
+    1.94 \\
+    3.00
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    3.0 \\
-    -2.0
+    2.98 \\
+    -2.03
 \end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    1.0 & -0.1 \\
-    -0.1 & 8.3
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.9 & 0.0 \\
-    0.0 & 0.1
-\end{bmatrix}$$</td>
-<td>$$\begin{bmatrix}
-    0.3 & 0.0 \\
-    0.0 & 0.2
-\end{bmatrix}$$</td>
-=======
-<td>$$(-0.94, -2.93)$$</td>
-<td>$$(1.66, 2.93)$$</td>
-<td>$$(2.96, -2.03)$$</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td align="right">$$2$$</td>
-<td>$$(-0.92, -2.40)$$</td>
-<td>$$(1.81, 2.98)$$</td>
-<td>$$(2.98, -2.03)$$</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td align="right">$$3$$</td>
-<td>$$(-0.91, -2.14)$$</td>
-<td>$$(1.90, 3.00)$$</td>
-<td>$$(2.98, -2.03)$$</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td align="right">$$\infty$$</td>
-<td>$$(-0.88, -2.01)$$</td>
-<td>$$(1.94, 3.00)$$</td>
-<td>$$(2.98, -2.03)$$</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
->>>>>>> parent of e113c48... added variance in the table
 </tr>
 </tbody>
 </table>
@@ -541,102 +400,112 @@ $$</td>
 
 
 
-$`0`
-$`0`[[1]]
-     [,1] [,2]
-[1,]    1    0
-[2,]    0    1
-
-$`0`[[2]]
-     [,1] [,2]
-[1,]    1    0
-[2,]    0    1
-
-$`0`[[3]]
-     [,1] [,2]
-[1,]    1    0
-[2,]    0    1
 
 
-[[1]]
-      x     y
-x  0.91 -0.14
-y -0.14  4.90
-
-[[2]]
-     x    y
-x 1.64 0.13
-y 0.13 0.32
-
-[[3]]
-      x     y
-x  0.30 -0.01
-y -0.01  0.18
-
-
-
-
-
-
-
-
-
-
-[[1]]
-      x     y
-x  0.94 -0.18
-y -0.18  7.03
-
-[[2]]
-     x    y
-x 1.24 0.02
-y 0.02 0.08
-
-[[3]]
-     x    y
-x 0.27 0.00
-y 0.00 0.16
-
-
-
-
-
-
-
-[[1]]
-      x     y
-x  0.96 -0.20
-y -0.20  7.87
-
-[[2]]
-      x     y
-x  0.99 -0.01
-y -0.01  0.05
-
-[[3]]
-     x    y
-x 0.26 0.00
-y 0.00 0.16
-
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="right">$$t$$</td>
+<td>$$\Sigma_1^{(t)}$$</td>
+<td>$$\Sigma_2^{(t)}$$</td>
+<td>$$\Sigma_3^{(t)}$$</td>
+</tr>
+<tr>
+<td align="right">$$0$$</td>
+<td>$$
+  \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+$$</td>
+</tr>
+<tr>
+<td align="right">$$1$$</td>
+<td>$$
+  \begin{bmatrix}
+0.91 & -0.14 \\
+-0.14 & 4.90
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+1.64 & 0.13 \\
+0.13 & 0.32
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+0.30 & -0.01 \\
+-0.01 & 0.18
+\end{bmatrix}
+$$</td>
+</tr>
+<tr>
+<td align="right">$$\infty$$</td>
+<td>$$
+  \begin{bmatrix}
+0.97 & -0.09 \\
+-0.09 & 8.28
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+0.93 & -0.02 \\
+-0.02 & 0.04
+\end{bmatrix}
+$$</td>
+  <td>$$
+  \begin{bmatrix}
+0.26 & -0.01 \\
+-0.01 & 0.16
+\end{bmatrix}
+$$</td>
+</tr>
+</tbody>
+</table>
 
 
 
-
-
-[[1]]
-      x     y
-x  0.97 -0.09
-y -0.09  8.28
-
-[[2]]
-      x     y
-x  0.93 -0.02
-y -0.02  0.04
-
-[[3]]
-      x     y
-x  0.26 -0.01
-y -0.01  0.16
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="right">$$t$$</td>
+<td><span style="color:blue">$$\pi_1^{(t)}$$</span></td>
+<td>$$\pi_2^{(t)}$$</td>
+<td>$$\pi_3^{(t)}$$</td>
+</tr>
+<tr>
+<td align="right">$$0$$</td>
+  <td>$$0.33$$</td>
+  <td>$$0.33$$</td>
+  <td>$$0.33$$</td>
+</tr>
+<tr>
+<td align="right">$$1$$</td>
+  <td>$$0.15$$</td>
+  <td>$$0.30$$</td>
+  <td>$$0.55$$</td>
+</tr>
+<tr>
+<td align="right">$$\infty$$</td>
+  <td>$$0.18$$</td>
+  <td>$$0.27$$</td>
+  <td>$$0.55$$</td>
+</tr>
+</tbody>
+</table>
 
 
 
