@@ -323,24 +323,23 @@ $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
 We propose to cluster a 2D dataset into 3 clusters using GMM. 
 The dataset is plotted in Fig. 2 (a).
 We initialize parameters $$\theta^{(0)}$$ with $$K$$-means (related clustering shown in Fig. 2 (b)).
-We update parameters $$\theta^{(1)}$$, $$\theta^{(2)}$$, $$\theta^{(3)}$$ (see Fig. 2 (c,d,e))
-until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (f)).
+We update parameters (see Fig. 2 (c) for clustering related to $$\theta^{(1)}$$)
+until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (d)).
 
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="before GMM clustering" width="32%"/>
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_0.png" alt="t=0 of GMM clustering" width="32%"/>
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_1.png" alt="t=1 of GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="before GMM clustering" width="49%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_0.png" alt="t=0 of GMM clustering" width="49%"/>
 
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_2.png" alt="t=2 of GMM clustering" width="32%"/>
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_3.png" alt="t=3 of GMM clustering" width="32%"/>
-<img src="../images/2017-2-11-Optimizing-GMM-using-EM/after.png" alt="after GMM clustering" width="32%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_1.png" alt="t=1 of GMM clustering" width="49%"/>
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/after.png" alt="after GMM clustering" width="49%"/>
 
-*Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) Step 2; (e) Step 3; (f) GMM clustering after convergence. On each figure from (b) to (f), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
+*Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) GMM clustering after convergence. On each figure from (b) to (d), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
 
 We summarize evolution of the parameters along steps.
-Cluster $$1$$ is <span style="color:#1b9e77;">the green one</span> on the left, 
-cluster $$2$$ is <span style="color:#d95f01;">the orange one</span> on the top,
-cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right.
+Cluster 1 is <span style="color:#1b9e77;">the green one</span> on the left, 
+cluster 2 is <span style="color:#d95f01;">the orange one</span> on the top,
+cluster 3 is <span style="color:#7570b3;">the purple one</span> on the right.
 
+In this example, mean position of clusters do not move a lot between $$K$$-means and GMM clustering.
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -398,8 +397,9 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 </tbody>
 </table>
 
-
-
+GMM successfully considers uneven variance in each cluster.
+For example, variance of the second axis for cluster 1 has increased a lot (from $$1$$ to $$8.28$$),
+contrary to the second axis of cluster 2 (from $$1$$ to $$0.04$$.
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -475,7 +475,8 @@ $$</td>
 </tbody>
 </table>
 
-
+GMM successfully considers uneven density in each cluster.
+For example, estimated proportion of elements in cluster 3 has increased from $$1/K$$ to $$0.55$$.
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -506,17 +507,54 @@ $$</td>
 </tbody>
 </table>
 
+Likelihood of the dataset has increased from $$-4144.924$$ to $$-2966.941$$ after convergence.
+In this case, EM algorithm has reached MLE.
 
+Evolution of likelihood as the number of steps is shown in Fig. 3.
 
+<img src="../images/2017-2-11-Optimizing-GMM-using-EM/log_likelihood_evolution.png" alt="Evolution of likelihood as the number of steps"/>
 
-todo
+*Fig. 3. Evolution of likelihood as the number of steps until convergence using EM algorithm.*
 
-Likelihood for K-means (t is 0): -4144.924
+*Note 1* 
+- Dataset has been simulated as mixture of Gaussians,
+where true means for clusters are
+$$\begin{bmatrix}
+    -1 \\
+    -2
+\end{bmatrix}$$,
+$$\begin{bmatrix}
+    2 \\
+    3
+\end{bmatrix}$$,
+$$\begin{bmatrix}
+    3 \\
+    -2
+\end{bmatrix}$$;
+true matrix of variance-covariance are
+$$
+  \begin{bmatrix}
+1 & 0 \\
+0 & 9
+\end{bmatrix}
+$$,
+$$
+  \begin{bmatrix}
+1 & 0 \\
+0 & 0.04
+\end{bmatrix}
+$$,
+$$
+  \begin{bmatrix}
+0.25 & 0 \\
+0 & 0.16
+\end{bmatrix}
+$$; and true proportions are
+$$0.18$$, $$0.27$$ and $$0.55$$.
+The likelihood of the set using true parameters is $$-2979.822$$.
+- 
 
-Likelihood after numerical convergence (t is 7)
--2966.941
-
-Compare with likelihood for theta MLE and theta true.
+*Note 2:* Since we are using $$K$$-means for initialization, it may be useful to normalize data before using GMM clustering. 
 
 ## References
 
