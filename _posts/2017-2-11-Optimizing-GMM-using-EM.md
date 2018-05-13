@@ -355,16 +355,16 @@ cluster $$3$$ is the purple one on the right.
 <tr>
 <td align="right">$$0$$</td>
 <td>$$\begin{bmatrix}
-    -0.95 \\
-    -2.94
+    -1.0 \\
+    -2.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.65 \\
-    2.93
+    1.6 \\
+    2.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    2.97 \\
-    -2.03
+    3.0 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$
 \begin{bmatrix}
@@ -388,109 +388,109 @@ $$</td>
 <tr>
 <td align="right">$$1$$</td>
 <td>$$\begin{bmatrix}
-    -0.94 \\
-    -2.93
+    -0.9 \\
+    -2.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.66 \\
-    2.93
+    1.7 \\
+    2.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    2.96 \\
-    -2.03
+    3.0 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.91 & -0.14 \\
-    -0.14 & 4.90
+    0.9 & -0.1 \\
+    -0.1 & 4.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.64 & 0.13 \\
-    0.13 & 0.32
+    1.6 & 0.1 \\
+    0.1 & 0.3
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.30 & -0.01 \\
-    -0.01 & 0.18
+    0.3 & 0.0 \\
+    0.0 & 0.2
 \end{bmatrix}$$</td>
 </tr>
 <tr>
 <td align="right">$$2$$</td>
 <td>$$\begin{bmatrix}
-    -0.92 \\
-    -2.40
+    -0.9 \\
+    -2.4
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.81 \\
-    2.98
+    1.8 \\
+    3.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    2.98 \\
-    -2.03
+    3.0 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.94 & -0.18 \\
-    -0.18 & 7.03
+    0.9 & -0.2 \\
+    -0.2 & 7.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.24 & 0.02 \\
-    0.02 & 0.08
+    1.2 & 0.0 \\
+    0.0 & 0.1
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.27 & 0.00 \\
-    0.00 & 0.16
+    0.3 & 0.00 \\
+    0.00 & 0.2
 \end{bmatrix}$$</td>
 </tr>
 <tr>
 <td align="right">$$3$$</td>
 <td>$$\begin{bmatrix}
-    -0.91 \\
-    -2.14
+    -0.9 \\
+    -2.1
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.90 \\
-    3.00
+    1.9 \\
+    3.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    2.98 \\
-    -2.03
+    3.0 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.96 & -0.20 \\
-    -0.20 & 7.87
+    1.0 & -0.2 \\
+    -0.2 & 7.9
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.99 & -0.01 \\
-    -0.01 & 0.05
+    1.0 & 0.0 \\
+    0.0 & 0.1
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.26 & 0.00 \\
-    0.00 & 0.16
+    0.3 & 0.0 \\
+    0.0 & 0.2
 \end{bmatrix}$$</td>
 </tr>
 <tr>
 <td align="right">$$\infty$$</td>
 <td>$$\begin{bmatrix}
-    -0.88 \\
-    -2.01
+    -0.9 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    1.94 \\
-    3.00
+    1.9 \\
+    3.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    2.98 \\
-    -2.03
+    3.0 \\
+    -2.0
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.97 & -0.09 \\
-    -0.09 & 8.28
+    1.0 & -0.1 \\
+    -0.1 & 8.3
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.93 & -0.02 \\
-    -0.02 & 0.04
+    0.9 & 0.0 \\
+    0.0 & 0.1
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.26 & -0.01 \\
-    -0.01 & 0.16
+    0.3 & 0.0 \\
+    0.0 & 0.2
 \end{bmatrix}$$</td>
 </tr>
 </tbody>
