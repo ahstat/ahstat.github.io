@@ -516,8 +516,7 @@ Evolution of likelihood as the number of steps is shown in Fig. 3.
 
 *Fig. 3. Evolution of likelihood as the number of steps until convergence using EM algorithm.*
 
-*Note 1* 
-- Dataset has been simulated as mixture of Gaussians,
+**Note 1.** Dataset has been simulated as mixture of Gaussians,
 where true means for clusters are
 $$\begin{bmatrix}
     -1 \\
@@ -552,9 +551,8 @@ $$
 $$; and true proportions are
 $$0.18$$, $$0.27$$ and $$0.55$$.
 The likelihood of the set using true parameters is $$-2979.822$$.
-- 
 
-*Note 2:* Since we are using $$K$$-means for initialization, it may be useful to normalize data before using GMM clustering. 
+**Note 2.** Since we are using $$K$$-means for initialization, it may be useful to normalize data before using GMM clustering. 
 
 ## References
 
