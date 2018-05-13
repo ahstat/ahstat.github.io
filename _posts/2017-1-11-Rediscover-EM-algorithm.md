@@ -6,7 +6,7 @@ published: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 *Expectation-Maximization* algorithm (EM) is an algorithm used to estimate parameters of statistical models comprising latent variables.
-It is needed in the case where direct calculation of *maximum likelihood estimation* (MLE) is impractical.
+It is applied in the case where direct calculation of *maximum likelihood estimation* (MLE) is impractical.
 EM updates parameters of the model iteratively, in order to increase likelihood of the set.
 It generally gives good estimation results, although there is no guarantee of convergence to MLE.
 
@@ -37,7 +37,7 @@ We use letter $$p$$ for densities and $$P$$ for probabilities. For the sake of c
 
 EM algorithm can be always derived, but may be impractical.
 A good rule of thumb to consider an EM algorithm is when it is "difficult to compute" $$p_{\theta}(\mathbf{x})$$ directly, but 
-"easy to compute" both $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
+"easy to compute" both $$\log p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$ (for all $$\mathbf{x}$$, $$\mathbf{z}$$ and $$\theta$$).
 In the following, we assume that we are in this configuration.
 
 In GMM specifically, 3 hypotheses are set and allow practical use of EM algorithm:
@@ -57,14 +57,14 @@ Using the law of total probability, we can reveal the latent variable by summing
 
 $$\log L(\theta ; \mathbf{x}) = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x}, \mathbf{z}) \right] = \log \left[ \sum_{\mathbf{z}}  p_{\theta}(\mathbf{x} | \mathbf{z}) P_{\theta}(\mathbf{z}) \right].$$
 
-We have retrieved $$p_{\theta}(\mathbf{x} | \mathbf{z})$$ and $$P_{\theta}(\mathbf{z})$$, which are "easy to compute". 
-However, the problem in this decomposition is the presence of the sum.
+We have retrieved $$P_{\theta}(\mathbf{z})$$, which is "easy to compute". 
+However, the problem in this decomposition is the presence of the sum of $$p_{\theta}(\mathbf{x} | \mathbf{z})$$.
 This makes the log-likelihood function being non-convex as a function of $$\theta$$, and direct optimization is intractable (see [this post for a discussion and the most simple example of non-convexity](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)).
 
 ## Step by step from likelihood towards EM
 
-We would like to let the $$\log$$ inside the sum 
-(which is not possible directly because $$\log$$ is not linear!).
+We would like to let the $$\log$$ inside the sum to retrieve terms $$\log p_{\theta}(\mathbf{x} | \mathbf{z})$$ which are "easy to compute" 
+(this is not possible directly because $$\log$$ is not linear!).
 See for example:
 $$\sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \sum_{\mathbf{z}} \log P_{\theta}(\mathbf{z}).$$
 This expression would be easier to maximize over $$\theta$$ ([at least for GMM, see explicit computations here](../Optimizing-GMM-using-EM)).
