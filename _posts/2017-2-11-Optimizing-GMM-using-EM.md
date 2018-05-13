@@ -342,13 +342,14 @@ cluster $$2$$ is <span style="color:#d95f01;">the orange one</span> on the top,
 cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right.
 
 
-<table border="0" cellspacing="0" cellpadding="0">
+<table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+<col style="width:20%" span="4"/>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td width=25%><span style="color:#1b9e77;">$$m_1^{(t)}$$</span></td>
-<td width=25%><span style="color:#d95f01;">$$m_2^{(t)}$$</span></td>
-<td width=25%><span style="color:#7570b3;">$$m_3^{(t)}$$</span></td>
+<td><span style="color:#1b9e77;">$$m_1^{(t)}$$</span></td>
+<td><span style="color:#d95f01;">$$m_2^{(t)}$$</span></td>
+<td><span style="color:#7570b3;">$$m_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
