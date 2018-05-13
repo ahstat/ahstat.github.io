@@ -120,7 +120,7 @@ $$
 
 We define:
 
-$$T_{k, i}^{(t)} := P_{\theta^{(t)}}(Z_i = k | X_i = x_i) = \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}$$
+$$T_{k, i}^{(t)} := P_{\theta^{(t)}}(Z_i = k | X_i = x_i) = \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}.$$
 
 We use explicit formula for the Gaussian distribution (for all $$x \in \mathbb{R}^{d}$$)
 
@@ -234,7 +234,7 @@ From previous expression, we only need to maximize:
 
 $$
 \begin{align}
-C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) :=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} T_{k, i}^{(t)} \log \pi_k
+C((\pi_k)_{k \in \lbrace 1, \ldots, K-1 \rbrace}) :=& \sum_{i = 1}^{N} \sum_{k = 1}^{K} T_{k, i}^{(t)} \log \pi_k.
 \end{align}
 $$
 
@@ -275,11 +275,11 @@ which is a negative-definite matrix.
 
 *Conclusion:* We select $$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}$$ for all $$k$$ and $$C(.)$$ is maximized in $$(\pi_k^{(t+1)})_{k}$$.
 
-## Final algorithm to cluster data 
+## Algorithm to cluster data 
 
 Let $$\mathbf{x} = (x_i)_{i \in \lbrace 1, \ldots n \rbrace}$$ a dataset of $$\mathbb{R}^d$$ and $$K$$ an integer.
 
-### Step 0
+### Step $$0$$
 
 We define initial parameters. For $$k \in \lbrace 1, \ldots, K \rbrace$$:
 
@@ -294,76 +294,31 @@ Let $$f_{(m, \Sigma)}$$ the density function of a Gaussian with parameters $$m$$
 
 Let for all $$k, i$$:
 
-$$T_{k, i}^{(t)} := \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}$$
+$$T_{k, i}^{(t)} := \frac{f_{(m_k^{(t)}, \Sigma_k^{(t)})}(x_i) \pi_k^{(t)}}{\sum_{k' = 1}^{K} f_{\left( m_{k'}^{(t)}, \Sigma_{k'}^{(t)} \right)}(x_i) \pi_{k'}^{(t)}}.$$
 
 Let for all $$k$$:
 
-$$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}}$$
+$$m_k^{(t+1)} := \frac{\sum_{i = 1}^{N} x_i T_{k, i}^{(t)}}{\sum_{i = 1}^{N} m_k T_{k, i}^{(t)}},$$
 
-$$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{ \sum_{i = 1}^{N} T_{k, i}^{(t)}}.$$
+$$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1)})^{T} T_{k, i}^{(t)}}{ \sum_{i = 1}^{N} T_{k, i}^{(t)}},$$
 
-$$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}$$
+$$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}.$$
 
 We repeat this step until convergence (see [this article for theoretical results of convergence](http://www3.stat.sinica.edu.tw/statistica/oldpdf/A15n316.pdf)). In general there is no problem for convergence to a local maxima, however it is possible to build some pathological cases.
 
 ### Clustering
 
 Given estimated parameters 
-$$\theta^{(\infty)} = (m_k^{(\infty)}, \Sigma_k^{(\infty)}, \pi_k^{(\infty)})_k$$,
+$$\theta^{(\infty)} = \left( m_k^{(\infty)}, \Sigma_k^{(\infty)}, \pi_k^{(\infty)} \right)_k$$,
 
 we compute the density for $$x_i$$ to be labeled $$k$$ (for all $$x_i, k$$):
 
 $$p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k) = f_{(m_k^{(\infty)}, \Sigma_k^{(\infty)})}(x_i) \times \pi_k^{(\infty)}.$$
 
 Hard label for $$x_i$$ is estimated by taking 
-
 $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
 
-
-
-
-
-## ZZZ
-
-(rebuild or delete this part, because done again after)
-
-### Step 0
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We begin with initial parameters $$\theta^{(0)}$$:
-
-$$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
-
-Here, we let for all $$k$$: 
-- $$\pi_k^{(0)} = 1 / K$$, 
-- $$\Sigma_k^{(0)}$$ the identity matrix of size
-$$K \times K$$, and 
-- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained with $$K$$-means.
-
-### Step $$t$$ to $$t+1$$
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We have $$\theta^{(t)}$$.
-
-We define for all $$\theta$$:
-
-$$Q(\theta | \theta^{(t)}) := E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta^{(t)}})) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}),$$
-
-where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x})$$
-
-We let 
-
-$$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
-
-The step of defining $$Q$$ is the *Expectation step*, 
-the step of maximizing $$Q$$ is the *Maximization step*.
-
-
-
-
-## Implementation
+## Illustration of the clustering process
 
 todo
 
@@ -376,10 +331,10 @@ Compare with likelihood for theta MLE and theta true.
 
 ## References
 
-see them again
+- [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf). I've just discovered it, and it is really useful for reference,
 
-- [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). For formulas, it's concise. 
+- [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas,
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf)
+- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
 
-- [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf). I've just discovered it, and it is really useful for reference.
+- [An article detailing parameter convergence results for EM](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf).
