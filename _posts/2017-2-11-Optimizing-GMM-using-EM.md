@@ -435,8 +435,8 @@ $$</td>
     0.0 & 0.1
 \end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
-    0.3 & 0.00 \\
-    0.00 & 0.2
+    0.3 & 0.0 \\
+    0.0 & 0.2
 \end{bmatrix}$$</td>
 </tr>
 <tr>
