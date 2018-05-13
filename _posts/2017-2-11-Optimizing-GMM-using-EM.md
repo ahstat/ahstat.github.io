@@ -332,14 +332,14 @@ until convergence $$\theta^{(\infty)}$$ (see Fig.&nbsp;2&nbsp;(d)).
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_1.png" alt="t=1 of GMM clustering" width="49%"/>
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/after.png" alt="after GMM clustering" width="49%"/>
 
-*Fig. 2. Clustering dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) GMM clustering after convergence. On each figure from (b) to (d), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
+*Fig. 2. Clustering dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) GMM clustering after convergence. On each figure from (b) to (d), one color represents one cluster, and mean position of each cluster is represented with a cross.*
 
 We summarize evolution of the parameters along steps.
 Cluster 1 is <span style="color:#1b9e77;">the green one</span> on the left, 
 cluster 2 is <span style="color:#d95f01;">the orange one</span> on the top,
 cluster 3 is <span style="color:#7570b3;">the purple one</span> on the right.
 
-In this example, mean position of clusters do not move a lot between $$K$$-means and GMM clustering.
+In this example, mean positions of clusters do not move a lot between $$K$$-means and GMM clustering:
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -399,7 +399,7 @@ In this example, mean position of clusters do not move a lot between $$K$$-means
 
 GMM successfully considers uneven variance in each cluster.
 For example, variance of the second axis for cluster 1 has increased a lot (from $$1$$ to $$8.28$$),
-contrary to the second axis of cluster 2 (from $$1$$ to $$0.04$$.
+contrary to the second axis of cluster 2 (from $$1$$ to $$0.04$$):
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -476,7 +476,7 @@ $$</td>
 </table>
 
 GMM successfully considers uneven density in each cluster.
-For example, estimated proportion of elements in cluster 3 has increased from $$1/K$$ to $$0.55$$.
+For example, estimated proportion of elements in cluster 3 has increased from $$1/K$$ to $$0.55$$:
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -530,7 +530,7 @@ $$\begin{bmatrix}
     3 \\
     -2
 \end{bmatrix}$$;
-true matrix of variance-covariance are
+true matrices of variance-covariance are
 $$
   \begin{bmatrix}
 1 & 0 \\
