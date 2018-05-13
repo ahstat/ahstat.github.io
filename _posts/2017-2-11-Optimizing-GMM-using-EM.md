@@ -24,7 +24,7 @@ GMM is actually a perfect model to understand how EM is working.
 
 We begin by describing GMM and list parameters of the model.
 We continue by applying EM to GMM and derive update formulas.
-Then, the final algorithm to cluster data is given.
+Then, the algorithm to cluster data is given.
 We finally illustrate the clustering process on a simple example.
 This post does not detail how EM is working. 
 [If you are interested about theoretical considerations, please read this post](../Rediscover-EM-algorithm).
@@ -84,67 +84,24 @@ $$
 
 However, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)). We introduce EM to circumvent this problem (other methods could work, see [this post for a discussion](https://stats.stackexchange.com/questions/158859/why-should-one-use-em-vs-say-gradient-descent-with-mle)).
 
+## Applying EM to GMM
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## TODO
-
-
-## Steps 0, t, t+1
-
-(rebuild or delete this part, because done again after)
-
-### Step 0
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We begin with initial parameters $$\theta^{(0)}$$:
-
-$$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
-
-Here, we let for all $$k$$: 
-- $$\pi_k^{(0)} = 1 / K$$, 
-- $$\Sigma_k^{(0)}$$ the identity matrix of size
-$$K \times K$$, and 
-- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained with $$K$$-means.
-
-### Step $$t$$ to $$t+1$$
-
-(rebuild or delete this part, because it is specific to GMM, not EM in general)
-
-We have $$\theta^{(t)}$$.
+We assume that some parameters $$\theta^{(t)}$$ have been selected (for a certain $$t \geq 0$$).
+We would like to update parameters and find out $$\theta^{(t+1)}$$ using
+EM algorithm.
 
 We define for all $$\theta$$:
 
-$$Q(\theta | \theta^{(t)}) := E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta^{(t)}})) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}),$$
+$$Q(\theta | \theta^{(t)}) := \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}).$$
 
-where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x})$$
+The aim of EM is to maximize the function $$Q$$ in $$\theta$$.
+Please read section "The EM algorithm" of [the EM post](../Rediscover-EM-algorithm)
+to understand why we have selected this function.
+From the last paragraph of [the EM post](../Rediscover-EM-algorithm), we also have:
 
-We let 
+$$Q(\theta | \theta^{(t)}) = \sum_{\mathbf{z}} \left[ \log p_{\theta}(\mathbf{x} | \mathbf{z}) + \log p_{\theta}(\mathbf{z}) \right] \frac{p_{\theta^{(t)}}(\mathbf{z}, \mathbf{x})}{\sum_{\mathbf{z}'} p_{\theta^{(t)}}(\mathbf{z}', \mathbf{x})}.$$
 
-$$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
-
-The step of defining $$Q$$ is the *Expectation step*, 
-the step of maximizing $$Q$$ is the *Maximization step*.
-
-## Applying EM to GMM
-
-For GMM, we explicit $$Q$$.
-We suppose we're at step $$t$$ (for a certain $$t \leq 0$$) and we want to compute $$\theta^{(t+1)}$$.
-
-We recall:
+We recall how parameters decompose into 3 terms for GMM:
 
 $$\theta := (\pi_k, m_k, \Sigma_k)_{k \in \lbrace 1, \ldots, K \rbrace},$$
 
@@ -361,6 +318,50 @@ $$p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k) = f_{(m_k^{(\infty)}, \Sigma_k^{(\in
 Hard label for $$x_i$$ is estimated by taking 
 
 $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
+
+
+
+
+
+## ZZZ
+
+(rebuild or delete this part, because done again after)
+
+### Step 0
+
+(rebuild or delete this part, because it is specific to GMM, not EM in general)
+
+We begin with initial parameters $$\theta^{(0)}$$:
+
+$$\theta^{(0)} := (\pi_k^{(0)}, m_k^{(0)}, \Sigma_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}.$$
+
+Here, we let for all $$k$$: 
+- $$\pi_k^{(0)} = 1 / K$$, 
+- $$\Sigma_k^{(0)}$$ the identity matrix of size
+$$K \times K$$, and 
+- $$(m_k^{(0)})_{k \in \lbrace 1, \ldots, K \rbrace}$$ some positions obtained with $$K$$-means.
+
+### Step $$t$$ to $$t+1$$
+
+(rebuild or delete this part, because it is specific to GMM, not EM in general)
+
+We have $$\theta^{(t)}$$.
+
+We define for all $$\theta$$:
+
+$$Q(\theta | \theta^{(t)}) := E(\log p_{\theta}(\mathbf{x}, \hat{Z}_{\theta^{(t)}})) = \sum_{\mathbf{z}} \log p_{\theta}(\mathbf{x}, \mathbf{z}) P_{\theta^{(t)}}(\mathbf{z} \mid \mathbf{x}),$$
+
+where $$\hat{Z}_{\theta^{(t)}}$$ is a random variable following distribution $$P_{\theta^{(t)}}(. \mid \mathbf{x})$$
+
+We let 
+
+$$\theta^{(t+1)} := \text{argmax}_{\theta} Q(\theta | \theta^{(t)}).$$
+
+The step of defining $$Q$$ is the *Expectation step*, 
+the step of maximizing $$Q$$ is the *Maximization step*.
+
+
+
 
 ## Implementation
 
