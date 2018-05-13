@@ -320,11 +320,11 @@ $$\text{argmax}_k p_{\theta^{(\infty)}}(X_i = x_i, Z_i = k).$$
 
 ## Illustration of the clustering process
 
-We propose to cluster a 2D dataset into 3 clusters using GMM. 
-The dataset is plotted in Fig. 2 (a).
-We initialize parameters $$\theta^{(0)}$$ with $$K$$-means (related clustering shown in Fig. 2 (b)).
-We update parameters (see Fig. 2 (c) for clustering related to $$\theta^{(1)}$$)
-until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (d)).
+We propose to cluster a two-dimensional dataset into 3 clusters using GMM. 
+The dataset is plotted in Fig.&nbsp;2&nbsp;(a).
+We initialize parameters $$\theta^{(0)}$$ with $$K$$-means (related clustering shown in Fig.&nbsp;2&nbsp;(b)).
+We update parameters (see Fig.&nbsp;2&nbsp;(c) for clustering related to $$\theta^{(1)}$$)
+until convergence $$\theta^{(\infty)}$$ (see Fig.&nbsp;2&nbsp;(d)).
 
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/before.png" alt="before GMM clustering" width="49%"/>
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_0.png" alt="t=0 of GMM clustering" width="49%"/>
@@ -332,7 +332,7 @@ until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (d)).
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/evol_1.png" alt="t=1 of GMM clustering" width="49%"/>
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/after.png" alt="after GMM clustering" width="49%"/>
 
-*Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) GMM clustering after convergence. On each figure from (b) to (d), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
+*Fig. 2. Clustering dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) GMM clustering after convergence. On each figure from (b) to (d), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
 
 We summarize evolution of the parameters along steps.
 Cluster 1 is <span style="color:#1b9e77;">the green one</span> on the left, 
@@ -510,7 +510,7 @@ For example, estimated proportion of elements in cluster 3 has increased from $$
 Likelihood of the dataset has increased from $$-4144.924$$ to $$-2966.941$$ after convergence.
 In this case, EM algorithm has reached MLE.
 
-Evolution of likelihood as the number of steps is shown in Fig. 3.
+Evolution of likelihood as the number of steps is shown in Fig.&nbsp;3.
 
 <img src="../images/2017-2-11-Optimizing-GMM-using-EM/log_likelihood_evolution.png" alt="Evolution of likelihood as the number of steps"/>
 
