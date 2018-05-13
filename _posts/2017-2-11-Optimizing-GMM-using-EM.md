@@ -346,9 +346,9 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td><span style="color:#1b9e77;">$$~~~~~~~~~~~~m_1^{(t)}~~~~~~~~~~~~$$</span></td>
-<td><span style="color:#d95f01;">$$~~~~~~~~~~~~m_2^{(t)}~~~~~~~~~~~~$$</span></td>
-<td><span style="color:#7570b3;">$$~~~~~~~~~~~~m_3^{(t)}~~~~~~~~~~~~$$</span></td>
+<td><span style="color:#1b9e77;">$$~~~~~~~~~~~m_1^{(t)}~~~~~~~~~~~$$</span></td>
+<td><span style="color:#d95f01;">$$~~~~~~~~~~~m_2^{(t)}~~~~~~~~~~~$$</span></td>
+<td><span style="color:#7570b3;">$$~~~~~~~~~~~m_3^{(t)}~~~~~~~~~~~$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
@@ -481,9 +481,9 @@ $$</td>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td><span style="color:#1b9e77;">$$~~~~~~~~~~~~~~\pi_1^{(t)}~~~~~~~~~~~~~~$$</span></td>
-<td><span style="color:#d95f01;">$$~~~~~~~~~~~~~~\pi_2^{(t)}~~~~~~~~~~~~~~$$</span></td>
-<td><span style="color:#7570b3;">$$~~~~~~~~~~~~~~\pi_3^{(t)}~~~~~~~~~~~~~~$$</span></td>
+<td><span style="color:#1b9e77;">$$~~~~~~~~~~~~\pi_1^{(t)}~~~~~~~~~~~~$$</span></td>
+<td><span style="color:#d95f01;">$$~~~~~~~~~~~~\pi_2^{(t)}~~~~~~~~~~~~$$</span></td>
+<td><span style="color:#7570b3;">$$~~~~~~~~~~~~\pi_3^{(t)}~~~~~~~~~~~~$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
