@@ -346,16 +346,16 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td><span style="color:#1b9e77;">$$m_1^{(t)}$$</span></td>
+<td><span style="color:#1b9e77;">$$~~~~~m_1^{(t)}~~~~~$$</span></td>
 <td><span style="color:#d95f01;">$$m_2^{(t)}$$</span></td>
 <td><span style="color:#7570b3;">$$m_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$\begin{bmatrix}
+<td>$$\begin{bmatrix}
     -0.95 \\
     -2.94
-\end{bmatrix}$$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+\end{bmatrix}$$</td>
 <td>$$\begin{bmatrix}
     1.65 \\
     2.93
@@ -481,13 +481,13 @@ $$</td>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td><span style="color:#1b9e77;">$$\pi_1^{(t)}$$</span></td>
+<td><span style="color:#1b9e77;">$$~~~~~\pi_1^{(t)}~~~~~$$</span></td>
 <td><span style="color:#d95f01;">$$\pi_2^{(t)}$$</span></td>
 <td><span style="color:#7570b3;">$$\pi_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$0.33$$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>$$0.33$$</td>
   <td>$$0.33$$</td>
   <td>$$0.33$$</td>
 </tr>
