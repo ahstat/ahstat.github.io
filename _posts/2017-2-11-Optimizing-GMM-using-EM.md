@@ -22,16 +22,12 @@ GMM is actually a perfect model to understand how EM is working.
 
 *Fig. 1. Clustering a 2D dataset into 3 clusters using GMM. Left: Dataset before clustering. Right: Clustered data with position of fitted mean for each Gaussian.*
 
-TODO: This post is too long. Separate it into EM first and GMM then.
-
-(Many introductions of GMM exist on the web.)
-
-[TODO again]
 We begin by describing GMM and list parameters of the model.
-Then, we introduce EM and explain how it is useful to optimize parameters.
 We continue by applying EM to GMM and derive update formulas.
-The final algorithm to cluster data is finally given.
-[TODO again end]
+Then, the final algorithm to cluster data is given.
+We finally illustrate the clustering process on a simple example.
+This post does not detail how EM is working. 
+[If you are interested about theoretical considerations, please read this post](../Rediscover-EM-algorithm).
 
 ## What is GMM?
 
@@ -87,6 +83,24 @@ $$
 $$
 
 However, this log-likelihood function is non-convex (as a function of $$\theta$$) and direct optimization is intractable (see [this post for a discussion](https://stats.stackexchange.com/questions/94559/why-is-optimizing-a-mixture-of-gaussian-directly-computationally-hard)). We introduce EM to circumvent this problem (other methods could work, see [this post for a discussion](https://stats.stackexchange.com/questions/158859/why-should-one-use-em-vs-say-gradient-descent-with-mle)).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## TODO
+
 
 ## Steps 0, t, t+1
 
