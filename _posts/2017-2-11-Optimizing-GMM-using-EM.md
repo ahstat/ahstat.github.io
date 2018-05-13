@@ -337,17 +337,18 @@ until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (f)).
 *Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) Step 2; (e) Step 3; (f) GMM clustering after convergence. On each figure from (b) to (f), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
 
 We summarize evolution of the parameters along steps.
-Cluster $$1$$ is the green one on the left, 
-cluster $$2$$ is the orange one on the top,
-cluster $$3$$ is the purple one on the right.
+Cluster $$1$$ is <span style="color:#1b9e77;">the green one</span> on the left, 
+cluster $$2$$ is <span style="color:#d95f01;">the orange one</span> on the top,
+cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right.
+
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td>$$m_1^{(t)}$$</td>
-<td>$$m_2^{(t)}$$</td>
-<td>$$m_3^{(t)}$$</td>
+<td width=25%><span style="color:#1b9e77;">$$m_1^{(t)}$$</span></td>
+<td width=25%><span style="color:#d95f01;">$$m_2^{(t)}$$</span></td>
+<td width=25%><span style="color:#7570b3;">$$m_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
@@ -400,15 +401,13 @@ cluster $$3$$ is the purple one on the right.
 
 
 
-
-
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td>$$\Sigma_1^{(t)}$$</td>
-<td>$$\Sigma_2^{(t)}$$</td>
-<td>$$\Sigma_3^{(t)}$$</td>
+<td><span style="color:#1b9e77;">$$\Sigma_1^{(t)}$$</span></td>
+<td><span style="color:#d95f01;">$$\Sigma_2^{(t)}$$</span></td>
+<td><span style="color:#7570b3;">$$\Sigma_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
@@ -482,9 +481,9 @@ $$</td>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
-<td><span style="color:blue">$$\pi_1^{(t)}$$</span></td>
-<td>$$\pi_2^{(t)}$$</td>
-<td>$$\pi_3^{(t)}$$</td>
+<td><span style="color:#1b9e77;">$$\pi_1^{(t)}$$</span></td>
+<td><span style="color:#d95f01;">$$\pi_2^{(t)}$$</span></td>
+<td><span style="color:#7570b3;">$$\pi_3^{(t)}$$</span></td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
