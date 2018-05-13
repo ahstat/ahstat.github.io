@@ -343,7 +343,10 @@ cluster $$3$$ is <span style="color:#7570b3;">the purple one</span> on the right
 
 
 <table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed">
-<col style="width:20%" span="4"/>
+  <colgroup>
+    <col style="">
+    <col style="width:20%" span="4">
+  </colgroup>
 <tbody>
 <tr>
 <td align="right">$$t$$</td>
