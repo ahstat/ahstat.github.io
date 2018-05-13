@@ -336,6 +336,11 @@ until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (f)).
 
 *Fig. 2. Clustering a 2D dataset into 3 clusters using GMM. From left to right: (a) Dataset before clustering; (b) Initialization with K-means; (c) Step 1; (d) Step 2; (e) Step 3; (f) GMM clustering after convergence. On each figure from (b) to (f), one color represents one cluster, and mean positions of each cluster is represented with a cross.*
 
+We summarize evolution of the parameters along steps.
+Cluster $$1$$ is the green one on the left, 
+cluster $$2$$ is the orange one on the top,
+cluster $$3$$ is the purple one on the right.
+
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
@@ -343,39 +348,174 @@ until convergence $$\theta^{(\infty)}$$ (see Fig. 2 (f)).
 <td>$$m_1^{(t)}$$</td>
 <td>$$m_2^{(t)}$$</td>
 <td>$$m_3^{(t)}$$</td>
+<td>$$\Sigma_1^{(t)}$$</td>
+<td>$$\Sigma_2^{(t)}$$</td>
+<td>$$\Sigma_3^{(t)}$$</td>
 </tr>
 <tr>
 <td align="right">$$0$$</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>$$(-0.95, -2.94)$$</td>
+<td>$$(1.65, 2.93)$$</td>
+<td>$$(2.97, -2.03)$$</td>
+<td>$$
+\begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix}
+$$</td>
+<td>$$
+\begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix}
+$$</td>
+<td>$$
+\begin{bmatrix}
+    1 & 0 \\
+    0 & 1
+\end{bmatrix}
+$$</td>
 </tr>
 <tr>
 <td align="right">$$1$$</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td>$$(-0.94, -2.93)$$</td>
+<td>$$(1.66, 2.93)$$</td>
+<td>$$(2.96, -2.03)$$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
 <td align="right">$$2$$</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
+<td>$$(-0.92, -2.40)$$</td>
+<td>$$(1.81, 2.98)$$</td>
+<td>$$(2.98, -2.03)$$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
 <td align="right">$$3$$</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
+<td>$$(-0.91, -2.14)$$</td>
+<td>$$(1.90, 3.00)$$</td>
+<td>$$(2.98, -2.03)$$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr>
 <td align="right">$$\infty$$</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
+<td>$$(-0.88, -2.01)$$</td>
+<td>$$(1.94, 3.00)$$</td>
+<td>$$(2.98, -2.03)$$</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
+
+
+
+
+$`0`
+$`0`[[1]]
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+
+$`0`[[2]]
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+
+$`0`[[3]]
+     [,1] [,2]
+[1,]    1    0
+[2,]    0    1
+
+
+[[1]]
+      x     y
+x  0.91 -0.14
+y -0.14  4.90
+
+[[2]]
+     x    y
+x 1.64 0.13
+y 0.13 0.32
+
+[[3]]
+      x     y
+x  0.30 -0.01
+y -0.01  0.18
+
+
+
+
+
+
+
+
+
+
+[[1]]
+      x     y
+x  0.94 -0.18
+y -0.18  7.03
+
+[[2]]
+     x    y
+x 1.24 0.02
+y 0.02 0.08
+
+[[3]]
+     x    y
+x 0.27 0.00
+y 0.00 0.16
+
+
+
+
+
+
+
+[[1]]
+      x     y
+x  0.96 -0.20
+y -0.20  7.87
+
+[[2]]
+      x     y
+x  0.99 -0.01
+y -0.01  0.05
+
+[[3]]
+     x    y
+x 0.26 0.00
+y 0.00 0.16
+
+
+
+
+
+
+[[1]]
+      x     y
+x  0.97 -0.09
+y -0.09  8.28
+
+[[2]]
+      x     y
+x  0.93 -0.02
+y -0.02  0.04
+
+[[3]]
+      x     y
+x  0.26 -0.01
+y -0.01  0.16
+
+
 
 
 todo
