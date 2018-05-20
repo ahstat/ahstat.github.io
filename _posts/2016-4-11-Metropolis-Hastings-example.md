@@ -18,6 +18,7 @@ Simulation code has been written in R and is available [at that address](https:/
 <img src="../images/2016-4-11-Metropolis-Hastings-example/metropolis_sample_large.png" alt="Resulting sample of normal distribution conditional on being greater than 5"/>
 </center>
 
+
 *Fig. 1. Sample of size 1000 drawn with Metropolis–Hastings algorithm of a truncated normal distribution*
 
 ## Presentation
@@ -178,7 +179,9 @@ In the following, we took `step=1000`.
 
 ```R
 step = 1000
-simulated_distr = x_t_vect[seq(from = step, by = step, to = length(x_t_vect))]
+simulated_distr = x_t_vect[seq(from = step, 
+                               by = step, 
+                               to = length(x_t_vect))]
 ```
 
 The final sample has length $$N/step$$ and follows $$\mathcal{N}(. \mid > 5)$$
