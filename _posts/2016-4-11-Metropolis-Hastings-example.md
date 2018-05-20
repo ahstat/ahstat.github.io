@@ -19,14 +19,13 @@ Simulation code has been written in R and is available [at that address](https:/
 </center>
 
 
-*Fig. 1. Sample of size 1000 drawn with Metropolis–Hastings algorithm of a truncated normal distribution*
+*Fig. 1. Sample of size 1000 of a truncated normal distribution drawn with Metropolis–Hastings algorithm*
 
 ## Presentation
 
 The aim of the algorithm is to simulate a sample following a distribution (**target 
 distribution**).
-We assume that this target distribution has a density, which is
-known up to a multiplicative constant.
+We assume that this target distribution has a density, and that we know it up to a multiplicative constant.
 This means that we do not need to know exactly the normalization constant,
 which can be difficult to approximate for rare events or high-dimensional densities.
 
@@ -91,11 +90,11 @@ This is not a requirement for Metropolis–Hastings algorithm,
 but simplifies computations a lot.
 In particular, density of the instrumental distribution is not needed in this case
 (we only need to know how to sample from it).
-The algorithm is simply sometimes called *Metropolis algorithm* in this particular case.
+The algorithm is sometimes called *Metropolis algorithm* in this particular case.
 
 In the previous instrumental distribution, 
 parameter `sd` indicates range of each step. When `sd` is small, each
-step is small and the probability to be accepted is larger. However, the
+step is small and the probability to be accepted is large. However, the
 Markov chain is moving slowly and many steps are necessary to reach
 stationary distribution. When `sd` is large, larger steps are done, but are
 accepted less often.
@@ -105,7 +104,7 @@ accepted less often.
 We construct a Markov chain $$(x(t))_{t}$$.
 It is designed to have a unique stationary distribution
 which is the target distribution.
-You can read Section 2.1 of [this course for formal derivation](https://www.math.wustl.edu/~sawyer/hmhandouts/MetropHastingsEtc.pdf)).
+You can read Section 2.1 of [this course for formal derivation](https://www.math.wustl.edu/~sawyer/hmhandouts/MetropHastingsEtc.pdf).
 As a consequence, given $$T$$ a large number, $$x(T)$$ can be regarded as a sample
 element from target distribution
 (and we hope that $$T$$ is not so large...).
@@ -132,8 +131,8 @@ iterate_t_to_t_plus_1 = function(x_t, sd) {
 
 It remains to define the probability $$\alpha(x(t),y)$$ to accept the move.
 It is simply the quotient of probability
-of the target distribution.
-it is a little more complex when instrumental distribution is not symmetric).
+of the target distribution
+(it is a little more complex when instrumental distribution is not symmetric).
 
 ```R
 alpha = function(x_t, y_t_plus_1) {
