@@ -1,11 +1,11 @@
 ---
 layout: post
-title: An illustration of the Metropolis–Hastings algorithm
+title: An illustration of Metropolis–Hastings algorithm
 published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-The *Metropolis–Hastings algorithm* is a method for sampling from a probability distribution. It is used when direct sampling is difficult.
+*Metropolis–Hastings algorithm* is a method for sampling from a probability distribution. It is used when direct sampling is difficult.
 
 This post illustrates the algorithm by sampling from $$\mathcal{N}(. \mid > 5)$$ -- the univariate normal distribution conditional on being greater than $$5$$.
 This example has been chosen for its simplicity, for understanding how the algorithm actually works.
@@ -193,7 +193,7 @@ with sample obtained from direct formula using inverse transform method (see [Wi
 <img src="../images/2016-4-11-Metropolis-Hastings-example/metropolis_sample.png" alt="Sampled using Metropolis-Hastings algorithm" width="49%"/>
 <img src="../images/2016-4-11-Metropolis-Hastings-example/true_sample.png" alt="Sampled using direct computation" width="49%"/>
 
-*Fig. 2. Sample of size 1000 drawn of a truncated normal distribution. (Left) with Metropolis–Hastings algorithm (Right) Directly using inverse transform method*
+*Fig. 2. Sample of size 1000 drawn of a truncated normal distribution. (Left) Using Metropolis–Hastings algorithm (Right) Directly using inverse transform method*
 
 Visually, it looks good.
 Further checking are necessary, especially by checking autocorrelation of the sample.
@@ -203,7 +203,5 @@ Further checking are necessary, especially by checking autocorrelation of the sa
 - [Wikipedia page about Metropolis–Hastings algorithm](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm),
 
 - [Wikipedia page about truncated Normal distributions](https://en.wikipedia.org/wiki/Truncated_normal_distribution),
-
-You can read Section 2.1 of [this course for formal derivation](https://www.math.wustl.edu/~sawyer/hmhandouts/MetropHastingsEtc.pdf)).
 
 - [A course introducing Metropolis–Hastings algorithm in details](https://www.math.wustl.edu/~sawyer/hmhandouts/MetropHastingsEtc.pdf).
