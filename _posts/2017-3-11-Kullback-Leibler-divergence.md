@@ -11,7 +11,6 @@ This can already be found [here](https://wiseodd.github.io/techblog/2017/01/26/k
 More generally, I encourage you to read Section 3.13 of [Deep Learning book](https://www.deeplearningbook.org/contents/prob.html) for insights on information theory.
 
 Let $$\mathbf{x}$$ a dataset of $$n$$ elements.
-
 We assume that $$\mathbf{x}$$ comes from a random variable $$\mathbf{X}$$ with density $$p = p_{\theta_0}$$ and corresponding to a true (unknown and fixed) parameter $$\theta_0$$.
 
 We let $$q = p_{\theta}$$ the density function corresponding to another parameter $$\theta$$.
