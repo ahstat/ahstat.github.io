@@ -50,7 +50,7 @@ We measure the distance between distributions $$P_i$$ and $$Q_i$$ with the Kullb
 
 $$\text{KL}(P_i \mid \mid Q_i) = \sum_{j} p_{j \mid i} \log \frac{p_{j \mid i}}{q_{j \mid i}}.$$
 
-[See post about KL for more details].
+[See <a href="https://stats.stackexchange.com/questions/265966/why-do-we-use-kullback-leibler-divergence-rather-than-cross-entropy-in-the-t-sne" target="_blank">this post for more details</a>].
 
 Since we want to minimize them for all $$i$$, we finally define the cost function as:
 
