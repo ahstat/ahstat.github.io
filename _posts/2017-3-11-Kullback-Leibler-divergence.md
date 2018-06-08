@@ -12,7 +12,7 @@ More generally, I encourage you to read Section 3.13 of [Deep Learning book](htt
 
 Let $$\mathbf{x}$$ a dataset of $$n$$ elements.
 
-We assume that $$\mathbf{x}$$ comes from a random variable $$\mathbf{X}$$ with density $$p = p_{\theta_0}$$ and corresponding to a true (unknown) parameter $$\theta_0$$.
+We assume that $$\mathbf{x}$$ comes from a random variable $$\mathbf{X}$$ with density $$p = p_{\theta_0}$$ and corresponding to a true (unknown and fixed) parameter $$\theta_0$$.
 
 We let $$q = p_{\theta}$$ the density function corresponding to another parameter $$\theta$$.
 
