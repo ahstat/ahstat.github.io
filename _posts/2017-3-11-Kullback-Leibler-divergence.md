@@ -20,7 +20,7 @@ The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = 
 
 The opposite of likelihood divided by $$n$$ is:
 
-$$-\frac{1}{N} \log L_{\theta}(\mathbf{x}) = -\frac{1}{N} \log p_{\theta_0}(\mathbf{x}) 
+$$-\frac{1}{n} \log L_{\theta}(\mathbf{x}) = -\frac{1}{n} \log p_{\theta}(\mathbf{x}) 
 \rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right]$$
 
 and 
