@@ -16,7 +16,7 @@ We assume that $$\mathbf{x}$$ comes from a random variable $$\mathbf{X}$$ with d
 
 We let $$q = p_{\theta}$$ the density function corresponding to another parameter $$\theta$$.
 
-The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = p_{\theta_0}(\mathbf{x})$$.
+The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = p_{\theta}(\mathbf{x})$$.
 
 The opposite of likelihood divided by $$n$$ is:
 
