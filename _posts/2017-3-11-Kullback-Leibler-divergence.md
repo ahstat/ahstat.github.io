@@ -21,13 +21,14 @@ The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = 
 The opposite of likelihood divided by $$n$$ is:
 
 $$-\frac{1}{n} \log L_{\theta}(\mathbf{x}) = -\frac{1}{n} \log p_{\theta}(\mathbf{x}) 
-\rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right]$$
+\rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right],$$
 
 and 
 
 $$ E_{\theta_0} \left[ - \log p_{\theta}(X) \right] = - \int \log p_{\theta}(x) dp_{\theta_0}(x) = - \int \log q(x) dp(x) =: H(p, q).$$
 
 In the previous equation, $$H(p, q)$$ stands for the (continuous) cross-entropy between $$p$$ and $$q$$.
+We let $$H(p)$$ the (continuous) entropy of $$p$$ and $$\text{KL}(p \mid \mid q)$$ the Kullback-Leibler divergence between $$p$$ and $$q$$.
 
 Since $$H(p, q) = H(p) + \text{KL}(p \mid \mid q)$$,
 maximizing likelihood is equivalent to minimizing KL-divergence.
