@@ -21,7 +21,11 @@ The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = 
 The opposite of likelihood divided by $$n$$ is:
 
 $$-\frac{1}{N} \log L_{\theta}(\mathbf{x}) = -\frac{1}{N} \log p_{\theta_0}(\mathbf{x}) 
-\rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right] = - \int \log p_{\theta}(x) dp_{\theta_0}(x) = - \int \log q(x) dp(x) =: H(p, q).$$
+\rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right]$$
+
+and 
+
+$$ E_{\theta_0} \left[ - \log p_{\theta}(X) \right] = - \int \log p_{\theta}(x) dp_{\theta_0}(x) = - \int \log q(x) dp(x) =: H(p, q).$$
 
 In the previous equation, $$H(p, q)$$ stands for the (continuous) cross-entropy between $$p$$ and $$q$$.
 
