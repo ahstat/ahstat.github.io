@@ -10,18 +10,18 @@ This can already be found [here](https://wiseodd.github.io/techblog/2017/01/26/k
 
 More generally, I encourage you to read Section 3.13 of [Deep Learning book](https://www.deeplearningbook.org/contents/prob.html) for insights on information theory.
 
-Let $$\mathbf{x}$$ a dataset of $$n$$ elements.
+Let $$\mathbf{x} = (x_1, \ldots x_n)$$ a dataset of $$n$$ elements.
 
-We assume that $$\mathbf{x}$$ comes from a random variable $$\mathbf{X}$$ with density $$p = p_{\theta_0}$$ and corresponding to a true (unknown and fixed) parameter $$\theta_0$$.
+We assume that each $$x_i$$ has been sampled independently from a random variable $$X$$ with density $$p = p_{\theta_0}$$ and corresponding to a true (unknown and fixed) parameter $$\theta_0$$.
 
 We let $$q = p_{\theta}$$ the density function corresponding to another parameter $$\theta$$.
 
-The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = p_{\theta}(\mathbf{x})$$.
+The likelihood of $$\mathbf{x}$$ given $$\theta$$ is $$L_{\theta}(\mathbf{x}) = \prod_{i = 1}^n p_{\theta}(x_i)$$.
 
-The opposite of likelihood divided by $$n$$ is:
+The opposite of log-likelihood divided by $$n$$ is:
 
-$$-\frac{1}{n} \log L_{\theta}(\mathbf{x}) = -\frac{1}{n} \log p_{\theta}(\mathbf{x}) 
-\rightarrow E_{\theta_0} \left[ - \log p_{\theta}(X) \right],$$
+$$-\frac{1}{n} \log L_{\theta}(\mathbf{x}) = -\frac{1}{n} \log \sum_{i=1}^n p_{\theta}(x_i) 
+\rightarrow_{n \rightarrow +\infty} E_{\theta_0} \left[ - \log p_{\theta}(X) \right],$$
 
 and 
 
