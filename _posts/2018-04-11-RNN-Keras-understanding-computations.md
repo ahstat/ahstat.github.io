@@ -42,11 +42,11 @@ Dense(activation='sigmoid', units=1)
 
 corresponds to the mathematical equation
 
-$$y = \sigma(W_y x + b_y)$$
+$$y = \sigma(W x + b)$$
 
-(where $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$ are the weights) and can be represented by the diagram (note that bias term has been masked to improve lisibility)
+(where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are the weights) and can be represented by the diagram (note that bias term has been masked to improve lisibility)
 
-<img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/></center>
 
 **TimeDistributed wrapper in dimension 1.** 
 The TimeDistributed wrapper applies the same layer to each time step. 
@@ -55,17 +55,18 @@ the model
 
 ```python
 model=Sequential()
-model.add(TimeDistributed(Dense(activation='sigmoid', units=1),
+model.add(TimeDistributed(Dense(activation='sigmoid', 
+                                units=1),
                           input_shape=(None, 1)))
 ```
 
 corresponds to the equation
 
-$$y_t = \sigma(W_y x_t + b_y)$$
+$$y_t = \sigma(W x_t + b)$$
 
-for each $$t \in \lbrace 0, \ldots 5 \rbrace$$ (where $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$ are identical for each $$t$$) and can be represented by the diagram
+for each $$t \in \lbrace 0, \ldots 5 \rbrace$$ (where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$) and can be represented by the diagram
 
-<img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
 **Input and output shapes in practice.**
 Input shape has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
@@ -124,13 +125,13 @@ print(model.predict(new_input))
 Computation can be understood in details:
 
 ```python
-W_y = model.get_weights()[0] # this is a (2,3) matrix
-b_y = model.get_weights()[1] # this is a (3,1) vector
+W = model.get_weights()[0] # this is a (2,3) matrix
+b = model.get_weights()[1] # this is a (3,1) vector
 # At each time, we have a dense neural network (without hidden layer) from 2+1 inputs to 3 outputs.
 # So on the whole, there 9 parameters (the same parameters at each time).
 
 [[sigmoid(y)
-  for y in np.dot(x,W_y)+b_y] # like doing X * beta
+  for y in np.dot(x,W)+b] # like doing X * beta
   for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
 # We obtain the same results
 ```

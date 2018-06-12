@@ -21,16 +21,16 @@ digraph G {
 		label="output";
 	}
 
-        x0 -> y0 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x0 -> y0 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
-        x1 -> y1 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x1 -> y1 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
-        x2 -> y2 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x2 -> y2 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
-        x3 -> y3 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x3 -> y3 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
-        x4 -> y4 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x4 -> y4 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
-        x5 -> y5 [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+        x5 -> y5 [ label=<W<SUB> </SUB>> headlabel = "σ"];
 
 }
