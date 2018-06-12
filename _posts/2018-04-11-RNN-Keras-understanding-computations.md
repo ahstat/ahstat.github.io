@@ -32,19 +32,112 @@ Understanding the computations
 
 ## Part A: Explanation of TimeDistributed component
 
+**A very simple network.**
+Let's begin with one-dimensional input and output ($$x \in \mathbb{R}$$ and $$y \in \mathbb{R}$$).
+In Keras, the command line
 
-### Inputs and outputs for this section
+```python
+Dense(activation='sigmoid', units=1)
+```
+
+corresponds to the mathematical equation
+
+$$y = \sigma(W_y x + b_y)$$
+
+(where $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$ are the weights) and can be represented by the diagram (note that bias term has been masked to improve lisibility)
+
+<img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/>
+
+**TimeDistributed wrapper in dimension 1.** 
+The TimeDistributed wrapper applies the same layer to each time step. 
+For example, given one-dimensional input and output ($$x_t \in \mathbb{R}$$ and $$y_t \in \mathbb{R}$$) along $$6$$ dates, 
+the model
+
+```python
+model=Sequential()
+model.add(TimeDistributed(Dense(activation='sigmoid', units=1),
+                          input_shape=(None, 1)))
+```
+
+corresponds to the equation
+
+$$y_t = \sigma(W_y x_t + b_y)$$
+
+for each $$t \in \lbrace 0, \ldots 5 \rbrace$$ (where $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$ are identical for each $$t$$) and can be represented by the diagram
+
+<img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/>
+
+**Input and output shapes in practice.**
+Input shape has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
+
+Output shape has also the shape $$(N, T, m')$$, where $$m'$$ is the dimension of each output vector.
+
+In the previous example, we have $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
+
+**Prediction of new inputs.**
+
+Given a model trained on inputs of shape $$(N, T, m)$$,
+you can feed the model with new inputs of shape $$(k, l, m)$$.
+
+In the previous example, we can select for example (with $$k = 1$$, $$l = 8$$):
+
+```python
+new_input = np.array([[[1],[0.8],[0.6],[0.2],[1],[0],[1],[1]]])
+new_input.shape # (1, 8, 1)
+print(model.predict(new_input))
+```
+
+**Complete example of TimeDistributed with more dimensions.**
+
+Let $$N = 256, T = 6, m = 2, m' = 3$$. Training inputs have shape $$(256, 6, 2)$$ and training outputs have shape $$(256, 6, 3)$$
+
+The model is built and trained:
+
+```python
+sample_size = 256
+dim_in = 2
+dim_out = 3
+model=Sequential()
+model.add(TimeDistributed(Dense(activation='sigmoid', 
+                                units=dim_out), # target is dim_out-dimensional
+                          input_shape=(None, dim_in))) # input is dim_in-dimensional
+model.compile(loss = 'mse', optimizer = 'rmsprop')
+model.fit(x_train, y_train, epochs = 100, batch_size = 32)
+```
+
+Output for a new input of shape $$(k, l, m)$$ can be predicted:
+
+```python
+new_input = np.array([[[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]])
+new_input.shape # (1, 6, 2) as we need
+print(model.predict(new_input))
+# [[[ 0.67353392  0.59669352  0.57625091]
+#   [ 0.61093992  0.56769931  0.55657816]
+#   [ 0.54446143  0.53823376  0.53672636]
+#   [ 0.40912622  0.47870329  0.4967348 ]
+#   [ 0.67353392  0.59669352  0.57625091]
+#   [ 0.34512752  0.44905871  0.47672269]]]
+# output is (1, 6, 3) as expected.
+# Note that each column has been trained differently
+```
+
+Computation can be understood in details:
+
+```python
+W_y = model.get_weights()[0] # this is a (2,3) matrix
+b_y = model.get_weights()[1] # this is a (3,1) vector
+# At each time, we have a dense neural network (without hidden layer) from 2+1 inputs to 3 outputs.
+# So on the whole, there 9 parameters (the same parameters at each time).
+
+[[sigmoid(y)
+  for y in np.dot(x,W_y)+b_y] # like doing X * beta
+  for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
+# We obtain the same results
+```
 
 
 
-### Model definition and training
 
-### Prediction of new inputs
-
-### Understanding the computations
-
-
-### Explanation of TimeDistributed with more dimensions
 
 
 
@@ -114,3 +207,7 @@ Understanding the computations
 
 ### Understanding the computations
 
+
+### References
+
+For TimeDistributed: [https://stackoverflow.com/questions/38294046]() and [https://keras.io/layers/wrappers/]().

@@ -1,0 +1,26 @@
+digraph G {
+        rankdir=LR
+	splines=line
+        nodesep=.1;
+
+        #edge [ fontsize=24 ];
+        
+        #node [label=""];
+        
+        subgraph cluster_0 {
+		color=white;
+                node [style=solid,color=black, shape=circle];
+		x [label="x"];
+		label = "input";
+	}
+
+	subgraph cluster_3 {
+		color=white;
+		node [style=solid,color=black, shape=circle];
+		y [label="y"];
+		label="output";
+	}
+
+        x -> y [ label=<W<SUB>y</SUB>> headlabel = "σ"];
+
+}
