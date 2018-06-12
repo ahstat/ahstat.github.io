@@ -69,8 +69,8 @@ for each $$t \in \lbrace 0, \ldots 5 \rbrace$$, where $$W \in \mathbb{R}$$ and $
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
 **Input and output shapes in practice.**
-Input shape has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
-Output shape has also the shape $$(N, T, m')$$, where $$m'$$ is the dimension of each output vector.
+Input has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
+Output has the shape $$(N, T, m')$$, where $$m'$$ is the dimension of each output vector.
 In the previous example, we have $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
 
 **Prediction of new inputs.**
@@ -118,7 +118,7 @@ print(model.predict(new_input))
 # Note that each column has been trained differently
 ```
 
-Computation can be understood in details:
+Computations can be understood in details:
 
 ```python
 W = model.get_weights()[0] # this is a (2,3) matrix
