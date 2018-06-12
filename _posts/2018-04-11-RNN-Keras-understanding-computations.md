@@ -42,9 +42,11 @@ Dense(activation='sigmoid', units=1)
 
 corresponds to the mathematical equation
 
-$$y = \sigma(W x + b)$$
+$$y = \sigma(W x + b).$$
 
-(where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are the weights) and can be represented by the diagram (note that bias term has been masked to improve lisibility)
+Input is one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$.
+
+This equation can be represented by the following diagram (note that bias term $$b$$ has been masked to improve lisibility)
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/></center>
 
@@ -70,9 +72,7 @@ for each $$t \in \lbrace 0, \ldots 5 \rbrace$$ (where $$W \in \mathbb{R}$$ and $
 
 **Input and output shapes in practice.**
 Input shape has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
-
 Output shape has also the shape $$(N, T, m')$$, where $$m'$$ is the dimension of each output vector.
-
 In the previous example, we have $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
 
 **Prediction of new inputs.**
