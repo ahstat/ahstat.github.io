@@ -30,43 +30,41 @@ Understanding the computations
 
 
 
-## Part A: Explanation of TimeDistributed component
+## Part A: Explanation of the TimeDistributed component
 
 **A very simple network.**
 Let's begin with one-dimensional input and output ($$x \in \mathbb{R}$$ and $$y \in \mathbb{R}$$).
-In Keras, the command line
+In Keras, the command line:
 
 ```python
 Dense(activation='sigmoid', units=1)
 ```
 
-corresponds to the mathematical equation
+corresponds to the mathematical equation:
 
 $$y = \sigma(W x + b).$$
 
 Input is one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$.
 
-This equation can be represented by the following diagram (note that bias term $$b$$ has been masked to improve lisibility)
+This equation can be represented by the following diagram (note that bias term $$b$$ has been masked to improve lisibility):
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/></center>
 
 **TimeDistributed wrapper in dimension 1.** 
-The TimeDistributed wrapper applies the same layer to each time step. 
+The TimeDistributed wrapper applies the same layer at each time step. 
 For example, given one-dimensional input and output ($$x_t \in \mathbb{R}$$ and $$y_t \in \mathbb{R}$$) along $$6$$ dates, 
-the model
+the model:
 
 ```python
-model=Sequential()
-model.add(TimeDistributed(Dense(activation='sigmoid', 
-                                units=1),
-                          input_shape=(None, 1)))
+TimeDistributed(Dense(activation='sigmoid', units=1),
+                input_shape=(None, 1))
 ```
 
-corresponds to the equation
+corresponds to the equations:
 
 $$y_t = \sigma(W x_t + b)$$
 
-for each $$t \in \lbrace 0, \ldots 5 \rbrace$$ (where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$) and can be represented by the diagram
+for each $$t \in \lbrace 0, \ldots 5 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
@@ -76,41 +74,39 @@ Output shape has also the shape $$(N, T, m')$$, where $$m'$$ is the dimension of
 In the previous example, we have $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
 
 **Prediction of new inputs.**
-
 Given a model trained on inputs of shape $$(N, T, m)$$,
-you can feed the model with new inputs of shape $$(k, l, m)$$.
+we can feed the model with new inputs of shape $$(k, l, m)$$.
 
-In the previous example, we can select for example (with $$k = 1$$, $$l = 8$$):
+In the previous example, we can select for example:
 
 ```python
-new_input = np.array([[[1],[0.8],[0.6],[0.2],[1],[0],[1],[1]]])
+new_input = np.array([[[1],[0.8],[0.6],[0.2],
+                      [1],[0],[1],[1]]])
 new_input.shape # (1, 8, 1)
 print(model.predict(new_input))
 ```
 
 **Complete example of TimeDistributed with more dimensions.**
+Let $$N = 256$$, $$T = 6$$, $$m = 2$$, $$m' = 3$$. Training inputs have shape $$(256, 6, 2)$$ and training outputs have shape $$(256, 6, 3)$$.
 
-Let $$N = 256, T = 6, m = 2, m' = 3$$. Training inputs have shape $$(256, 6, 2)$$ and training outputs have shape $$(256, 6, 3)$$
-
-The model is built and trained:
+The model is built and trained as follows:
 
 ```python
 sample_size = 256
 dim_in = 2
 dim_out = 3
 model=Sequential()
-model.add(TimeDistributed(Dense(activation='sigmoid', 
-                                units=dim_out), # target is dim_out-dimensional
+model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out), # target is dim_out-dimensional
                           input_shape=(None, dim_in))) # input is dim_in-dimensional
 model.compile(loss = 'mse', optimizer = 'rmsprop')
 model.fit(x_train, y_train, epochs = 100, batch_size = 32)
 ```
 
-Output for a new input of shape $$(k, l, m)$$ can be predicted:
+Output for a new input of shape $$(k, l, m)$$ can be predicted as follows:
 
 ```python
 new_input = np.array([[[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]])
-new_input.shape # (1, 6, 2) as we need
+new_input.shape # (1, 6, 2), which is a valid shape for this model
 print(model.predict(new_input))
 # [[[ 0.67353392  0.59669352  0.57625091]
 #   [ 0.61093992  0.56769931  0.55657816]
@@ -127,20 +123,16 @@ Computation can be understood in details:
 ```python
 W = model.get_weights()[0] # this is a (2,3) matrix
 b = model.get_weights()[1] # this is a (3,1) vector
-# At each time, we have a dense neural network (without hidden layer) from 2+1 inputs to 3 outputs.
-# So on the whole, there 9 parameters (the same parameters at each time).
+# At each time, we have a dense neural network 
+# (without hidden layer) from 2+1 inputs to 3 outputs.
+# On the whole, there are 9 parameters 
+# (the same parameters are used at each time).
 
 [[sigmoid(y)
-  for y in np.dot(x,W)+b] # like doing X * beta
+  for y in np.dot(x,W) + b] # like doing X * beta
   for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
-# We obtain the same results
+# We obtain the same results as with 'model.predict'
 ```
-
-
-
-
-
-
 
 ## Part B: Explanation of simple RNN
 
