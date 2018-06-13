@@ -51,18 +51,18 @@ This equation can be represented by the following diagram (note that bias term $
 
 **TimeDistributed wrapper in dimension 1.** 
 The TimeDistributed wrapper applies the same layer at each time step. 
-For example, with one-dimensional input and output along $$T = 6$$ dates, input is represented with $$(x_0, \ldots, x_5) \in \mathbb{R}^T$$ and output with $$(y_0, \ldots, y_5) \in \mathbb{R}^T$$. Then, the model:
+For example, with one-dimensional input and output along $$T = 6$$ dates, input is represented with $$(x_0, \ldots, x_5) \in \mathbb{R}^6$$ and output with $$(y_0, \ldots, y_5) \in \mathbb{R}^6$$. Then, the model:
 
 ```python
 TimeDistributed(Dense(activation='sigmoid', units=1),
                 input_shape=(None, 1))
 ```
 
-corresponds to the equations:
+corresponds to the equation:
 
 $$y_t = \sigma(W x_t + b)$$
 
-applied at each $$t \in \lbrace 0, \ldots T-1 \rbrace$$. Note that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
+applied at each $$t \in \lbrace 0, \ldots 5 \rbrace$$. Note that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
@@ -84,13 +84,12 @@ new_input.shape # (1, 8, 1)
 print(model.predict(new_input))
 ```
 
-**Complete example of TimeDistributed with more dimensions.**
+**Complete example of TimeDistributed with higher dimensions.**
 Let $$N = 256$$, $$T = 6$$, $$m = 2$$, $$m' = 3$$. Training inputs have shape $$(256, 6, 2)$$ and training outputs have shape $$(256, 6, 3)$$.
 
 The model is built and trained as follows:
 
 ```python
-sample_size = 256
 dim_in = 2
 dim_out = 3
 model=Sequential()
@@ -133,7 +132,7 @@ b = model.get_weights()[1] # this is a (3,1) vector
 ```
 
 For each element of the sample $$n$$, for each time step $$t$$, we
-take $$x_t$$ a two-dimensional vector ($$(1,1)$$ for $$n = 0$$ and $$t = 0$$ in the previous example).
+take $$x_t$$ a two-dimensional vector. This is $$(1,1)$$ for $$n = 0$$ and $$t = 0$$ in the previous example.
 We compute $$W x_t + b$$ and obtain a three-dimensional vector.
 We finally apply the sigmoid function $$\sigma$$ to each component.
 
