@@ -63,14 +63,14 @@ corresponds to the equations:
 
 $$y_t = \sigma(W x_t + b)$$
 
-for each $$t \in \lbrace 0, \ldots T-1 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit. This model can be represented by the diagram:
+for each $$t \in \lbrace 0, \ldots T-1 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
 **Input and output shapes in practice.**
 Input has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
 Output has the shape $$(N, T, m')$$, where $$m'$$ is the dimension of each output vector.
-In the previous example, we have $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
+In the previous example, we have selected $$T = 6$$, $$m = 1$$, and $$m' = 1$$. 
 
 **Prediction of new inputs.**
 Given a model trained on inputs of shape $$(N, T, m)$$,
@@ -132,6 +132,11 @@ b = model.get_weights()[1] # this is a (3,1) vector
   for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
 # We obtain the same results as with 'model.predict'
 ```
+
+For each element of the sample $$n$$, for each time step $$t$$, we
+take $$x_t$$ a two-dimensional vector ($$(1,1)$$ for $$n = 0$$ and $$t = 0$$ in the previous example).
+We compute $$W x_t + b$$ and obtain a three-dimensional vector.
+We finally apply the sigmoid function $$\sigma$$ to each component.
 
 ## Part B: Explanation of simple RNN
 
