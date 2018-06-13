@@ -51,8 +51,7 @@ This equation can be represented by the following diagram (note that bias term $
 
 **TimeDistributed wrapper in dimension 1.** 
 The TimeDistributed wrapper applies the same layer at each time step. 
-For example, given one-dimensional input and output ($$x_t \in \mathbb{R}$$ and $$y_t \in \mathbb{R}$$) along $$T = 6$$ dates, 
-the model:
+For example, with one-dimensional input and output along $$T = 6$$ dates, input is represented with $$(x_0, \ldots, x_5) \in \mathbb{R}^T$$ and output with $$(y_0, \ldots, y_5) \in \mathbb{R}^T$$. Then, the model:
 
 ```python
 TimeDistributed(Dense(activation='sigmoid', units=1),
@@ -63,7 +62,7 @@ corresponds to the equations:
 
 $$y_t = \sigma(W x_t + b)$$
 
-for each $$t \in \lbrace 0, \ldots T-1 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
+applied at each $$t \in \lbrace 0, \ldots T-1 \rbrace$$. Note that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
