@@ -44,7 +44,7 @@ corresponds to the mathematical equation:
 
 $$y = \sigma(W x + b).$$
 
-Input is one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$.
+Input and output are one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$. In the previous command line, `units = 1` means that output layer contains $$1$$ unit, and so $$y \in \mathbb{R}$$ as intended.
 
 This equation can be represented by the following diagram (note that bias term $$b$$ has been masked to improve lisibility):
 
@@ -52,7 +52,7 @@ This equation can be represented by the following diagram (note that bias term $
 
 **TimeDistributed wrapper in dimension 1.** 
 The TimeDistributed wrapper applies the same layer at each time step. 
-For example, given one-dimensional input and output ($$x_t \in \mathbb{R}$$ and $$y_t \in \mathbb{R}$$) along $$6$$ dates, 
+For example, given one-dimensional input and output ($$x_t \in \mathbb{R}$$ and $$y_t \in \mathbb{R}$$) along $$T = 6$$ dates, 
 the model:
 
 ```python
@@ -64,7 +64,7 @@ corresponds to the equations:
 
 $$y_t = \sigma(W x_t + b)$$
 
-for each $$t \in \lbrace 0, \ldots 5 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. This model can be represented by the diagram:
+for each $$t \in \lbrace 0, \ldots T-1 \rbrace$$, where $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_timedistributed.png" alt=""/></center>
 
