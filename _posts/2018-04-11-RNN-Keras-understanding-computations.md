@@ -33,7 +33,7 @@ Understanding the computations
 ## Part A: Explanation of the TimeDistributed component
 
 **A very simple network.**
-Let's begin with one-dimensional input and output ($$x \in \mathbb{R}$$ and $$y \in \mathbb{R}$$).
+Let's begin with one-dimensional input and output.
 In Keras, the command line:
 
 ```python
@@ -44,7 +44,7 @@ corresponds to the mathematical equation:
 
 $$y = \sigma(W x + b).$$
 
-Input and output are one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
+Input $$x$$ and output $$y$$ are one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
 This equation can be represented by the following diagram (note that bias term $$b$$ has been masked to improve lisibility):
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/nn_dense_single.png" alt=""/></center>
