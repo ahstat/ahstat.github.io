@@ -1,0 +1,114 @@
+% By J. Leon, Beerware licence is acceptable...
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, arrows.meta, shapes}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    % GLOBAL CFG
+    font=\sf \scriptsize,
+    >=LaTeX,
+    % Styles
+    cell/.style={% For the main box
+        rectangle, 
+        rounded corners=5mm, 
+        draw,
+        very thick,
+        },
+    operator/.style={%For operators like +  and  x
+        circle,
+        draw,
+        inner sep=-0.5pt,
+        minimum height =.2cm,
+        },
+    function/.style={%For functions
+        ellipse,
+        draw,
+        inner sep=1pt
+        },
+    ct/.style={% For external inputs and outputs
+        circle,
+        draw,
+        line width = .75pt,
+        minimum width=1cm,
+        inner sep=1pt,
+        },
+    gt/.style={% For internal inputs
+        rectangle,
+        draw,
+        minimum width=4mm,
+        minimum height=3mm,
+        inner sep=1pt
+        },
+    mylabel/.style={% something new that I have learned
+        font=\scriptsize\sffamily
+        },
+    ArrowC1/.style={% Arrows with rounded corners
+        rounded corners=0cm,%.25cm,
+        thick,
+        },
+    ArrowC2/.style={% Arrows with big rounded corners
+        rounded corners=0cm,%.5cm,
+        thick,
+        },
+    ]
+
+%Start drawing the thing...    
+    % Draw the cell: 
+    \node [cell, minimum height =1.2cm, minimum width=1.4cm] at (-1.6,2.5){} ;
+
+
+
+    
+    
+    \node[text width=0.3cm, text = blue] at (-2,2.65) {$W_y$};
+    
+ 
+   
+
+
+
+    % Draw External inputs? named as basis c,h,x
+    \node[ct] (x) at (-3,2.5) {$h_{t+1}$};
+
+    % Draw activation functions
+    \node [gt] (sigma_o) at (-1.5,2.5) {$\sigma$};
+    
+    % Draw External outputs? named as basis c2,h2,x2
+    \node[ct] (h2) at (0,2.5) {$y_{t+1}$};
+    
+
+% Start connecting all.
+    %Intersections and displacements are used. 
+    % Drawing arrows    
+
+    % Inputs
+    \draw [->, ArrowC1] (x) -- (sigma_o) -- (h2);
+    
+    
+    
+    %\draw [ArrowC1] (x) -- (x -| sigma_o)-| (sigma_f);
+    %
+    %\draw [ArrowC2] (h_old)++(0,-2) -- (sigma_f); % -- (mux_conveyor); 
+    %\draw [ArrowC1] (h_old -| sigma_i)++(0,0.5) -| (sigma_i);
+    %\draw [ArrowC1] (h_old -| tanh_c)++(0,0.5) -| (tanh_c);
+    %\draw [ArrowC1] (x) -- (x |- h_old)-| (tanh_c);
+
+    % Internal
+%    \draw [->, ArrowC2] (sigma_f) -- (mux_conveyor);
+%    \draw [->, ArrowC2] (sigma_i) |- (mux_i_and_c);
+%    \draw [->, ArrowC2] (tanh_c) -- (mux_i_and_c);
+%    \draw [->, ArrowC2] (sigma_o) |- (mux_end);
+%    \draw [->, ArrowC2] (mux_i_and_c) -- (add_conveyor);
+%    \draw [->, ArrowC1] (add_conveyor -| tanh_end)++(-0.5,0) -| (tanh_end);
+%    \draw [->, ArrowC2] (tanh_end) -- (mux_end);
+
+    %Outputs
+%    \draw [-, ArrowC2] (mux_end) |- (h2);
+%    \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+%    \draw [-, ArrowC2] (h2 -| x2)++(-0.5,0) -| (i1);
+%    \draw [-, ArrowC2] (i1)++(0,0.2) -- (x2);
+
+\end{tikzpicture}
+\end{document}

@@ -123,7 +123,7 @@ b_y = model.get_weights()[1] # this is a (3,1) vector
 # We obtain the same results as with 'model.predict'
 ```
 
-We have obtained:
+We have:
 $$
 W_y = \begin{bmatrix}
 0.76 & 0.68 & 0.66 \\
@@ -157,9 +157,12 @@ $$y_t = \begin{bmatrix}
 
 ## Part B: Explanation of simple RNN
 
-
+.....
+ Elman networks
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="40%"/></center>
 
 
 ### Inputs and outputs for this section
