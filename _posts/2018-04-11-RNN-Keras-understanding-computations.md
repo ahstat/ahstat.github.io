@@ -157,9 +157,9 @@ $$y_t = \begin{bmatrix}
 
 ## Part B: Explanation of simple RNN
 
-Simple RNN is the simplest way for a neural network to keep information along time (indexed with $$t$$).
-Information is stored in the hidden variable $$h$$ and is updated at each time based on new inputs. Output is computed from the hidden variable.
-This network is also known as the Elman's network.
+*Simple RNN* is the simplest way for a neural network to keep information along time (indexed with $$t$$).
+Information is stored in the hidden variable $$h$$ and updated at each time based on new inputs. Output is computed from the hidden variable.
+This network is also known as the *Elman's network*.
 
 In Keras, the command lines:
 
@@ -182,7 +182,8 @@ y_t =& \sigma(W_y h_t + b_y).
 $$
 
 As before, training inputs have shape $$(N, T, m)$$ and training outputs have shape $$(N, T, m')$$. In this example, we have taken $$m = 3$$ and $$m' = 2$$, then $$x_t$$ is a two-dimensional vector, and $$y_t$$ is a three-dimensional vector.
-We have selected $$units=5$$, so $$h_t$$ is a five-dimensional vector.
+We have selected `units=5`, so $$h_t$$ is a five-dimensional vector.
+In details, the `SimpleRNN` line computes the full sequence $$(h_0, \ldots h_T)$$ from $$(x_0, \ldots, x_T)$$ (and initial $$h_{-1}$$); and the `TimeDistributed` line computes the sequence $$(y_0, \ldots y_T)$$ from $$(h_0, \ldots h_T)$$ (identical to Part A).
 
 Those equations can be represented by the following diagram:
 
