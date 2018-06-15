@@ -106,7 +106,7 @@ print(model.predict(new_input))
 
 This computation can be understood in details,
 by taking $$x_t$$ a two-dimensional vector,
-computing $$W_y^\intercal x_t + b_y$$,
+computing $$W_y x_t + b_y$$,
 and then applying the sigmoid function $$\sigma$$ to each component.
 
 ```python
@@ -159,10 +159,9 @@ $$y_t = \begin{bmatrix}
 
 *Simple RNN* is the simplest way for a neural network to keep information along time.
 Information is stored in the hidden variable $$h$$ and updated at each time based on new inputs.
-
 Simple RNN can be connected to a time distributed component to form the *Elman's network*, introduced in 1990. The time distributed component allows to compute output from the hidden variable.
-
 We describe this complete network in this part.
+
 In Keras, the command lines:
 
 ```python
@@ -194,7 +193,7 @@ Those equations can be represented by the following diagram:
 
 This diagram shows one step of the network, explaining how to compute $$h_t$$ and $$y_t$$ from $$x_t$$ and $$h_{t-1}$$.
 
-It remains to select the initial value $$h_{-1}$$ of the hidden variable, and we take the null vector: $$h_{-1} = (0,0,0,0,0)^\intercal$$.
+It remains to select the initial value $$h_{-1}$$ of the hidden variable, and we take the null vector: $$h_{-1} = \left( 0,0,0,0,0 \right)^\intercal$$.
 
 
 **Complete example of simple RNN.**
@@ -213,7 +212,7 @@ model.compile(loss = 'mse', optimizer = 'rmsprop')
 model.fit(x_train, y_train, epochs = 100, batch_size = 32)
 ```
 
-Weights can be retrieved:
+The weights of the trained network are:
 
 ```python
 W_x = model.get_weights()[0] # W_x a (3,5) matrix
@@ -223,7 +222,7 @@ W_y = model.get_weights()[3] # W_y a (5,2) matrix
 b_y = model.get_weights()[4] # b_y a (2,1) vector
 ```
 
-Output for a new input of shape $$(k,l,m)$$ can be predicted. We take a shape $$(1, 3, 3)$$ and let:
+We want to predict output for a new input of shape $$(k,l,m)$$. We take a shape $$(1, 3, 3)$$ and let:
 $$x_0 = (4,2,1)^\intercal$$, $$x_1 = (1,1,1)^\intercal$$, and $$x_2 = (1,1,1)^\intercal$$. The model predicts output for this series:
 
 ```python
@@ -234,58 +233,47 @@ print(model.predict(np.array([new_input])))
 #   [ 0.87601596  0.86248338]]]
 ```
 
-Those results can be retrieved manually by computing $$h_0$$ from $$x_0$$ and $$h_{-1}$$; then $$y_0$$ from $$h_0$$; then $$h_1$$ from $$x_1$$ and $$h_{0}$$; then $$y_1$$ from $$h_1$$; then $$h_2$$ from $$x_2$$ and $$h_{1}$$; then $$y_2$$ from $$h_2$$. This is detailed in Part B of the companion code.
+It is possible to retrive this result manually by computing $$h_0$$ from $$x_0$$ and $$h_{-1}$$; then $$y_0$$ from $$h_0$$; then $$h_1$$ from $$x_1$$ and $$h_{0}$$; then $$y_1$$ from $$h_1$$; then $$h_2$$ from $$x_2$$ and $$h_{1}$$; then $$y_2$$ from $$h_2$$. This is detailed in Part B of the companion code.
 
 ## Part C: Explanation of simple RNN with two hidden layers
 
+In Part B, we have connected a `SimpleRNN` layer and a `TimeDistributed` layer to form an Elman's network with one hidden layer. It is easy to stack another `SimpleRNN` layer.
 
+This Keras code:
 
+```python
+dim_in = 3; dim_out = 2
+model=Sequential()
+model.add(SimpleRNN(input_shape=(None, dim_in), 
+                    return_sequences=True, 
+                    units=5))
+model.add(SimpleRNN(input_shape=(None,4), 
+                    return_sequences=True, 
+                    units=7))
+model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out)))
+```
 
+corresponds to the mathematical equations (for all time $$t$$):
 
+$$
+\begin{align}
+h_t =& \sigma(W_x x_t + W_h h_{t-1} + b_h), \\
+h'_t =& \sigma(W'_x h_t + W'_h h'_{t-1} + b'_h), \\
+y_t =& \sigma(W_y h'_t + b_y).
+\end{align}
+$$
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
-
-
-
-
-
-### Inputs and outputs for this section
-
-
-
-### Model definition and training
-
-
-### Understanding the weights
-
-
-### Understanding the computations
-
-
-
-## Part C: Explanation of simple RNN with two hidden layers
-
-
-text
+and is represented by the following diagram (two temporal steps are shown to help understanding how all is connecting together):
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/double_all.svg" alt="" width="80%"/></center>
 
+In this example, at each time $$t$$, $$x_t$$, $$h_t$$, $$h'_t$$, $$y_t$$ are vectors of size $$2$$, $$5$$, $$7$$, $$3$$ respectively.
 
-
-### Inputs and outputs for this section
-
-
-
-### Model definition and training
-
-
-### Understanding the weights
-
-
-### Understanding the computations
-
+Shape of weight matrices and manual computations are detailed in Part C of the companion code.
 
 ## Part D: Explanation of LSTM
+
+
 
 
 ### Inputs and outputs for this section
@@ -327,7 +315,6 @@ text
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="80%"/></center>
 
 text
-
 
 ### References
 
