@@ -162,7 +162,7 @@ $$y_t = \begin{bmatrix}
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="40%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="80%"/></center>
 
 
 ### Inputs and outputs for this section
