@@ -20,6 +20,11 @@ and divided in five parts:
 - GRU.
 
 [INTRO to rewrite + add illustration]
+Updated
+...
+Core idea of LSTMs is better explained in ...this post....
+Here, only describe the network and how computed in Keras.
+
 
 
 
@@ -275,12 +280,12 @@ Shape of weight matrices and manual computations are detailed in Part C of the c
 
 ## Part D: Explanation of LSTM
 
-**From SimpleRNN layer to LSTM layer**
+**From SimpleRNN layer to LSTM layer.**
 In Part B, we used a `SimpleRNN` layer to update the hidden variable $$h$$, i.e. to compute $$h_t$$ from $$(x_t, h_{t-1})$$. This layer in isolation is represented as follows: 
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
 
-Long short-term memory (LSTM) networks replace the `SimpleRNN` layer with an `LSTM` layer. An LSTM layer takes $$3$$ inputs $$(x_t, h_{t-1}, c_{t-1})$$ and outputs a couple $$(h_t, c_t)$$ at each step $$t$$. $$h$$ is the hidden variable and $$c$$ is the cell variable.
+Long short-term memory (LSTM) networks replace the `SimpleRNN` layer with an `LSTM` layer. An LSTM layer takes 3 inputs $$(x_t, h_{t-1}, c_{t-1})$$ and outputs a couple $$(h_t, c_t)$$ at each step $$t$$. $$h$$ is the hidden variable and $$c$$ is called the cell variable.
 
 In Keras, the command line:
 ```python
@@ -309,49 +314,35 @@ and is represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
-**Dimension of each element.**
-It can be confusing to understand how all the matrices are organized. ...
+**Explanation of matrices.**
+It can be confusing to understand how all the matrices are organized.
+Let us suppose that `dim_in=7` and `nb_units = 13`.
+The input vector $$x_t$$ has length 7, and hidden and cell vectors $$h_t$$ and $$c_t$$ has both length 13.
 
+- Matrices $$W_{ix}$$, $$W_{fx}$$, $$W_{cx}$$, $$W_{ox}$$ have shape $$7 \times 13$$ each, because they are multiplied with $$x_t$$,
+- Matrices $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$ have shape $$13 \times 13$$ each, because they are multiplied with $$h_t$$,
+- Bias vectors $$b_{i}$$, $$b_{f}$$, $$b_{c}$$, $$b_{o}$$ have length $$13$$ each.
 
+Consequently, vectors $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$ have length $$13$$ each.
 
+In 
+[this post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), $$W_{i}$$, $$W_{f}$$, $$W_{c}$$, $$W_{o}$$ are defined as follows:
 
+- $$W_{i}$$  is the concatenation of $$W_{ih}$$ and $$W_{ix}$$,
+- $$W_{f}$$  is the concatenation of $$W_{fh}$$ and $$W_{fx}$$,
+- $$W_{c}$$  is the concatenation of $$W_{ch}$$ and $$W_{cx}$$,
+- $$W_{o}$$  is the concatenation of $$W_{oh}$$ and $$W_{ox}$$.
 
+In the Keras implementation of LSTM, $$W_x$$ and $$W_h$$ are defined as follows:
 
+- $$W_{x}$$ is the concatenation of $$W_{ix}$$, $$W_{fx}$$, $$W_{cx}$$, $$W_{ox}$$, resulting in a matrix of size $$7 \times 52$$,
+- $$W_{h}$$ is the concatenation of $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$, resulting in a matrix of size $$13 \times 52$$,
+- $$b_h$$ is the concatenation of $$b_{i}$$, $$b_{f}$$, $$b_{c}$$, $$b_{o}$$, resulting in a vector of length $$52$$.
+
+Shape of weight matrices and manual computations are detailed in Part D of the companion code.
 
 **Connecting LSTM layer with subsequent layers.**
-
-
-
-
-Updated
-...
-Core idea of LSTMs is better explained in ...this post....
-Here, only describe the network and how computed in Keras.
-
-
-
- is the simplest way for a neural network to keep information along time.
-
-
-
-
-### Inputs and outputs for this section
-
-
-
-### Model definition and training
-
-
-### Understanding the weights
-
-
-### Understanding the computations
-
-text
-
-
-text
-
+It 
 
 
 
