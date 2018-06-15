@@ -275,6 +275,62 @@ Shape of weight matrices and manual computations are detailed in Part C of the c
 
 ## Part D: Explanation of LSTM
 
+**From SimpleRNN layer to LSTM layer**
+In Part B, we used a `SimpleRNN` layer to update the hidden variable $$h$$, i.e. to compute $$h_t$$ from $$(x_t, h_{t-1})$$. This layer in isolation is represented as follows: 
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
+
+Long short-term memory (LSTM) networks replace the `SimpleRNN` layer with an `LSTM` layer. An LSTM layer takes $$3$$ inputs $$(x_t, h_{t-1}, c_{t-1})$$ and outputs a couple $$(h_t, c_t)$$ at each step $$t$$. $$h$$ is the hidden variable and $$c$$ is the cell variable.
+
+In Keras, the command line:
+```python
+LSTM(input_shape=(None, dim_in), 
+                    return_sequences=True, 
+                    units=nb_units,
+                    recurrent_activation='sigmoid',
+                    activation='tanh')
+```
+
+corresponds to the equations:
+
+$$
+\begin{align}
+i_t = \sigma(W_{ix} x_t + W_{ih} h_{t-1} + b_i) \\
+f_t = \sigma(W_{fx} x_t + W_{fh} h_{t-1} + b_f) \\
+\tilde{c}_t = \tanh(W_{cx} x_t + W_{ch} h_{t-1} + b_c) \\
+o_t = W_{ox} x_t + W_{oh} h_{t-1} + b_o) \\
+   \\
+c_t = f_t c_{t-1} + i_t \tilde{c}_t \\
+h_t = o_t \tanh(c_t)
+$$
+
+and is represented by the following diagram:
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
+
+**Dimension of each element.**
+It can be confusing to understand how all the matrices are organized. ...
+
+
+
+
+
+
+
+**Connecting LSTM layer with subsequent layers.**
+
+
+
+
+Updated
+...
+Core idea of LSTMs is better explained in ...this post....
+Here, only describe the network and how computed in Keras.
+
+
+
+ is the simplest way for a neural network to keep information along time.
+
 
 
 
@@ -292,7 +348,6 @@ Shape of weight matrices and manual computations are detailed in Part C of the c
 
 text
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
 text
 
