@@ -138,21 +138,27 @@ We finally apply the sigmoid function $$\sigma$$ to each component.
 
 ## Part B: Explanation of simple RNN
 
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed_first.svg" alt="" width="50%"/></center>
+
+text
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed.svg" alt="" width="50%"/></center>
+
 text
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
 
 text
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/double_all.svg" alt="" width="40%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/double_all.svg" alt="" width="80%"/></center>
 
 text
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="40%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
 text
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="40%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="80%"/></center>
 
 text
 
