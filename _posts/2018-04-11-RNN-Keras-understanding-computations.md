@@ -331,7 +331,7 @@ In the Keras implementation of LSTM, <span style="color:blue;">$$W_x$$</span> an
 - <span style="color:blue;">$$W_{h}$$</span> is the concatenation of $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$, resulting in a $$13 \times 52$$ matrix,
 - <span style="color:blue;">$$b_h$$</span> is the concatenation of $$b_{i}$$, $$b_{f}$$, $$b_{c}$$, $$b_{o}$$, resulting in a vector of length $$52$$.
 
-With those notations, we can first compute a raw vector <span style="color:blue;">$$W_{x}$$</span> $$x_t + $$ <span style="color:blue;">$$W_{h}$$</span> $$h_{t-1} +$$ <span style="color:blue;">$$b_h$$</span> of length $$52$$, before cutting it and applying activation functions to obtain 
+With those notations, we can first compute a raw vector <span style="color:blue;">$$W_{x}$$</span> $$\!x_t +$$ <span style="color:blue;">$$\!W_{h}$$</span> $$\!h_{t-1} +$$ <span style="color:blue;">$$\!b_h$$</span> of length $$52$$, before cutting it and applying activation functions to obtain 
 $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$.
 
 Note that in 
