@@ -285,7 +285,7 @@ In Part B, we used a `SimpleRNN` layer to update the hidden variable $$h$$, i.e.
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
 
-Long short-term memory (LSTM) networks replace the `SimpleRNN` layer with an `LSTM` layer. An LSTM layer takes 3 inputs $$(x_t, h_{t-1}, c_{t-1})$$ and outputs a couple $$(h_t, c_t)$$ at each step $$t$$. $$h$$ is the hidden variable and $$c$$ is called the cell variable.
+Long short-term memory (LSTM) networks replace the `SimpleRNN` layer with an `LSTM` layer. An LSTM layer takes 3 inputs $$(x_t, h_{t-1}, c_{t-1})$$ and outputs a couple $$(h_t, c_t)$$ at each step $$t$$. $$h$$ is the hidden variable and $$c$$ is called the cell variable. This kind of networks has been introduced in 1997.
 
 In Keras, the command line:
 ```python
@@ -310,7 +310,7 @@ h_t =& o_t \tanh(c_t)
 \end{align}
 $$
 
-and is represented by the following diagram:
+(with null vectors for $$c_{-1}$$ and $$h_{-1}$$) and is represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
@@ -362,18 +362,7 @@ Shape of weight matrices and manual computations are detailed in Part D of the c
 
 ## Part E: Explanation of GRU
 
-
-### Inputs and outputs for this section
-
-
-
-### Model definition and training
-
-
-### Understanding the weights
-
-
-### Understanding the computations
+Gated Recurrent Units (GRU) is a popular alternative to LSTM introduced in 2014. They apparently give similar results to LSTM but have fewer parameters than LSTM ($$3$$ sets of weights for GRU instead of $$4$$ for LSTM).
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="80%"/></center>
 
