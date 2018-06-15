@@ -106,7 +106,7 @@ print(model.predict(new_input))
 
 This computation can be understood in details,
 by taking $$x_t$$ a two-dimensional vector,
-computing $$W_y x_t + b_y$$,
+computing $$W_y^\intercal x_t + b_y$$,
 and then applying the sigmoid function $$\sigma$$ to each component.
 
 ```python
@@ -157,11 +157,11 @@ $$y_t = \begin{bmatrix}
 
 ## Part B: Explanation of simple RNN
 
-Simple RNN is the simplest neural networks which is able to keep information along time (indexed with $$t$$).
+Simple RNN is the simplest way for a neural network to keep information along time (indexed with $$t$$).
 Information is stored in the hidden variable $$h$$ and is updated at each time based on new inputs. Output is computed from the hidden variable.
 This network is also known as the Elman's network.
 
-In Keras, the command line:
+In Keras, the command lines:
 
 ```python
 dim_in=3; dim_out=2; nb_units=5;
@@ -169,31 +169,81 @@ model=Sequential()
 model.add(SimpleRNN(input_shape=(None, dim_in), 
                     return_sequences=True, 
                     units=nb_units))
-model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out)))
+model.add(TimeDistributed(Dense(activation='sigmoid',
+                                units=dim_out)))
 ```
 
-corresponds to the mathematical equations:
+corresponds to the mathematical equations (for all $$t$$):
+$$
+\begin{align}
+h_t =& \sigma(W_x x_t + W_h h_{t-1} + b_h), \\
+y_t =& \sigma(W_y h_t + b_y).
+\end{align}
+$$
 
-$$h_t = \sigma(W_x x_t + W_h h_{t-1} + b_h),$$
-
-$$y_t = \sigma(W_y h_t + b_y).$$
-
-As before, training inputs have shape $$(N, T, m)$$ and training outputs have shape $$(N, T, m')$$. In this example, we take $$m = 3$$ and $$m' = 2$$, then $$x_t$$ is a two-dimensional vector, and $$y_t$$ is a three-dimensional vector.
+As before, training inputs have shape $$(N, T, m)$$ and training outputs have shape $$(N, T, m')$$. In this example, we have taken $$m = 3$$ and $$m' = 2$$, then $$x_t$$ is a two-dimensional vector, and $$y_t$$ is a three-dimensional vector.
 We have selected $$units=5$$, so $$h_t$$ is a five-dimensional vector.
-
-..... Write matrix sizes
-
-
 
 Those equations can be represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="70%"/></center>
+
+This diagram shows one step of the network, explaining how to compute $$h_t$$ and $$y_t$$ from $$x_t$$ and $$h_{t-1}$$.
+
+It remains to select the initial value $$h_{-1}$$ of the hidden variable, and we take the null vector: $$h_{-1} = (0,0,0,0,0)^\intercal$$.
+
+
+**Complete example of simple RNN.**
+Let $$N = 256$$, $$T = 6$$, $$m = 2$$, $$m' = 3$$. Training inputs have shape $$(256, 6, 2)$$ and training outputs have shape $$(256, 6, 3)$$.
+
+The model is built and trained as follows:
+
+```python
+dim_in = 2; dim_out = 3; nb_units = 5
+model=Sequential()
+model.add(SimpleRNN(input_shape=(None, dim_in), 
+                    return_sequences=True, 
+                    units=nb_units))
+model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out)))
+model.compile(loss = 'mse', optimizer = 'rmsprop')
+model.fit(x_train, y_train, epochs = 100, batch_size = 32)
+```
+
+Weights can be retrieved:
+
+```python
+W_x = model.get_weights()[0] # W_x a (3,5) matrix
+W_h = model.get_weights()[1] # W_h a (5,5) matrix
+b_h = model.get_weights()[2] # b_h a (5,1) vector
+W_y = model.get_weights()[3] # W_y a (5,2) matrix
+b_y = model.get_weights()[4] # b_y a (2,1) vector
+```
+
+Output for a new input of shape $$(k,l,m)$$ can be predicted. We take a shape $$(1, 3, 3)$$ and let:
+$$x_0 = (4,2,1)^\intercal$$, $$x_1 = (1,1,1)^\intercal$$, and $$x_2 = (1,1,1)^\intercal$$. The model predicts output for this series:
+
+```python
+new_input = [[4,2,1], [1,1,1], [1,1,1]]
+print(model.predict(np.array([new_input])))
+# [[[ 0.79032147  0.42571515]
+#   [ 0.59781438  0.55316663]
+#   [ 0.87601596  0.86248338]]]
+```
+
+Those results can be retrieved manually by computing $$h_0$$ from $$x_0$$ and $$h_{-1}$$; then $$y_0$$ from $$h_0$$; then $$h_1$$ from $$x_1$$ and $$h_{0}$$; then $$y_1$$ from $$h_1$$; then $$h_2$$ from $$x_2$$ and $$h_{1}$$; then $$y_2$$ from $$h_2$$. This is detailed in Part B of the companion code.
+
+## Part C: Explanation of simple RNN with two hidden layers
+
 
 
 
 
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
+
+
+
+
 
 ### Inputs and outputs for this section
 
