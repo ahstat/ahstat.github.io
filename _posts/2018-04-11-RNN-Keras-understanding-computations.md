@@ -47,7 +47,7 @@ $$y = \sigma(W x + b).$$
 Input $$x$$ and output $$y$$ are one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
 This equation can be represented by the following diagram (note that bias term $$b$$ and activation function $$\sigma$$ have been masked to improve lisibility):
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed_first.svg" alt="" width="100%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed_first.svg" alt="" width="40%"/></center>
 
 **TimeDistributed wrapper in dimension 1.** 
 The TimeDistributed wrapper applies the same layer at each time step. 
@@ -64,7 +64,7 @@ $$y_t = \sigma(W x_t + b)$$
 
 applied at each $$t \in \lbrace 0, \ldots 5 \rbrace$$. Note that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed.svg" alt="" width="100%"/></center>
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed.svg" alt="" width="40%"/></center>
 
 **Input and output shapes in practice.**
 Input has usually the shape $$(N, T, m)$$, where $$N$$ is sample size, $$T$$ is temporal size, and $$m$$ is the dimension of each input vector.
@@ -138,7 +138,23 @@ We finally apply the sigmoid function $$\sigma$$ to each component.
 
 ## Part B: Explanation of simple RNN
 
+text
 
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
+
+text
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/double_all.svg" alt="" width="40%"/></center>
+
+text
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="40%"/></center>
+
+text
+
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="40%"/></center>
+
+text
 
 ### Inputs and outputs for this section
 
