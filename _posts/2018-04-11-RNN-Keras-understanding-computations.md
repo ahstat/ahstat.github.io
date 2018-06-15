@@ -96,20 +96,18 @@ model.fit(x_train, y_train, epochs = 100, batch_size = 32)
 Output for a new input of shape $$(k, l, m)$$ can be predicted as follows:
 
 ```python
-new_input = np.array([[[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]])
-new_input.shape # (1, 6, 2), which is a valid shape for this model
+new_input = model.predict(np.array([[[1,1]]]))
+new_input.shape # (1, 1, 2), which is a valid shape for this model
 print(model.predict(new_input))
-# [[[ 0.70669621  0.70633912  0.65635538]
-#   [ 0.63252383  0.63257533  0.60107857]
-#   [ 0.55149853  0.55203384  0.54309982]
-#   [ 0.38557819  0.38701272  0.42520598]
-#   [ 0.70669621  0.70633912  0.65635538]
-#   [ 0.30954015  0.31125128  0.36852005]]]
-# output is (1, 6, 3) as expected.
+# [[[ 0.70669621  0.70633912  0.65635538]]]
+# output is (1, 1, 3) as expected.
 # Note that each column has been trained differently
 ```
 
-Computations can be understood in details:
+This computation can be understood in details,
+by taking $$x_t$$ a two-dimensional vector,
+computing $$W_y x_t + b_y$$,
+and then applying the sigmoid function $$\sigma$$ to each component.
 
 ```python
 W_y = model.get_weights()[0] # this is a (2,3) matrix
@@ -121,16 +119,11 @@ b_y = model.get_weights()[1] # this is a (3,1) vector
 
 [[sigmoid(y)
   for y in np.dot(x,W_y) + b_y] # like doing X * beta
-  for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
+  for x in [[1,1]]]
 # We obtain the same results as with 'model.predict'
 ```
 
-For each element of the sample $$n$$, for each time step $$t$$, we
-take $$x_t$$ a two-dimensional vector.
-We compute $$W_y x_t + b_y$$ and obtain a three-dimensional vector.
-We finally apply the sigmoid function $$\sigma$$ to each component.
-
-In the previous example, we have obtained:
+We have obtained:
 $$
 W_y = \begin{bmatrix}
 0.76 & 0.68 & 0.66 \\
@@ -144,7 +137,7 @@ b_y = \begin{bmatrix}
 -0.54
 \end{bmatrix}
 $$,
-and for $$n = 0$$ and $$t = 0$$,
+and we take
 $$x_t = \begin{bmatrix}
 1 \\
 1
