@@ -327,11 +327,14 @@ Consequently, vectors $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$ have length 
 
 In the Keras implementation of LSTM, <span style="color:blue;">$$W_x$$</span> and <span style="color:blue;">$$W_h$$</span> are defined as follows:
 
-- <span style="color:blue;">$$W_{x}$$</span> is the concatenation of $$W_{ix}$$, $$W_{fx}$$, $$W_{cx}$$, $$W_{ox}$$, resulting in a matrix of size $$7 \times 52$$,
-- <span style="color:blue;">$$W_{h}$$</span> is the concatenation of $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$, resulting in a matrix of size $$13 \times 52$$,
+- <span style="color:blue;">$$W_{x}$$</span> is the concatenation of $$W_{ix}$$, $$W_{fx}$$, $$W_{cx}$$, $$W_{ox}$$, resulting in a $$7 \times 52$$ matrix,
+- <span style="color:blue;">$$W_{h}$$</span> is the concatenation of $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$, resulting in a $$13 \times 52$$ matrix,
 - <span style="color:blue;">$$b_h$$</span> is the concatenation of $$b_{i}$$, $$b_{f}$$, $$b_{c}$$, $$b_{o}$$, resulting in a vector of length $$52$$.
 
-In 
+With those notations, we can first compute a raw vector <span style="color:blue;">$$W_{x}$$</span> $$x_t + $$ <span style="color:blue;">$$W_{h}$$</span> $$h_{t-1} +$$ <span style="color:blue;">$$b_h$$</span> of length $$52$$, before cutting it and applying activation functions to obtain 
+$$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$.
+
+Note that in 
 [the post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:lightgray;">$$W_{i}$$</span>, <span style="color:lightgray;">$$W_{f}$$</span>, <span style="color:lightgray;">$$W_{c}$$</span>, <span style="color:lightgray;">$$W_{o}$$</span> are defined as follows:
 
 - <span style="color:lightgray;">$$W_{i}$$</span>  is the concatenation of $$W_{ih}$$ and $$W_{ix}$$,
