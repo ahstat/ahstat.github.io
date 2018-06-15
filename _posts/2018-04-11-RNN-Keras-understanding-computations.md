@@ -335,7 +335,7 @@ With those notations, we can first compute a raw vector <span style="color:blue;
 $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$.
 
 Note that in 
-[the post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:lightgray;">$$W_{i}$$</span>, <span style="color:lightgray;">$$W_{f}$$</span>, <span style="color:lightgray;">$$W_{c}$$</span>, <span style="color:lightgray;">$$W_{o}$$</span> are defined as follows:
+[the post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:lightgray;">$$W_{i}$$</span>, <span style="color:lightgray;">$$W_{f}$$</span>, <span style="color:lightgray;">$$W_{c}$$</span> and <span style="color:lightgray;">$$W_{o}$$</span> are defined as follows:
 
 - <span style="color:lightgray;">$$W_{i}$$</span>  is the concatenation of $$W_{ih}$$ and $$W_{ix}$$,
 - <span style="color:lightgray;">$$W_{f}$$</span>  is the concatenation of $$W_{fh}$$ and $$W_{fx}$$,
@@ -362,11 +362,51 @@ Shape of weight matrices and manual computations are detailed in Part D of the c
 
 ## Part E: Explanation of GRU
 
-Gated Recurrent Units (GRU) is a popular alternative to LSTM introduced in 2014. They apparently give similar results to LSTM but have fewer parameters than LSTM ($$3$$ sets of weights for GRU instead of $$4$$ for LSTM).
+Gated Recurrent Units (GRU) are a popular alternative to LSTM introduced in 2014. They apparently give similar results to LSTM with fewer parameters to train (3 sets of weights for GRU instead of 4 for LSTM).
+
+A GRU layer takes inputs $$(x_t, h_{t-1})$$ and outputs $$h_t$$ at each step $$t$$.
+In Keras, the command line:
+
+```python
+GRU(input_shape=(None, dim_in), 
+    return_sequences=True, 
+    units=nb_units,
+    recurrent_activation='sigmoid',
+    activation='tanh')
+```
+
+corresponds to the equations:
+
+$$
+\begin{align}
+z_t =& \sigma(W_{zx} x_t + W_{zh} h_{t-1} + b_z) \\
+r_t =& \sigma(W_{rx} x_t + W_{rh} h_{t-1} + b_r) \\
+\tilde{h}_t =& \tanh(W_{ox} x_t + W_{oh} r_t h_{t-1} + b_o) \\
+ \\
+h_t =& z_t h_{t-1} + (1 - z_t) \tilde{h}_t
+\end{align}
+$$
+
+(with null vector for $$h_{-1}$$) and is represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="80%"/></center>
 
-text
+**Explanation of matrices.**
+As before, we suppose that `dim_in=7` and `nb_units = 13`, so $$x_t$$ has length 7 and  $$h_t$$ has length 13.
+
+- Matrices $$W_{zx}$$, $$W_{rx}$$, $$W_{ox}$$ have shape $$7 \times 13$$ each, because they are multiplied with $$x_t$$,
+- Matrices $$W_{zh}$$, $$W_{rh}$$, $$W_{oh}$$ have shape $$13 \times 13$$ each, because they are multiplied with $$h_t$$,
+- Bias vectors $$b_{z}$$, $$b_{r}$$, $$b_{o}$$ have length $$13$$ each.
+
+Consequently, vectors $$z_t$$, $$r_t$$ and $$\tilde{h}_t$$ have length $$13$$ each.
+
+In the Keras implementation of LSTM, <span style="color:blue;">$$W_x$$</span> and <span style="color:blue;">$$W_h$$</span> are defined as follows:
+
+- <span style="color:blue;">$$W_{x}$$</span> is the concatenation of $$W_{zx}$$, $$W_{rx}$$, $$W_{ox}$$, resulting in a $$7 \times 39$$ matrix,
+- <span style="color:blue;">$$W_{h}$$</span> is the concatenation of $$W_{zh}$$, $$W_{rh}$$, $$W_{oh}$$, resulting in a $$13 \times 39$$ matrix,
+- <span style="color:blue;">$$b_h$$</span> is the concatenation of $$b_{z}$$, $$b_{r}$$, $$b_{o}$$, resulting in a vector of length $$39$$.
+
+Manual computations are detailed in Part E of the companion code, and are relatively less straightforward compared to LSTM.
 
 ### References
 
