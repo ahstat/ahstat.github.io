@@ -410,4 +410,7 @@ Manual computations are detailed in Part E of the companion code, and are relati
 
 ### References
 
-For TimeDistributed: [https://stackoverflow.com/questions/38294046]() and [https://keras.io/layers/wrappers/]().
+- [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) by Christopher Olah,
+- [Keras documentation for TimeDistributed](https://keras.io/layers/wrappers/),
+- [Keras documentation for RNN](https://keras.io/layers/recurrent/),
+- [Wikipedia page on RNN describing the Elman networks](https://en.wikipedia.org/wiki/Recurrent_neural_network).
