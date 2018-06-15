@@ -99,12 +99,12 @@ Output for a new input of shape $$(k, l, m)$$ can be predicted as follows:
 new_input = np.array([[[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]])
 new_input.shape # (1, 6, 2), which is a valid shape for this model
 print(model.predict(new_input))
-# [[[ 0.67353392  0.59669352  0.57625091]
-#   [ 0.61093992  0.56769931  0.55657816]
-#   [ 0.54446143  0.53823376  0.53672636]
-#   [ 0.40912622  0.47870329  0.4967348 ]
-#   [ 0.67353392  0.59669352  0.57625091]
-#   [ 0.34512752  0.44905871  0.47672269]]]
+# [[[ 0.70669621  0.70633912  0.65635538]
+#   [ 0.63252383  0.63257533  0.60107857]
+#   [ 0.55149853  0.55203384  0.54309982]
+#   [ 0.38557819  0.38701272  0.42520598]
+#   [ 0.70669621  0.70633912  0.65635538]
+#   [ 0.30954015  0.31125128  0.36852005]]]
 # output is (1, 6, 3) as expected.
 # Note that each column has been trained differently
 ```
@@ -130,7 +130,7 @@ take $$x_t$$ a two-dimensional vector.
 We compute $$W_y x_t + b_y$$ and obtain a three-dimensional vector.
 We finally apply the sigmoid function $$\sigma$$ to each component.
 
-In the previous example, we have:
+In the previous example, we have obtained:
 $$
 W_y = \begin{bmatrix}
 0.76 & 0.68 & 0.66 \\
