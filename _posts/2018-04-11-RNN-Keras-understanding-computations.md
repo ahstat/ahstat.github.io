@@ -39,7 +39,7 @@ corresponds to the mathematical equation:
 $$y = \sigma(W_y x + b_y).$$
 
 Input $$x$$ and output $$y$$ are one-dimensional, so the weights are such that $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
-This equation can be represented by the following diagram (note that bias term $$b_y$$ and activation function $$\sigma$$ have been masked to improve lisibility):
+This equation can be represented by the following diagram (bias term $$b_y$$ has been masked to improve lisibility):
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed_first.svg" alt="" width="50%"/></center>
 
@@ -126,9 +126,41 @@ b_y = model.get_weights()[1] # this is a (3,1) vector
 ```
 
 For each element of the sample $$n$$, for each time step $$t$$, we
-take $$x_t$$ a two-dimensional vector. This is $$(1,1)$$ for $$n = 0$$ and $$t = 0$$ in the previous example.
+take $$x_t$$ a two-dimensional vector.
 We compute $$W_y x_t + b_y$$ and obtain a three-dimensional vector.
 We finally apply the sigmoid function $$\sigma$$ to each component.
+
+In the previous example, we have:
+$$
+W_y = \begin{bmatrix}
+0.76 & 0.68 & 0.66 \\
+0.92 & 0.99 & 0.52
+\end{bmatrix}
+$$,
+$$
+b_y = \begin{bmatrix}
+-0.80 \\
+-0.79 \\
+-0.54
+\end{bmatrix}
+$$,
+and for $$n = 0$$ and $$t = 0$$,
+$$x_t = \begin{bmatrix}
+1 \\
+1
+\end{bmatrix}$$.
+The formula $$W_y^\intercal x_t + b_y$$ (note the transpose for dimensional correctness) gives
+$$W_y^\intercal x_t + b_y = \begin{bmatrix}
+0.88 \\
+0.88 \\
+0.65
+\end{bmatrix},$$
+and after applying the sigmoid on each component, we obtain:
+$$y_t = \begin{bmatrix}
+0.71 \\
+0.71 \\
+0.66
+\end{bmatrix}$$.
 
 ## Part B: Explanation of simple RNN
 
