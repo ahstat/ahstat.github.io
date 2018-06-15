@@ -21,6 +21,6 @@ digraph G {
 		label="output";
 	}
 
-        x -> y [ label=<W<SUB> </SUB>> headlabel = "σ"];
+        x -> y [ label=<W<SUB> </SUB>>];
 
 }

@@ -1,0 +1,56 @@
+digraph G {
+        #rankdir=LR
+	splines=line
+        nodesep=.3;
+
+        
+
+        subgraph cluster_0 {
+		color=white;
+                node [style=solid,color=black, shape=circle];
+		1 [style = invis] 4 [label = <x<SUB>0</SUB>>] 7 [label = <x<SUB>1</SUB>>] 10 [label = <x<SUB>2</SUB>>];
+		label = "layer 1";
+	}
+
+	subgraph cluster_1 {
+		color=white;
+		node [style=solid,color=black, shape=circle];
+		2 [label = <h<SUB>-1</SUB>>] 5 [label = <h<SUB>0</SUB>>] 8 [label = <h<SUB>1</SUB>>] 11 [label = <h<SUB>2</SUB>>];
+		label = "layer 2";
+	}
+
+	subgraph cluster_2 {
+		color=white;
+		node [style=solid,color=black, shape=circle];
+		p2 [label = <h'<SUB>-1</SUB>>] p5 [label = <h'<SUB>0</SUB>>] p8 [label = <h'<SUB>1</SUB>>] p11 [label = <h'<SUB>2</SUB>>];
+		label = "layer 2";
+	}
+
+
+	subgraph cluster_3 {
+		color=white;
+		node [style=solid,color=black, shape=circle];
+		3 [style = invis] 6 [label = <y<SUB>0</SUB>>] 9 [label = <y<SUB>1</SUB>>] 12 [label = <y<SUB>2</SUB>>];
+		label="layer 4";
+	}
+
+    node [style=solid,color=black, shape=circle];
+
+
+    // connect the left most nodes and keep them one below the other
+    1 -> 4 -> 7 -> 10 [ style = invis, weight = 10];
+    2 -> 5 -> 8 -> 11 [weight = 10  label = <U<SUB>h</SUB>>];
+    3 -> 6 -> 9 -> 12 [ style = invis, weight = 10 ];
+
+    {rank=same;  1 -> 2 -> 3 [ style = invis]}
+    {rank=same;  4 -> 5 [label = <W<SUB>h</SUB>>]}
+    {rank=same;  5 -> 6 [label = <W<SUB>y</SUB>>]}
+    {rank=same;  7 -> 8 [label = <W<SUB>h</SUB>>]}
+    {rank=same;  8 -> 9 [label = <W<SUB>y</SUB>>]}
+    {rank=same;  10 -> 11 [label = <W<SUB>h</SUB>>]}
+    {rank=same;  11 -> 12 [label = <W<SUB>y</SUB>>]}
+
+
+
+}
+ 
