@@ -25,6 +25,7 @@ Updated
 Core idea of LSTMs is better explained in ...this post....
 Here, only describe the network and how computed in Keras.
 
+[Companion code for this post](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py)
 
 
 
@@ -410,6 +411,7 @@ Manual computations are detailed in Part E of the companion code, and are relati
 
 ### References
 
+- [Companion code for this post](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py)
 - [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) by Christopher Olah,
 - [Keras documentation for TimeDistributed](https://keras.io/layers/wrappers/),
 - [Keras documentation for RNN](https://keras.io/layers/recurrent/),
