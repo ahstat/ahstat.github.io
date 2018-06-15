@@ -159,9 +159,10 @@ $$y_t = \begin{bmatrix}
 
 *Simple RNN* is the simplest way for a neural network to keep information along time.
 Information is stored in the hidden variable $$h$$ and updated at each time based on new inputs.
-Simple RNN can be connected to a time distributed component to form the *Elman's network*, introduced in 1990. The time distributed component allows to compute output from the hidden variable.
+Simple RNN can be connected to a time distributed component to form the *Elman's network*, introduced in 1990. The time distributed component allows computing output from the hidden variable.
 We describe this complete network in this part.
 
+**Description of the network.**
 In Keras, the command lines:
 
 ```python
@@ -191,7 +192,7 @@ Those equations can be represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="70%"/></center>
 
-This diagram shows one step of the network, explaining how to compute $$h_t$$ and $$y_t$$ from $$x_t$$ and $$h_{t-1}$$.
+This diagram shows one temporal step of the network, explaining how to compute $$h_t$$ and $$y_t$$ from $$x_t$$ and $$h_{t-1}$$.
 
 It remains to select the initial value $$h_{-1}$$ of the hidden variable, and we take the null vector: $$h_{-1} = \left( 0,0,0,0,0 \right)^\intercal$$.
 
@@ -250,7 +251,8 @@ model.add(SimpleRNN(input_shape=(None, dim_in),
 model.add(SimpleRNN(input_shape=(None,4), 
                     return_sequences=True, 
                     units=7))
-model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out)))
+model.add(TimeDistributed(Dense(activation='sigmoid',
+                                units=dim_out)))
 ```
 
 corresponds to the mathematical equations (for all time $$t$$):
