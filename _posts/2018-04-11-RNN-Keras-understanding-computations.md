@@ -281,7 +281,7 @@ Shape of weight matrices and manual computations are detailed in Part C of the c
 ## Part D: Explanation of LSTM
 
 **From SimpleRNN layer to LSTM layer.**
-In Part B, we used a `SimpleRNN` layer to update the hidden variable $$h$$, i.e. to compute $$h_t$$ from $$(x_t, h_{t-1})$$. This layer in isolation is represented as follows: 
+In Part B, we used a `SimpleRNN` layer to update the hidden variable $$h$$, i.e. to compute $$h_t$$ from $$(x_t, h_{t-1})$$. This layer in isolation at time $$t$$ is represented as follows: 
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
 
@@ -303,7 +303,7 @@ $$
 i_t =& \sigma(W_{ix} x_t + W_{ih} h_{t-1} + b_i) \\
 f_t =& \sigma(W_{fx} x_t + W_{fh} h_{t-1} + b_f) \\
 \tilde{c}_t =& \tanh(W_{cx} x_t + W_{ch} h_{t-1} + b_c) \\
-o_t =& W_{ox} x_t + W_{oh} h_{t-1} + b_o) \\
+o_t =& \sigma(W_{ox} x_t + W_{oh} h_{t-1} + b_o) \\
  \\
 c_t =& f_t c_{t-1} + i_t \tilde{c}_t \\
 h_t =& o_t \tanh(c_t)
@@ -317,7 +317,7 @@ and is represented by the following diagram:
 **Explanation of matrices.**
 It can be confusing to understand how all the matrices are organized.
 Let us suppose that `dim_in=7` and `nb_units = 13`.
-The input vector $$x_t$$ has length 7, and hidden and cell vectors $$h_t$$ and $$c_t$$ has both length 13.
+The input vector $$x_t$$ has length 7, and hidden and cell vectors $$h_t$$ and $$c_t$$ have both length 13.
 
 - Matrices $$W_{ix}$$, $$W_{fx}$$, $$W_{cx}$$, $$W_{ox}$$ have shape $$7 \times 13$$ each, because they are multiplied with $$x_t$$,
 - Matrices $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$ have shape $$13 \times 13$$ each, because they are multiplied with $$h_t$$,
@@ -326,7 +326,7 @@ The input vector $$x_t$$ has length 7, and hidden and cell vectors $$h_t$$ and $
 Consequently, vectors $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$ have length $$13$$ each.
 
 In 
-[this post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), $$W_{i}$$, $$W_{f}$$, $$W_{c}$$, $$W_{o}$$ are defined as follows:
+[the post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:gray;">$$W_{i}$$<\span>, $$W_{f}$$, $$W_{c}$$, $$W_{o}$$ are defined as follows:
 
 - $$W_{i}$$  is the concatenation of $$W_{ih}$$ and $$W_{ix}$$,
 - $$W_{f}$$  is the concatenation of $$W_{fh}$$ and $$W_{fx}$$,
