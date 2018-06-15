@@ -19,13 +19,7 @@ and divided in five parts:
 - LSTM,
 - GRU.
 
-
-Inputs and outputs for this section
-Model definition and training
-Understanding the weights
-Understanding the computations
-
-
+[INTRO to rewrite + add illustration]
 
 
 
@@ -42,10 +36,10 @@ Dense(activation='sigmoid', units=1)
 
 corresponds to the mathematical equation:
 
-$$y = \sigma(W x + b).$$
+$$y = \sigma(W_y x + b_y).$$
 
-Input $$x$$ and output $$y$$ are one-dimensional, so the weights are such that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
-This equation can be represented by the following diagram (note that bias term $$b$$ and activation function $$\sigma$$ have been masked to improve lisibility):
+Input $$x$$ and output $$y$$ are one-dimensional, so the weights are such that $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$. The output layer is indeed one-dimensional because we let `units = 1` in the previous command line.
+This equation can be represented by the following diagram (note that bias term $$b_y$$ and activation function $$\sigma$$ have been masked to improve lisibility):
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed_first.svg" alt="" width="50%"/></center>
 
@@ -60,9 +54,9 @@ TimeDistributed(Dense(activation='sigmoid', units=1),
 
 corresponds to the equation:
 
-$$y_t = \sigma(W x_t + b)$$
+$$y_t = \sigma(W_y x_t + b_y)$$
 
-applied at each $$t \in \lbrace 0, \ldots 5 \rbrace$$. Note that $$W \in \mathbb{R}$$ and $$b \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
+applied at each $$t \in \lbrace 0, \ldots 5 \rbrace$$. Note that $$W_y \in \mathbb{R}$$ and $$b_y \in \mathbb{R}$$ are identical for each $$t$$. In the previous command line, `input_shape=(None, 1)` means that input layer is an array of shape $$T \times 1$$, and `units = 1` means that output layer contains $$1$$ unit for each $$t$$. This model can be represented by the diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/time_distributed.svg" alt="" width="50%"/></center>
 
@@ -118,22 +112,22 @@ print(model.predict(new_input))
 Computations can be understood in details:
 
 ```python
-W = model.get_weights()[0] # this is a (2,3) matrix
-b = model.get_weights()[1] # this is a (3,1) vector
+W_y = model.get_weights()[0] # this is a (2,3) matrix
+b_y = model.get_weights()[1] # this is a (3,1) vector
 # At each time, we have a dense neural network 
 # (without hidden layer) from 2+1 inputs to 3 outputs.
 # On the whole, there are 9 parameters 
 # (the same parameters are used at each time).
 
 [[sigmoid(y)
-  for y in np.dot(x,W) + b] # like doing X * beta
+  for y in np.dot(x,W_y) + b_y] # like doing X * beta
   for x in [[1,1],[0.8,0.8],[0.6,0.6],[0.2,0.2],[1,1],[0,0]]]
 # We obtain the same results as with 'model.predict'
 ```
 
 For each element of the sample $$n$$, for each time step $$t$$, we
 take $$x_t$$ a two-dimensional vector. This is $$(1,1)$$ for $$n = 0$$ and $$t = 0$$ in the previous example.
-We compute $$W x_t + b$$ and obtain a three-dimensional vector.
+We compute $$W_y x_t + b_y$$ and obtain a three-dimensional vector.
 We finally apply the sigmoid function $$\sigma$$ to each component.
 
 ## Part B: Explanation of simple RNN
