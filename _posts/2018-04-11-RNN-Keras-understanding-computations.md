@@ -157,12 +157,40 @@ $$y_t = \begin{bmatrix}
 
 ## Part B: Explanation of simple RNN
 
-.....
- Elman networks
+Simple RNN is the simplest neural networks which is able to keep information along time (indexed with $$t$$).
+Information is stored in the hidden variable $$h$$ and is updated at each time based on new inputs. Output is computed from the hidden variable.
+This network is also known as the Elman's network.
+
+In Keras, the command line:
+
+```python
+dim_in=3; dim_out=2; nb_units=5;
+model=Sequential()
+model.add(SimpleRNN(input_shape=(None, dim_in), 
+                    return_sequences=True, 
+                    units=nb_units))
+model.add(TimeDistributed(Dense(activation='sigmoid', units=dim_out)))
+```
+
+corresponds to the mathematical equations:
+
+$$h_t = \sigma(W_x x_t + W_h h_{t-1} + b_h),$$
+
+$$y_t = \sigma(W_y h_t + b_y).$$
+
+As before, training inputs have shape $$(N, T, m)$$ and training outputs have shape $$(N, T, m')$$. In this example, we take $$m = 3$$ and $$m' = 2$$, then $$x_t$$ is a two-dimensional vector, and $$y_t$$ is a three-dimensional vector.
+We have selected $$units=5$$, so $$h_t$$ is a five-dimensional vector.
+
+..... Write matrix sizes
 
 
+
+Those equations can be represented by the following diagram:
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/simple_all.svg" alt="" width="70%"/></center>
+
+
+
 
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/rnn.svg" alt="" width="40%"/></center>
