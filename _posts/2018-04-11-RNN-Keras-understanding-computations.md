@@ -339,12 +339,23 @@ In the Keras implementation of LSTM, $$W_x$$ and $$W_h$$ are defined as follows:
 - $$W_{h}$$ is the concatenation of $$W_{ih}$$, $$W_{fh}$$, $$W_{ch}$$, $$W_{oh}$$, resulting in a matrix of size $$13 \times 52$$,
 - $$b_h$$ is the concatenation of $$b_{i}$$, $$b_{f}$$, $$b_{c}$$, $$b_{o}$$, resulting in a vector of length $$52$$.
 
-Shape of weight matrices and manual computations are detailed in Part D of the companion code.
-
 **Connecting LSTM layer with subsequent layers.**
-It 
+The rest of the network works as before. In Keras, we let:
 
+```python
+model=Sequential()
+model.add(LSTM(input_shape=(None, dim_in), 
+                    return_sequences=True, 
+                    units=nb_units,
+                    recurrent_activation='sigmoid',
+                    activation='tanh'))
+model.add(TimeDistributed(Dense(activation='sigmoid',
+                                units=dim_out)))
+```
 
+In details, `LSTM` line computes the full sequence $$(h_0, \ldots h_T)$$ and $$(c_0, \ldots c_T)$$ from $$(x_0, \ldots, x_T)$$ (and initials $$h_{-1}$$ and $$c_{-1}$$); the `TimeDistributed` line computes the sequence $$(y_0, \ldots y_T)$$ from $$(h_0, \ldots h_T)$$ (note that the cell variable $$c$$ is used internally in `LSTM` but not in subsequent layers, contrary to the hidden variable $$h$$).
+
+Shape of weight matrices and manual computations are detailed in Part D of the companion code.
 
 ## Part E: Explanation of GRU
 
