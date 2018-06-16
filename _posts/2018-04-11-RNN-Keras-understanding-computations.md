@@ -6,12 +6,12 @@ published: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 This tutorial highlights structure of common RNN algorithms by following and understanding computations carried out by each model.
-It is intended for anyone without prior understanding of RNN.
-If you really never heard about RNN, you *need* to [read this post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
+It is intended for anyone knowing the general deep learning workflow, but without prior understanding of RNN.
+If you really never heard about RNN, you need to [read this post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
 
-The present post focuses on understanding step by step computations in each model, without paying attention to train something useful.
+The present post focuses on understanding computations in each model step by step, without paying attention to train something useful.
 It is illustrated with [Keras](https://keras.io/) codes
-and divided in five parts:
+and divided into five parts:
 
 - TimeDistributed component,
 - Simple RNN,
@@ -19,16 +19,26 @@ and divided in five parts:
 - LSTM,
 - GRU.
 
-[INTRO to rewrite + add illustration]
-Updated
-...
-Core idea of LSTMs is better explained in ...this post....
-Here, only describe the network and how computed in Keras.
-
-[Companion code for this post](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py)
+<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
 
 
+*Illustration of an LSTM cell. Check out part D for details.*
+
+Companion source code for this post is available [here](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py).
+
+The core idea of RNN over feedforward neural networks is to read input in a sequential way. In RNN, input $$x$$ is indexed with $$t$$ and processed sequentially. The index $$t$$ can represent time for time-series, or sentence's position for NLP tasks.
+Information is stored, updated and transmitted over time using a hidden variable. 
+
+Simple RNN is a simple way to keep and update information along time. It is progressively described in Part A, B and C. This kind of model is effective but difficult to train for long-dependence series. The main issue is caused by the [vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem). This problem is detailed in [Section 10.7 of the Deep Learning book](http://www.deeplearningbook.org/contents/rnn.html).
+
+Gated RNNs have been introduced to circumvent the vanishing gradient problem. Two popular gated RNNs are described in Part D (LSTM) and Part E (GRU). 
+The main idea is to control information flow by introducing gates.
+Insight into why it is working can be found [here](https://stats.stackexchange.com/questions/185639/how-does-lstm-prevent-the-vanishing-gradient-problem) (please share if you know a better reference).
+
+Note that even gated RNNs have computational and interpretability issues, and are not explicit memory. 
+A promising way to circumvent those issues is attention mechanisms.
+An overview is available [here](https://distill.pub/2016/augmented-rnns/) (see also [this](https://towardsdatascience.com/the-fall-of-rnn-lstm-2d1594c74ce0) and [this](https://syncedreview.com/2017/09/25/a-brief-overview-of-attention-mechanism/) short posts).
 
 ## Part A: Explanation of the TimeDistributed component
 
@@ -240,7 +250,7 @@ print(model.predict(np.array([new_input])))
 #   [ 0.87601596  0.86248338]]]
 ```
 
-It is possible to retrive this result manually by computing $$h_0$$ from $$x_0$$ and $$h_{-1}$$; then $$y_0$$ from $$h_0$$; then $$h_1$$ from $$x_1$$ and $$h_{0}$$; then $$y_1$$ from $$h_1$$; then $$h_2$$ from $$x_2$$ and $$h_{1}$$; then $$y_2$$ from $$h_2$$. This is detailed in Part B of the companion code.
+It is possible to retrive this result manually by computing $$h_0$$ from $$x_0$$ and $$h_{-1}$$; then $$y_0$$ from $$h_0$$; then $$h_1$$ from $$x_1$$ and $$h_{0}$$; then $$y_1$$ from $$h_1$$; then $$h_2$$ from $$x_2$$ and $$h_{1}$$; then $$y_2$$ from $$h_2$$. This is detailed in Part B of the [companion code](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py).
 
 ## Part C: Explanation of simple RNN with two hidden layers
 
@@ -277,7 +287,7 @@ and is represented by the following diagram (two temporal steps are shown to hel
 
 In this example, at each time $$t$$, $$x_t$$, $$h_t$$, $$h'_t$$, $$y_t$$ are vectors of size $$2$$, $$5$$, $$7$$, $$3$$ respectively.
 
-Shape of weight matrices and manual computations are detailed in Part C of the companion code.
+Shape of weight matrices and manual computations are detailed in Part C of the [companion code](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py).
 
 ## Part D: Explanation of LSTM
 
@@ -359,7 +369,7 @@ model.add(TimeDistributed(Dense(activation='sigmoid',
 
 In details, `LSTM` line computes the full sequence $$(h_0, \ldots h_T)$$ and $$(c_0, \ldots c_T)$$ from $$(x_0, \ldots, x_T)$$ (and initials $$h_{-1}$$ and $$c_{-1}$$); the `TimeDistributed` line computes the sequence $$(y_0, \ldots y_T)$$ from $$(h_0, \ldots h_T)$$ (note that the cell variable $$c$$ is used internally in `LSTM` but not in subsequent layers, contrary to the hidden variable $$h$$).
 
-Shape of weight matrices and manual computations are detailed in Part D of the companion code.
+Shape of weight matrices and manual computations are detailed in Part D of the [companion code](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py).
 
 ## Part E: Explanation of GRU
 
@@ -407,7 +417,7 @@ In the Keras implementation of LSTM, <span style="color:blue;">$$W_x$$</span> an
 - <span style="color:blue;">$$W_{h}$$</span> is the concatenation of $$W_{zh}$$, $$W_{rh}$$, $$W_{oh}$$, resulting in a $$13 \times 39$$ matrix,
 - <span style="color:blue;">$$b_h$$</span> is the concatenation of $$b_{z}$$, $$b_{r}$$, $$b_{o}$$, resulting in a vector of length $$39$$.
 
-Manual computations are detailed in Part E of the companion code, and are relatively less straightforward compared to LSTM.
+Manual computations are detailed in Part E of the [companion code](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py), and are relatively less straightforward compared to LSTM.
 
 ### References
 
@@ -416,3 +426,4 @@ Manual computations are detailed in Part E of the companion code, and are relati
 - [Keras documentation for TimeDistributed](https://keras.io/layers/wrappers/),
 - [Keras documentation for RNN](https://keras.io/layers/recurrent/),
 - [Wikipedia page on RNN describing the Elman networks](https://en.wikipedia.org/wiki/Recurrent_neural_network).
+- Thanks to J. Leon for this [Tikz figure] (https://tex.stackexchange.com/questions/432312/how-do-i-draw-an-lstm-cell-in-tikz), on which I made figures ([full sources are here](https://github.com/ahstat/ahstat.github.io/tree/master/images/2018-04-11-RNN-Keras-understanding-computations/tex_archives))
