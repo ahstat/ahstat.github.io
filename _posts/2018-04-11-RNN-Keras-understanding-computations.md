@@ -426,4 +426,4 @@ Manual computations are detailed in Part E of the [companion code](https://githu
 - [Keras documentation for TimeDistributed](https://keras.io/layers/wrappers/),
 - [Keras documentation for RNN](https://keras.io/layers/recurrent/),
 - [Wikipedia page on RNN describing the Elman networks](https://en.wikipedia.org/wiki/Recurrent_neural_network).
-- Thanks to J. Leon for this [Tikz figure] (https://tex.stackexchange.com/questions/432312/how-do-i-draw-an-lstm-cell-in-tikz), on which I made figures ([full sources are here](https://github.com/ahstat/ahstat.github.io/tree/master/images/2018-04-11-RNN-Keras-understanding-computations/tex_archives))
+- Thanks to J. Leon for this [Tikz figure](https://tex.stackexchange.com/questions/432312/how-do-i-draw-an-lstm-cell-in-tikz), on which I made figures ([full sources are here](https://github.com/ahstat/ahstat.github.io/tree/master/images/2018-04-11-RNN-Keras-understanding-computations/tex_archives))
