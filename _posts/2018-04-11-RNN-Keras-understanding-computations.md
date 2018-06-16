@@ -325,7 +325,7 @@ $$
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
 
-In this setting, $$f_t$$ represents the *forget variable* (controlling how much information of $$c_{t-1}$$ is transmitted), $$\tilde{c}_t$$ represents *new information* to save, weighted by an *input variable* $$i_t$$ (controlling how much information of $$\tilde{c}_t$$ is transmitted). The combination of those variables forms $$c_t$$ the cell variable. Finally, $$o_t$$ represents the *output variable* (controlling how much information of $$\tanh c_{t}$$ is transmitted to $$h_t$$).
+In this setting, $$f_t$$ represents the *forget variable* (controlling how much information of $$c_{t-1}$$ is kept), $$\tilde{c}_t$$ represents *new information* to save, weighted by an *input variable* $$i_t$$ (controlling how much information of $$\tilde{c}_t$$ is kept). The combination of those variables forms $$c_t$$ the cell variable. Finally, $$o_t$$ represents the *output variable* (controlling how much information of $$\tanh c_{t}$$ is kept to $$h_t$$).
 
 **Explanation of matrices.**
 It can be confusing to understand how all the matrices are organized.
@@ -404,7 +404,7 @@ $$
 
 <center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/gru.svg" alt="" width="80%"/></center>
 
-In this setting, $$z_t$$ has a role similar to the *forget variable* (controlling how much information of $$h_{t-1}$$ and $$\tilde{h}_t$$ is transmitted), $$r_t$$ is a *recurrent variable* (controlling how $$h_{t-1}$$ is weighted), and $$\tilde{h}_t$$ represents *new information* to save (subsequently weighted by $$z_t$$).
+In this setting, $$z_t$$ has a role similar to the *forget variable* (controlling how much information of $$h_{t-1}$$ and $$\tilde{h}_t$$ is kept), $$r_t$$ is a *recurrent variable* (controlling how $$h_{t-1}$$ is weighted), and $$\tilde{h}_t$$ represents *new information* to save (subsequently weighted by $$z_t$$).
 
 **Explanation of matrices.**
 As before, we suppose that `dim_in=7` and `nb_units = 13`, so $$x_t$$ has length 7 and  $$h_t$$ has length 13.
