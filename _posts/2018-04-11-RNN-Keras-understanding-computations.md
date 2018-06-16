@@ -7,7 +7,7 @@ published: true
 
 This tutorial highlights structure of common RNN algorithms by following and understanding computations carried out by each model.
 It is intended for anyone knowing the general deep learning workflow, but without prior understanding of RNN.
-If you really never heard about RNN, you need to [read this post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
+If you really never heard about RNN, you can [read this post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
 
 The present post focuses on understanding computations in each model step by step, without paying attention to train something useful.
 It is illustrated with [Keras](https://keras.io/) codes
@@ -19,7 +19,7 @@ and divided into five parts:
 - LSTM,
 - GRU.
 
-<center><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></center>
+<center><a href="https://ahstat.github.io/RNN-Keras-understanding-computations/"><img src="../images/2018-04-11-RNN-Keras-understanding-computations/lstm3.svg" alt="" width="80%"/></a></center>
 
 
 
