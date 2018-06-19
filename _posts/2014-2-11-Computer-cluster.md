@@ -8,13 +8,13 @@ Using a computer cluster to run some program is useful if your program needs:
 	<li>a large amount of CPU or memory resources,</li>
 	<li>to run during a large amount of time.</li>
 </ul>
-In those cases, you can follow this short tutorial, designed for the <a title="ICJ website" href="http://math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">ICJ</a> cluster.
+In those cases, you can follow this short tutorial, designed for the <a title="ICJ website" href="https://math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">ICJ</a> cluster.
 
 <center><img src="../images/2014-2-11-Computer-cluster/apercuClusters4.png" alt="apercuClusters4"/></center>
 
 
 
-<strong>Step one:</strong> find an available cluster on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>.
+<strong>Step one:</strong> find an available cluster on <a href="https://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">https://cluster-math.univ-lyon1.fr/</a>.
 
 By clicking on the name of a cluster, you can get more information about the memory and the CPU speed.
 
@@ -52,7 +52,7 @@ nohup ./myprogram.exe &
 ```
 With `nohup`, you can disconnect yourself from the cluster (typing `exit`) and even shutdown your computer.
 
-<strong>Step five:</strong> verify that your program does not use too much memory and CPU. You can check this on <a href="http://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">http://cluster-math.univ-lyon1.fr/</a>. If a problem occurs, you can "kill" your program. Reconnect on the cluster and then type:
+<strong>Step five:</strong> verify that your program does not use too much memory and CPU. You can check this on <a href="https://cluster-math.univ-lyon1.fr/" target="_blank" rel="noopener noreferrer">https://cluster-math.univ-lyon1.fr/</a>. If a problem occurs, you can "kill" your program. Reconnect on the cluster and then type:
 ```
 top
 ```
@@ -68,6 +68,6 @@ killall -u username
 ```
 Related posts:
 <ul>
-	<li>More about ssh on <a href="http://www.tuteurs.ens.fr/internet/loin/ssh.html">tuteurs.ens.fr</a> (in French).</li>
-	<li>For ICJ users, you can also see <a href="http://math.univ-lyon1.fr/intranet/spip.php?article52">this</a> and <a href="http://math.univ-lyon1.fr/intranet/spip.php?article300">this for Matlab users </a>(in French).</li>
+	<li>More about ssh on <a href="https://www.tuteurs.ens.fr/internet/loin/ssh.html">tuteurs.ens.fr</a> (in French).</li>
+	<li>For ICJ users, you can also see <a href="https://math.univ-lyon1.fr/intranet/spip.php?article52">this</a> and <a href="https://math.univ-lyon1.fr/intranet/spip.php?article300">this for Matlab users </a>(in French).</li>
 </ul>

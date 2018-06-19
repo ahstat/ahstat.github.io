@@ -8,7 +8,7 @@ comments: true
 
 This tutorial highlights structure of common RNN algorithms by following and understanding computations carried out by each model.
 It is intended for anyone knowing the general deep learning workflow, but without prior understanding of RNN.
-If you really never heard about RNN, you can [read this post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
+If you really never heard about RNN, you can [read this post of Christopher Olah](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) first.
 
 The present post focuses on understanding computations in each model step by step, without paying attention to train something useful.
 It is illustrated with [Keras](https://keras.io/) codes
@@ -31,7 +31,7 @@ Companion source code for this post is available [here](https://github.com/ahsta
 The core idea of RNN over feedforward neural networks is to read input in a sequential way. In RNN, input $$x$$ is indexed with $$t$$ and processed sequentially. The index $$t$$ can represent time for time-series, or sentence's position for NLP tasks.
 Information is stored, updated and transmitted over time using a hidden variable. 
 
-Simple RNN is a simple way to keep and update information along time. It is progressively described in Part A, B and C. This kind of model is effective but difficult to train for long-dependence series. The main issue is caused by the [vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem). This problem is detailed in [Section 10.7 of the Deep Learning book](http://www.deeplearningbook.org/contents/rnn.html).
+Simple RNN is a simple way to keep and update information along time. It is progressively described in Part A, B and C. This kind of model is effective but difficult to train for long-dependence series. The main issue is caused by the [vanishing gradient problem](https://en.wikipedia.org/wiki/Vanishing_gradient_problem). This problem is detailed in [Section 10.7 of the Deep Learning book](https://www.deeplearningbook.org/contents/rnn.html).
 
 Gated RNNs have been introduced to circumvent the vanishing gradient problem. Two popular gated RNNs are described in Part D (LSTM) and Part E (GRU). 
 The main idea is to control information flow by introducing gates.
@@ -349,7 +349,7 @@ With those notations, we can first compute a raw vector <span style="color:blue;
 $$i_t$$, $$f_t$$, $$\tilde{c}_t$$ and $$o_t$$.
 
 Note that in 
-[the post of Christopher Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:lightgray;">$$W_{i}$$</span>, <span style="color:lightgray;">$$W_{f}$$</span>, <span style="color:lightgray;">$$W_{c}$$</span> and <span style="color:lightgray;">$$W_{o}$$</span> are defined as follows:
+[the post of Christopher Olah](https://colah.github.io/posts/2015-08-Understanding-LSTMs/), <span style="color:lightgray;">$$W_{i}$$</span>, <span style="color:lightgray;">$$W_{f}$$</span>, <span style="color:lightgray;">$$W_{c}$$</span> and <span style="color:lightgray;">$$W_{o}$$</span> are defined as follows:
 
 - <span style="color:lightgray;">$$W_{i}$$</span>  is the concatenation of $$W_{ih}$$ and $$W_{ix}$$,
 - <span style="color:lightgray;">$$W_{f}$$</span>  is the concatenation of $$W_{fh}$$ and $$W_{fx}$$,
@@ -427,7 +427,7 @@ Manual computations are detailed in Part E of the [companion code](https://githu
 ### References
 
 - [Companion code for this post](https://github.com/ahstat/deep-learning/blob/master/rnn/1_math_structure_of_rnn.py)
-- [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) by Christopher Olah,
+- [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) by Christopher Olah,
 - [Keras documentation for TimeDistributed](https://keras.io/layers/wrappers/),
 - [Keras documentation for RNN](https://keras.io/layers/recurrent/),
 - [Wikipedia page on RNN describing the Elman networks](https://en.wikipedia.org/wiki/Recurrent_neural_network).

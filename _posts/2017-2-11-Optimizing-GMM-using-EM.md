@@ -304,7 +304,7 @@ $$\Sigma_k^{(t+1)} := \frac{\sum_{i = 1}^{N} (x_i - m_k^{(t+1)})(x_i - m_k^{(t+1
 
 $$\pi_k^{(t+1)} := \frac{\sum_{i = 1}^{N} T_{k, i}^{(t)}}{\sum_{k'=1}^{K} \sum_{i = 1}^{N} T_{k', i}^{(t)}}.$$
 
-We repeat this step until convergence (see [this article for theoretical results of convergence](http://www3.stat.sinica.edu.tw/statistica/oldpdf/A15n316.pdf)). In general there is no problem for convergence to a local maxima, however it is possible to build some pathological cases.
+We repeat this step until convergence (see [this article for theoretical results of convergence](https://www3.stat.sinica.edu.tw/statistica/oldpdf/A15n316.pdf)). In general there is no problem for convergence to a local maxima, however it is possible to build some pathological cases.
 
 ### Clustering
 
@@ -560,6 +560,6 @@ The likelihood of the set using true parameters is $$-2979.822$$.
 
 - [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas,
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
+- [An introduction of EM following a similar perspective](https://cs229.stanford.edu/notes/cs229-notes8.pdf),
 
 - [An article detailing parameter convergence results for EM](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf).

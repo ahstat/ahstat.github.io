@@ -47,13 +47,13 @@ We can build more complex rules. For example, by plotting the distribution for t
 
 <img src="../images/2014-4-11-Gender-french-nouns/gender_letter_last2_cens0_hi.png"/>
 
-More complicated patterns can be found and have been found, but they become difficult to learn, see <a href="http://www.fourmilab.ch/francais/gender.html" target="_blank">here</a>, <a href="http://french.about.com/od/grammar/a/genderpatterns.htm" target="_blank">here</a> and <a href="http://www.french-linguistics.co.uk/grammar/le_or_la_in_french.shtml" target="_blank">here</a>.
+More complicated patterns can be found and have been found, but they become difficult to learn, see <a href="https://www.fourmilab.ch/francais/gender.html" target="_blank">here</a>, <a href="https://french.about.com/od/grammar/a/genderpatterns.htm" target="_blank">here</a> and <a href="https://www.french-linguistics.co.uk/grammar/le_or_la_in_french.shtml" target="_blank">here</a>.
 
 Finally, a well prospect could be to try to draw the distribution for other languages. I give all the code I used to make those plots <a href="https://github.com/ahstat/gender-french-nouns" target="_blank">here</a> (coded in R).
 
 Related posts:
 <ul>
-	<li>The dictionary was downloaded from this website: <a href="http://www.webcontentspinning.com/langage/" target="_blank">webcontentspinning</a>. Some mistakes appear in the words, such as wrong diacritics, but it seems correct,</li>
-	<li>A gif on <a href="../images/2014-4-11-Gender-french-nouns/data-ink.gif" target="_blank">how to improve visualisation</a>, from the <a href="http://darkhorseanalytics.com/blog/data-looks-better-naked/" target="_blank">Darkhorse Analytics blog</a>,</li>
-	<li>An opinion about <a href="http://www.businessinsider.com/pie-charts-are-the-worst-2013-6" target="_blank">why pie charts are the worst</a>.</li>
+	<li>The dictionary was downloaded from this website: <a href="https://www.webcontentspinning.com/langage/" target="_blank">webcontentspinning</a>. Some mistakes appear in the words, such as wrong diacritics, but it seems correct,</li>
+	<li>A gif on <a href="../images/2014-4-11-Gender-french-nouns/data-ink.gif" target="_blank">how to improve visualisation</a>, from the <a href="https://darkhorseanalytics.com/blog/data-looks-better-naked/" target="_blank">Darkhorse Analytics blog</a>,</li>
+	<li>An opinion about <a href="https://www.businessinsider.com/pie-charts-are-the-worst-2013-6" target="_blank">why pie charts are the worst</a>.</li>
 </ul>

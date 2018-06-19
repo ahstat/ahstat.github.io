@@ -6,7 +6,7 @@ published: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 This post explains why maximizing likelihood is equivalent to minimizing KL-divergence.
-This can already be found [here](https://wiseodd.github.io/techblog/2017/01/26/kl-mle/) and [here](http://thirdorderscientist.org/homoclinic-orbit/2013/4/1/maximum-likelihood-and-entropy), but I restate this in my "own" words.
+This can already be found [here](https://wiseodd.github.io/techblog/2017/01/26/kl-mle/) and [here](https://thirdorderscientist.org/homoclinic-orbit/2013/4/1/maximum-likelihood-and-entropy), but I restate this in my "own" words.
 
 More generally, I encourage you to read Section 3.13 of [Deep Learning book](https://www.deeplearningbook.org/contents/prob.html) for insights on information theory.
 

@@ -3,7 +3,7 @@ layout: post
 title: Introduction to particle filters
 published: true
 ---
-Those slides are an introduction to particle filters, with an homemade example of trajectory tracking. The presentation has been given in 2014 for the <a href="http://interactions14.sciencesconf.org/" target="_blank">Colloque Inter’Actions 2014</a>.
+Those slides are an introduction to particle filters, with an homemade example of trajectory tracking. The presentation has been given in 2014 for the <a href="https://interactions14.sciencesconf.org/" target="_blank">Colloque Inter’Actions 2014</a>.
 
 Source code of simulations are available <a href="https://github.com/ahstat/introduction-particle-filters">on my github</a>.
 

@@ -227,7 +227,7 @@ a callback has been written to reset states after $$\text{nb_cuts}$$ pieces
 (function `define_reset_states_class`).
 
 However, this callback is not properly called with validation data, 
-[as noted by Philippe Remy on his blog](http://philipperemy.github.io/keras-stateful-lstm).
+[as noted by Philippe Remy on his blog](https://philipperemy.github.io/keras-stateful-lstm).
 Another function `define_stateful_val_loss_class` has been defined for that purpose.
 
 Also, we need to take `shuffle = False` during model fitting.
@@ -308,4 +308,4 @@ Results are checked in Fig. 10 for sample $$n=0$$ and for the $$100$$ first elem
 ["Keras RNN with LSTM cells for predicting multiple output time series based 
 on multiple input time series"](https://stackoverflow.com/questions/41947039).
 - This [post](https://stackoverflow.com/questions/43882796/) helps me to understand stateful LSTM
-- To deal with part C in companion code, we consider a 0/1 time series [as described by Philippe Remy in his post](http://philipperemy.github.io/keras-stateful-lstm).
+- To deal with part C in companion code, we consider a 0/1 time series [as described by Philippe Remy in his post](https://philipperemy.github.io/keras-stateful-lstm).

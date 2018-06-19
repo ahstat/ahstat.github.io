@@ -281,6 +281,6 @@ For explicit calculations for GMM, please follow [the next post](../Optimizing-G
 
 - [English wikipedia about EM](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm). Wikipedia gives concise formulas, 
 
-- [An introduction of EM following a similar perspective](http://cs229.stanford.edu/notes/cs229-notes8.pdf),
+- [An introduction of EM following a similar perspective](https://cs229.stanford.edu/notes/cs229-notes8.pdf),
 
 - [An article detailing parameter convergence results for EM](../images/2017-1-11-Rediscover-EM-algorithm/A15n316.pdf).

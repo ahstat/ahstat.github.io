@@ -5,7 +5,7 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Many methods exist to visualize high-dimensional data through a two-dimensional map. Those include linear techniques such as PCA and MDS; as well as nonlinear ones such as Isomap, LLE, SNE and t-SNE (resp. Principal Component Analysis, 1933; MultiDimensional Scaling, 1952; Isomap, 2000; Locally Linear Embedding, 2000; Stochastic Neighbor Embedding, 2002; t-Distributed Stochastic Neighbor Embedding, 2008). Some of those dimensionality reduction methods are illustrated in [this sklearn example](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html).
+Many methods exist to visualize high-dimensional data through a two-dimensional map. Those include linear techniques such as PCA and MDS; as well as nonlinear ones such as Isomap, LLE, SNE and t-SNE (resp. Principal Component Analysis, 1933; MultiDimensional Scaling, 1952; Isomap, 2000; Locally Linear Embedding, 2000; Stochastic Neighbor Embedding, 2002; t-Distributed Stochastic Neighbor Embedding, 2008). Some of those dimensionality reduction methods are illustrated in [this sklearn example](https://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html).
 
 A popular method for nonlinear mapping is t-SNE. This method has been developed by Laurens van der Maaten and Geoffrey Hinton in [\[1\]][1]. It is based on SNE and improves it by addressing the "crowding problem" (tendency of mapped points to aggregate into a unique central cluster).
 You can [familiarize yourself with t-SNE here](https://distill.pub/2016/misread-tsne/), which allows exploration of various examples interactively.
@@ -58,7 +58,7 @@ $$C = \sum_i \text{KL}(P_i \mid \mid Q_i).$$
 
 ### Asymmetry of $$\text{KL}$$
 
-We remember that $$\text{KL}$$ divergence is asymmetric (see Fig 3.6. from [Deep learning book p.74](http://www.deeplearningbook.org/contents/prob.html)).
+We remember that $$\text{KL}$$ divergence is asymmetric (see Fig 3.6. from [Deep learning book p.74](https://www.deeplearningbook.org/contents/prob.html)).
 In SNE, we focus on choosing a distribution $$Q_i$$ which fairly represents the whole distribution $$P_i$$, so we optimize $$\text{KL}(P_i \mid \mid Q_i)$$.
 
 This means:
@@ -258,5 +258,5 @@ The form of this gradient is interpreted in Section 2 of [\[1\]][1].
 - [\[1\]][1]: *Visualizing Data using t-SNE* (2008) by Laurens van der Maaten and Geoffrey Hinton,
 - [\[2\]][2]: *Stochastic Neighbor Embedding* (2002) by Geoffrey Hinton and Sam Roweis.
 
-[1]: http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
-[2]: http://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
+[1]: https://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf
+[2]: https://papers.nips.cc/paper/2276-stochastic-neighbor-embedding.pdf
