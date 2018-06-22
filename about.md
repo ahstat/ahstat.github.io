@@ -28,7 +28,7 @@ On this blog, I provide detailed posts about specific topics,
 
 ### Own projects
 
-- [Langton's ant extended to Voronoi tessellations](https://ahstat.github.io/Langton-Voronoi/)(https://ahstat.github.io/Coal/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program extending Langton's ant to any Voronoi tessellation of the plane. Simulations show interesting walks for some partitions of the plane, including chaotic structures, highway patterns and even bounded evolutions.
+- [Langton's ant extended to Voronoi tessellations](https://ahstat.github.io/Langton-Voronoi/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program extending Langton's ant to any Voronoi tessellation of the plane. Simulations show interesting walks for some partitions of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
 - [Coal: Composition of Linear Functions](https://ahstat.github.io/Coal/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program for automating composition of linear functions. `gmp` package has been used to keep exact results for big rational numbers.
 
