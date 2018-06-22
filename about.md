@@ -10,9 +10,9 @@ On this blog, I provide detailed posts about specific topics,
 
 ### About deep learning
 
-- [RNN with Keras: Predicting time series](https://ahstat.github.io/RNN-Keras-time-series/)<img src="images/Python_logo.png", width="20", height="20"/>: Complete introduction of time series prediction with RNN. This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).
+- [RNN with Keras: Predicting time series](https://ahstat.github.io/RNN-Keras-time-series/) ![]({{site.baseurl}}/images/Python_logo.png =20x): Complete introduction of time series prediction with RNN. This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).
 
-- [RNN with Keras: Understanding computations](https://ahstat.github.io/RNN-Keras-understanding-computations/)<img src="images/Python_logo.png", width="20", height="20"/>: Highlights structure of common RNN algorithms by following computations carried out by each model. It provides a clear summary of command lines, math equations and diagrams.
+- [RNN with Keras: Understanding computations](https://ahstat.github.io/RNN-Keras-understanding-computations/) ![]({{site.baseurl}}/images/Python_logo.png =20x): Highlights structure of common RNN algorithms by following computations carried out by each model. It provides a clear summary of command lines, math equations and diagrams.
 
 ### About maths in data science
 
@@ -28,11 +28,11 @@ On this blog, I provide detailed posts about specific topics,
 
 ### Own projects
 
-- [Langton's ant extended to Voronoi tessellations](https://ahstat.github.io/Langton-Voronoi/)(https://ahstat.github.io/Coal/) ![](../images/R_logo.png =20x): A program extending Langton's ant to any Voronoi tessellation of the plane. Simulations show interesting walks for some partitions of the plane, including chaotic structures, highway patterns and even bounded evolutions.
+- [Langton's ant extended to Voronoi tessellations](https://ahstat.github.io/Langton-Voronoi/)(https://ahstat.github.io/Coal/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program extending Langton's ant to any Voronoi tessellation of the plane. Simulations show interesting walks for some partitions of the plane, including chaotic structures, highway patterns and even bounded evolutions.
 
-- [Coal: Composition of Linear Functions](https://ahstat.github.io/Coal/) ![](./images/R_logo.png =20x): A program for automating composition of linear functions. `gmp` package has been used to keep exact results for big rational numbers.
+- [Coal: Composition of Linear Functions](https://ahstat.github.io/Coal/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program for automating composition of linear functions. `gmp` package has been used to keep exact results for big rational numbers.
 
-- [Triangle pursuit](https://ahstat.github.io/Triangle-pursuit/) ![](images/R_logo.png =20x): A program computing recurrent sequences, offering generalization for different rules, different norms, larger number of initial points and higher dimensions.
+- [Triangle pursuit](https://ahstat.github.io/Triangle-pursuit/) ![]({{site.baseurl}}/images/R_logo.png =20x): A program computing recurrent sequences, offering generalization for different rules, different norms, larger number of initial points and higher dimensions.
 
 
 
