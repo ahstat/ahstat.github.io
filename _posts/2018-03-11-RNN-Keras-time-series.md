@@ -5,7 +5,7 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-*This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).*
+*[This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510)].*
 
 This tutorial provides a complete introduction of time series prediction with RNN.
 
