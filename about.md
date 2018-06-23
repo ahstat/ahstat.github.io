@@ -19,13 +19,13 @@ ahstat@qq.com
 - [Clustering as dimensionality reduction](https://stats.stackexchange.com/questions/288668/clustering-as-dimensionality-reduction) (question)
 - [Remove anti-aliasing for pandas plot.area](https://stackoverflow.com/questions/44612797/remove-anti-aliasing-for-pandas-plot-area) (question)
 
-### About deep learning
+### Posts about deep learning
 
 - [RNN with Keras: Predicting time series](https://ahstat.github.io/RNN-Keras-time-series/) ![]({{site.baseurl}}/images/Python_logo.png) Complete introduction of time series prediction with RNN. This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).
 
 - [RNN with Keras: Understanding computations](https://ahstat.github.io/RNN-Keras-understanding-computations/) ![]({{site.baseurl}}/images/Python_logo.png) Highlights structure of common RNN algorithms by following computations carried out by each model. It provides a clear summary of command lines, math equations and diagrams.
 
-### About maths in data science
+### Posts about maths in data science
 
 - [Optimizing GMM parameters using EM](https://ahstat.github.io/Optimizing-GMM-using-EM/). Description of GMM; How to update parameters using EM; Illustration on a simple example. Unlike many other sources, I fully detail parameters' update using gradient and Hessian.
 
