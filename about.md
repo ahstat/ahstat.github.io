@@ -10,7 +10,7 @@ On this blog, I provide detailed posts about deep learning, maths in data scienc
 
 ### Contact me
 
-ahstat@qq.com
+alexis.huet.phd@gmail.com
 
 ### Q/A on Stackoverflow
 
