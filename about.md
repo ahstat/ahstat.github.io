@@ -6,11 +6,23 @@ permalink: /about/
 
 I'm Alexis Huet. I got a PhD of mathematics in 2014 from the University of Lyon (France). I'm working in data science.
 
-On this blog, I provide detailed posts about deep learning, data science with maths flavor, and own projects. I code in R (![]({{site.baseurl}}/images/R_logo.png)) and Python (![]({{site.baseurl}}/images/Python_logo.png)), sometimes in Javascript (![]({{site.baseurl}}/images/Javascript_logo.png)) and C++ (![]({{site.baseurl}}/images/Cpp_logo.png)).
+On this blog, I provide detailed posts about deep learning, data science with maths flavor, and own projects. I code in R ![]({{site.baseurl}}/images/R_logo.png) and Python ![]({{site.baseurl}}/images/Python_logo.png), sometimes in Javascript ![]({{site.baseurl}}/images/Javascript_logo.png) and C++ ![]({{site.baseurl}}/images/Cpp_logo.png).
 
 ### Contact me
 
 ahstat@qq.com
+
+### Q/A on Stackoverflow
+
+#### Selected answers.
+
+- [Keras RNN with LSTM cells for predicting multiple output time series based on multiple intput time series](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460)
+- [Good accuracy despite high loss value](https://stats.stackexchange.com/questions/258166/good-accuracy-despite-high-loss-value/281651#281651)
+
+#### Selected questions.
+
+- [Clustering as dimensionality reduction](https://stats.stackexchange.com/questions/288668/clustering-as-dimensionality-reduction)
+- [Remove anti-aliasing for pandas plot.area](https://stackoverflow.com/questions/44612797/remove-anti-aliasing-for-pandas-plot-area)
 
 ### About deep learning
 
@@ -55,16 +67,4 @@ ahstat@qq.com
 - [Watering and draining planets](https://ahstat.github.io/Topography/) ![]({{site.baseurl}}/images/R_logo.png) And what would be the Moon, Mars and Venus with as much water in proportion as on the Earth?
 
 - [An enigma](https://ahstat.github.io/Enigme/) Could you find the missing symbol?
-
-### Q/A on Stackoverflow
-
-#### Selected answers.
-
-- [Keras RNN with LSTM cells for predicting multiple output time series based on multiple intput time series](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460)
-- [Good accuracy despite high loss value](https://stats.stackexchange.com/questions/258166/good-accuracy-despite-high-loss-value/281651#281651)
-
-#### Selected questions.
-
-- [Clustering as dimensionality reduction](https://stats.stackexchange.com/questions/288668/clustering-as-dimensionality-reduction)
-- [Remove anti-aliasing for pandas plot.area](https://stackoverflow.com/questions/44612797/remove-anti-aliasing-for-pandas-plot-area)
 
