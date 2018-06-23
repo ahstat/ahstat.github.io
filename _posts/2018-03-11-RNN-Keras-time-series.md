@@ -4,6 +4,9 @@ title: RNN with Keras&#58; Predicting time series
 published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+*This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).*
+
 This tutorial provides a complete introduction of time series prediction with RNN.
 
 In part A, we predict *short* time series using stateless LSTM. Computations give good results for this kind of series.
@@ -14,7 +17,7 @@ In part C, we circumvent this issue by training **stateful LSTM**. Stateful mode
 
 In part D, stateful LSTM is used to predict multiple outputs from multiple inputs.
 
-<center><img src="../images/2018-03-11-RNN-Keras-time-series/intro14.png" alt="framework with T=10"/></center>
+<center><a href="https://ahstat.github.io/RNN-Keras-time-series/"><img src="../images/2018-03-11-RNN-Keras-time-series/intro14.png" alt="framework with T=10"/></a></center>
 
 
 
