@@ -307,8 +307,9 @@ Results are checked in Fig. 10 for sample $$n=0$$ and for the $$100$$ first elem
 
 ## References
 
+- [Companion source code for this post](https://github.com/ahstat/deep-learning/blob/master/rnn/4_lagging_and_stateful.py)
 - Tutorial inspired from a StackOverflow question called
 ["Keras RNN with LSTM cells for predicting multiple output time series based 
-on multiple input time series"](https://stackoverflow.com/questions/41947039).
+on multiple input time series"](https://stackoverflow.com/questions/41947039)
 - This [post](https://stackoverflow.com/questions/43882796/) helps me to understand stateful LSTM
 - To deal with part C in companion code, we consider a 0/1 time series [as described by Philippe Remy in his post](https://philipperemy.github.io/keras-stateful-lstm).
