@@ -12,6 +12,5 @@ The work is finished when one special cell among ten thousand has been found. At
 
 Click on the screen to launch the game in your browser. The loading may take some seconds.
 
-
-
-This app follows <a href="https://ahstat.github.io/Bankvault/" target="_blank">Bankvault webapp</a> and shares a great part of the code. I released the whole source of Anabasis <a href="https://github.com/ahstat/anabasis" target="_blank">in my github</a>!
+ 
+I released this webapp as a challenge to understand how node.js and mongodb are working. I deployed the app with <a href="https://www.heroku.com" target="_blank">Heroku</a> and <a href="https://mlab.com" target="_blank">MongoLab</a>. The whole source is available <a href="https://github.com/ahstat/anabasis" target="_blank">in my github</a>! Analysis of data collected with the app <a href="https://ahstat.github.io/Clickstream/" target="_blank">is available here</a>.
