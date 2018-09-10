@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm Alexis Huet. I got a PhD of mathematics in 2014 from the University of Lyon (France). I'm working in data science.
+I'm Alexis Huet. [I got a PhD of mathematics](https://www.theses.fr/en/2014LYO10126) in 2014 from the University of Lyon (France). I'm working in data science.
 
 On this blog, I provide detailed posts about deep learning, maths in data science, and describe some own projects. I code in R ![]({{site.baseurl}}/images/R_logo.png) and Python ![]({{site.baseurl}}/images/Python_logo.png), sometimes in Javascript ![]({{site.baseurl}}/images/Javascript_logo.png) and C++ ![]({{site.baseurl}}/images/Cpp_logo.png).
 
