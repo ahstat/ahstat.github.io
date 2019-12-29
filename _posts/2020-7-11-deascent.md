@@ -1,7 +1,7 @@
 ---
 layout: post
 title: de&#58;a scent
-published: false
+published: true
 comments: false
 ---
 ss
