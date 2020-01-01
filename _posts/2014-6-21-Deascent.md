@@ -16,8 +16,8 @@ This is a draft in progress.
 Let $$g$$ a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
 Possibly the derivative of a density function, for example the density of a Gaussian distribution.
 Let $$x_1, \ldots, x_m \in \mathbb{R}^n$$ points of the space.
-Let $$\iota_1, \ldots, \iota_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
-Let $$\kappa_1, \ldots, \kappa_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
+Let $$\tau_1, \ldots, \tau_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
+Let $$\upsilon_1, \ldots, \upsilon_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
 
 ### Action of the points on $$x_i$$
 
@@ -28,15 +28,15 @@ The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / \| x_j - x_i \|$$.
 
 We define the force of the action as proportional to $$g$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$g(\| x_j - x_i \|)$$.
 
-We also multiply by $$\kappa_j$$ the densitype of $$x_j$$.
+We also multiply by $$\upsilon_j$$ the densitype of $$x_j$$.
 
 Finally, the action of $$x_j$$ on $$x_i$$ is given by:
 
-$$\kappa_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$\upsilon_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
 The global action of all the points is given by:
 
-$$\frac{1}{n} \sum_{j=1}^{n} \kappa_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$\frac{1}{n} \sum_{j=1}^{n} \upsilon_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
 
 
@@ -44,11 +44,11 @@ Note that in this formula we let the action of $$i$$ on itself at $$0$$. This is
 Better, we would like $$x \times g(|| x ||) / || x || --> 0$$ when $$|| x || --> 0$$, so
 $$g(|| x ||) --> 0$$ when $$|| x || --> 0$$
 
-The global action with $$\iota_i$$ is given by:
+The global action with $$\tau_i$$ is given by:
 
-$$F_i := \iota_i \times \frac{1}{n} \sum_{j=1}^{n} \kappa_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$F_i := \tau_i \times \frac{1}{n} \sum_{j=1}^{n} \upsilon_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
-If we take $$\iota = \kappa = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
+If we take $$\tau = \upsilon = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
 
 ### Movement
 
@@ -62,7 +62,7 @@ We do it for all points and we get one step. We repeat this $$N$$ times.
 
 $$\mathbb{R}^n$$ can be easily a field $$K$$, $$\mathbb{C}^n$$, or $$\mathbb{H}^n$$?
 
-$$\iota, \kappa$$ can easily lives in the scalar $$K$$, not only $$\lbrace -1, 1 \rbrace$$?
+$$\tau, \upsilon$$ can easily lives in the scalar $$K$$, not only $$\lbrace -1, 1 \rbrace$$?
 
 In the general case, ok with the sphere, but in general the maps Exp, Log are local only, must sum over all possible paths? Etc not so straightforward.
 Better only to get $$2$$ cases (Euclidian and spherical).
