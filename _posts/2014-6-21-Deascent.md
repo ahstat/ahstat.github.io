@@ -28,6 +28,9 @@ If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretatio
 http://www.cs.toronto.edu/~miguel/research/GMmodes.html
 
 
+Other possibility: Continue gradient descent with the same function until reaching local optima, then only at that date update f. (always converge to trivia?)
+
+
 ## Case in $$\mathbb{R}^n$$
 
 Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
