@@ -13,7 +13,7 @@ This is a draft in progress.
 
 ## Case in $$\mathbb{R}^n$$
 
-Let $$\textit{ꞙ}$$ a function on $$\mathbb{R}^{+}$$ such that $$\textit{ꞙ}(0) = 0$$.
+Let $$\textit{ꞙ}$$ a function on $$\mathbb{R}^{+}$$ such that $$\textit{ꞙ}\,(0) = 0$$.
 Possibly the derivative of a density function, for example the density of a Gaussian distribution.
 Let $$x_1, \ldots, x_m \in \mathbb{R}^n$$ points of the space.
 Let $$\iota_1, \ldots, \iota_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
@@ -26,25 +26,25 @@ Consider $$x_i$$ one of the points. We can look at the vector space centered on 
 The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / \| x_j - x_i \|$$.
 
 
-We define the force of the action as proportional to $$\textit{ꞙ}$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$\textit{ꞙ}(\| x_j - x_i \|)$$.
+We define the force of the action as proportional to $$\textit{ꞙ}$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$\textit{ꞙ}\,(\| x_j - x_i \|)$$.
 
 We also multiply by $$\kappa_j$$ the densitype of $$x_j$$.
 
 Finally, the action of $$x_j$$ on $$x_i$$ is given by:
 
-$$\kappa_j \times \textit{ꞙ}(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$\kappa_j \times \textit{ꞙ}\,(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
 The global action of all the points is given by:
 
-$$\frac{1}{n} \sum_{j=1}^{n} \kappa_j \times \textit{ꞙ}(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$\frac{1}{n} \sum_{j=1}^{n} \kappa_j \times \textit{ꞙ}\,(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
-Note that in this formula we let the action of $$i$$ on itself at $$0$$. This is why $$\textit{ꞙ}(0)$$ must be $$0$$.
-Better, we would like $$x \times \textit{ꞙ}(|| x ||) / || x || --> 0$$ when $$|| x || --> 0$$, so
-$$\textit{ꞙ}(|| x ||) --> 0$$ when $$|| x || --> 0$$
+Note that in this formula we let the action of $$i$$ on itself at $$0$$. This is why $$\textit{ꞙ}\,(0)$$ must be $$0$$.
+Better, we would like $$x \times \textit{ꞙ}\,(|| x ||) / || x || --> 0$$ when $$|| x || --> 0$$, so
+$$\textit{ꞙ}\,(|| x ||) --> 0$$ when $$|| x || --> 0$$
 
 The global action with $$\iota_i$$ is given by:
 
-$$F_i := \iota_i \times \frac{1}{n} \sum_{j=1}^{n} \kappa_j \times \textit{ꞙ}(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$F_i := \iota_i \times \frac{1}{n} \sum_{j=1}^{n} \kappa_j \times \textit{ꞙ}\,(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
 If we take $$\iota = \kappa = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
 
