@@ -11,11 +11,27 @@ This is a draft in progress.
 
 ## General idea as a mixture
 
+For points $$x_1, \ldots, x_m \in \mathbb{R}^n$$, we define $$f_{x_1, \ldots, x_m}$$ the mixture of the densities $$f_1, \ldots, f_m$$, where for each $$i \in \lbrace 1, \ldots m \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with unit variance.
+
+The dynamic of the system is described as follows.
+First, we initialize 
+
+to let each point $$x_i$$ perform a gradient descent following $$f$$:
+
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f (x_i^{(t)}).$$
+
+... todo
+
+Possibly the derivative of a density function, for example the density of a Gaussian distribution.
+If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
+
+http://www.cs.toronto.edu/~miguel/research/GMmodes.html
+
+
 ## Case in $$\mathbb{R}^n$$
 
-Let $$g$$ a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
-Possibly the derivative of a density function, for example the density of a Gaussian distribution.
-Let $$x_1, \ldots, x_m \in \mathbb{R}^n$$ points of the space.
+Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
+Let $$x_1, \ldots, x_m \in \mathbb{R}^n$$ be points of the space.
 Let $$\lambda_1, \ldots, \lambda_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
 Let $$\mu_1, \ldots, \mu_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
 
@@ -47,8 +63,6 @@ $$g(|| x ||) --> 0$$ when $$|| x || --> 0$$
 The global action with $$\lambda_i$$ is given by:
 
 $$F_i := \lambda_i \times \frac{1}{n} \sum_{j=1}^{n} \mu_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
-
-If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
 
 ### Movement
 
