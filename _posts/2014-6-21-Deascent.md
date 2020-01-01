@@ -23,9 +23,10 @@ Let $$\kappa_1, \ldots, \kappa_m \in \lbrace -1, 1 \rbrace$$ the densitype of ea
 
 Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$: The position of $$x_j$$ as seen by $$x_i$$ is $$x_j - x_i$$ (* this is Log function)
 
-The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / || x_j - x_i ||$$.
+The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / \| x_j - x_i \|$$.
 
-We define the force of the action as proportional to $$\textit{ꞙ}$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$\textit{ꞙ}(|| x_j - x_i ||)$$.
+
+We define the force of the action as proportional to $$\textit{ꞙ}$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$\textit{ꞙ}(\| x_j - x_i \|)$$.
 
 We also multiply by $$\kappa_j$$ the densitype of $$x_j$$.
 
@@ -49,7 +50,7 @@ If we take $$\iota = \kappa = 1$$, and $$f$$ is a density function, interpretati
 
 ### Movement
 
-Let $$alpha > 0$$ as small as possible the speed rate and $$N$$ a number of steps.
+Let $$\alpha > 0$$ as small as possible the speed rate and $$N$$ a number of steps.
 
 $$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ after applying $$F_i$$ is $$x_i + \alpha F_i$$ (** this is Exp function).
 
@@ -64,6 +65,10 @@ $$\iota, \kappa$$ can easily lives in the scalar $$K$$, not only $$\lbrace -1, 1
 In the general case, ok with the sphere, but in general the maps Exp, Log are local only, must sum over all possible paths? Etc not so straightforward.
 Better only to get $$2$$ cases (Euclidian and spherical).
 Here: https://ronnybergmann.net/mvirt/manifolds/Hn.html Very good to get Euclidian, sphere, hyperbolic, and we can see how to do torus.
+
+Look the EDO linked with those steps, not so difficult:
++: close to what is done, so allows to compare dynamic systems and see if it already exists. Possible to solve it in special cases!
+-: probably cannot be solved in general
 
 ## General case
 
