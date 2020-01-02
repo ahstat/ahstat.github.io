@@ -9,33 +9,37 @@ published: true
 
 This is a draft in progress.
 
-## Specific case of mixture of Gaussians
+## Idea of the system in the specific case of mixture of Gaussians
 
-This case is to get the general idea of the system.
+### Definition of the system in this case
 
-### Definition of the system
-
-For points $$x_1, \ldots, x_m \in \mathbb{R}^n$$, we define $$f_{x_1, \ldots, x_m}$$ the mixture of the densities $$f_1, \ldots, f_m$$, where for each $$i \in \lbrace 1, \ldots m \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with unit variance.
+For points $$x_1, \ldots, x_n \in \mathbb{R}^d$$, we define $$f_{x_1, \ldots, x_n}$$ the mixture of the densities $$f_1, \ldots, f_n$$, where for each $$i \in \lbrace 1, \ldots n \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with unit variance.
 
 The dynamic of the system is described as follows.
-First, we initialize points $$x_1^{(1)}, \ldots, x_m^{(1)} \in \mathbb{R}^n$$
 
-Then, for each $$t \in \mathbb{N}^{*}$$, for each $$i \in \lbrace 1, \ldots m \rbrace$$, we let the point $$x_i^({t})$$ performs a gradient descent step following $$f_{(x_1^{(t)}, \ldots, x_m^{(t)})}$$ with a learning rate of $$\alpha > 0$$:
+First, we initialize points $$x_1^{(1)}, \ldots, x_n^{(1)} \in \mathbb{R}^d$$.
 
-$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(t)}, \ldots, x_m^{(t)})}(x_i^{(t)}).$$
+Then, for each $$t \in \mathbb{N}^{*}$$, for each $$i \in \lbrace 1, \ldots n \rbrace$$, we let the point $$x_i^{(t)}$$ performs a gradient descent step following $$f_{(x_1^{(t)}, \ldots, x_n^{(t)})}$$ with a learning rate of $$\alpha > 0$$:
+
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(t)}, \ldots, x_n^{(t)})}(x_i^{(t)}).$$
+
 We continue until a certain step $$N$$.
 
 ### Precomputations
 
-$$\nabla f$$ has a closed-form... Write here.
+Defining $$g = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}}$$, we rewrite:
+
+$$\nabla f_{(x_1^{(t)}, \ldots, x_n^{(t)})} = n^{-1} \sum_{i=1}^{n} g \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}).$$
+
+(Details in Annex 1)
 
 ### Alternatives
 
 #### Alternative 1
 
-Instead of updating the mixture density at each step, we can only consider the initial mixture density, that is, the initial points are the same and the evolution is as follows for all $$t$$ and $$i$$:
+Instead of updating the mixture density at each step, we can only consider the initial mixture density, that is, the initial points are the same and the evolution is for all $$t$$ and $$i$$:
 
-$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(1)}, \ldots, x_m^{(1)})}(x_i^{(t)}).$$
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(1)}, \ldots, x_n^{(1)})}(x_i^{(t)}).$$
 
 #### Alternative 2
 
@@ -43,22 +47,22 @@ Instead of updating the mixture density at each step, we perform the Alternative
 
 ### Look
 
-[How many modes can a Gaussian mixture have?](http://www.cs.toronto.edu/~miguel/research/GMmodes.html)
+[How many modes can a Gaussian mixture have?](https://www.cs.toronto.edu/~miguel/research/GMmodes.html)
 
 
-## General case for $$K^n$$
+## General case for $$K^d$$
 
 $$K$$ is $$\mathbb{R}$$ or $$\mathbb{C}$$.
 
 Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
-Let $$x_1, \ldots, x_m \in K^n$$ be points of the space.
-Let $$\lambda_1, \ldots, \lambda_m \in K$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_m \in K$$ the densitype of each point.
+Let $$x_1, \ldots, x_n \in K^d$$ be points of the space.
+Let $$\lambda_1, \ldots, \lambda_n \in K$$ the type of each point.
+Let $$\mu_1, \ldots, \mu_n \in K$$ the densitype of each point.
 
 #### ...
 
-Let $$\lambda_1, \ldots, \lambda_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
+Let $$\lambda_1, \ldots, \lambda_n \in \lbrace -1, 1 \rbrace$$ the type of each point.
+Let $$\mu_1, \ldots, \mu_n \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
 
 
 
@@ -109,7 +113,7 @@ We do it for all points and we get one step. We repeat this $$N$$ times.
 
 ## Todo
 
-$$\mathbb{R}^n$$ can be easily a field $$K$$, $$\mathbb{C}^n$$, or $$\mathbb{H}^n$$?
+$$\mathbb{R}^d$$ can be easily a field $$K$$, $$\mathbb{C}^d$$, or $$\mathbb{H}^d$$?
 
 $$\lambda, \mu$$ can easily lives in the scalar $$K$$, not only $$\lbrace -1, 1 \rbrace$$?
 
@@ -123,7 +127,7 @@ Look the EDO linked with those steps, not so difficult:
 
 ## General case
 
-Let $$M$$ be a Riemannian manifold like $$\mathbb{R}^n$$ or $$\mathbb{S}^{n-1}$$.
+Let $$M$$ be a Riemannian manifold like $$\mathbb{R}^d$$ or $$\mathbb{S}^{d-1}$$.
 
 We are able to compute the exponential map locally. 
 https://math.stackexchange.com/questions/2538499
@@ -154,3 +158,35 @@ plot(y, tan(-y/(1+y^2)), xlim = c(0,20))
 lines(y, -y/(1+y^2), xlim = c(0,20), col = "blue")
 
 
+## Annexes
+
+### Annex 1. Precomputations in case of mixture of Gaussians
+
+Let $$p$$ be the density of a Gaussian with mean $$m$$ and matrix of variance-covariance $$\Sigma$$. According to the [Matrix Cookbook 8.1.1](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf):
+
+$$\nabla p(x) = -p(x) \Sigma^{-1} (x-m) = -\frac{1}{\sqrt{\det(2 \pi \Sigma)}} \exp \left[ -\frac{1}{2} (x-m)^{T} \Sigma^{-1} (x-m) \right] \Sigma^{-1} (x-m).$$
+
+Let $$f$$ be a mixture of $$n$$ Gaussians, each $$f_i$$ with parameter $$m_i$$ and $$\Sigma_i$$.
+
+$$\nabla f(x) = \frac{1}{n} \sum_{i=1}^{n} \nabla f_i(x) = - \frac{1}{n} \sum_{i=1}^{n} \left( \frac{1}{\sqrt{\det(2 \pi \Sigma_i)}} \exp \left[ -\frac{1}{2} (x-m_i)^{T} \Sigma_i^{-1} (x-m_i) \right] \Sigma_i^{-1} (x-m_i) \right).$$
+
+With $$m_i = x_i^{(t)}$$ and $$\Sigma_i = \sigma^2 I$$ for a certain $$\sigma > 0$$,
+
+<!---
+Intermediate
+$$\nabla f(x) = - \frac{1}{n \sigma^2} \left( 2 \pi \sigma^2 \right)^{-d/2} \sum_{i=1}^{n} \left(  \exp \left[ -\frac{1}{2\sigma^2} (x-x_i^{(t)})^{T} (x-x_i^{(t)}) \right] (x-x_i^{(t)}) \right).$$
+-->
+
+$$\nabla f(x) = - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} n^{-1} \sum_{i=1}^{n} \left( e^{-\frac{1}{2\sigma^2} \|x-x_i^{(t)}\|^2}  (x-x_i^{(t)}) \right)$$
+
+We let:
+
+$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}}$$
+
+and obtain:
+
+$$\nabla f(x) = n^{-1} \sum_{i=1}^{n} g_\sigma \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}) $$
+
+In the case $$\sigma = 1$$, we let $$g = g_1 = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}}$$ and 
+
+$$\nabla f_{(x_1^{(t)}, \ldots, x_n^{(t)})} = - \left( 2 \pi \right)^{-d/2} n^{-1} \sum_{i=1}^{n} \left(  e^{-\frac{1}{2} \|x-x_i^{(t)}\|^2} (x-x_i^{(t)}) \right) = n^{-1} \sum_{i=1}^{n} g \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}).$$
