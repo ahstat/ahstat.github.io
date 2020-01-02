@@ -9,34 +9,66 @@ published: true
 
 This is a draft in progress.
 
-## General idea as a mixture
+## Specific case of mixture of Gaussians
+
+This case is to get the general idea of the system.
+
+### Definition of the system
 
 For points $$x_1, \ldots, x_m \in \mathbb{R}^n$$, we define $$f_{x_1, \ldots, x_m}$$ the mixture of the densities $$f_1, \ldots, f_m$$, where for each $$i \in \lbrace 1, \ldots m \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with unit variance.
 
 The dynamic of the system is described as follows.
-First, we initialize 
+First, we initialize points $$x_1^{(1)}, \ldots, x_m^{(1)} \in \mathbb{R}^n$$
 
-to let each point $$x_i$$ perform a gradient descent following $$f$$:
+Then, for each $$t \in \mathbb{N}^{*}$$, for each $$i \in \lbrace 1, \ldots m \rbrace$$, we let the point $$x_i^({t})$$ performs a gradient descent step following $$f_{(x_1^{(t)}, \ldots, x_m^{(t)})}$$ with a learning rate of $$\alpha > 0$$:
 
-$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f (x_i^{(t)}).$$
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(t)}, \ldots, x_m^{(t)})}(x_i^{(t)}).$$
+We continue until a certain step $$N$$.
 
-... todo
+### Precomputations
 
+$$\nabla f$$ has a closed-form... Write here.
+
+### Alternatives
+
+#### Alternative 1
+
+Instead of updating the mixture density at each step, we can only consider the initial mixture density, that is, the initial points are the same and the evolution is as follows for all $$t$$ and $$i$$:
+
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(1)}, \ldots, x_m^{(1)})}(x_i^{(t)}).$$
+
+#### Alternative 2
+
+Instead of updating the mixture density at each step, we perform the Alternative 1 until convergence. If there is no convergence for some points, we stop with error. Otherwise, we take the final points as initial points and repeat the process (performing Alternative 1 until convergence). We stop when the initial and the final points are the same during one step of the process.
+
+### Look
+
+[How many modes can a Gaussian mixture have?](http://www.cs.toronto.edu/~miguel/research/GMmodes.html)
+
+
+## General case for $$K^n$$
+
+$$K$$ is $$\mathbb{R}$$ or $$\mathbb{C}$$.
+
+Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
+Let $$x_1, \ldots, x_m \in K^n$$ be points of the space.
+Let $$\lambda_1, \ldots, \lambda_m \in K$$ the type of each point.
+Let $$\mu_1, \ldots, \mu_m \in K$$ the densitype of each point.
+
+#### ...
+
+Let $$\lambda_1, \ldots, \lambda_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
+Let $$\mu_1, \ldots, \mu_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
+
+
+
+
+Generalize here.
 Possibly the derivative of a density function, for example the density of a Gaussian distribution.
 If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
 
-http://www.cs.toronto.edu/~miguel/research/GMmodes.html
 
 
-Other possibility: Continue gradient descent with the same function until reaching local optima, then only at that date update f. (always converge to trivia?)
-
-
-## Case in $$\mathbb{R}^n$$
-
-Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
-Let $$x_1, \ldots, x_m \in \mathbb{R}^n$$ be points of the space.
-Let $$\lambda_1, \ldots, \lambda_m \in \lbrace -1, 1 \rbrace$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_m \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
 
 ### Action of the points on $$x_i$$
 
