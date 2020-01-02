@@ -27,9 +27,11 @@ We continue until a certain step $$N$$.
 
 ### Precomputations
 
-Defining $$g = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}}$$, we rewrite:
+Defining $$g = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}} x$$, we rewrite:
 
-$$\nabla f_{(x_1^{(t)}, \ldots, x_n^{(t)})} = n^{-1} \sum_{i=1}^{n} g \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}).$$
+$$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g \left( \|x_j-x_i\| \right)  \frac{x_j-x_i}{\|x_j-x_i\|}.$$
+
+$$g$$ is the $$x \mapsto (x, 0, \ldots 0)$$ component of the derivative of this isotropic Gaussian function... to rewrite better
 
 (Details in Annex 1)
 
@@ -56,30 +58,14 @@ $$K$$ is $$\mathbb{R}$$ or $$\mathbb{C}$$.
 
 Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
 Let $$x_1, \ldots, x_n \in K^d$$ be points of the space.
-Let $$\lambda_1, \ldots, \lambda_n \in K$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_n \in K$$ the densitype of each point.
-
-#### ...
-
-Let $$\lambda_1, \ldots, \lambda_n \in \lbrace -1, 1 \rbrace$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_n \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
-
-
-
-
-Generalize here.
-Possibly the derivative of a density function, for example the density of a Gaussian distribution.
-If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
-
-
-
+Let $$\lambda_1, \ldots, \lambda_n \in K$$ be the type of each point.
+Let $$\mu_1, \ldots, \mu_n \in K$$ be the densitype of each point.
 
 ### Action of the points on $$x_i$$
 
-Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$: The position of $$x_j$$ as seen by $$x_i$$ is $$x_j - x_i$$ (* this is Log function)
+Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$: The position of any $$x_j$$ as seen by $$x_i$$ is $$x_j - x_i$$ (Side note: this is the Log function for the Euclidian space).
 
 The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / \| x_j - x_i \|$$.
-
 
 We define the force of the action as proportional to $$g$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$g(\| x_j - x_i \|)$$.
 
@@ -87,31 +73,35 @@ We also multiply by $$\mu_j$$ the densitype of $$x_j$$.
 
 Finally, the action of $$x_j$$ on $$x_i$$ is given by:
 
-$$\mu_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
+$$\mu_j  g(\| x_j - x_i \|)  \frac{x_j - x_i}{\| x_j - x_i \|}.$$
 
-The global action of all the points is given by:
+The global action of all the points with $$\lambda_i$$ is given by:
 
-$$\frac{1}{n} \sum_{j=1}^{n} \mu_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
-
-
+$$\lambda_i n^{-1} \sum_{j=1}^{n} \mu_j g(\| x_j - x_i \|) \frac{x_j - x_i}{\| x_j - x_i \|}.$$
 
 Note that in this formula we let the action of $$i$$ on itself at $$0$$. This is why $$g(0)$$ must be $$0$$.
-Better, we would like $$x \times g(|| x ||) / || x || --> 0$$ when $$|| x || --> 0$$, so
-$$g(|| x ||) --> 0$$ when $$|| x || --> 0$$
+<!---
+Better, we would like $$x \times g(|| x ||) / || x || -> 0$$ when $$|| x || -> 0$$, so $$g(|| x ||) -> 0$$ when $$|| x || -> 0$$
+-->
 
-The global action with $$\lambda_i$$ is given by:
-
-$$F_i := \lambda_i \times \frac{1}{n} \sum_{j=1}^{n} \mu_j \times g(|| x_j - x_i ||) \times (x_j - x_i) / || x_j - x_i ||.$$
 
 ### Movement
 
 Let $$\alpha > 0$$ as small as possible the speed rate and $$N$$ a number of steps.
 
-$$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ after applying $$F_i$$ is $$x_i + \alpha F_i$$ (** this is Exp function).
+$$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ after applying $$\alpha F_i$$ is $$x_i + \alpha F_i$$ (** this is Exp function).
 
 We do it for all points and we get one step. We repeat this $$N$$ times.
 
 ## Todo
+Let $$\lambda_1, \ldots, \lambda_n \in \lbrace -1, 1 \rbrace$$ the type of each point.
+Let $$\mu_1, \ldots, \mu_n \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
+Generalize here.
+Possibly the derivative of a density function, for example the density of a Gaussian distribution.
+If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
+
+
+
 
 $$\mathbb{R}^d$$ can be easily a field $$K$$, $$\mathbb{C}^d$$, or $$\mathbb{H}^d$$?
 
@@ -121,6 +111,8 @@ In the general case, ok with the sphere, but in general the maps Exp, Log are lo
 Better only to get $$2$$ cases (Euclidian and spherical).
 Here: https://ronnybergmann.net/mvirt/manifolds/Hn.html Very good to get Euclidian, sphere, hyperbolic, and we can see how to do torus.
 
+
+Finite_difference_method and link with EDO.
 Look the EDO linked with those steps, not so difficult:
 +: close to what is done, so allows to compare dynamic systems and see if it already exists. Possible to solve it in special cases!
 -: probably cannot be solved in general
@@ -166,27 +158,32 @@ Let $$p$$ be the density of a Gaussian with mean $$m$$ and matrix of variance-co
 
 $$\nabla p(x) = -p(x) \Sigma^{-1} (x-m) = -\frac{1}{\sqrt{\det(2 \pi \Sigma)}} \exp \left[ -\frac{1}{2} (x-m)^{T} \Sigma^{-1} (x-m) \right] \Sigma^{-1} (x-m).$$
 
-Let $$f$$ be a mixture of $$n$$ Gaussians, each $$f_i$$ with parameter $$m_i$$ and $$\Sigma_i$$.
+Let $$f$$ be a mixture of $$n$$ Gaussians, each $$f_j$$ with parameter $$m_j$$ and $$\Sigma_j$$.
 
-$$\nabla f(x) = \frac{1}{n} \sum_{i=1}^{n} \nabla f_i(x) = - \frac{1}{n} \sum_{i=1}^{n} \left( \frac{1}{\sqrt{\det(2 \pi \Sigma_i)}} \exp \left[ -\frac{1}{2} (x-m_i)^{T} \Sigma_i^{-1} (x-m_i) \right] \Sigma_i^{-1} (x-m_i) \right).$$
+$$\nabla f(x) = \frac{1}{n} \sum_{j=1}^{n} \nabla f_j(x) = - \frac{1}{n} \sum_{j=1}^{n} \left( \frac{1}{\sqrt{\det(2 \pi \Sigma_j)}} \exp \left[ -\frac{1}{2} (x-m_j)^{T} \Sigma_j^{-1} (x-m_j) \right] \Sigma_j^{-1} (x-m_j) \right).$$
 
-With $$m_i = x_i^{(t)}$$ and $$\Sigma_i = \sigma^2 I$$ for a certain $$\sigma > 0$$,
+With $$m_j = x_j$$ and $$\Sigma_j = \sigma^2 I$$ for a certain $$\sigma > 0$$,
 
 <!---
 Intermediate
-$$\nabla f(x) = - \frac{1}{n \sigma^2} \left( 2 \pi \sigma^2 \right)^{-d/2} \sum_{i=1}^{n} \left(  \exp \left[ -\frac{1}{2\sigma^2} (x-x_i^{(t)})^{T} (x-x_i^{(t)}) \right] (x-x_i^{(t)}) \right).$$
+$$\nabla f(x) = - \frac{1}{n \sigma^2} \left( 2 \pi \sigma^2 \right)^{-d/2} \sum_{j=1}^{n} \left(  \exp \left[ -\frac{1}{2\sigma^2} (x-x_j)^{T} (x-x_j) \right] (x-x_j) \right).$$
 -->
 
-$$\nabla f(x) = - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} n^{-1} \sum_{i=1}^{n} \left( e^{-\frac{1}{2\sigma^2} \|x-x_i^{(t)}\|^2}  (x-x_i^{(t)}) \right)$$
+$$\nabla f(x) = - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} n^{-1} \sum_{j=1}^{n} \left( e^{-\frac{1}{2\sigma^2} \|x-x_j\|^2}  (x-x_j) \right)$$
 
 We let:
 
-$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}}$$
+$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x$$
 
 and obtain:
 
-$$\nabla f(x) = n^{-1} \sum_{i=1}^{n} g_\sigma \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}) $$
+$$\nabla f(x) = n^{-1} \sum_{j=1}^{n} g_\sigma \left( \|x-x_j\| \right)  \frac{x-x_j}{\|x-x_j\|} $$
 
-In the case $$\sigma = 1$$, we let $$g = g_1 = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}}$$ and 
+In the case $$\sigma = 1$$, we let $$g = g_1 = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}} x$$ and 
 
-$$\nabla f_{(x_1^{(t)}, \ldots, x_n^{(t)})} = - \left( 2 \pi \right)^{-d/2} n^{-1} \sum_{i=1}^{n} \left(  e^{-\frac{1}{2} \|x-x_i^{(t)}\|^2} (x-x_i^{(t)}) \right) = n^{-1} \sum_{i=1}^{n} g \left( \|x-x_i^{(t)}\| \right)  (x-x_i^{(t)}).$$
+$$\nabla f_{(x_1, \ldots, x_n)}(x) = - \left( 2 \pi \right)^{-d/2} n^{-1} \sum_{j=1}^{n} \left(  e^{-\frac{1}{2} \|x-x_j\|^2} (x-x_j) \right) = n^{-1} \sum_{j=1}^{n} g \left( \|x-x_j\| \right)  \frac{x-x_j}{\|x-x_j\|}.$$
+Since we want $$x_j - x$$ in each term (because we look relative to the fixed $$x$$, not to $$x_j$$), we rewrite:
+
+$$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g \left( \|x_j - x_i\| \right)  \frac{x_j - x_i}{\|x_j - x_i\|}.$$
+
+And $$g$$ is the derivative of the first component for the Gaussian distribution...
