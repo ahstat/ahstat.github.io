@@ -9,11 +9,13 @@ published: true
 
 This is a draft in progress.
 
-## Idea of the system in the specific case of mixture of Gaussians
+# Definitions
+
+## Introduction: Idea of the system in the specific case of a mixture of Gaussians
 
 ### Definition of the system in this case
 
-For points $$x_1, \ldots, x_n \in \mathbb{R}^d$$, we define $$f_{x_1, \ldots, x_n}$$ the mixture of the densities $$f_1, \ldots, f_n$$, where for each $$i \in \lbrace 1, \ldots n \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with unit variance.
+For points $$x_1, \ldots, x_n \in \mathbb{R}^d$$, we define $$f_{x_1, \ldots, x_n}$$ the mixture of the densities $$f_1, \ldots, f_n$$, where for each $$i \in \lbrace 1, \ldots n \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with $$\sigma^2 I$$ matrix of variance-covariance.
 
 The dynamic of the system is described as follows.
 
@@ -27,19 +29,14 @@ We continue until a certain step $$N$$.
 
 ### Precomputations
 
-Defining $$g = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}} x$$, we rewrite:
+Defining $$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x$$, which is the derivative of a marginal density of an isotropic Gaussian centered in $$0$$ and with variance $$\sigma^2 I$$, we rewrite (details in Annex 1):
 
-$$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g \left( \|x_j-x_i\| \right)  \frac{x_j-x_i}{\|x_j-x_i\|}.$$
-
-$$g$$ is the $$x \mapsto (x, 0, \ldots 0)$$ component of the derivative of this isotropic Gaussian function... to rewrite better
-
-(Details in Annex 1)
-
+$$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g_\sigma \left( \|x_j-x_i\| \right)  \frac{x_j-x_i}{\|x_j-x_i\|}.$$
 ### Alternatives
 
 #### Alternative 1
 
-Instead of updating the mixture density at each step, we can only consider the initial mixture density, that is, the initial points are the same and the evolution is for all $$t$$ and $$i$$:
+Instead of updating the mixture density at each step, we can consider the initial mixture density only, that is, we let some initial points $$x_1^{(1)}, \ldots, x_n^{(1)}$$ and define the evolution of the system, for all $$t$$ and $$i$$, with:
 
 $$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(1)}, \ldots, x_n^{(1)})}(x_i^{(t)}).$$
 
@@ -52,74 +49,119 @@ Instead of updating the mixture density at each step, we perform the Alternative
 [How many modes can a Gaussian mixture have?](https://www.cs.toronto.edu/~miguel/research/GMmodes.html)
 
 
-## General case for $$K^d$$
+## Euclidian case
 
-$$K$$ is $$\mathbb{R}$$ or $$\mathbb{C}$$.
-
-Let $$g$$ be a function on $$\mathbb{R}^{+}$$ such that $$g(0) = 0$$.
+Let $$K$$ be $$\mathbb{R}$$ or $$\mathbb{C}$$.
+Let $$g$$ be a function from $$\mathbb{R}^{+}$$ to $$K$$ such that $$g(0) = 0$$.
 Let $$x_1, \ldots, x_n \in K^d$$ be points of the space.
 Let $$\lambda_1, \ldots, \lambda_n \in K$$ be the type of each point.
 Let $$\mu_1, \ldots, \mu_n \in K$$ be the densitype of each point.
 
 ### Action of the points on $$x_i$$
 
-Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$: The position of any $$x_j$$ as seen by $$x_i$$ is $$x_j - x_i$$ (Side note: this is the Log function for the Euclidian space).
+Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$: The position of any $$x_j$$ as seen by $$x_i$$ is $$x_j - x_i$$ (Note: this is the Log function for the Euclidian space).
 
 The unit vector from $$x_i$$ to $$x_j$$ is $$(x_j - x_i) / \| x_j - x_i \|$$.
 
-We define the force of the action as proportional to $$g$$ of the distance between $$x_i$$ and $$x_j$$ i.e.  $$g(\| x_j - x_i \|)$$.
+<!---
+We define the force of the action between $$x_i$$ and $$x_j$$ as proportional to $$g(\| x_j - x_i \|)$$.
 
 We also multiply by $$\mu_j$$ the densitype of $$x_j$$.
+-->
 
-Finally, the action of $$x_j$$ on $$x_i$$ is given by:
+The force of $$x_j$$ on $$x_i$$ is defined by:
 
 $$\mu_j  g(\| x_j - x_i \|)  \frac{x_j - x_i}{\| x_j - x_i \|}.$$
 
-The global action of all the points with $$\lambda_i$$ is given by:
+The global force of all the points on $$x_i$$ is defined by:
 
-$$\lambda_i n^{-1} \sum_{j=1}^{n} \mu_j g(\| x_j - x_i \|) \frac{x_j - x_i}{\| x_j - x_i \|}.$$
+$$F_i := \lambda_i n^{-1} \sum_{j=1}^{n} \mu_j g(\| x_j - x_i \|) \frac{x_j - x_i}{\| x_j - x_i \|}.$$
 
 Note that in this formula we let the action of $$i$$ on itself at $$0$$. This is why $$g(0)$$ must be $$0$$.
+
 <!---
 Better, we would like $$x \times g(|| x ||) / || x || -> 0$$ when $$|| x || -> 0$$, so $$g(|| x ||) -> 0$$ when $$|| x || -> 0$$
 -->
 
 
-### Movement
+### Dynamics
 
 Let $$\alpha > 0$$ as small as possible the speed rate and $$N$$ a number of steps.
 
-$$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ after applying $$\alpha F_i$$ is $$x_i + \alpha F_i$$ (** this is Exp function).
-
+$$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ after applying $$\alpha F_i$$ is $$x_i + \alpha F_i$$ (Note: this is the Exp function for the Euclidian space).
 We do it for all points and we get one step. We repeat this $$N$$ times.
 
-## Todo
-Let $$\lambda_1, \ldots, \lambda_n \in \lbrace -1, 1 \rbrace$$ the type of each point.
-Let $$\mu_1, \ldots, \mu_n \in \lbrace -1, 1 \rbrace$$ the densitype of each point.
-Generalize here.
-Possibly the derivative of a density function, for example the density of a Gaussian distribution.
-If we take $$\lambda = \mu = 1$$, and $$f$$ is a density function, interpretation as a mixture, and the movement is for each point to follow the resulting density function.
+That is, the dynamic is for all $$t$$ and $$i$$:
 
+$$x_i^{(t+1)} = x_i^{(t)} + \alpha F_i(t).$$
 
+### Mixture of Gaussians as a special case
 
+Take $$K= \mathbb{R}$$, 
+$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x$$,
+$$\lambda_1 = \ldots = \lambda_n = 1$$,
+$$\mu_1 = \ldots = \mu_n = 1$$.
 
-$$\mathbb{R}^d$$ can be easily a field $$K$$, $$\mathbb{C}^d$$, or $$\mathbb{H}^d$$?
+Then,
 
-$$\lambda, \mu$$ can easily lives in the scalar $$K$$, not only $$\lbrace -1, 1 \rbrace$$?
+$$F_i= n^{-1} \sum_{j=1}^{n} g_\sigma(\| x_j - x_i \|) \frac{x_j - x_i}{\| x_j - x_i \|}$$
+
+and
+
+$$x_i^{(t+1)} = x_i^{(t)} - \alpha \left( - n^{-1} \sum_{j=1}^{n} g_\sigma(\| x_j^{(t)} - x_i^{(t)} \|) \frac{x_j^{(t)} - x_i^{(t)}}{\| x_j^{(t)} - x_i^{(t)} \|} \right),$$
+
+which is exactly a gradient descent step as seen in the introduction.
+
+### Notes
+
+With $$\lambda_1 = \ldots = \lambda_n = 1$$ and $$\mu_1 = \ldots = \mu_n = 1$$, we are doing a gradient descent step.
+
+With $$\lambda_1 = \ldots = \lambda_n = -1$$ and $$\mu_1 = \ldots = \mu_n = 1$$, we are doing a gradient ascent step.
+
+Some other special cases exist, some giving also gradient descent and ascent, but the interpretation is not straightforward.
+
+Changing $$\lambda_i \neq 1$$ corresponds to alter the reaction to have for $$x_i$$ given the mean force received.
+
+Changing $$\mu_j \neq 1$$ corresponds to alter the force of $$x_j$$ on any other point.
+
+$$g$$ is possibly the first marginal of the derivative of an isotropic density function.
+
+#### Implementation
+
+For implementation, we write $$F_i = n^{-1} \sum_{j=1}^n F_{ij}$$ with
+$$F_{ij} := \lambda_i \mu_j g(\| x_j - x_i \|) \frac{x_j - x_i}{\| x_j - x_i \|}.$$
+
+#### Interpretation as an ODE
+
+The system corresponds to the ODE:
+
+$$\mathbf{x}'(t) = \mathbf{F}(t, \mathbf{x}(t)) = \mathbf{F}(\mathbf{x}(t))$$
+
+with $$\mathbf{F} = (F_1, \ldots, F_n)$$ and $$\mathbf{x} = (x_1, \ldots, x_n).$$
+
+<!---
+$$x_i^{(t+1)} = x_i^{(t)} + \alpha F_i(t).$$
+$$(x_i^{(t+dt)} - x_i^{(t)}) / dt  = F_i(t)$$
+F = (F_1, ... F_n)
+x = (x_1, ..., x_n)
+$$(x^{(t+dt)} - x^{(t)}) / dt  = F(t)$$
+Finite_difference_method and link with EDO.
+Look the EDO linked with those steps, not so difficult:
++: close to what is done, so allows to compare dynamic systems and see if it already exists. Possible to solve it in special cases!
+-: probably cannot be solved in general
+-->
+
+## General case
+
+Let $$M$$ be a Riemannian manifold like $$\mathbb{R}^d$$ or $$\mathbb{S}^{d-1}$$.
+
+todo
 
 In the general case, ok with the sphere, but in general the maps Exp, Log are local only, must sum over all possible paths? Etc not so straightforward.
 Better only to get $$2$$ cases (Euclidian and spherical).
 Here: https://ronnybergmann.net/mvirt/manifolds/Hn.html Very good to get Euclidian, sphere, hyperbolic, and we can see how to do torus.
 
 
-Finite_difference_method and link with EDO.
-Look the EDO linked with those steps, not so difficult:
-+: close to what is done, so allows to compare dynamic systems and see if it already exists. Possible to solve it in special cases!
--: probably cannot be solved in general
-
-## General case
-
-Let $$M$$ be a Riemannian manifold like $$\mathbb{R}^d$$ or $$\mathbb{S}^{d-1}$$.
 
 We are able to compute the exponential map locally. 
 https://math.stackexchange.com/questions/2538499
@@ -150,7 +192,12 @@ plot(y, tan(-y/(1+y^2)), xlim = c(0,20))
 lines(y, -y/(1+y^2), xlim = c(0,20), col = "blue")
 
 
-## Annexes
+
+# Implementation
+
+todo
+
+# Annexes
 
 ### Annex 1. Precomputations in case of mixture of Gaussians
 
@@ -158,32 +205,44 @@ Let $$p$$ be the density of a Gaussian with mean $$m$$ and matrix of variance-co
 
 $$\nabla p(x) = -p(x) \Sigma^{-1} (x-m) = -\frac{1}{\sqrt{\det(2 \pi \Sigma)}} \exp \left[ -\frac{1}{2} (x-m)^{T} \Sigma^{-1} (x-m) \right] \Sigma^{-1} (x-m).$$
 
-Let $$f$$ be a mixture of $$n$$ Gaussians, each $$f_j$$ with parameter $$m_j$$ and $$\Sigma_j$$.
+Let $$f$$ be a mixture of $$n$$ Gaussians, each $$f_j$$ with parameter $$m_j = x_j$$ and $$\Sigma_j = \sigma^2 I$$ for a certain $$\sigma > 0$$. We obtain:
+
+$$\nabla f(x) = \frac{1}{n} \sum_{j=1}^{n} \nabla f_j(x) = \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} n^{-1} \sum_{j=1}^{n} \left( e^{-\frac{1}{2\sigma^2} \|x_j-x\|^2}  (x_j-x) \right).$$
+
+
+
+<!---
+
+Intermediate
 
 $$\nabla f(x) = \frac{1}{n} \sum_{j=1}^{n} \nabla f_j(x) = - \frac{1}{n} \sum_{j=1}^{n} \left( \frac{1}{\sqrt{\det(2 \pi \Sigma_j)}} \exp \left[ -\frac{1}{2} (x-m_j)^{T} \Sigma_j^{-1} (x-m_j) \right] \Sigma_j^{-1} (x-m_j) \right).$$
 
 With $$m_j = x_j$$ and $$\Sigma_j = \sigma^2 I$$ for a certain $$\sigma > 0$$,
 
-<!---
-Intermediate
 $$\nabla f(x) = - \frac{1}{n \sigma^2} \left( 2 \pi \sigma^2 \right)^{-d/2} \sum_{j=1}^{n} \left(  \exp \left[ -\frac{1}{2\sigma^2} (x-x_j)^{T} (x-x_j) \right] (x-x_j) \right).$$
--->
 
 $$\nabla f(x) = - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} n^{-1} \sum_{j=1}^{n} \left( e^{-\frac{1}{2\sigma^2} \|x-x_j\|^2}  (x-x_j) \right)$$
 
-We let:
+-->
 
-$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x$$
+Here we have expressed in terms of $$x_j - x$$ (instead of $$x - x_j$$), because we look at the sum with a fixed $$x$$ which is our *origin* point at this moment. The density $$f_0$$ of a Gaussian with mean $$0$$ and variance $$\sigma^2 I$$ is isotropic, and the marginal of the first component of the derivative of the density $$g_\sigma: x \mapsto \nabla f_0(x, 0, \ldots, 0)$$ is given by:
 
-and obtain:
+$$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x.$$
 
+We obtain our final expression for $$\nabla f(x)$$:
+
+<!---
 $$\nabla f(x) = n^{-1} \sum_{j=1}^{n} g_\sigma \left( \|x-x_j\| \right)  \frac{x-x_j}{\|x-x_j\|} $$
+-->
 
+$$\nabla f(x) = -n^{-1} \sum_{j=1}^{n} g_\sigma \left( \|x_j-x\| \right)  \frac{x_j-x}{\|x_j-x\|}.$$
+
+<!---
 In the case $$\sigma = 1$$, we let $$g = g_1 = x \mapsto - \left( 2 \pi \right)^{-d/2} e^{-\frac{x^2}{2}} x$$ and 
 
-$$\nabla f_{(x_1, \ldots, x_n)}(x) = - \left( 2 \pi \right)^{-d/2} n^{-1} \sum_{j=1}^{n} \left(  e^{-\frac{1}{2} \|x-x_j\|^2} (x-x_j) \right) = n^{-1} \sum_{j=1}^{n} g \left( \|x-x_j\| \right)  \frac{x-x_j}{\|x-x_j\|}.$$
-Since we want $$x_j - x$$ in each term (because we look relative to the fixed $$x$$, not to $$x_j$$), we rewrite:
+$$\nabla f_{(x_1, \ldots, x_n)}(x) = -n^{-1} \sum_{j=1}^{n} g \left( \|x_j-x\| \right)  \frac{x_j-x}{\|x_j-x\|}.$$
+-->
 
-$$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g \left( \|x_j - x_i\| \right)  \frac{x_j - x_i}{\|x_j - x_i\|}.$$
 
-And $$g$$ is the derivative of the first component for the Gaussian distribution...
+
+
