@@ -15,7 +15,7 @@ This is a draft in progress.
 
 ### Definition of the system in this case
 
-For points $$x_1, \ldots, x_n \in \mathbb{R}^d$$, we define $$f_{x_1, \ldots, x_n}$$ the mixture of the densities $$f_1, \ldots, f_n$$, where for each $$i \in \lbrace 1, \ldots n \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with $$\sigma^2 I$$ matrix of variance-covariance.
+For points $$x_1, \ldots, x_n \in \mathbb{R}^d$$, we define $$f_{(x_1, \ldots, x_n)}$$ the mixture of the densities $$f_1, \ldots, f_n$$, where for each $$i \in \lbrace 1, \ldots n \rbrace$$, $$f_i$$ is a Gaussian density centered in $$x_i$$ and with $$\sigma^2 I$$ matrix of variance-covariance.
 
 The dynamic of the system is described as follows.
 
@@ -32,6 +32,7 @@ We continue until a certain step $$N$$.
 Defining $$g_\sigma:= x \mapsto - \left( 2 \pi \right)^{-d/2} \sigma^{-d-2} e^{-\frac{x^2}{2\sigma^2}} x$$, which is the derivative of a marginal density of an isotropic Gaussian centered in $$0$$ and with variance $$\sigma^2 I$$, we rewrite (details in Annex 1):
 
 $$\nabla f_{(x_1, \ldots, x_n)}(x_i) = -n^{-1} \sum_{j=1}^{n} g_\sigma \left( \|x_j-x_i\| \right)  \frac{x_j-x_i}{\|x_j-x_i\|}.$$
+
 ### Alternatives
 
 #### Alternative 1
@@ -42,7 +43,7 @@ $$x_i^{(t+1)} = x_i^{(t)} - \alpha \nabla f_{(x_1^{(1)}, \ldots, x_n^{(1)})}(x_i
 
 #### Alternative 2
 
-Instead of updating the mixture density at each step, we perform the Alternative 1 until convergence. If there is no convergence for some points, we stop with error. Otherwise, we take the final points as initial points and repeat the process (performing Alternative 1 until convergence). We stop when the initial and the final points are the same during one step of the process.
+Instead of updating the mixture density at each step, we perform the Alternative 1 until convergence. If there is no convergence for some points, we stop with error. Otherwise, we take the final points as initial points, update the mixture density, and repeat the process (performing Alternative 1 until convergence). We stop when the initial and the final points are the same during one step of the process.
 
 ### Look
 
@@ -153,44 +154,57 @@ Look the EDO linked with those steps, not so difficult:
 
 ## General case
 
-Let $$M$$ be a Riemannian manifold like $$\mathbb{R}^d$$ or $$\mathbb{S}^{d-1}$$.
+Let $$K$$ be $$\mathbb{R}$$ or $$\mathbb{C}$$.
+Let $$M$$ be a Riemannian manifold among $$\mathbb{K}^d$$, $$\mathbb{S}^{d-1}$$, or $$\mathbb{H}^{d-1}$$. 
 
-todo
+Let $$g$$ be a function from $$\mathbb{R}^{+}$$ to $$K$$ such that $$g(0) = 0$$.
+Let $$x_1, \ldots, x_n \in M$$ be points of the space.
+Let $$\lambda_1, \ldots, \lambda_n \in K$$ be the type of each point.
+Let $$\mu_1, \ldots, \mu_n \in K$$ be the densitype of each point.
 
-In the general case, ok with the sphere, but in general the maps Exp, Log are local only, must sum over all possible paths? Etc not so straightforward.
-Better only to get $$2$$ cases (Euclidian and spherical).
-Here: https://ronnybergmann.net/mvirt/manifolds/Hn.html Very good to get Euclidian, sphere, hyperbolic, and we can see how to do torus.
+### Action of the points on $$x_i$$
+
+Consider $$x_i$$ one of the points. We can look at the vector space centered on it, so $$x_i$$ is our new origin $$O$$ and we consider the tangent space $$T_{x_i}M$$: The position of any $$x_j \in M$$ as seen by $$x_i$$ in $$T_{x_i}M$$ is $$\breve{x}_j := \text{Log}_{x_i}(x_j) \in T_{x_i}M \simeq K^d $$.
+
+The distance between $$x_i$$ and $$x_j$$ on $$M$$ is $$\| \text{Log}_{x_i}(x_j) \|$$ the Euclidian distance between $$\text{Log}_{x_i}(x_i) = 0$$ and $$\text{Log}_{x_i}(x_j)$$.
+
+The force of $$x_j$$ on $$x_i$$ is defined by:
+
+$$\mu_j  g(\| \text{Log}_{x_i}(x_j) \|)  \frac{\text{Log}_{x_i}(x_j)}{\| \text{Log}_{x_i}(x_j) \|}.$$
+
+The global force of all the points on $$x_i$$ is defined by:
+
+$$F_i := \lambda_i n^{-1} \sum_{j=1}^{n} \mu_j g(\| \text{Log}_{x_i}(x_j) \|) \frac{\text{Log}_{x_i}(x_j)}{\| \text{Log}_{x_i}(x_j) \|}.$$
+
+Since the logarithm map may be local on $$U$$ only, $$g$$ must be $$0$$ outside. Also, as before, we must have $$g(0) = 0$$.
+
+### Dynamics
+
+Let $$\alpha > 0$$ as small as possible the speed rate and $$N$$ a number of steps.
+
+$$x_i$$ was one of the points. We looked at the vector space centered on it, so $$x_i$$ was our origin $$O$$: The position of $$x_i$$ on $$M$$ after applying $$\alpha F_i$$ is $$\text{Exp}_{x_i}(\alpha F_i)$$.
+
+We do it for all points and we get one step. We repeat this $$N$$ times.
+
+That is, the dynamic is for all $$t$$ and $$i$$:
+
+$$x_i^{(t+1)} = \text{Exp}_{x_i^{(t)}}(\alpha F_i(t)).$$
+<!--- $$x_i^{(t+1)} = \text{Exp}_{x_i^{(t)}} \left[ \alpha \lambda_i n^{-1} \sum_{j=1}^{n} \mu_j g \left(\| \text{Log}_{x_i^{(t)}}(x_j^{(t)}) \| \right) \frac{\text{Log}_{x_i^{(t)}}(x_j^{(t)})}{\| \text{Log}_{x_i^{(t)}}(x_j^{(t)}) \|} \right].$$-->
+
+### Look
+
+[In this article, concise presentation of the mapping for the sphere](http://people.csail.mit.edu/jstraub/download/straub2015dptgmm.pdf)
+
+[In this documentation, concise description of the mapping for Euclidian, sphere and hyperbole](https://ronnybergmann.net/mvirt/manifolds/Hn.html)
+
+[Wiki page: Riemannian_manifold](https://en.wikipedia.org/wiki/Riemannian_manifold)
+
+[Wiki page: Geodesic](https://en.wikipedia.org/wiki/Geodesic)
 
 
+### Precomputations
 
-We are able to compute the exponential map locally. 
-https://math.stackexchange.com/questions/2538499
-
-https://fr.wikipedia.org/wiki/Vari%C3%A9t%C3%A9_riemannienne
-https://en.wikipedia.org/wiki/Riemannian_manifold
-https://en.wikipedia.org/wiki/Geodesic
-https://math.stackexchange.com/questions/1708146/shortest-path-between-two-points-on-a-surface
-topology/dim
-
-Df (or multiple Df?)
-
-init / number of elements
-
-types / densitypes / Nsteps / alpha
-
-
-Description:
-
-#[0,pi[ --> [0,+inf[
-#x |--> tan(x/2)
-x = seq(from = 0, to = pi, length.out = 1000)
-plot(tan(x/2), tan(-sin(x)/2), xlim = c(0,20))
-
-y = tan(x/2)
-plot(y, tan(-sin(2*atan(y))/2), xlim = c(0,20))
-plot(y, tan(-y/(1+y^2)), xlim = c(0,20))
-lines(y, -y/(1+y^2), xlim = c(0,20), col = "blue")
-
+For the Euclidian, sphere and hyperbole, rewrite the formulas.
 
 
 # Implementation
