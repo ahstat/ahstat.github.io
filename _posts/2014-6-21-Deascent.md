@@ -195,7 +195,7 @@ $$x_i^{(t+1)} = \text{Exp}_{x_i^{(t)}}(\alpha F_i(t)).$$
 
 [In this article, concise presentation of the mapping for the sphere](http://people.csail.mit.edu/jstraub/download/straub2015dptgmm.pdf)
 
-[In this documentation, concise description of the mapping for Euclidian, sphere and hyperbole](https://ronnybergmann.net/mvirt/manifolds/Hn.html)
+[In this documentation, description of the mapping for Euclidian, sphere and hyperbole](https://ronnybergmann.net/mvirt/manifolds/Hn.html)
 
 [Wiki page: Riemannian_manifold](https://en.wikipedia.org/wiki/Riemannian_manifold)
 
@@ -206,6 +206,52 @@ $$x_i^{(t+1)} = \text{Exp}_{x_i^{(t)}}(\alpha F_i(t)).$$
 
 For the Euclidian, sphere and hyperbole, rewrite the formulas.
 
+#### For $$K^{d}$$
+
+Given $$A, B \in K^{d}$$,
+
+$$\text{dist}_{K^{d}}(A, B) = \| B - A \|,$$
+
+$$\text{Log}_{A}(B) =  B - A \in T_{A}K^{d}.$$
+
+For any point $$\xi$$ in the tangent space of $$A$$,
+
+$$\text{Exp}_{A}(\xi) = A + \xi \in K^{d}.$$
+
+
+
+#### For $$\mathbb{S}^{d-1}$$
+
+Given $$A, B \in \mathbb{S}^{d-1}$$,
+
+$$\theta = \text{dist}_{\mathbb{S}^{d-1}}(A, B) = \arccos(\langle A, B\rangle),$$
+
+$$\text{Log}_{A}(B) =  \frac{B - \langle A, B\rangle A }{\| B - \langle A, B\rangle A \|} \theta = \left( B - A \cos(\theta) \right) \frac{\theta}{\sin(\theta)} \in T_{A}\mathbb{S}^{d-1}.$$
+
+For any point $$\xi$$ in the tangent space of $$A$$,
+
+$$\text{Exp}_{A}(\xi) = A \cos(\| \xi \|) + \frac{\xi}{\| \xi \|} \sin(\| \xi \|) \in \mathbb{S}^{d-1}.$$
+
+#### For $$\mathbb{H}^{d-1}$$
+
+Given $$x, y \in \mathbb{H}^{d-1}$$, the Minkowski inner product is:
+
+$$\langle x, y\rangle_M = -x_d y_d + \sum_{i=1}^{d-1} x_i y_i,$$
+
+and 
+
+$$\mathbb{H}^{d-1} = \lbrace x \in \mathbb{R}^d ; x_d > 0 \text{ and } \langle x, x\rangle_M = -1 \rbrace$$
+
+
+Given $$A, B \in \mathbb{H}^{d-1}$$,
+
+$$\text{dist}_{\mathbb{H}^{d-1}}(A, B) = \text{arccosh}(-\langle A, B\rangle_M),$$
+
+$$\text{Log}_{A}(B) = \frac{\text{dist}_{\mathbb{H}^{d-1}}(A, B)}{\sqrt{\langle A, B\rangle_M^2 - 1}} \left( B + \langle A, B\rangle_M A\right) \in T_{A}\mathbb{H}^{d-1}.$$
+
+For any point $$\xi$$ in the tangent space of $$A$$,
+
+$$\text{Exp}_{A}(\xi) = A \cosh \left( \sqrt{\langle \xi, \xi\rangle_M} \right) + \sinh \left( \sqrt{\langle \xi, \xi\rangle_M} \right) \frac{\xi}{ \sqrt{\langle \xi, \xi\rangle_M}} \in \mathbb{H}^{d-1}.$$
 
 # Implementation
 
