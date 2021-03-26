@@ -6,14 +6,14 @@ comments: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Given a univariate random variable $Z$ with density $f$, and a polynomial $P[X_1, \lods, X_n]$, we are interested in finding a random variable $X$ such that, given independent copies of it $X_1, \ldots, X_n$ (where $\stackrel{\text{D}}{=}$ stands for the equality in distribution):
+Given a univariate random variable $$Z$$ with density $$f$$, and a polynomial $$P[X_1, \lods, X_n]$$, we are interested in finding a random variable $$X$$ such that, given independent copies of it $$X_1, \ldots, X_n$$ (where $$\stackrel{\text{D}}{=}$$ stands for the equality in distribution):
 
-$$Z \stackrel{\text{D}}{=} P[X_1, \lods, X_n].$$
+$$Z \stackrel{\text{D}}{=} P[X_1, \ldots, X_n].$$
 
 This is a different problem from studying the root of a random polynomial, where the coefficients are random but not the variables.
 
 
-$P[X_1]$ includes $X_1^n$
+$$P[X_1]$$ includes $$X_1^n$$
 
 etc.
 
