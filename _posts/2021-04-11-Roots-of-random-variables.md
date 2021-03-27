@@ -6,11 +6,41 @@ comments: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Given a univariate random variable $$Z$$ with density $$f$$, and a polynomial $$P[X_1, \lods, X_n]$$, we are interested in finding a random variable $$X$$ such that, given independent copies of it $$X_1, \ldots, X_n$$ (where $$\stackrel{\text{D}}{=}$$ stands for the equality in distribution):
+
+Given a univariate random variable $$Z$$ with density $$f_Z$$, and a polynomial $$P[X_1, \ldots, X_n]$$, we are interested in finding a random variable $$X$$ such that, given independent copies of it $$X_1, \ldots, X_n$$ (where $$\stackrel{\text{D}}{=}$$ stands for the equality in distribution):
 
 $$Z \stackrel{\text{D}}{=} P[X_1, \ldots, X_n].$$
 
-This is a different problem from studying the root of a random polynomial, where the coefficients are random but not the variables.
+This is a different problem from studying the root of a random polynomial, where the coefficients are random but not the variables. This is also different from computing $$Z$$ given $$X$$ (which is the inverse problem).
+
+We only consider the case of multivariate monomials ($$X_1^3, X_1 X_2 X_3, X_1^2 X_2, \ldots$$) and of some common distributions on $$\mathbb{R}$$ (normal, exponential, gamma distributions).
+
+We consider at first the cases $$X_1^k$$ and $$X_1 \ldots X_k$$ before moving to the monomials up to degree five (the number of monomials of degree $$k$$ is given by [the partition numbers](http://oeis.org/A000041)):
+
+- $$X_1$$,
+- $$X_1^2$$, $$X_1 X_2$$,
+- $$X_1^3$$, $$X_1^2 X_2$$, $$X_1 X_2 X_3$$,
+- $$X_1^4$$, $$X_1^3 X_2$$, $$X_1^2 X_2^2$$, $$X_1^2 X_2 X_3$$, $$X_1 X_2 X_3 X_4$$,
+- $$X_1^5$$, $$X_1^4 X_2$$, $$X_1^3 X_2^2$$, $$X_1^3 X_2 X_3$$, $$X_1^2 X_2 X_3 X_4$$, $$X_1^2 X_2^2 X_3$$, $$X_1 X_2 X_3 X_4 X_5.$$
+
+## Root $$\sqrt[k]{Z}$$ given by $$X^k = Z$$
+
+For $$Z$$ distributed on $$\mathbb{R}^{+}$$, a change of variable gives that the following density function for $$X$$ works (defined for $$x \geq 0$$ too):
+
+$$f_X(x) = k x^{k-1} f_Z(x^k).$$
+
+If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{|Z|}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{|Z|}$$ otherwise will work, there are other variables that will give $$Z$$).
+
+If $$Z$$ is a positive variable but $$X$$ is authorized to take negative values, different variables also exist.
+
+$$Z$$ | $$Z^{1/k}$$ | After
+--- | --- | ---
+$$Exp(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
+1 | 2 | 3
+
+
+
+## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
 
 $$P[X_1]$$ includes $$X_1^n$$
