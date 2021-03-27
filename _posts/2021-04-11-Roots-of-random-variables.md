@@ -7,9 +7,9 @@ comments: true
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 
-Given a univariate random variable $$Z$$ with density $$f_Z$$, and a polynomial $$P[X_1, \ldots, X_n]$$, we are interested in finding a random variable $$X$$ such that, given independent copies of it $$X_1, \ldots, X_n$$ (where $$\stackrel{\text{D}}{=}$$ stands for the equality in distribution):
+Given a univariate random variable $$Z$$ with density $$f_Z$$, and a polynomial $$Q[X_1, \ldots, X_n]$$, we are interested in finding a random variable $$X$$ such that, given independent copies of it $$X_1, \ldots, X_n$$ (where $$\stackrel{\text{D}}{=}$$ stands for the equality in distribution):
 
-$$Z \stackrel{\text{D}}{=} P[X_1, \ldots, X_n].$$
+$$Z \stackrel{\text{D}}{=} Q[X_1, \ldots, X_n].$$
 
 This is a different problem from studying the root of a random polynomial, where the coefficients are random but not the variables. This is also different from computing $$Z$$ given $$X$$ (which is the inverse problem).
 
@@ -29,7 +29,7 @@ For $$Z$$ distributed on $$\mathbb{R}^{+}$$, a change of variable gives that the
 
 $$f_X(x) = k x^{k-1} f_Z(x^k).$$
 
-If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{|Z|}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{|Z|}$$ otherwise will work, there are other variables that will give $$Z$$).
+If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{\mid Z \mid}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{\mid Z \mid}$$ otherwise will work, there are other variables that will give $$Z$$).
 
 If $$Z$$ is a positive variable but $$X$$ is authorized to take negative values, different variables also exist.
 
