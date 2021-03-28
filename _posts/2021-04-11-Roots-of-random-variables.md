@@ -43,6 +43,7 @@ But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also.
 
 <details>
   <summary>Click to expand</summary>
+
 ```R
 N = 1e7
 lambda = 1
@@ -80,11 +81,11 @@ hist(X^k, probability = TRUE, breaks = 300)
 lines(x, dexp(x, lambda), col = "red")
 ```
 
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+## Heading
+1. A numbered
+2. list
+   * With some
+   * Sub bullets
 </details>
 
 
