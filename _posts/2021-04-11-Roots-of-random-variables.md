@@ -41,6 +41,71 @@ $$X = Z^{1/k}.$$
 For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is real, then $$X = -\sqrt{Z}$$ also works. 
 But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also. 
 
+
+<details>
+  <summary>Test 1</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+<details>
+  <summary>Test 1.5</summary>
+
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+<details>
+  <summary>Test 2</summary>
+
+  Simple text
+</details>
+
+<details>
+  <summary>Test 3</summary>
+
+## Heading
+1. A numbered
+2. list
+   * With some
+   * Sub bullets
+</details>
+
+<details>
+  <summary>Test 4</summary>
+  
+## Heading
+1. A numbered
+2. list
+   * With some
+   * Sub bullets
+</details>
+
+<details>
+  <summary>Test 5</summary>
+  
+```python
+TimeDistributed(Dense(activation='sigmoid', units=1),
+                input_shape=(None, 1))
+```
+</details>
+
+<details>
+  <summary>Test 6</summary>
+  
+  ```python
+  TimeDistributed(Dense(activation='sigmoid', units=1),
+                  input_shape=(None, 1))
+  ```
+</details>
+
 <details>
   <summary>Click to expand</summary>
   
