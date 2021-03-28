@@ -58,40 +58,39 @@ Of course, it has to be Hello World, right?
 
 <details><summary markdown="span">Example of three random variables $$X$$ such that $$X^2$$ follows $$\text{Exp}(1)$$.</summary>
 ```r
+png("1_three_variables_such_that_square_is_exp.png", 827, 400, pointsize=24)
 N = 1e7
 lambda = 1
 k = 2
 Z = rexp(N, lambda)
 
+par(mfrow=c(1,3))
+
 ## Positive square-root
 X = Z^(1/k)
-hist(X, probability = TRUE, breaks = 300)
+hist(X, probability = TRUE, breaks = 300, 
+     main = "Positive X")
 x = seq(from = -10, to = 10, length.out = 1000)
 lines(x, k * x^(k-1) * dexp(x^k, lambda) * (x > 0), col = "red")
 
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
-
 ## Negative square-root (only for k = 2)
 X = -Z^(1/k)
-hist(X, probability = TRUE, breaks = 300)
+hist(X, probability = TRUE, breaks = 300, 
+     main = "Negative X")
 x = seq(from = -10, to = 10, length.out = 1000)
 lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < 0), col = "red")
 
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
-
 ## Another alternative square-root (only for k = 2)
 X = ifelse(Z <= 1, Z^(1/k), -Z^(1/k))
-hist(X, probability = TRUE, breaks = 300)
+hist(X, probability = TRUE, breaks = 300, 
+     main = "Alternative X")
 x = seq(from = -10, to = 10, length.out = 1000)
 lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col = "red")
 
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
+# # Check that Z is here after taking the power value
+# hist(X^k, probability = TRUE, breaks = 300)
+# lines(x, dexp(x, lambda), col = "red")
+dev.off()
 ```
 And some text
 </details>
