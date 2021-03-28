@@ -42,6 +42,19 @@ For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is real, then $$X = -\sqrt{Z}$$
 But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also. 
 
 {::options parse_block_html="true" /}
+
+<details><summary markdown="span">Let's see some code!</summary>
+```python
+print('Hello World!')
+```
+Of course, it has to be Hello World, right?
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+{::options parse_block_html="true" /}
 <details>
   <summary>Test 1</summary>
   <p>
