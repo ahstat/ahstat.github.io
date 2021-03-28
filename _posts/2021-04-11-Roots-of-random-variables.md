@@ -23,11 +23,71 @@ We consider at first the cases $$X_1^k$$ and $$X_1 \ldots X_k$$ before moving to
 - $$X_1^4$$, $$X_1^3 X_2$$, $$X_1^2 X_2^2$$, $$X_1^2 X_2 X_3$$, $$X_1 X_2 X_3 X_4$$,
 - $$X_1^5$$, $$X_1^4 X_2$$, $$X_1^3 X_2^2$$, $$X_1^3 X_2 X_3$$, $$X_1^2 X_2 X_3 X_4$$, $$X_1^2 X_2^2 X_3$$, $$X_1 X_2 X_3 X_4 X_5.$$
 
-## Root $$\sqrt[k]{Z}$$ given by $$X^k = Z$$
+## Root of $$X^k = Z$$
 
-For $$Z$$ distributed on $$\mathbb{R}^{+}$$, a change of variable gives that the following density function for $$X$$ works (defined for $$x \geq 0$$ too):
+### Case of positive variables
+
+For $$Z$$ distributed on $$\mathbb{R}^{+}$$, and $$X$$ searched as nonnegative too, 
+a change of variable gives the following density function, for $$x \geq 0$$:
 
 $$f_X(x) = k x^{k-1} f_Z(x^k).$$
+
+A way of generating $$X$$ from $$Z$$ is given by: 
+
+$$X = Z^{1/k}.$$
+
+### Other cases
+
+For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is real, then $$X = -\sqrt{Z}$$ also works. 
+But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also. 
+
+<details>
+  <summary>Click to expand</summary>
+```R
+N = 1e7
+lambda = 1
+k = 2
+Z = rexp(N, lambda)
+
+## Positive square-root
+X = Z^(1/k)
+hist(X, probability = TRUE, breaks = 300)
+x = seq(from = -10, to = 10, length.out = 1000)
+lines(x, k * x^(k-1) * dexp(x^k, lambda) * (x > 0), col = "red")
+
+# Check that Z is here after taking the power value
+hist(X^k, probability = TRUE, breaks = 300)
+lines(x, dexp(x, lambda), col = "red")
+
+## Negative square-root (only for k = 2)
+X = -Z^(1/k)
+hist(X, probability = TRUE, breaks = 300)
+x = seq(from = -10, to = 10, length.out = 1000)
+lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < 0), col = "red")
+
+# Check that Z is here after taking the power value
+hist(X^k, probability = TRUE, breaks = 300)
+lines(x, dexp(x, lambda), col = "red")
+
+## Another alternative square-root (only for k = 2)
+X = ifelse(Z <= 1, Z^(1/k), -Z^(1/k))
+hist(X, probability = TRUE, breaks = 300)
+x = seq(from = -10, to = 10, length.out = 1000)
+lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col = "red")
+
+# Check that Z is here after taking the power value
+hist(X^k, probability = TRUE, breaks = 300)
+lines(x, dexp(x, lambda), col = "red")
+```
+
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+
 
 If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{\mid Z \mid}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{\mid Z \mid}$$ otherwise will work, there are other variables that will give $$Z$$).
 
@@ -35,10 +95,8 @@ If $$Z$$ is a positive variable but $$X$$ is authorized to take negative values,
 
 $$Z$$ | $$Z^{1/k}$$ | After
 --- | --- | ---
-$$Exp(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
+$$\text{Exp}(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
 1 | 2 | 3
-
-
 
 ## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
