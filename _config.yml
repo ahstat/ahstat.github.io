@@ -72,6 +72,8 @@ kramdown:
     css_class: 'highlight'
   parse_block_html: true
 
+markdown: CommonMarkGhPages
+
 # Set the Sass partials directory, as we're using @imports
 sass:
   style: :expanded # You might prefer to minify using :compressed
