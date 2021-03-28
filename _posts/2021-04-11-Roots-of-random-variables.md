@@ -55,95 +55,25 @@ Of course, it has to be Hello World, right?
 
 
 {::options parse_block_html="true" /}
-<details>
-  <summary>Test 1</summary>
-  <p>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
 
-</p>
-</details>
-
-<details>
-  <summary>Test 1.5</summary>
-  <p>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</p>
-</details>
-
-<details>
-  <summary>Test 2</summary>
-<p>
-
-  Simple text
-
-</p>
-</details>
-
-<details>
-  <summary>Test 3</summary>
-<p>
-
-## Heading
-1. A numbered
-2. list
-   * With some
-   * Sub bullets
-
-</p>
-</details>
-
-<details>
-  <summary>Test 4</summary>
-  <p>
-  
-## Heading
-1. A numbered
-2. list
-   * With some
-   * Sub bullets
-   
-</p>
-</details>
-
-<details>
-  <summary>Test 5</summary>
-  <p>
-  
-```python
-TimeDistributed(Dense(activation='sigmoid', units=1),
-                input_shape=(None, 1))
+<details><summary markdown="span">Let's see some code!</summary>
+```r
+N = 1e7
+lambda = 1
+k = 2
+Z = rexp(N, lambda)
 ```
-
-</p>
+And some text
 </details>
+<br/>
 
-<details>
-  <summary>Test 6</summary>
-  <p>
-  
-  ```python
-  TimeDistributed(Dense(activation='sigmoid', units=1),
-                  input_shape=(None, 1))
-  ```
-  
-</p>
-</details>
+{::options parse_block_html="false" /}
 
 <details>
   <summary>Click to expand</summary>
   <p>
   
-  ```R
+  ```r
   N = 1e7
   lambda = 1
   k = 2
