@@ -38,21 +38,10 @@ $$X = Z^{1/k}.$$
 
 ### Other cases
 
-For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is real, then $$X = -\sqrt{Z}$$ also works. 
+#### Case $$Z \geq 0$$ and $$X \in \mathbb{R}$$
+
+For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is possibly real, then $$X = -\sqrt{Z}$$ also works. 
 But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also. 
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Let's see some code!</summary>
-```python
-print('Hello World!')
-```
-Of course, it has to be Hello World, right?
-</details>
-<br/>
-
-{::options parse_block_html="false" /}
-
 
 {::options parse_block_html="true" /}
 
@@ -98,66 +87,9 @@ dev.off()
 
 {::options parse_block_html="false" /}
 
-<details>
-  <summary>Click to expand</summary>
-  <p>
-  
-  ```r
-  N = 1e7
-  lambda = 1
-  k = 2
-  Z = rexp(N, lambda)
-  
-  ## Positive square-root
-  X = Z^(1/k)
-  hist(X, probability = TRUE, breaks = 300)
-  x = seq(from = -10, to = 10, length.out = 1000)
-  lines(x, k * x^(k-1) * dexp(x^k, lambda) * (x > 0), col = "red")
-  
-  # Check that Z is here after taking the power value
-  hist(X^k, probability = TRUE, breaks = 300)
-  lines(x, dexp(x, lambda), col = "red")
-  
-  ## Negative square-root (only for k = 2)
-  X = -Z^(1/k)
-  hist(X, probability = TRUE, breaks = 300)
-  x = seq(from = -10, to = 10, length.out = 1000)
-  lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < 0), col = "red")
-  
-  # Check that Z is here after taking the power value
-  hist(X^k, probability = TRUE, breaks = 300)
-  lines(x, dexp(x, lambda), col = "red")
-  
-  ## Another alternative square-root (only for k = 2)
-  X = ifelse(Z <= 1, Z^(1/k), -Z^(1/k))
-  hist(X, probability = TRUE, breaks = 300)
-  x = seq(from = -10, to = 10, length.out = 1000)
-  lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col = "red")
-  
-  # Check that Z is here after taking the power value
-  hist(X^k, probability = TRUE, breaks = 300)
-  lines(x, dexp(x, lambda), col = "red")
-  ```
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-     
-</p>
-</details>
-{::options parse_block_html="false" /}
+#### Case $$Z \in \mathbb{R}$$
 
-
-If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{\mid Z \mid}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{\mid Z \mid}$$ otherwise will work, there are other variables that will give $$Z$$).
-
-If $$Z$$ is a positive variable but $$X$$ is authorized to take negative values, different variables also exist.
-
-$$Z$$ | $$Z^{1/k}$$ | After
---- | --- | ---
-$$\text{Exp}(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
-1 | 2 | 3
+If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist. For example for $$k=2$$ and $$Z$$ a random variable following the normal distribution, defining $$X := \sqrt{\mid Z \mid}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{\mid Z \mid}$$ otherwise will work.
 
 ## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
@@ -168,8 +100,36 @@ etc.
 
 TODO the rest
 
+## Summary
 
+### For the exponential distribution
 
+#### Square
+
+Variable | Way of generating | Density
+$$Z$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$
+--- | --- | ---
+$$X^{(2)}$$ | $$\sqrt{Z}$$ | $$2 \lambda x \exp{-\lambda x^2} \sim \text{Rayleigh} \left( 1 / \sqrt{2 \lambda} \right) = \chi \left( 2, 1 / \sqrt{2 \lambda} \right)$$
+$$X^{(1,1)}$$ | ... | ... 
+--- | --- | ---
+$$X_1^{(2)}^2$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$ |
+$$X_1^{(2)} X_2^{(2)}$$ | todo |  todo
+$$X_1^{(1,1)}^2$$ | todo | todo
+$$X_1^{(1,1)} X_2^{(1,1)}$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$
+
+#### Cubic
+
+$$Z$$ | $$X^{(2)}$$ | $$X^{(1,1)}$$ | $$X^{(2)}$$
+--- | --- | ---
+$$\text{Exp}(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
+1 | 2 | 3
+
+$$Z$$ | $$Z^{1/k}$$ | After
+--- | --- | ---
+$$\text{Exp}(\lambda)$$ | $$k x^{k-1} \lambda \exp{-\lambda x^k}$$ | nicely
+1 | 2 | 3
+
+$$\Gamma(k, \theta) = \chi^2 \left( 2k, \sqrt{\theta / 2} \right)$$
 
 y never heard about RNN, you can [name to give](https://address/) first.
 
