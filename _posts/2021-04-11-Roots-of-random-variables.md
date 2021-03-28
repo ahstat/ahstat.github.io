@@ -41,7 +41,7 @@ $$X = Z^{1/k}.$$
 For $$k = 2$$, if $$Z$$ is nonnegative but $$X$$ is real, then $$X = -\sqrt{Z}$$ also works. 
 But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also. 
 
-
+{::options parse_block_html="true" /}
 <details>
   <summary>Test 1</summary>
   <p>
@@ -69,6 +69,7 @@ But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also.
 
 <details>
   <summary>Test 2</summary>
+<p>
 
   Simple text
 
@@ -174,7 +175,7 @@ TimeDistributed(Dense(activation='sigmoid', units=1),
      
 </p>
 </details>
-
+{::options parse_block_html="false" /}
 
 
 If $$Z$$ has a positive probability to be negative (such as a normal variable), the variable $$X$$ may need to live on $$\mathbb{C}$$ to exist (e.g. for $$k=2$$, defining $$X := \sqrt{\mid Z \mid}$$ if $$\text{sign}(Z) \geq 0$$ and $$X := i \sqrt{\mid Z \mid}$$ otherwise will work, there are other variables that will give $$Z$$).
