@@ -57,6 +57,7 @@ Of course, it has to be Hello World, right?
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Example of three random variables $$X$$ such that $$X^2$$ follows $$\text{Exp}(1)$$.</summary>
+<center><img src="../images/2021-04-11-Roots-of-random-variables/1_three_variables_such_that_square_is_exp.png" alt="three variables distribution which gives the Exp(1) distribution after taking the square"/></center>
 ```r
 png("1_three_variables_such_that_square_is_exp.png", 827, 400, pointsize=24)
 N = 1e7
@@ -92,7 +93,6 @@ lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col 
 # lines(x, dexp(x, lambda), col = "red")
 dev.off()
 ```
-And some text
 </details>
 <br/>
 
