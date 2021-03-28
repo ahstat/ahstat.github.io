@@ -44,70 +44,90 @@ But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also.
 
 <details>
   <summary>Test 1</summary>
+  <p>
   
   ## Heading
   1. A numbered
   2. list
      * With some
      * Sub bullets
+
+</p>
 </details>
 
 <details>
   <summary>Test 1.5</summary>
+  <p>
   
   ## Heading
   1. A numbered
   2. list
      * With some
      * Sub bullets
+</p>
 </details>
 
 <details>
   <summary>Test 2</summary>
 
   Simple text
+
+</p>
 </details>
 
 <details>
   <summary>Test 3</summary>
+<p>
 
 ## Heading
 1. A numbered
 2. list
    * With some
    * Sub bullets
+
+</p>
 </details>
 
 <details>
   <summary>Test 4</summary>
+  <p>
   
 ## Heading
 1. A numbered
 2. list
    * With some
    * Sub bullets
+   
+</p>
 </details>
 
 <details>
   <summary>Test 5</summary>
+  <p>
   
 ```python
 TimeDistributed(Dense(activation='sigmoid', units=1),
                 input_shape=(None, 1))
 ```
+
+</p>
 </details>
 
 <details>
   <summary>Test 6</summary>
+  <p>
   
   ```python
   TimeDistributed(Dense(activation='sigmoid', units=1),
                   input_shape=(None, 1))
   ```
+  
+</p>
 </details>
 
 <details>
   <summary>Click to expand</summary>
+  <p>
   
   ```R
   N = 1e7
@@ -151,6 +171,8 @@ TimeDistributed(Dense(activation='sigmoid', units=1),
   2. list
      * With some
      * Sub bullets
+     
+</p>
 </details>
 
 
