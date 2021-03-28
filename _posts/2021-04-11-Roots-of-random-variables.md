@@ -43,49 +43,49 @@ But $$X = (-1)^{\mathbf{1}_{Z \leq 1}} \sqrt{Z}$$ also.
 
 <details>
   <summary>Click to expand</summary>
-
-```R
-N = 1e7
-lambda = 1
-k = 2
-Z = rexp(N, lambda)
-
-## Positive square-root
-X = Z^(1/k)
-hist(X, probability = TRUE, breaks = 300)
-x = seq(from = -10, to = 10, length.out = 1000)
-lines(x, k * x^(k-1) * dexp(x^k, lambda) * (x > 0), col = "red")
-
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
-
-## Negative square-root (only for k = 2)
-X = -Z^(1/k)
-hist(X, probability = TRUE, breaks = 300)
-x = seq(from = -10, to = 10, length.out = 1000)
-lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < 0), col = "red")
-
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
-
-## Another alternative square-root (only for k = 2)
-X = ifelse(Z <= 1, Z^(1/k), -Z^(1/k))
-hist(X, probability = TRUE, breaks = 300)
-x = seq(from = -10, to = 10, length.out = 1000)
-lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col = "red")
-
-# Check that Z is here after taking the power value
-hist(X^k, probability = TRUE, breaks = 300)
-lines(x, dexp(x, lambda), col = "red")
-```
-
-## Heading
-1. A numbered
-2. list
-   * With some
-   * Sub bullets
+  
+  ```R
+  N = 1e7
+  lambda = 1
+  k = 2
+  Z = rexp(N, lambda)
+  
+  ## Positive square-root
+  X = Z^(1/k)
+  hist(X, probability = TRUE, breaks = 300)
+  x = seq(from = -10, to = 10, length.out = 1000)
+  lines(x, k * x^(k-1) * dexp(x^k, lambda) * (x > 0), col = "red")
+  
+  # Check that Z is here after taking the power value
+  hist(X^k, probability = TRUE, breaks = 300)
+  lines(x, dexp(x, lambda), col = "red")
+  
+  ## Negative square-root (only for k = 2)
+  X = -Z^(1/k)
+  hist(X, probability = TRUE, breaks = 300)
+  x = seq(from = -10, to = 10, length.out = 1000)
+  lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < 0), col = "red")
+  
+  # Check that Z is here after taking the power value
+  hist(X^k, probability = TRUE, breaks = 300)
+  lines(x, dexp(x, lambda), col = "red")
+  
+  ## Another alternative square-root (only for k = 2)
+  X = ifelse(Z <= 1, Z^(1/k), -Z^(1/k))
+  hist(X, probability = TRUE, breaks = 300)
+  x = seq(from = -10, to = 10, length.out = 1000)
+  lines(x, k * abs(x)^(k-1) * dexp(x^k, lambda) * (x < -1 | (x < 1 & x > 0)), col = "red")
+  
+  # Check that Z is here after taking the power value
+  hist(X^k, probability = TRUE, breaks = 300)
+  lines(x, dexp(x, lambda), col = "red")
+  ```
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
 </details>
 
 
