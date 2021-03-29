@@ -93,6 +93,7 @@ If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need 
 
 ## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
+$$
 \begin{align*}
 \mathbb{E} e^{it\log |Z|} =& \exp \left( it \frac{\log 2}{2} \right) \left[ \frac{2}{1+it} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right] \frac{1}{2 \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{1/2}}{1 + \frac{1}{2j}}} \\
 =& \exp \left( it \frac{\log 2}{2} \right) \left[ \frac{2}{1+it} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right] \frac{1}{2} \prod_{j=1}^{+\infty} \frac{1 + \frac{1}{2j}}{\left( 1 + \frac{1}{j} \right)^{1/2}} \\
@@ -102,7 +103,7 @@ If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need 
 =& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \prod_{j=1}^{+\infty} \exp \left[ \frac{it}{2} \log \left( 1 + \frac{1}{j} \right) \right] \prod_{j=1}^{+\infty}  \frac{1}{1 + \frac{it}{2j+1}} \\
 =& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \prod_{j=1}^{+\infty}    \frac{\exp \left[ \frac{it}{2} \log \left( 1 + \frac{1}{j} \right) \right]}{1 + \frac{it}{2j+1}}.
 \end{align*}
-
+$$
 
 $$P[X_1]$$ includes $$X_1^n$$
 
