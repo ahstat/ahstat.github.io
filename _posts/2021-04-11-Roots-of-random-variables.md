@@ -93,6 +93,37 @@ If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need 
 
 ## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
+
+
+### Case normal
+
+
+
+This is exactly the proof done by Iosif Pinelis in: [The exp-normal distribution is infinitely divisible](https://arxiv.org/abs/1803.09838).
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof.</summary>
+Let $$Z$$ be a standard normal random variable. The distribution $$U := \log |Z|$$ is referred to as the \emph{exp-normal distribution}, and its characteristic function is, for $$t \in \mathbb{R}$$:
+
+$$
+\begin{align*}
+\mathbb{E} e^{it\log |Z|} =& \int_{-\infty}^{+\infty} e^{it \log |z|} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz \\
+\text{(Symm. in z)}=& 2 \int_{0}^{+\infty} e^{it \log z} \frac{1}{\sqrt{2\pi}} e^{-z^2/2} dz \\
+=& \frac{2}{\sqrt{2\pi}} \int_{0}^{+\infty} e^{it \log z -z^2/2} dz \\
+=& \frac{2}{\sqrt{2\pi}} \left[ 2^{i(i+t)/2} \Gamma \left(\frac{1+it}{2} \right) \right] \\
+=& \frac{2^{1/2}}{\sqrt{\pi}}  2^{\frac{it -1}{2}} \Gamma \left(\frac{1+it}{2} \right)  \\
+=& \frac{2^{it/2}}{\sqrt{\pi}}  \Gamma \left(\frac{1+it}{2} \right)  \\
+=& 2^{it/2}  \frac{\Gamma \left(\frac{1+it}{2} \right)}{\Gamma \left( \frac{1}{2} \right)} \\
+=& \exp \left( it \frac{\log 2}{2} \right)  \Gamma \left(\frac{1+it}{2} \right) \frac{1}{\Gamma \left( \frac{1}{2} \right)}
+\end{align*}
+$$
+
+We use the formula (valid for $$z \in \mathbb{C} \setminus \left\{0, -1, -2, \ldots \right\}$$): 
+$$\Gamma(z) = \frac{1}{z} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^z}{1 + \frac{z}{j}}$$
+
+to get:
+
 $$
 \begin{align*}
 \mathbb{E} e^{it\log |Z|} =& \exp \left( it \frac{\log 2}{2} \right) \left[ \frac{2}{1+it} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right] \frac{1}{2 \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{1/2}}{1 + \frac{1}{2j}}} \\
@@ -104,6 +135,34 @@ $$
 =& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \prod_{j=1}^{+\infty}    \frac{\exp \left[ \frac{it}{2} \log \left( 1 + \frac{1}{j} \right) \right]}{1 + \frac{it}{2j+1}}.
 \end{align*}
 $$
+
+In addition, the characteristic function of an exponential variable $$X$$ with mean $$a > 0$$ (so with parameter $$1/a$$) is:
+
+$$\mathbb{E} e^{itX} = \frac{1}{a} \int_0^{+\infty} e^{itx} e^{-x/a} dx = \frac{1}{a} \frac{1}{\frac{1}{a}-it} = \frac{1}{1-ita}.$$
+
+With $$a=1$$, the characteristic function of the variable $$-X$$ is:
+
+$$\mathbb{E} e^{-itX} = \frac{1}{1+ita} = \frac{1}{1+it}.$$
+
+and for the variable $$-X/(2j+1)$$ (still with $$a=1$$), it is:
+
+$$\mathbb{E} e^{-it\frac{X}{2j+1}} = \frac{1}{1+\frac{ita}{2j+1}} = \frac{1}{1+\frac{it}{2j+1}}.$$
+
+In addition, the characteristic function of the constant $$\frac{\log 2}{2}$$ is $$\exp \left( it \frac{\log 2}{2} \right)$$; and for the constant $$\frac{\log \left(1 + \frac{1}{j} \right)}{2}$$ it is $$\exp \left( it \frac{\log \left( 1 + \frac{1}{j} \right)}{2} \right)$$.
+
+We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $1$, so have this equality in distribution:
+
+$$\log |Z| = \frac{\log 2}{2} - E_0 - \sum_{j=1}^{\infty} \left[ \frac{E_j}{2j+1} - \frac{1}{2} \log \left( 1 + \frac{1}{j} \right) \right].$$
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
+
+
 
 $$P[X_1]$$ includes $$X_1^n$$
 
