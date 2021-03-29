@@ -23,6 +23,13 @@ We consider at first the cases $$X_1^k$$ and $$X_1 \ldots X_k$$ before moving to
 - $$X_1^4$$, $$X_1^3 X_2$$, $$X_1^2 X_2^2$$, $$X_1^2 X_2 X_3$$, $$X_1 X_2 X_3 X_4$$,
 - $$X_1^5$$, $$X_1^4 X_2$$, $$X_1^3 X_2^2$$, $$X_1^3 X_2 X_3$$, $$X_1^2 X_2 X_3 X_4$$, $$X_1^2 X_2^2 X_3$$, $$X_1 X_2 X_3 X_4 X_5.$$
 
+## Recall of some distributions
+
+$$\text{Gamma}(k, \theta)$$, with shape $$k > 0$$ and scale $$\theta > 0$$ is given by the density (for $$x > 0$$):
+
+$$\frac{1}{\Gamma{k} \theta^k} x^{k-1} e^{\frac{x}{\theta}}.$$
+
+
 ## Root of $$X^k = Z$$
 
 ### Case of positive variables
@@ -97,14 +104,19 @@ If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need 
 
 ### Case normal
 
+We provide a way of generating $$X_1$$ as follows.
+We define independent variables $$\varepsilon$$ following  $$\frac{1}{2} \mathbf{1}_{\lbrace -1, 1 \rbrace}$$, and $$G_{1/k, 0}, G_{1/k, 1}, \ldots $$ each following $$\text{Gamma}(1/k, 1)$$.
 
+$$X_1 := \varepsilon \exp \left\lbrace \frac{\log 2}{2k} - G_{1/k, 0} - \sum_{j=1}^{+\infty} \left[ \frac{G_{1/k, j}}{2j+1} - \frac{1}{2k} \log \left( 1 + \frac{1}{j} \right) \right] \right\rbrace.$$
 
-This is exactly the proof done by Iosif Pinelis in: [The exp-normal distribution is infinitely divisible](https://arxiv.org/abs/1803.09838).
+With $$X_i$$ other independent copies of $$X_1$$, we have $$X_1 \ldots X_k$$ following the normal distribution.
+
+This is exactly the results obtained by Iosif Pinelis in: [The exp-normal distribution is infinitely divisible](https://arxiv.org/abs/1803.09838).
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof.</summary>
-Let $$Z$$ be a standard normal random variable. The distribution $$U := \log |Z|$$ is referred to as the \emph{exp-normal distribution}, and its characteristic function is, for $$t \in \mathbb{R}$$:
+Let $$Z$$ be a standard normal random variable. The distribution $$U := \log |Z|$$ is referred to as the *exp-normal distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
 
 $$
 \begin{align*}
@@ -150,7 +162,7 @@ $$\mathbb{E} e^{-it\frac{X}{2j+1}} = \frac{1}{1+\frac{ita}{2j+1}} = \frac{1}{1+\
 
 In addition, the characteristic function of the constant $$\frac{\log 2}{2}$$ is $$\exp \left( it \frac{\log 2}{2} \right)$$; and for the constant $$\frac{\log \left(1 + \frac{1}{j} \right)}{2}$$ it is $$\exp \left( it \frac{\log \left( 1 + \frac{1}{j} \right)}{2} \right)$$.
 
-We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $1$, so have this equality in distribution:
+We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $$1$$, so have this equality in distribution:
 
 $$\log |Z| = \frac{\log 2}{2} - E_0 - \sum_{j=1}^{\infty} \left[ \frac{E_j}{2j+1} - \frac{1}{2} \log \left( 1 + \frac{1}{j} \right) \right].$$
 </details>
@@ -158,17 +170,6 @@ $$\log |Z| = \frac{\log 2}{2} - E_0 - \sum_{j=1}^{\infty} \left[ \frac{E_j}{2j+1
 
 {::options parse_block_html="false" /}
 
-
-
-
-
-
-
-$$P[X_1]$$ includes $$X_1^n$$
-
-etc.
-
-TODO the rest
 
 ## Summary
 
