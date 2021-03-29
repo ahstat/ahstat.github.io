@@ -93,6 +93,16 @@ If $$Z$$ has a positive probability to be negative, the variable $$X$$ may need 
 
 ## Root $$\sqrt[k]{Z}$$ given by $$X_1 \ldots X_k = Z$$
 
+\begin{align*}
+\mathbb{E} e^{it\log |Z|} =& \exp \left( it \frac{\log 2}{2} \right) \left[ \frac{2}{1+it} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right] \frac{1}{2 \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{1/2}}{1 + \frac{1}{2j}}} \\
+=& \exp \left( it \frac{\log 2}{2} \right) \left[ \frac{2}{1+it} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right] \frac{1}{2} \prod_{j=1}^{+\infty} \frac{1 + \frac{1}{2j}}{\left( 1 + \frac{1}{j} \right)^{1/2}} \\
+=& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \left[  \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{1+it}{2}}}{1 + \frac{1+it}{2j}} \right]  \prod_{j=1}^{+\infty} \left[ \left(1 + \frac{1}{2j} \right) \left( 1 + \frac{1}{j} \right)^{-1/2} \right] \\
+=& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \left[  \prod_{j=1}^{+\infty} \left( 1 + \frac{1}{j} \right)^{\frac{it}{2}} \right]  \prod_{j=1}^{+\infty}  \frac{1 + \frac{1}{2j}}{1 + \frac{1+it}{2j}} \\
+=& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \left[  \prod_{j=1}^{+\infty} \left( 1 + \frac{1}{j} \right)^{\frac{it}{2}} \right]  \prod_{j=1}^{+\infty}  \frac{1}{1 + \frac{it}{2j+1}} \\
+=& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \prod_{j=1}^{+\infty} \exp \left[ \frac{it}{2} \log \left( 1 + \frac{1}{j} \right) \right] \prod_{j=1}^{+\infty}  \frac{1}{1 + \frac{it}{2j+1}} \\
+=& \exp \left( it \frac{\log 2}{2} \right) \frac{1}{1+it} \prod_{j=1}^{+\infty}    \frac{\exp \left[ \frac{it}{2} \log \left( 1 + \frac{1}{j} \right) \right]}{1 + \frac{it}{2j+1}}.
+\end{align*}
+
 
 $$P[X_1]$$ includes $$X_1^n$$
 
@@ -112,9 +122,9 @@ $$Z$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$
 $$X^{(2)}$$ | $$\sqrt{Z}$$ | $$2 \lambda x \exp{-\lambda x^2} \sim \text{Rayleigh} \left( 1 / \sqrt{2 \lambda} \right) = \chi \left( 2, 1 / \sqrt{2 \lambda} \right)$$
 $$X^{(1,1)}$$ | ... | ... 
 --- | --- | ---
-$$X_1^{(2)}^2$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$ |
+$$\left( X_1^{(2)} \right)^2$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$ |
 $$X_1^{(2)} X_2^{(2)}$$ | todo |  todo
-$$X_1^{(1,1)}^2$$ | todo | todo
+$$\left( X_1^{(1,1)} \right)^2$$ | todo | todo
 $$X_1^{(1,1)} X_2^{(1,1)}$$ | $$\text{Exp}(\lambda)$$ | $$\lambda e^{-\lambda x}$$
 
 #### Cubic
