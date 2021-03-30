@@ -3,6 +3,7 @@ layout: post
 title: Roots of random variables
 published: true
 comments: true
+output: html_document
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -27,8 +28,12 @@ We consider at first the cases $$X_1^k$$ and $$X_1 \ldots X_k$$ before moving to
 
 $$\text{Gamma}(k, \theta)$$, with shape $$k > 0$$ and scale $$\theta > 0$$ is given by the density (for $$x > 0$$):
 
-$$\frac{1}{\Gamma{k} \theta^k} x^{k-1} e^{\frac{x}{\theta}}.$$
+$$\frac{1}{\Gamma{\left( k \right)} \theta^k} x^{k-1} e^{-x/ \theta}.$$
 
+
+$$\text{GGamma}(k, \theta, p)$$, with shape $$k > 0$$, scale $$\theta > 0$$, power $$p > 0$$ is given by the density (for $$x > 0$$):
+
+$$\frac{p}{\Gamma{\left( k/p \right)} \theta^k} x^{k-1} e^{-\left( x/\theta \right)^p}.$$
 
 ## Root of $$X^k = Z$$
 
@@ -109,7 +114,7 @@ We define independent variables $$\varepsilon$$ following  $$\frac{1}{2} \mathbf
 
 $$X_1 := \varepsilon \exp \left\lbrace \frac{\log 2}{2k} - G_{1/k, 0} - \sum_{j=1}^{+\infty} \left[ \frac{G_{1/k, j}}{2j+1} - \frac{1}{2k} \log \left( 1 + \frac{1}{j} \right) \right] \right\rbrace.$$
 
-With $$X_i$$ other independent copies of $$X_1$$, we have $$X_1 \ldots X_k$$ following the normal distribution.
+Other $$X_i$$ are independent copies of $$X_1$$, and we have $$X_1 \ldots X_k$$ following the normal distribution.
 
 This is exactly the results obtained by Iosif Pinelis in: [The exp-normal distribution is infinitely divisible](https://arxiv.org/abs/1803.09838).
 
@@ -165,10 +170,74 @@ In addition, the characteristic function of the constant $$\frac{\log 2}{2}$$ is
 We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $$1$$, so have this equality in distribution:
 
 $$\log |Z| = \frac{\log 2}{2} - E_0 - \sum_{j=1}^{\infty} \left[ \frac{E_j}{2j+1} - \frac{1}{2} \log \left( 1 + \frac{1}{j} \right) \right].$$
+
+Since the sum of $$k$$ independent $$\text{Gamma}(1/k, 1)$$ distributed variables follows an exponential distribution $$\text{Exp}(1)$$, the result follows.
 </details>
 <br/>
 
 {::options parse_block_html="false" /}
+
+
+### Case generalized gamma
+
+TODO
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof.</summary>
+Let $$Z$$ be a generalized gamma random variable with shape $$k > 0$$, scale $$\theta > 0$$, and power $$p > 0$$, that is for $$x > 0$$ the density function is:
+
+$$f(x) = \frac{p}{\Gamma{\left( k/p \right)} \theta^k} x^{k-1} e^{-\left( x/\theta \right)^p}.$$
+
+We have:
+
+$$\Gamma(\frac{it + k}{p}) = \frac{p}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{1 + \frac{it + k}{jp}}$$
+
+$$\Gamma(\frac{k}{p}) = \frac{p}{k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}}{1 + \frac{k}{jp}}$$
+
+$$\frac{\Gamma(\frac{it + k}{p})}{\Gamma(\frac{k}{p})} = \frac{k}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}} \frac{1 + \frac{k}{jp}}{1 + \frac{it + k}{jp}}$$
+
+
+The distribution $$U := \log |Z|$$ is referred to as the *exp-ggamma distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
+
+$$
+\begin{align*}
+\mathbb{E} e^{it\log |Z|} =& \int_{0}^{+\infty} e^{it \log z} \frac{p}{\Gamma{\left( k/p \right)} \theta^k} z^{k-1} e^{-\left( z/\theta \right)^p} dz \\
+=& \frac{p}{\Gamma{\left( k/p \right)} \theta^k} \int_{0}^{+\infty} e^{it \log z} z^{k-1} e^{-\left( z/\theta \right)^p} dz \\
+=& \frac{p}{\Gamma{\left( k/p \right)} \theta^k} \left[ \frac{1}{p} \theta^{k + it} \Gamma \left( \frac{it + k}{p} \right) \right] \\
+=& \theta^{it} \frac{\Gamma \left( \frac{it + k}{p} \right)}{\Gamma{\left( \frac{k}{p} \right)}} \\
+=& \theta^{it} \left[ \frac{k}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}} \frac{1 + \frac{k}{jp}}{1 + \frac{it + k}{jp}} \right] \\
+=& \theta^{it} \left[ \frac{1}{1 + \frac{it}{k}} \prod_{j=1}^{+\infty} \left( 1 + \frac{1}{j} \right)^{\frac{it}{p}} \frac{1}{1 + \frac{it}{jp + k}} \right] \\
+=& \exp \left( it \log \theta \right) \frac{1}{1 + \frac{it}{k}} \prod_{j=1}^{+\infty} \frac{1}{1 + \frac{it}{jp + k}} \exp \left( it \frac{\log \left( 1 + \frac{1}{j} \right)}{p} \right)
+\end{align*}
+$$
+
+In addition, the characteristic function of an exponential variable $$X$$ with mean $$a > 0$$ (so with parameter $$1/a$$) is:
+
+$$\mathbb{E} e^{itX} = \frac{1}{a} \int_0^{+\infty} e^{itx} e^{-x/a} dx = \frac{1}{a} \frac{1}{\frac{1}{a}-it} = \frac{1}{1-ita}.$$
+
+With $$a=1$$, the characteristic function of the variable $$-X/k$$ is:
+
+$$\mathbb{E} e^{-itX/k} = \frac{1}{1+\frac{it}{k}}.$$
+
+and for the variable $$-X/(jp+k)$$ (still with $$a=1$$), it is:
+
+$$\mathbb{E} e^{-it\frac{X}{jp+k}} = \frac{1}{1+\frac{ita}{jp+k}} = \frac{1}{1+\frac{it}{jp+k}}.$$
+
+In addition, the characteristic function of the constant $$\log \theta$$ is $$\exp \left( it \log \theta \right)$$; and for the constant $$\frac{\log \left( 1 + \frac{1}{j} \right)}{p}$$ it is $$\exp \left( it \frac{\log \frac{\log \left( 1 + \frac{1}{j} \right)}{p} \right)$$.
+
+We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $$1$$, so have this equality in distribution:
+
+$$\log Z = \log \theta - \frac{E_0}{k} - \sum_{j=1}^{\infty} \left[ \frac{E_j}{jp+k} - \frac{1}{p} \log \left( 1 + \frac{1}{j} \right) \right].$$
+
+Then todo, we can cut it.
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
 
 
 ## Summary
