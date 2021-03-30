@@ -198,7 +198,7 @@ $$\Gamma(\frac{k}{p}) = \frac{p}{k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac
 $$\frac{\Gamma(\frac{it + k}{p})}{\Gamma(\frac{k}{p})} = \frac{k}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}} \frac{1 + \frac{k}{jp}}{1 + \frac{it + k}{jp}}$$
 
 
-The distribution $$U := \log |Z|$$ is referred to as the *exp-ggamma distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
+The distribution $$U := \log \mid Z \mid$$ is referred to as the *exp-ggamma distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
 
 $$
 \begin{align*}
@@ -224,7 +224,7 @@ and for the variable $$-X/(jp+k)$$ (still with $$a=1$$), it is:
 
 $$\mathbb{E} e^{-it\frac{X}{jp+k}} = \frac{1}{1+\frac{ita}{jp+k}} = \frac{1}{1+\frac{it}{jp+k}}.$$
 
-In addition, the characteristic function of the constant $$\log \theta$$ is $$\exp \left( it \log \theta \right)$$; and for the constant $$\frac{\log \left( 1 + \frac{1}{j} \right)}{p}$$ it is $$\exp \left( it \frac{\log \frac{\log \left( 1 + \frac{1}{j} \right)}{p} \right)$$.
+In addition, the characteristic function of the constant $$\log \theta$$ is $$\exp \left( it \log \theta \right)$$; and for the constant $$\frac{\log \left( 1 + \frac{1}{j} \right)}{p}$$ it is $$\exp \left( it \frac{\log \left( 1 + \frac{1}{j} \right)}{p} \right)$$.
 
 We have a product of characteristic distribution, so given $$E_0, E_1, \ldots$$ independent exponential random variable with parameter $$1$$, so have this equality in distribution:
 
