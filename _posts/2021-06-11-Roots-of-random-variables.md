@@ -191,18 +191,18 @@ $$f(x) = \frac{p}{\Gamma{\left( k/p \right)} \theta^k} x^{k-1} e^{-\left( x/\the
 
 We have:
 
-$$\Gamma(\frac{it + k}{p}) = \frac{p}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{1 + \frac{it + k}{jp}}$$
+$$\Gamma \left( \frac{it + k}{p} \right) = \frac{p}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{1 + \frac{it + k}{jp}}$$
 
-$$\Gamma(\frac{k}{p}) = \frac{p}{k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}}{1 + \frac{k}{jp}}$$
+$$\Gamma \left( \frac{k}{p} \right) = \frac{p}{k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}}{1 + \frac{k}{jp}}$$
 
-$$\frac{\Gamma(\frac{it + k}{p})}{\Gamma(\frac{k}{p})} = \frac{k}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}} \frac{1 + \frac{k}{jp}}{1 + \frac{it + k}{jp}}$$
+$$\frac{\Gamma \left( \frac{it + k}{p} \right)}{\Gamma \left( \frac{k}{p} \right)} = \frac{k}{it + k} \prod_{j=1}^{+\infty} \frac{\left( 1 + \frac{1}{j} \right)^{\frac{it + k}{p}}}{\left( 1 + \frac{1}{j} \right)^{\frac{k}{p}}} \frac{1 + \frac{k}{jp}}{1 + \frac{it + k}{jp}}$$
 
 
-The distribution $$U := \log \mid Z \mid$$ is referred to as the *exp-ggamma distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
+The distribution $$U := \log Z$$ is referred to as the *exp-ggamma distribution*, and its characteristic function is, for $$t \in \mathbb{R}$$:
 
 $$
 \begin{align*}
-\mathbb{E} e^{it\log |Z|} =& \int_{0}^{+\infty} e^{it \log z} \frac{p}{\Gamma{\left( k/p \right)} \theta^k} z^{k-1} e^{-\left( z/\theta \right)^p} dz \\
+\mathbb{E} e^{it\log Z} =& \int_{0}^{+\infty} e^{it \log z} \frac{p}{\Gamma{\left( k/p \right)} \theta^k} z^{k-1} e^{-\left( z/\theta \right)^p} dz \\
 =& \frac{p}{\Gamma{\left( k/p \right)} \theta^k} \int_{0}^{+\infty} e^{it \log z} z^{k-1} e^{-\left( z/\theta \right)^p} dz \\
 =& \frac{p}{\Gamma{\left( k/p \right)} \theta^k} \left[ \frac{1}{p} \theta^{k + it} \Gamma \left( \frac{it + k}{p} \right) \right] \\
 =& \theta^{it} \frac{\Gamma \left( \frac{it + k}{p} \right)}{\Gamma{\left( \frac{k}{p} \right)}} \\
