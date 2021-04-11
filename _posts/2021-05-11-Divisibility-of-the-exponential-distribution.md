@@ -8,17 +8,17 @@ output: html_document
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
 Let $$Z$$ be a $$\text{Exp}(1)$$ random variable.
-For $$\alpha_1, \ldots \alpha_N \in \mathbb{R}$$, we are looking for variables $$X_1, \ldots X_N$$ independent and following the same distribution such that:
+For $$\alpha_1, \ldots \alpha_N \in \mathbb{R}_{+}^{*}$$, we are looking for variables $$X_1, \ldots X_N$$ independent and following the same distribution such that:
 
 $$Z = \sum_{j=1}^{N} \alpha_j X_j.$$
 
-For the special case where all $$\alpha_j$$ are equal and positive, this corresponds to the problem of *infinite divisibility* of the exponential distribution, and in this case $$X_1$$ follows $$\text{Gamma}(1/N, 1/\alpha_1)$$, a gamma variable with shape $$1/N$$ and scale $$1/\alpha_1$$ (in particular when $$N=1$$, we have $$X_1 \sim \text{Exp}(\alpha_1) = \text{Gamma}(1, 1/\alpha_1)$$).
+For the special case where all $$\alpha_j$$ are equal, this corresponds to the problem of *infinite divisibility* of the exponential distribution, and in this case $$X_1$$ follows $$\text{Gamma}(1/N, 1/\alpha_1)$$, a gamma variable with shape $$1/N$$ and scale $$1/\alpha_1$$ (in particular when $$N=1$$, we have $$X_1 \sim \text{Exp}(\alpha_1) = \text{Gamma}(1, 1/\alpha_1)$$).
 
 We are willing to extend this divisibility property and give methods to derive the density distribution of $$X_1$$ along with a way to generate it.
 
 
 
-First, the characteristic function $$\varphi$$ of $$X_1$$ is given, for $$\vert t \vert \leq \max \vert \alpha_j \vert$$, by:
+First, the characteristic function $$\varphi$$ of $$X_1$$ is given, for $$\vert t \vert \leq \max \alpha_j$$, by:
 
 $$\varphi(t) = \exp \left( \sum_{k=1}^{\infty} \frac{i^k t^k}{k \sum_{l = 1}^N \alpha_l^k }  \right).$$
 
@@ -46,7 +46,7 @@ $$
 \end{align*}
 $$
 
-which gives the characteristic function for $$\vert t \vert \leq \max \vert \alpha_j \vert$$:
+which gives the characteristic function for $$\vert t \vert \leq \max \alpha_j$$:
 
 $$\varphi(t) := \exp \left( \sum_{k=1}^{\infty} \frac{i^k t^k}{k \sum_{l = 1}^N \alpha_l^k }  \right).$$
 
@@ -55,13 +55,15 @@ $$\varphi(t) := \exp \left( \sum_{k=1}^{\infty} \frac{i^k t^k}{k \sum_{l = 1}^N 
 
 {::options parse_block_html="false" /}
 
-From this characteristic function, we deduce: 
-$$\log \varphi(t) = \sum_{k=1}^{\infty} \frac{(k-1)!}{\sum_{l = 1}^N \alpha_l^k } \frac{\left( it \right)^k}{k!}$$
-so the cumulants are given by: $$\kappa_k = \frac{(k-1)!}{\sum_{l = 1}^N \alpha_l^k }.$$
-For instance the mean and variance of $$X_1$$ are $$\mu = \kappa_1 = \frac{1}{\sum_{l = 1}^N \alpha_l }$$
-and $$\sigma^2 = \kappa_2 = \frac{1}{\sum_{l = 1}^N \alpha_l^2}$$.
+From this characteristic function, we deduce:
 
-It is also possible to express $\varphi$ as an analytic function using the (complete exponential) Bell polynomials. For $$k \geq 0$$, we define the sequence $$p_k := \left( \sum_{l = 1}^N \alpha_l^k \right)^{-1}$$ and we rewrite, for $$\vert t \vert \leq \max \vert \alpha_j \vert$$,:
+$$\log \varphi(t) = \sum_{k=1}^{\infty} \frac{(k-1)!}{\sum_{l = 1}^N \alpha_l^k } \frac{\left( it \right)^k}{k!},$$
+
+so the cumulants are given by: $$\kappa_k = (k-1)! / \sum_{l = 1}^N \alpha_l^k.$$
+For instance the mean and variance of $$X_1$$ are $$\mu = \kappa_1 = 1/\sum_{l = 1}^N \alpha_l$$
+and $$\sigma^2 = \kappa_2 = 1/\sum_{l = 1}^N \alpha_l^2$$.
+
+It is also possible to express $$\varphi$$ as an analytic function using the (complete exponential) Bell polynomials. For $$k \geq 0$$, we define the sequence $$p_k := \left( \sum_{l = 1}^N \alpha_l^k \right)^{-1}$$ and we rewrite, for $$\vert t \vert \leq \max \alpha_j$$,:
 
 $$\varphi(t) = \sum_{n=0}^{\infty} B_n \left(p_1, p_2, 2! p_3, \ldots, (n-1)! p_{n} \right) \frac{\left(it \right)^n}{n!}.$$
 
@@ -71,19 +73,26 @@ $$\varphi(t) = \sum_{n=0}^{\infty} B_n \left(p_1, p_2, 2! p_3, \ldots, (n-1)! p_
 <details><summary markdown="span">Proof.</summary>
 We further define $$q_k := (k-1)! p_k$$ and we express $\varphi$ following [Wikipedia](https://en.wikipedia.org/wiki/Bell_polynomials):
 
+$$
 \begin{align*}
 \varphi(t) =& \exp \left( \sum_{k=1}^{\infty} \frac{(k-1)!}{\sum_{l = 1}^N \alpha_l^k} \frac{\left(it \right)^k}{k!  }  \right) \\
  =& \exp \left( \sum_{k=1}^{\infty} q_k \frac{\left(it \right)^k}{k!  }  \right) \\
 =& \sum_{n=0}^{\infty} B_n(q_1, q_2, q_3, \ldots, q_n) \frac{\left(it \right)^n}{n!} \\
 =& \sum_{n=0}^{\infty} B_n \left(p_1, p_2, 2! p_3, \ldots, (n-1)! p_{n} \right) \frac{\left(it \right)^n}{n!}.
 \end{align*}
+$$
 
 </details>
 <br/>
 
 {::options parse_block_html="false" /}
 
-We would like to extend the characteristic function on $$t \in \mathbb{R}$$. We order the indexes to get: $$\vert \alpha_1 \vert \leq \ldots \leq \vert \alpha_N \vert$$.
+We would like to extend the characteristic function on $$t \in \mathbb{R}$$. We order the indexes to get: $$\alpha_1 \leq \ldots \leq  \alpha_N $$.
+In the case where all coefficients are equal, we already expressed the solution in the introduction. Otherwise, there exists $$p \in [1,N-1]$$ such that $$\alpha_1 \leq \ldots \leq \alpha_{p} < \alpha_{p+1} = \ldots = \alpha_{N}$$ (In most of the cases we have $$p = N-1$$).
+
+TODO.
 
 
 
+
+Ideas: case with negative $$\alpha$$ (or more *complex*), e.g. $$Z = \vert X - Y \vert$$? It's not possible to get directly $$Z = X - Y$$ with same distributed $$X$$ and $$Y$$, because $$Z$$ is nonnegative.
