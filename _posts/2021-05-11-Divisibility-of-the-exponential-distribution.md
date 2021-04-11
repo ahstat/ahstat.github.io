@@ -90,6 +90,21 @@ $$
 We would like to extend the characteristic function on $$t \in \mathbb{R}$$. We order the indexes to get: $$\alpha_1 \leq \ldots \leq  \alpha_N $$.
 In the case where all coefficients are equal, we already expressed the solution in the introduction. Otherwise, there exists $$p \in [1,N-1]$$ such that $$\alpha_1 \leq \ldots \leq \alpha_{N-p} < \alpha_{N-p+1} = \ldots = \alpha_{N}$$. The integer $$p$$ is the number of indexes equal to $$\alpha_N$$; in most of the cases we have $$p = 1$$ hence $$\alpha_{N-1} < \alpha_{N}$$.
 
+For $$\vert t \vert > \alpha_N$$, we let $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$ and deduce $$\varphi(t)$$ from:
+
+$$
+\begin{align*}
+\log \varphi(t) = -& \frac{1}{p} \log \left( 1- \frac{1}{\alpha_N}it \right) \\
++& \sum_{d=2}^{D} \frac{\left( -1 \right)^d}{p^d}  \left[\sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{d-1}=1}^{N-p}  \log \left( 1-\frac{\prod_{k=1}^{d-1} \alpha_{j_k}}{\alpha_N^d} it \right) \right] \\
++& \frac{\left(-1 \right)^D}{p^D} \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right).
+\end{align*},
+$$
+
+where the terms $$\log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right)$$ are computed using the formula valid for $$\vert t \vert \leq \alpha_N$$.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof.</summary>
 We rewrite the functional relation of the characteristic function as follows, for $$t \in \mathbb{R}$$:
 
 $$\frac{1}{1-it} = \prod_{j=1}^{N-p} \varphi(\alpha_j t) \prod_{j=N-p+1}^{N} \varphi(\alpha_j t) = \prod_{j=1}^{N-p} \varphi(\alpha_j t) \varphi(\alpha_N t)^p,$$
@@ -106,7 +121,7 @@ We use the functionality of the equation: We first evaluate the previous equatio
 
 First, for all $$\alpha_j$$, we have (taking care of using another index name for the sum in the right term):
 
-$$\log \varphi(\frac{\alpha_j}{\alpha_N} t) = - \frac{1}{p} \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) - \frac{1}{p} \sum_{k=1}^{N-p} \log \varphi \left( \frac{\alpha_j\alpha_k}{\alpha_N^2} t \right)$$
+$$\log \varphi \left( \frac{\alpha_j}{\alpha_N} t \right) = - \frac{1}{p} \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) - \frac{1}{p} \sum_{k=1}^{N-p} \log \varphi \left( \frac{\alpha_j\alpha_k}{\alpha_N^2} t \right)$$
 
 Then, we put it in the previous equation to get:
 
@@ -136,9 +151,14 @@ $$
 \end{align*}
 $$
 
-Given $$t \in \mathbb{R}$$, there exists $$D$$ such that $$\left( \frac{\alpha_{N-p}}{\alpha_N} \right)^D \vert t \vert \leq 1$$ and from this $$D$$, the previous formula has all the terms evaluated in the interval $$[-1, 1]$$, hence $$\phi(t)$$ is well defined. An explicit value of $$D$$ is given by: $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$.
+Given $$t \in \mathbb{R}$$, there exists $$D$$ such that $$\left( \frac{\alpha_{N-p}}{\alpha_N} \right)^D \vert t \vert \leq 1$$ and from this $$D$$, the previous formula has all the terms evaluated in the interval $$[-1, 1]$$, hence $$\varphi(t)$$ is well defined. An explicit value of $$D$$ is given by: $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$.
 
+</details>
+<br/>
 
+{::options parse_block_html="false" /}
+
+The naive number of terms to compute for a given $$t$$ linked with a certain $$D$$ is $$\frac{(N-p)^{D+1} - 1}{N-p-1}$$ for $$p < N-1$$ and $$D$$ for $$p = N-1$$.
 
 
 Ideas: case with negative $$\alpha$$ (or more *complex*), e.g. $$Z = \vert X - Y \vert$$? It's not possible to get directly $$Z = X - Y$$ with same distributed $$X$$ and $$Y$$, because $$Z$$ is nonnegative.
