@@ -71,7 +71,7 @@ $$\varphi(t) = \sum_{n=0}^{\infty} B_n \left(p_1, p_2, 2! p_3, \ldots, (n-1)! p_
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof.</summary>
-We further define $$q_k := (k-1)! p_k$$ and we express $\varphi$ following [Wikipedia](https://en.wikipedia.org/wiki/Bell_polynomials):
+We further define $$q_k := (k-1)! p_k$$ and we express $$\varphi$$ following [Wikipedia](https://en.wikipedia.org/wiki/Bell_polynomials):
 
 $$
 \begin{align*}
@@ -88,9 +88,43 @@ $$
 {::options parse_block_html="false" /}
 
 We would like to extend the characteristic function on $$t \in \mathbb{R}$$. We order the indexes to get: $$\alpha_1 \leq \ldots \leq  \alpha_N $$.
-In the case where all coefficients are equal, we already expressed the solution in the introduction. Otherwise, there exists $$p \in [1,N-1]$$ such that $$\alpha_1 \leq \ldots \leq \alpha_{p} < \alpha_{p+1} = \ldots = \alpha_{N}$$ (In most of the cases we have $$p = N-1$$).
+In the case where all coefficients are equal, we already expressed the solution in the introduction. Otherwise, there exists $$p \in [1,N-1]$$ such that $$\alpha_1 \leq \ldots \leq \alpha_{N-p} < \alpha_{N-p+1} = \ldots = \alpha_{N}$$. The integer $$p$$ is the number of indexes equal to $$\alpha_N$$; in most of the cases we have $$p = 1$$ hence $$\alpha_{N-1} < \alpha_{N}$$.
 
-TODO.
+We rewrite the functional relation of the characteristic function as follows, for $$t \in \mathbb{R}$$:
+
+$$\frac{1}{1-it} = \prod_{j=1}^{N-p} \varphi(\alpha_j t) \prod_{j=N-p+1}^{N} \varphi(\alpha_j t) = \prod_{j=1}^{N-p} \varphi(\alpha_j t) \varphi(\alpha_N t)^p,$$
+
+and by taking the logarithm:
+
+$$\log \varphi(\alpha_N t) = - \frac{1}{p} \log \left( 1-it \right) - \frac{1}{p} \sum_{j=1}^{N-p} \log \varphi(\alpha_j t)$$
+
+which gives for $$t \in \mathbb{R}$$:
+
+$$\log \varphi(t) = - \frac{1}{p} \log \left( 1-\frac{1}{\alpha_N}it \right) - \frac{1}{p} \sum_{j=1}^{N-p} \log \varphi \left(\frac{\alpha_j}{\alpha_N} t \right).$$
+
+We use the functionality of the equation: We first evaluate the previous equation in $$\frac{\alpha_j}{\alpha_N} t$$, and we then use the result to replace the terms in the same equation. 
+
+First, for all $$\alpha_j$$, we have (taking care of using another index name for the sum in the right term):
+
+$$\log \varphi(\frac{\alpha_j}{\alpha_N} t) = - \frac{1}{p} \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) - \frac{1}{p} \sum_{k=1}^{N-p} \log \varphi \left( \frac{\alpha_j\alpha_k}{\alpha_N^2} t \right)$$
+
+Then, we put it in the previous equation to get:
+
+$$\log \varphi(t) = - \frac{1}{p} \log \left( 1-\frac{1}{\alpha_N}it \right) + \frac{1}{p^2} \sum_{j=1}^{N-p}  \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) + \frac{1}{p^2} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \log \varphi \left(\frac{\alpha_j\alpha_k}{\alpha_N^2} t \right).$$
+
+We use again the functionality of the equation. We first write:
+
+$$\log \varphi \left(\frac{\alpha_j\alpha_k}{\alpha_N^2} t \right) = - \frac{1}{p} \log \left( 1- \frac{\alpha_j\alpha_k}{\alpha_N^3} it \right) - \frac{1}{p} \sum_{l=1}^{N-p} \log \varphi \left(\frac{\alpha_j\alpha_k\alpha_l}{\alpha_N^3} t \right)$$
+
+to then get:
+
+$$\log \varphi(t) = - \frac{1}{p} \log \left( 1-\frac{1}{\alpha_N}it \right) + \frac{1}{p^2} \sum_{j=1}^{N-p}  \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) -  \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \log \left( 1- \frac{\alpha_j\alpha_k}{\alpha_N^3} it \right) - \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \sum_{l=1}^{N-p} \log \varphi \left(\frac{\alpha_j\alpha_k\alpha_l}{\alpha_N^3} t \right).$$
+
+We continue by induction to obtain, for all $$D \geq 1$$:
+
+$$\log \varphi(t) = - \frac{1}{p} \log \left( 1- \frac{1}{\alpha_N}it \right) + \sum_{d=2}^{D} \left( \frac{-1}{p} \right)^d \left[\sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{d-1}=1}^{N-p}  \log \left( 1-\frac{\prod_{k=1}^{d-1} \alpha_{j_k}}{\alpha_N^d} it \right) \right] + \left( \frac{-1}{p} \right)^D \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right).$$
+
+Given $$t \in \mathbb{R}$$, there exists $$D$$ such that $$\left( \frac{\alpha_{N-p}}{\alpha_N} \right)^D \vert t \vert \leq 1$$ and from this $$D$$, the previous formula has all the terms evaluated in the interval $$[-1, 1]$$, hence $$\phi(t)$$ is well defined. An explicit value of $$D$$ is given by: $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$.
 
 
 
