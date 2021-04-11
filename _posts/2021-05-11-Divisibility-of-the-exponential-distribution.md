@@ -118,11 +118,23 @@ $$\log \varphi \left(\frac{\alpha_j\alpha_k}{\alpha_N^2} t \right) = - \frac{1}{
 
 to then get:
 
-$$\log \varphi(t) = - \frac{1}{p} \log \left( 1-\frac{1}{\alpha_N}it \right) + \frac{1}{p^2} \sum_{j=1}^{N-p}  \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) -  \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \log \left( 1- \frac{\alpha_j\alpha_k}{\alpha_N^3} it \right) - \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \sum_{l=1}^{N-p} \log \varphi \left(\frac{\alpha_j\alpha_k\alpha_l}{\alpha_N^3} t \right).$$
+$$
+\begin{align*}
+\log \varphi(t) = -& \frac{1}{p} \log \left( 1-\frac{1}{\alpha_N}it \right) \\
++& \frac{1}{p^2} \sum_{j=1}^{N-p}  \log \left( 1-\frac{\alpha_j}{\alpha_N^2} it \right) - \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \log \left( 1- \frac{\alpha_j\alpha_k}{\alpha_N^3} it \right) \\
+-& \frac{1}{p^3} \sum_{j=1}^{N-p} \sum_{k=1}^{N-p} \sum_{l=1}^{N-p} \log \varphi \left(\frac{\alpha_j\alpha_k\alpha_l}{\alpha_N^3} t \right).
+\end{align*}
+$$
 
 We continue by induction to obtain, for all $$D \geq 1$$:
 
-$$\log \varphi(t) = - \frac{1}{p} \log \left( 1- \frac{1}{\alpha_N}it \right) + \sum_{d=2}^{D} \left( \frac{-1}{p} \right)^d \left[\sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{d-1}=1}^{N-p}  \log \left( 1-\frac{\prod_{k=1}^{d-1} \alpha_{j_k}}{\alpha_N^d} it \right) \right] + \left( \frac{-1}{p} \right)^D \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right).$$
+$$
+\begin{align*}
+\log \varphi(t) = -& \frac{1}{p} \log \left( 1- \frac{1}{\alpha_N}it \right) \\
++& \sum_{d=2}^{D} \frac{\left( -1 \right)^d}{p^d}  \left[\sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{d-1}=1}^{N-p}  \log \left( 1-\frac{\prod_{k=1}^{d-1} \alpha_{j_k}}{\alpha_N^d} it \right) \right] \\
++& \frac{\left(-1 \right)^D}{p^D} \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right).
+\end{align*}
+$$
 
 Given $$t \in \mathbb{R}$$, there exists $$D$$ such that $$\left( \frac{\alpha_{N-p}}{\alpha_N} \right)^D \vert t \vert \leq 1$$ and from this $$D$$, the previous formula has all the terms evaluated in the interval $$[-1, 1]$$, hence $$\phi(t)$$ is well defined. An explicit value of $$D$$ is given by: $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$.
 
