@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Roots of random variables
-published: true
+published: false
 comments: true
 output: html_document
 ---
@@ -181,6 +181,7 @@ Since the sum of $$k$$ independent $$\text{Gamma}(1/k, 1)$$ distributed variable
 ### Case generalized gamma
 
 TODO
+(Note: the case uniform can be interested with connection with exponential $$e^{-X_1}e^{-X_2} = U$$ for $$X_1+X_2 = Z$$ with $$U$$ uniform and $$Z$$ exponential)
 
 {::options parse_block_html="true" /}
 

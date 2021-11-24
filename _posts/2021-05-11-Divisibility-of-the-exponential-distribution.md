@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Divisibility of the exponential distribution
-published: true
+published: false
 comments: true
 output: html_document
 ---
@@ -96,8 +96,8 @@ $$
 \begin{align*}
 \log \varphi(t) = -& \frac{1}{p} \log \left( 1- \frac{1}{\alpha_N}it \right) \\
 +& \sum_{d=2}^{D} \frac{\left( -1 \right)^d}{p^d}  \left[\sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{d-1}=1}^{N-p}  \log \left( 1-\frac{\prod_{k=1}^{d-1} \alpha_{j_k}}{\alpha_N^d} it \right) \right] \\
-+& \frac{\left(-1 \right)^D}{p^D} \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right).
-\end{align*},
++& \frac{\left(-1 \right)^D}{p^D} \sum_{j_{1}=1}^{N-p} \ldots \sum_{j_{D}=1}^{N-p} \log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right),
+\end{align*}
 $$
 
 where the terms $$\log \varphi \left( \frac{\prod_{k=1}^{D} \alpha_{j_k}}{\alpha_N^D} t \right)$$ are computed using the formula valid for $$\vert t \vert \leq \alpha_N$$.
@@ -162,3 +162,6 @@ The naive number of terms to compute for a given $$t$$ linked with a certain $$D
 
 
 Ideas: case with negative $$\alpha$$ (or more *complex*), e.g. $$Z = \vert X - Y \vert$$? It's not possible to get directly $$Z = X - Y$$ with same distributed $$X$$ and $$Y$$, because $$Z$$ is nonnegative.
+
+In [Infinite Divisibility of Information](https://arxiv.org/pdf/2008.06092.pdf), given $$Z$$ authors finds any $$X$$ (i.e. asks whether there exists $$X$$ and $$f$$ such that $$f(X_1 \ldots X_N) = Z$$).
+
