@@ -14,8 +14,7 @@ $$Z = \sum_{j=1}^{N} \alpha_j X_j.$$
 
 For the special case where all $$\alpha_j$$ are equal, this corresponds to the problem of *infinite divisibility* of the exponential distribution, and in this case $$X_1$$ follows $$\text{Gamma}(1/N, 1/\alpha_1)$$, a gamma variable with shape $$1/N$$ and scale $$1/\alpha_1$$ (in particular when $$N=1$$, we have $$X_1 \sim \text{Exp}(\alpha_1) = \text{Gamma}(1, 1/\alpha_1)$$).
 
-We are willing to extend this divisibility property and give methods to derive the density distribution of $$X_1$$ along with a way to generate it.
-
+We are willing to extend this divisibility property by deriving the characteristic function of $$X_1$$ before inversing it numerically to retrieve the density. Some visualizations are provided.
 
 
 First, the characteristic function $$\varphi$$ of $$X_1$$ is given, for $$\vert t \vert \leq \max \alpha_j$$, by:
@@ -87,7 +86,8 @@ $$
 
 {::options parse_block_html="false" /}
 
-We would like to extend the characteristic function on $$t \in \mathbb{R}$$. We order the indexes to get: $$\alpha_1 \leq \ldots \leq  \alpha_N $$.
+We would like to extend the characteristic function on $$t \in \mathbb{R}$$. Extending it is needed to uniquely characterize the random variable, in addition the inversion formula is using all the range of definition.
+We order the indexes to get: $$\alpha_1 \leq \ldots \leq  \alpha_N $$.
 In the case where all coefficients are equal, we already expressed the solution in the introduction. Otherwise, there exists $$p \in [1,N-1]$$ such that $$\alpha_1 \leq \ldots \leq \alpha_{N-p} < \alpha_{N-p+1} = \ldots = \alpha_{N}$$. The integer $$p$$ is the number of indexes equal to $$\alpha_N$$; in most of the cases we have $$p = 1$$ hence $$\alpha_{N-1} < \alpha_{N}$$.
 
 For $$\vert t \vert > \alpha_N$$, we let $$D := \lceil \frac{\log \vert t \vert}{\log \alpha_N - \log \alpha_{N-p}} \rceil$$ and deduce $$\varphi(t)$$ from:
@@ -160,8 +160,13 @@ Given $$t \in \mathbb{R}$$, there exists $$D$$ such that $$\left( \frac{\alpha_{
 
 The naive number of terms to compute for a given $$t$$ linked with a certain $$D$$ is $$\frac{(N-p)^{D+1} - 1}{N-p-1}$$ for $$p < N-1$$ and $$D$$ for $$p = N-1$$.
 
+In conclusion, if such variable $$X_1$$ exists, then the only possible characteristic function is given by $$\varphi$$. We assume it is.
 
-Ideas: case with negative $$\alpha$$ (or more *complex*), e.g. $$Z = \vert X - Y \vert$$? It's not possible to get directly $$Z = X - Y$$ with same distributed $$X$$ and $$Y$$, because $$Z$$ is nonnegative.
+### Numeric inversion and visualizations
 
-In [Infinite Divisibility of Information](https://arxiv.org/pdf/2008.06092.pdf), given $$Z$$ authors finds any $$X$$ (i.e. asks whether there exists $$X$$ and $$f$$ such that $$f(X_1 \ldots X_N) = Z$$).
+TODO
 
+### Related work
+
+- [Infinite Divisibility of Information](https://arxiv.org/pdf/2008.06092.pdf) article, where the author discuss, given $$Z$$ a random variable, about the existence of $$X$$ and $$f$$ such that $$f(X_1 \ldots X_N) = Z$$.
+- [Pólya's theorem](https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)#Criteria_for_characteristic_functions) "can be used to construct an example of two random variables whose characteristic functions coincide over a finite interval but are different elsewhere", showing the necessity of defining the characteristic function on the whole range.
