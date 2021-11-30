@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Divisibility of the exponential distribution
-published: false
+published: true
 comments: true
 output: html_document
 ---
