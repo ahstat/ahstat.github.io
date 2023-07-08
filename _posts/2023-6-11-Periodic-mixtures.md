@@ -22,10 +22,10 @@ f
 </tr>
 <tr>
 <td align="right">$$\text{Linear}$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/linear.png" alt="todo"/>$${\scriptstyle \sigma^{-1} \left( 1- \frac{|x|}{\sigma} \right) \mathbf{1}_{|x| \leq \sigma}}$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/linear.png" alt="todo"/>$${\scriptstyle - \text{sign}(x) \frac{1}{\sigma^2} \mathbf{1}_{|x| \leq \sigma}}$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/linear.png" alt="todo"/>$${\scriptstyle \text{sinc}^2(\sigma \xi)}$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/linear.png" alt="todo"/>$${\scriptstyle 2\pi i \xi \text{sinc}^2(\sigma \xi)}$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/linear.png" alt="todo"/> $${\scriptstyle \sigma^{-1} \left( 1- \frac{|x|}{\sigma} \right) \mathbf{1}_{|x| \leq \sigma}}$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/linear.png" alt="todo"/> $${\scriptstyle - \text{sign}(x) \frac{1}{\sigma^2} \mathbf{1}_{|x| \leq \sigma}}$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/linear.png" alt="todo"/> $${\scriptstyle \text{sinc}^2(\sigma \xi)}$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/linear.png" alt="todo"/> $${\scriptstyle 2\pi i \xi \text{sinc}^2(\sigma \xi)}$$</td>
 </tr>
 <tr>
 <td align="right">$$\text{Exponential}$$</td>
