@@ -29,7 +29,6 @@ f
 <td>$$g_{\sigma}(x)$$</td>
 <td>$$\mathcal{F}f_{\sigma}(\xi)$$</td>
 <td>$$\mathcal{F}g_{\sigma}(\xi)$$</td>
-<td>$$\sigma$$</td>
 </tr>
 <tr>
 <td align="center">Linear$$(\sigma=1)$$</td>
