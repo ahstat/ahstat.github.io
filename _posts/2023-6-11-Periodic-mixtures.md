@@ -5,7 +5,8 @@ published: true
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Period mixtures (draft)
+Let $$f$$ be a real function. For $$\lambda > 0$$, we are interested in the equally-spaced summation $$\sum_{k=-\infty}^{+\infty} f(.+k\lambda)$$, that can be interpreted depending on the context as a periodic mixture or as a wrapped distribution.
+For some specific functions such as the Gaussian density, we derive expressions, evaluations, and approximations of the sum, further accompanied with visualization of the different shapes for various values of $$\lambda$$.
 
 
 
@@ -14,12 +15,11 @@ Period mixtures (draft)
 
 
 
+In the following, we consider five types of functions $$f_{\sigma}$$, each type being parametrized by $$\sigma>0$$ representing a kind of deviation. The types are named Linear, Exponential, Polynomial, Gaussian, and Sinc, and correspond to family of densities, expect for Sinc that however still sums to one. The definition of the functions is provided in the table below. As you can see, the shape of each type is adjusted to peak at $$x=0$$ and then symmetrically fade to zero.
 
+For each case, we consider the derivative of the functions $$g(x) := f'(x)$$ and their Fourier transforms, where we use below the conventions $$\mathcal{F}f(\xi) := \int_{-\infty}^{+\infty} f(x) e^{-2i\pi x \xi} dx$$ and $$\text{sinc}(x) := \frac{\sin(\pi x)}{\pi x}.$$
 
-
-
-    
-f
+In the visual representations of the table, the value of $$\sigma$$ is set as indicated in the first column, and corresponds to the case where the Fourier transform is also a density function (or equivalently where $$f(0) = 1$$).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -32,43 +32,43 @@ f
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Linear$$(\sigma=1)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \left( 1- \frac{|x|}{\sigma} \right) \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{\sigma^2} \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{sinc}^2(\sigma \xi)}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \text{sinc}^2(\sigma \xi)}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/linear.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \left( 1- \frac{|x|}{\sigma} \right) \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/linear.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{\sigma^2} \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/linear.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{sinc}^2(\sigma \xi)}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/linear.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \text{sinc}^2(\sigma \xi)}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Exponential$$(\sigma=1/2)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/exponential.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{2\sigma} e^{-\frac{|x|}{\sigma}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/exponential.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{2 \sigma^2} e^{-\frac{|x|}{\sigma}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/exponential.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/exponential.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{2\sigma} e^{-\frac{|x|}{\sigma}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{2 \sigma^2} e^{-\frac{|x|}{\sigma}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/polynomial.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \pi^{-1} \frac{1}{1 + \left( x/\sigma \right) ^2}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/polynomial.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle -2 \sigma^{-3} \pi^{-1} \frac{1}{\left( 1 + \left( x/\sigma \right)^2 \right)^2} x}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/polynomial.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-2\pi \sigma |\xi|}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/polynomial.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-2\pi \sigma |\xi|}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \pi^{-1} \frac{1}{1 + \left( x/\sigma \right) ^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle -2 \sigma^{-3} \pi^{-1} \frac{1}{\left( 1 + \left( x/\sigma \right)^2 \right)^2} x}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-2\pi \sigma |\xi|}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-2\pi \sigma |\xi|}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Gaussian$$(\sigma=1/\sqrt{2\pi})$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/gaussian.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \left( 2 \pi \right)^{-1/2} \sigma^{-1} e^{-\frac{x^2}{2\sigma^2}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/gaussian.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \left( 2 \pi \right)^{-1/2} \sigma^{-3} e^{-\frac{x^2}{2\sigma^2}} x}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/gaussian.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/gaussian.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \left( 2 \pi \right)^{-1/2} \sigma^{-1} e^{-\frac{x^2}{2\sigma^2}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \left( 2 \pi \right)^{-1/2} \sigma^{-3} e^{-\frac{x^2}{2\sigma^2}} x}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Sinc$$(\sigma=1/\pi)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \pi^{-1} x^{-1} \sin (x / \sigma)}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{x \cos \left(  x / \sigma \right) - \sigma \sin \left( x / \sigma \right)}{\sigma \pi x^{2} }}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2 \pi i \xi \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \pi^{-1} x^{-1} \sin (x / \sigma)}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{x \cos \left(  x / \sigma \right) - \sigma \sin \left( x / \sigma \right)}{\sigma \pi x^{2} }}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2 \pi i \xi \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]}}$$</span></td>
 </tr>
 </tbody>
 </table>
 
-
+todo
 
 
 
