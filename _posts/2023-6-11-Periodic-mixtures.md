@@ -21,7 +21,7 @@ f
 <td>$$~~~~~~~~~~~\mathcal{F}g_{\sigma}(\xi)~~~~~~~~~~~$$</td>
 </tr>
 <tr>
-<td align="center">Linear</td>
+<td align="center" vertical-align="middle">Linear</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \left( 1- \frac{|x|}{\sigma} \right) \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{\sigma^2} \mathbf{1}_{|x| \leq \sigma}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/linear.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{sinc}^2(\sigma \xi)}$$</span></td>
@@ -49,7 +49,7 @@ f
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱg/gaussian.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
 </tr>
 <tr>
-<td align="center">Sinc</td>
+<td align="center" vertical-align="middle">Sinc</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/f/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \pi^{-1} x^{-1} \sin (x / \sigma)}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/g/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{x \cos \left(  x / \sigma \right) - \sigma \sin \left( x / \sigma \right)}{\sigma \pi x^{2} }}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/ℱf/sinc.png" alt="todo"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]}}$$</span></td>
