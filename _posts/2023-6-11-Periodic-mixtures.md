@@ -15,7 +15,7 @@ For some specific functions such as the Gaussian density, we derive expressions,
 
 
 
-In the following, we consider five types of functions $$f_{\sigma}$$, each type being parametrized by $$\sigma>0$$ representing a kind of deviation. The types are named Linear, Exponential, Polynomial, Gaussian, and Sinc, and correspond to family of densities, expect for Sinc that however still sums to one. The definition of the functions is provided in the table below. As you can see, the shape of each type is adjusted to peak at $$x=0$$ and then symmetrically fade to zero.
+In the following, we consider limitedly five types of functions $$f_{\sigma}$$, each type being parametrized by $$\sigma>0$$ representing a kind of deviation. The types are named Linear, Exponential, Polynomial, Gaussian, and Sinc in the following, and correspond to family of densities, expect for Sinc that however still sums to one. The definition of the functions is provided in the table below. As you can see, the shape of each type is adjusted to peak at $$x=0$$ and then symmetrically fade to zero.
 
 For each case, we consider the derivative of the functions $$g(x) := f'(x)$$ and their Fourier transforms, where we use below the conventions $$\mathcal{F}f(\xi) := \int_{-\infty}^{+\infty} f(x) e^{-2i\pi x \xi} dx$$ and $$\text{sinc}(x) := \frac{\sin(\pi x)}{\pi x}.$$
 
@@ -68,9 +68,24 @@ In the visual representations of the table, the value of $$\sigma$$ is set as in
 </tbody>
 </table>
 
-todo
+In each case, we are interested in wrapping the function around a circle of circumference $$\lambda > 0$$, that is to let, for $$x \in [0,\lambda)$$, $$S_{\lambda}f(x) := \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$. This function is extended by shifts of $$\lambda$$ on the whole real line.
+
+The interest in computing the Fourier transforms lies in the Poisson summation formula, which states under some assumptions that: $$S_{\lambda}f(x) = \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x}$$. 
+
+For the even (real) functions $$f_{\sigma}$$, we obtain $$\mathcal{F}{f_{\sigma}}$$ even and real too so that:
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right)$$ and
+for the odd (real) derivative of density functions $$g_{\sigma}$$, we obtain $$\mathcal{F}{g_{\sigma}}$$ odd and purely imaginary so:
+$$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
 
 
 
+
+
+
+
+### References
+
+- [Wikipedia page on classic Fourier transforms](https://en.wikipedia.org/wiki/Fourier_transform#Square-integrable_functions,_one-dimensional),
+- [Wikipedia page on the Poisson summation formula](https://en.wikipedia.org/wiki/Poisson_summation_formula).
 
