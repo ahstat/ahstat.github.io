@@ -93,35 +93,35 @@ todo
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><video src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear.mp4"></video><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Exponential$$(\sigma=1/2)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><video src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential.mp4"></video><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><video src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial.mp4"></video><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Gaussian$$(\sigma=1/\sqrt{2\pi})$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><video src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian.mp4"></video><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Sinc$$(\sigma=1/\pi)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><video src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc.mp4"></video><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
 </tr>
 </tbody>
 </table>
