@@ -72,14 +72,59 @@ In each case, we are interested in wrapping the function around a circle of circ
 The purpose in computing the Fourier transforms lies in the Poisson summation formula, which states under some assumptions that: $$S_{\lambda}f(x) = \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x}$$. 
 Since each $$f_{\sigma}$$ is an even and real function, we deduce that $$\mathcal{F}{f_{\sigma}}$$ is even and real too, while the transform of the derivative $$\mathcal{F}{g_{\sigma}}$$ is odd and purely imaginary, so that:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right) \text{and}$$ 
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right) \text{~and}$$ 
 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
 todo
 
 
-
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="center">$$S_{\lambda}f_{\sigma}(x)$$</td>
+<td>$$\lambda=30$$</td>
+<td>$$\lambda=3$$</td>
+<td>$$\lambda=1/3$$</td>
+<td>video</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Linear$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Exponential$$(\sigma=1/2)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Gaussian$$(\sigma=1/\sqrt{2\pi})$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sinc$$(\sigma=1/\pi)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_30.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_3.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_0.33.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc.mp4"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{todo}}$$</span></td>
+</tr>
+</tbody>
+</table>
 
 
 
