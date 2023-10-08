@@ -84,7 +84,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 
 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
-The following table shows the shape of the summation for a fixed $$\sigma$$ as a function of $$\lambda$$. The $$x$$-axis is always set on $$[-\lambda, lambda]$$ (i.e., two periods), while the $$y$$-axis is adapted to the figure. The last column shows the video for decreasing $$\lambda$$. 
+The following table shows the shape of the summation for a fixed $$\sigma$$ as a function of $$\lambda$$. The $$x$$-axis is always set on $$[-\lambda, \lambda]$$ (i.e., two periods), while the $$y$$-axis is adapted to the figure. The last column shows the video for decreasing $$\lambda$$. 
 The sum is either approximated using the Fourier transform (for the Polynomial and the Gaussian types) or computed with the closed-form expression (for Linear, Exponential, and Sinc types; see also proofs after the table).
 
 <table border="0" cellspacing="0" cellpadding="0">
@@ -134,26 +134,26 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 </tbody>
 </table>
 
-For all types, the function restricted on the interval $$[-\lambda/2, lambda/2]$$ has:
-- its integral summing to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
-- for $$\lambda$$ large, almost the same distribution as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
-- for $$\lambda$$ tiny, almost the same distribution as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/lambda$$).
+For all types, the function, restricted on the interval $$[-\lambda/2, \lambda/2]$$:
+- has its integral summing to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
+- has, for $$\lambda$$ large, almost the same distribution as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
+- has, for $$\lambda$$ tiny, almost the same distribution as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
 We next comment each type separatly, and derive the closed-form expression for the Linear, Exponential, and Sinc types. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
 
 ## Linear type
 
-The linear type has an interesting accelerating oscillating pattern when $$\lambda \mapsto 0$$. Also, the function is exactly uniform for some values of $$\lambda$$, such as $$\lambda = 1/3$$ in the table above.
-To better understand those patterns, we derive below the closed-form expression in this case. 
+The linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$. Also, the function is exactly uniform for some values of $$\lambda$$, such as $$\lambda = 1/3$$ in the table above.
+To better understand those patterns, we derive below the closed-form expression. 
 
 ### Closed-form expression for the Linear type
 
 The indicator function present in the definition of the base function makes the calculations cumbersome.
 For ease of notation, we let ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
 
-$$\floor*{\oplus} := \floor*{\frac{\sigma + \tilde{x}}{\lambda}} \text{ and}$$
+$$\floor{\oplus} := \floor{\frac{\sigma + \tilde{x}}{\lambda}} \text{ and}$$
 
-$$\floor*{\ominus} := \floor*{\frac{\sigma - \tilde{x}}{\lambda}}.$$
+$$\floor{\ominus} := \floor{\frac{\sigma - \tilde{x}}{\lambda}}.$$
 
 ### Proof
 
