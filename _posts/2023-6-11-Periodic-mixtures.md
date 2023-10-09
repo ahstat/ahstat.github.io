@@ -141,7 +141,7 @@ For all types, several observations can be made on the function restricted on th
 - for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
-We next briefly comment each type separatly, before deriving the closed-form expression for the Linear, Exponential, and Sinc types, along with a summarizing table.
+We next briefly comment each type separatly, before deriving closed-form expressions for the Linear, Exponential, and Sinc types, along with a summarizing table.
 
 ## Brief comment for each type
 
@@ -157,7 +157,7 @@ The linear type has an interesting accelerating oscillating pattern when $$\lamb
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
+To better understand those patterns, we derive below the closed-form expression for $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
 
 ### For the Linear type
 
@@ -168,7 +168,7 @@ $$\oplus  := \left\lfloor \frac{\sigma + \tilde{x}}{\lambda}\right\rfloor \text{
   \ominus := \left\lfloor \frac{\sigma - \tilde{x}}{\lambda}\right\rfloor.$$
 
 
-$$S_{\lambda}f_{\sigma}(x) = \sigma^{-1} \left[ \oplus \left( 1 - \frac{-\tilde{x} + \frac{\lambda}{2} \oplus + \frac{\lambda}{2}}{\sigma} \right) + \scriptscriptstyle \left( 1 + \ominus \right) \left( 1 - \frac{\tilde{x} + \frac{\lambda}{2} \ominus + \lambda \mathbf{1}_{\tilde{x} > \sigma}}{\sigma} \right) \right].$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{\oplus}{\sigma} \left( 1 - \frac{-\tilde{x} + \frac{\lambda}{2}\oplus + \frac{\lambda}{2}}{\sigma} \right) + \frac{1 + \ominus}{\sigma} \left( 1 - \frac{\tilde{x} + \frac{\lambda}{2}\ominus + \lambda \mathbf{1}_{\tilde{x} > \sigma}}{\sigma} \right).$$
 
 
 {::options parse_block_html="true" /}
