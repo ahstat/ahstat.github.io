@@ -2,6 +2,8 @@
 layout: post
 title: Periodic mixtures
 published: true
+comments: true
+output: html_document
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
@@ -134,40 +136,78 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 </tbody>
 </table>
 
-For all types, the function, restricted on the interval $$[-\lambda/2, \lambda/2]$$:
-- has its integral summing to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
-- has, for $$\lambda$$ large, almost the same distribution as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
-- has, for $$\lambda$$ tiny, almost the same distribution as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
+For all types, several observations can be made on the function restricted on the interval $$[-\lambda/2, \lambda/2]$$:
+- its integral sums to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
+- for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
+- for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
-We next comment each type separatly, and derive the closed-form expression for the Linear, Exponential, and Sinc types. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
+We next briefly comment each type separatly, before deriving the closed-form expression for the Linear, Exponential, and Sinc types, along with a summarizing table.
 
-## Linear type
+## Brief comment for each type
+
+### Linear type
 
 The linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$. Also, the function is exactly uniform for some values of $$\lambda$$, such as $$\lambda = 1/3$$ in the table above.
-To better understand those patterns, we derive below the closed-form expression. 
 
-### Closed-form expression for the Linear type
+### Exponential type
+
+### Polynomial and Gaussian types
+
+### Sinc type
+
+## Closed-form expressions
+
+To better understand those patterns, we derive below the closed-form expression. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
+
+### For the Linear type
 
 The indicator function present in the definition of the base function makes the calculations cumbersome.
 For ease of notation, we let ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
 
-$$\floor{\oplus} := \floor{\frac{\sigma + \tilde{x}}{\lambda}} \text{ and}$$
-
-$$\floor{\ominus} := \floor{\frac{\sigma - \tilde{x}}{\lambda}}.$$
-
-### Proof
+$$\floor{\oplus} := \left\lfloor \frac{\sigma + \tilde{x}}{\lambda}\right\rfloor \text{ and}$$
 
 
-## Exponential type
+$$\floor{\ominus} := \left\lfloor \frac{\sigma - \tilde{x}}{\lambda}\right\rfloor.$$
 
-### Closed-form expression for the Exponential type
+{::options parse_block_html="true" /}
 
-## Polynomial and Gaussian types
+<details><summary markdown="span">Proof.</summary>
+
+By writing $$0=0$$
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 
-## Sinc type
+### For the Exponential type
 
-### Closed-form expression for the Sinc type
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof.</summary>
+We further 
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+### For the Sinc type
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof.</summary>
+We further 
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+## Summarizing table
+
 
 ### References
 
