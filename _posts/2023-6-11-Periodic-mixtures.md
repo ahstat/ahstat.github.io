@@ -164,14 +164,16 @@ To better understand those patterns, we derive below the closed-form expression.
 The indicator function present in the definition of the base function makes the calculations cumbersome.
 For ease of notation, we let ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
 
-$$\floor{\oplus} := \left\lfloor \frac{\sigma + \tilde{x}}{\lambda}\right\rfloor \text{ and}$$
+$$\oplus  := \left\lfloor \frac{\sigma + \tilde{x}}{\lambda}\right\rfloor \text{ and }
+  \ominus := \left\lfloor \frac{\sigma - \tilde{x}}{\lambda}\right\rfloor.$$
 
 
-$$\floor{\ominus} := \left\lfloor \frac{\sigma - \tilde{x}}{\lambda}\right\rfloor.$$
+$$S_{\lambda}f_{\sigma}(x) = \sigma^{-1} \left[ \oplus \left( 1 - \frac{-\tilde{x} + \frac{\lambda}{2} \oplus + \frac{\lambda}{2}}{\sigma} \right) + \scriptscriptstyle \left( 1 + \ominus \right) \left( 1 - \frac{\tilde{x} + \frac{\lambda}{2} \ominus + \lambda \mathbf{1}_{\tilde{x} > \sigma}}{\sigma} \right) \right].$$
+
 
 {::options parse_block_html="true" /}
 
-<details><summary markdown="span">Proof.</summary>
+<details><summary markdown="span">Proof (click to expand).</summary>
 
 By writing $$0=0$$
 
@@ -185,7 +187,7 @@ By writing $$0=0$$
 
 {::options parse_block_html="true" /}
 
-<details><summary markdown="span">Proof.</summary>
+<details><summary markdown="span">Proof (click to expand).</summary>
 We further 
 
 </details>
@@ -197,7 +199,7 @@ We further
 
 {::options parse_block_html="true" /}
 
-<details><summary markdown="span">Proof.</summary>
+<details><summary markdown="span">Proof (click to expand)s.</summary>
 We further 
 
 </details>
