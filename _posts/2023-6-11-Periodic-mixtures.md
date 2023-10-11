@@ -72,7 +72,7 @@ In the visual representations of the table, the value of $$\sigma$$ is set as in
 
 ## Sum of the base functions $$S_{\lambda}f_{\sigma}$$
 
-In each case, we are interested in wrapping the function around a circle of circumference $$\lambda > 0$$, that is to let, for $$x \in [0,\lambda)$$, $$S_{\lambda}f(x) := \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$. This function is extended by shifts of $$\lambda$$ on the whole real line.
+In each case, we are interested in wrapping the function around a circle of circumference $$\lambda > 0$$, that is to let, for $$x \in [0,\lambda)$$, $$S_{\lambda}f(x) := \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$. This function is extended by shifts of $$\lambda$$ on the whole real line (which, by periodicity, is also equal to $$S_{\lambda}f(x)$$ for $$x \in \mathbb{R}$$).
 
 There are three ways to compute $$S_{\lambda}f(x)$$:
 1. by *direct* approximation of the sum, 
@@ -164,18 +164,58 @@ To better understand those patterns, we derive below the closed-form expression 
 The indicator function present in the definition of the base function makes the calculations cumbersome.
 For ease of notation, we let ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
 
-$$\oplus  := \left\lfloor \frac{\sigma + \tilde{x}}{\lambda}\right\rfloor \text{ and }
-  \ominus := \left\lfloor \frac{\sigma - \tilde{x}}{\lambda}\right\rfloor.$$
+$$\ominus  := \left\lfloor \frac{\sigma - x}{\lambda}\right\rfloor \text{ and }
+  \oplus   := \left\lfloor \frac{\sigma + x}{\lambda}\right\rfloor.$$
 
+$$\circledcirc := \left\lfloor \frac{x}{\lambda}\right\rfloor$$
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{\oplus}{\sigma} \left( 1 - \frac{-\tilde{x} + \frac{\lambda}{2}\oplus + \frac{\lambda}{2}}{\sigma} \right) + \frac{1 + \ominus}{\sigma} \left( 1 - \frac{\tilde{x} + \frac{\lambda}{2}\ominus + \lambda \mathbf{1}_{\tilde{x} > \sigma}}{\sigma} \right).$$
+$$S_{\lambda}f_{\sigma}(x) = XXX.$$
 
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-By writing $$0=0$$
+Let $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
+We let $I$ the set of integers $$k$$ verifying $$|x+k\lambda| \leq \sigma$$, i.e. such that $$-\oplus \leq k \leq \ominus$$.
+This set is further partitioned into $$I^{-}$$ when $$x+k\lambda < 0$$, and $$I^{+}$$ when $$x+k\lambda >= 0$$.
+Globally, 
+
+- $$I^{-}$$ are the elements with $$-\oplus \leq k <= -\circledcirc-1$$, and
+- $$I^{+}$$ are the elements with $$-\circledcirc \leq k \leq \ominus$$.
+
+Any of those three sets can be empty.
+
+The initial formula for $$S_{\lambda}f_{\sigma}(x)$$ can be decomposed as follows:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \left[ \sum_{I^{-}} \left( 1 - \frac{-x-k\lambda}{\sigma} \right) + \sum_{I^{+}} \left( 1 - \frac{x+k\lambda}{\sigma} \right) \right]$$
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \left[ |I| - \frac{1}{\sigma} \left( \sum_{I^{-}} \left( -x-k\lambda \right) + \sum_{I^{+}} \left( x+k\lambda \right) \right) \right]$$
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left( -|I^{-}| + |I^{+}| \right) - \frac{\lambda}{\sigma^2}  \left( -\sum_{I^{-}} k + \sum_{I^{+}} k \right)$$
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2}  \left( \left(\ominus-\circledcirc \right)|I^{+}| - \left( -\oplus-\circledcirc-1 \right) |I^{-}| \right)$$
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right)|I^{+}| + \left( \oplus+\circledcirc+1 \right) |I^{-}| \right)$$
+
+And we have: |I| = floorplus-floorminus+1
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right)|I^{+}| + \left( \oplus+\circledcirc+1 \right) |I^{-}| \right)$$
+
+We have (in all cases, even when the sets are empty): $$|I^{+}| = \ominus+\circledcirc+1$$, $$|I^{-}| = -\circledcirc+\oplus$$, $$|I| = \ominus+\oplus+1$$, so:
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+2\circledcirc+1\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right) \left( \ominus+\circledcirc+1 \right) + \left( \oplus+\circledcirc+1 \right) \left( -\circledcirc+\oplus \right) \right)$$
+
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+2\circledcirc+1\right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) - 2\circledcirc(\circledcirc+1) + \oplus(\oplus+1) \right)$$
+
+We have $$\circledcirc = -1$$ for $$-\lambda \leq x < 0$$; and $$\circledcirc = 0$$ for $$0 \leq x < \lambda$$.
+In particular, on this interval we have: $$2\circledcirc+1 = \text{sign}(x)$$.
+So, for $$x \in [-\lambda, \lambda)$$:
+
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+\text{sign}(x)\right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) + \oplus(\oplus+1) \right)$$
+
+$$S_{\lambda}f_{\sigma}(x) =   - \frac{|x|}{\sigma^2} - \frac{x}{\sigma^2} \left(\ominus-\oplus \right) \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) + \oplus(\oplus+1) \right)$$
 
 </details>
 <br/>
