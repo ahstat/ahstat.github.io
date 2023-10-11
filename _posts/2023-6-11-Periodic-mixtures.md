@@ -177,11 +177,11 @@ $$S_{\lambda}f_{\sigma}(x) = XXX.$$
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 Let $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
-We let $I$ the set of integers $$k$$ verifying $$|x+k\lambda| \leq \sigma$$, i.e. such that $$-\oplus \leq k \leq \ominus$$.
-This set is further partitioned into $$I^{-}$$ when $$x+k\lambda < 0$$, and $$I^{+}$$ when $$x+k\lambda >= 0$$.
+We let $$I$$ the set of integers $$k$$ verifying $$|x+k\lambda| \leq \sigma$$, i.e. such that $$-\oplus \leq k \leq \ominus$$.
+This set is further partitioned into $$I^{-}$$ when $$x+k\lambda < 0$$, and $$I^{+}$$ when $$x+k\lambda \geq 0$$.
 Globally, 
 
-- $$I^{-}$$ are the elements with $$-\oplus \leq k <= -\circledcirc-1$$, and
+- $$I^{-}$$ are the elements with $$-\oplus \leq k \leq -\circledcirc-1$$, and
 - $$I^{+}$$ are the elements with $$-\circledcirc \leq k \leq \ominus$$.
 
 Any of those three sets can be empty.
@@ -198,11 +198,7 @@ $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I
 
 $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right)|I^{+}| + \left( \oplus+\circledcirc+1 \right) |I^{-}| \right)$$
 
-And we have: |I| = floorplus-floorminus+1
-
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right)|I^{+}| + \left( \oplus+\circledcirc+1 \right) |I^{-}| \right)$$
-
-We have (in all cases, even when the sets are empty): $$|I^{+}| = \ominus+\circledcirc+1$$, $$|I^{-}| = -\circledcirc+\oplus$$, $$|I| = \ominus+\oplus+1$$, so:
+We have (in all cases, even when the sets are empty): $$\lvert I^{+} \rvert = \ominus+\circledcirc+1$$, $$\lvert I^{-} \rvert = -\circledcirc+\oplus$$, $$\lvert I \rvert = \ominus+\oplus+1$$, so:
 
 $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+2\circledcirc+1\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right) \left( \ominus+\circledcirc+1 \right) + \left( \oplus+\circledcirc+1 \right) \left( -\circledcirc+\oplus \right) \right)$$
 
