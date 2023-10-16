@@ -199,10 +199,10 @@ $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I
 
 We have (in all cases, even when the sets are empty): $$\lvert I^{+} \rvert = M^{+}+M^0+1$$, $$\lvert I^{-} \rvert = -M^0+M^{-}$$, $$\lvert I \rvert = M^{+}+M^{-}+1$$, so:
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{+}+M^{-}+1 \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+2M^0+1\right) - \frac{\lambda}{2\sigma^2} \left( \left(M^{+}-M^0 \right) \left( M^{+}+M^0+1 \right) + \left( M^{-}+M^0+1 \right) \left( -M^0+M^{-} \right) \right)$$
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{-}-M^{+}+1 \right) - \frac{x}{\sigma^2} \left(M^{-}+M^{+}+1+2M^0 \right) - \frac{\lambda}{2\sigma^2} \left( M^{+}(M^{+}-1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right)$$
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{+}+M^{-}+1 \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+2M^0+1\right) - \frac{\lambda}{2\sigma^2} \left( M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right)$$
 
+    
 
 </details>
 <br/>
