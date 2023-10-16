@@ -162,12 +162,7 @@ To better understand those patterns, we derive below the closed-form expression 
 ### For the Linear type
 
 The indicator function present in the definition of the base function makes the calculations cumbersome.
-For ease of notation, we let ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
-
-$$\ominus  := \left\lfloor \frac{\sigma - x}{\lambda}\right\rfloor \text{ and }
-  \oplus   := \left\lfloor \frac{\sigma + x}{\lambda}\right\rfloor.$$
-
-$$\circledcirc := \left\lfloor \frac{x}{\lambda}\right\rfloor$$
+ ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
 
 $$S_{\lambda}f_{\sigma}(x) = XXX.$$
 
@@ -177,12 +172,16 @@ $$S_{\lambda}f_{\sigma}(x) = XXX.$$
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 Let $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
-We let $$I$$ the set of integers $$k$$ verifying $$|x+k\lambda| \leq \sigma$$, i.e. such that $$-\oplus \leq k \leq \ominus$$.
+For ease of notation, we define:
+
+$$M^{-}:= \left\lfloor \frac{\sigma + x}{\lambda}\right\rfloor,~M^0 := \left\lfloor \frac{x}{\lambda}\right\rfloor,~M^{+}:= \left\lfloor \frac{\sigma - x}{\lambda}\right\rfloor.$$
+
+We let $$I$$ the set of integers $$k$$ verifying $$|x+k\lambda| \leq \sigma$$, i.e. such that $$-M^{-} \leq k \leq M^{+}$$.
 This set is further partitioned into $$I^{-}$$ when $$x+k\lambda < 0$$, and $$I^{+}$$ when $$x+k\lambda \geq 0$$.
 Globally, 
 
-- $$I^{-}$$ are the elements with $$-\oplus \leq k \leq -\circledcirc-1$$, and
-- $$I^{+}$$ are the elements with $$-\circledcirc \leq k \leq \ominus$$.
+- $$I^{-}$$ are the elements with $$-M^{-} \leq k \leq -M^0-1$$, and
+- $$I^{+}$$ are the elements with $$-M^0 \leq k \leq M^{+}$$.
 
 Any of those three sets can be empty.
 
@@ -194,24 +193,16 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \left[ |I| - \frac{1}{\sigma} \lef
 
 $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left( -|I^{-}| + |I^{+}| \right) - \frac{\lambda}{\sigma^2}  \left( -\sum_{I^{-}} k + \sum_{I^{+}} k \right)$$
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2}  \left( \left(\ominus-\circledcirc \right)|I^{+}| - \left( -\oplus-\circledcirc-1 \right) |I^{-}| \right)$$
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2}  \left( \left(M^{+}-M^0 \right)|I^{+}| - \left( -M^{-}-M^0-1 \right) |I^{-}| \right)$$
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right)|I^{+}| + \left( \oplus+\circledcirc+1 \right) |I^{-}| \right)$$
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(M^{+}-M^0 \right)|I^{+}| + \left( M^{-}+M^0+1 \right) |I^{-}| \right)$$
 
-We have (in all cases, even when the sets are empty): $$\lvert I^{+} \rvert = \ominus+\circledcirc+1$$, $$\lvert I^{-} \rvert = -\circledcirc+\oplus$$, $$\lvert I \rvert = \ominus+\oplus+1$$, so:
+We have (in all cases, even when the sets are empty): $$\lvert I^{+} \rvert = M^{+}+M^0+1$$, $$\lvert I^{-} \rvert = -M^0+M^{-}$$, $$\lvert I \rvert = M^{+}+M^{-}+1$$, so:
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+2\circledcirc+1\right) - \frac{\lambda}{2\sigma^2} \left( \left(\ominus-\circledcirc \right) \left( \ominus+\circledcirc+1 \right) + \left( \oplus+\circledcirc+1 \right) \left( -\circledcirc+\oplus \right) \right)$$
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{+}+M^{-}+1 \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+2M^0+1\right) - \frac{\lambda}{2\sigma^2} \left( \left(M^{+}-M^0 \right) \left( M^{+}+M^0+1 \right) + \left( M^{-}+M^0+1 \right) \left( -M^0+M^{-} \right) \right)$$
 
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{+}+M^{-}+1 \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+2M^0+1\right) - \frac{\lambda}{2\sigma^2} \left( M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right)$$
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+2\circledcirc+1\right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) - 2\circledcirc(\circledcirc+1) + \oplus(\oplus+1) \right)$$
-
-We have $$\circledcirc = -1$$ for $$-\lambda \leq x < 0$$; and $$\circledcirc = 0$$ for $$0 \leq x < \lambda$$.
-In particular, on this interval we have: $$2\circledcirc+1 = \text{sign}(x)$$.
-So, for $$x \in [-\lambda, \lambda)$$:
-
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{x}{\sigma^2} \left(\ominus-\oplus+\text{sign}(x)\right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) + \oplus(\oplus+1) \right)$$
-
-$$S_{\lambda}f_{\sigma}(x) =   - \frac{|x|}{\sigma^2} - \frac{x}{\sigma^2} \left(\ominus-\oplus \right) \frac{1}{\sigma} \left(\ominus+\oplus+1 \right) - \frac{\lambda}{2\sigma^2} \left( \ominus(\ominus+1) + \oplus(\oplus+1) \right)$$
 
 </details>
 <br/>
