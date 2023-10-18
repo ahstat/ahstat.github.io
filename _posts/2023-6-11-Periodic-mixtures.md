@@ -205,7 +205,7 @@ $$\lvert I^{+} \rvert = M^{+}+M^0+1,~\lvert I^{-} \rvert = -M^0+M^{-},~\lvert I 
 
 so that:
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right) - \frac{\lambda}{2\sigma^2} \left(M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right) - \frac{x}{\sigma^2} \left(M^{-}-M^{+}+1+2M^0 \right).$$
+$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right) - \frac{\lambda}{2\sigma^2} \left(M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+1+2M^0 \right).$$
 
 </details>
 <br/>
