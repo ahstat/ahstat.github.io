@@ -199,7 +199,12 @@ Using the formula for arithmetic series, we obtain:
 
 <!-- $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2}  \left( \left(M^{+}-M^0 \right)|I^{+}| - \left( -M^{-}-M^0-1 \right) |I^{-}| \right)$$ -->
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) - \frac{\lambda}{2\sigma^2} \left( \left(M^{+}-M^0 \right)|I^{+}| + \left( M^{-}+M^0+1 \right) |I^{-}| \right).$$
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\sigma} |I| - \frac{x}{\sigma^2} \left(|I^{+}|-|I^{-}|\right) \\
+-& \frac{\lambda}{2\sigma^2} \left( \left(M^{+}-M^0 \right)|I^{+}| + \left( M^{-}+M^0+1 \right) |I^{-}| \right).
+\end{align*}
+$$
 
 We have (in all cases, even when the sets are empty): 
 
@@ -207,7 +212,13 @@ $$\lvert I^{+} \rvert = M^{+}+M^0+1,~\lvert I^{-} \rvert = -M^0+M^{-},~\lvert I 
 
 so that:
 
-$$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right) - \frac{\lambda}{2\sigma^2} \left(M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+1+2M^0 \right).$$
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right) \\
+-& \frac{\lambda}{2\sigma^2} \left(M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right) \\
+-& \frac{x}{\sigma^2} \left(M^{+}-M^{-}+1+2M^0 \right).
+\end{align*}
+$$
 
 **Term in $$x$$**
 
@@ -256,6 +267,9 @@ There are six cases to consider:
 Merging all the cases, we finally obtain (for $$x \in [-\lambda/2, \lambda/2)$$):
 
 $$S_1 = -\frac{\lvert x \rvert}{\sigma^2} \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0)}.$$
+
+**Constant terms**
+
 
 
 </details>
