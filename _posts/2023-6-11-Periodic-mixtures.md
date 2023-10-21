@@ -207,6 +207,48 @@ so that:
 
 $$S_{\lambda}f_{\sigma}(x) =  \frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right) - \frac{\lambda}{2\sigma^2} \left(M^{+}(M^{+}+1) - 2M^0(M^0+1) + M^{-}(M^{-}+1) \right) - \frac{x}{\sigma^2} \left(M^{+}-M^{-}+1+2M^0 \right).$$
 
+The previous formula is valid for all $$x \in \mathbb{R}$$, while in all the following we consider $$x \in [-\lambda/2, \lambda/2)$$  only. We further let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ (for a certain integer $$i$$). Finally, we let $$\tilde{M}^{-}:= \left\lfloor \frac{\tilde{\sigma} + x}{\lambda}\right\rfloor$$ and $$\tilde{M}^{+}:= \left\lfloor \frac{\tilde{\sigma} - x}{\lambda}\right\rfloor.$$
+Since both $$\tilde{\sigma}$$ and $$x$$ are in $$[-\lambda/2, \lambda/2)$$, all $$\tilde{M}^{-}$$, $$\tilde{M}^{0}$$, and $$\tilde{M}^{+}$$ are in $$\lbrace -1, 0 \rbrace$$ (since, before taking the floor function, the values are respectively in $$[-1, 1)$$, $$[-1/2,1/2)$$, and $$(-1,1)$$). Since $$M^0 \in \lbrace -1, 0\rbrace$$, we have $$M^0 = 0$$ if and only if $$x >= 0$$. We deduce that: $$1+2M^0 = 1-2\mathbf{1}_{x<0}$$.
+
+We are first interested by the following term:
+
+$$S_1 := -\frac{x}{\sigma^2} \left(M^{+}-M^{-}+1+2M^0 \right)$$
+
+We observe that $$M^{+}-M^{-} = \tilde{M}^{+}-\tilde{M}^{-}$$, so that $$S_1 = -\frac{x}{\sigma^2} \left(\tilde{M}^{+}-\tilde{M}^{-}+1-2\mathbf{1}_{x<0} \right)$$.
+
+*Case 1*: In the case of $$x=0$$, we have $$S_1=0$$. 
+
+*Case 2*: In the case of $$\tilde{\sigma}=0$$ and $$x \neq 0$$, we have $$\tilde{M}^{-}=-\mathbf{1}_{x<0}$$ and $$\tilde{M}^{+}=-\mathbf{1}_{x>0}$$, so $$M^{+}-M^{-}+1+2M^0 = -\mathbf{1}_{x>0}-\mathbf{1}_{x<0}+1 = 0$$ (since $$x \neq 0$$), and finally $$S_1=0$$.
+
+*Case 3*: In the case of $$|x|<|\tilde{\sigma}|$$ and $$\tilde{\sigma} \neq 0$$ and $$x \neq 0$$, we always obtain $$S_1=-|x|/\sigma^2$$ for the four sub-cases.
+
+<!-- *Case 3.1*: $$|x|<|\tilde{\sigma}|$$ and $$\tilde{\sigma}<0$$ and $$x<0$$ gives $$S_1=-|x|/\sigma^2$$ (we have $$\tilde{\sigma}-x<0$$, then \tilde{M}^{+}=\tilde{M}^{-}=-1$$).
+
+*Case 3.2*: $$|x|<|\tilde{\sigma}|$$ and $$\tilde{\sigma}<0$$ and $$x>0$$ gives $$S_1=-|x|/\sigma^2$$ (we have $$\tilde{\sigma}+x<0$$, then \tilde{M}^{+}=\tilde{M}^{-}=-1$$).
+
+*Case 3.3*: $$|x|<|\tilde{\sigma}|$$ and $$\tilde{\sigma}>0$$ and $$x<0$$ gives $$S_1=-|x|/\sigma^2$$ (we have $$\tilde{\sigma}+x>0$$, then \tilde{M}^{+}=\tilde{M}^{-}=0$$).
+
+*Case 3.4*: $$|x|<|\tilde{\sigma}|$$ and $$\tilde{\sigma}>0$$ and $$x>0$$ gives $$S_1=-|x|/\sigma^2$$ (we have $$\tilde{\sigma}-x>0$$, then \tilde{M}^{+}=\tilde{M}^{-}=0$$). -->
+
+*Case 4*: In the case of $$|x|>|\tilde{\sigma}|$$ and $$\tilde{\sigma} \neq 0$$ and $$x \neq 0$$, we always obtain $$S_1=0$$ for the four sub-cases.
+
+<!-- *Case 4.1*: $$|x|>|\tilde{\sigma}|$$ and $$\tilde{\sigma}<0$$ and $$x<0$$ gives $$S_1=0$$ (we have $$\tilde{\sigma}-x>0$$, then $$\tilde{M}^{+}=0$$, $$\tilde{M}^{-}=-1$$).
+
+*Case 4.2*: $$|x|>|\tilde{\sigma}|$$ and $$\tilde{\sigma}<0$$ and $$x>0$$ gives $$S_1=0$$ (we have $$\tilde{\sigma}+x>0$$, then $$\tilde{M}^{+}=-1$$, $$\tilde{M}^{-}=0$$).
+
+*Case 4.3*: $$|x|>|\tilde{\sigma}|$$ and $$\tilde{\sigma}>0$$ and $$x<0$$ gives $$S_1=0$$ (we have $$\tilde{\sigma}+x<0, then $$\tilde{M}^{+}=0$$, $$\tilde{M}^{-}=-1$$).
+
+*Case 4.4*: $$|x|>|\tilde{\sigma}|$$ and $$\tilde{\sigma}>0$$ and $$x>0$$ gives $$S_1=0$$ (we have $$\tilde{\sigma}-x<0, then $$\tilde{M}^{+}=-1$$, $$\tilde{M}^{-}=0$$). -->
+
+*Case 5*: In the case of $$|x|=|\tilde{\sigma}|$$ and $$\tilde{\sigma} > 0$$, the two sub-cases gives $$\tilde{M}^{+}=\tilde{M}^{-}=0$$, so $$S_1=-|x|/\sigma^2$$.
+
+*Case 6*: In the case of $$|x|=|\tilde{\sigma}|$$ and $$\tilde{\sigma} < 0$$, the two sub-cases gives $$S_1=0$$.
+
+Mergin all the cases, we finally obtain (for $$x \in [-\lambda/2, \lambda/2)$$:
+
+$$S_1 = -\frac{|x|}{\sigma^2} \mathbf{1}_{(|x|<|\tilde{\sigma}|)\text{ or } (|x|=|\tilde{\sigma}| \text{ and } \tilde{\sigma}>0)}.$$
+
+
 </details>
 <br/>
 
