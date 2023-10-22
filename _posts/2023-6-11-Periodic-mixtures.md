@@ -157,21 +157,21 @@ The linear type has an interesting accelerating oscillating pattern when $$\lamb
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression for $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$. For the Linear and the Exponential types, we let $$\tilde{x}$$ the *fractional* part of $$x$$ w.r.t. $$\lambda$$, i.e. such that $$\tilde{x} \in [0, \lambda)$$ and $$x = \tilde{x} + k\lambda$$ ($$k$$ integer).
+To better understand those patterns, we derive below the closed-form expression for $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$. For the Linear and the Exponential types, we let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), and $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + j\lambda$$ ($$j$$ integer).
 
 ### For the Linear type
 
-The indicator function present in the definition of the base function makes the calculations cumbersome.
- ($$\tilde{x}$$ is the fractional part of $$x$$ as defined above):
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$:
 
-$$S_{\lambda}f_{\sigma}(x) = XXX.$$
-
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 **Initial computations**
+
+The indicator function present in the definition of the base function makes the calculations cumbersome.
 
 Let $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
 For ease of notation, we define:
@@ -307,7 +307,7 @@ $$
 
 We compute $$\tilde{M}^{+} + \tilde{M}^{-} + 1 \in \lbrace -1,0,1 \rbrace $$ as in the previous section and obtain:
 
-$$\tilde{M}^{+} + \tilde{M}^{-} + 1 = \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)} \left( 2 \mathbf{1}_{\tilde{sigma} \geq 0} -1 \right),$$
+$$\tilde{M}^{+} + \tilde{M}^{-} + 1 = \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)} \left( 2 \mathbf{1}_{\tilde{\sigma} \geq 0} -1 \right),$$
 
 so finally the constant term is:
 
@@ -357,7 +357,7 @@ We further
 
 {::options parse_block_html="true" /}
 
-<details><summary markdown="span">Proof (click to expand)s.</summary>
+<details><summary markdown="span">Proof (click to expand).</summary>
 We further 
 
 </details>
