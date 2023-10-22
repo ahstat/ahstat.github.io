@@ -328,8 +328,8 @@ $$\Delta := \Delta(x, \sigma, \lambda) := \mathbf{1}_{(\lvert x \rvert<\lvert \t
 
 $$S_{\lambda}f_{\sigma}(x)$$ is the sum of the terms $$S_1$$ and $$S_2$$ computed previously:
 
-$$
 \begin{align*}
+$$
 S_{\lambda}f_{\sigma}(x) =& -\frac{\lvert x \rvert}{\sigma^2} \Delta + \frac{1}{\lambda} - \frac{\tilde{\sigma}^2}{\lambda\sigma^2} + \frac{\lvert \tilde{\sigma} \rvert}{\sigma^2} \Delta \\
 =& \frac{\Delta}{\sigma^2} \left( \lvert \tilde{\sigma} \rvert - \lvert x \rvert \right) + \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right).
 $$
