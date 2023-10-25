@@ -136,7 +136,7 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 </tbody>
 </table>
 
-For all types, several observations can be made on the function restricted on the interval $$[-\lambda/2, \lambda/2]$$:
+For all types, several observations can be made on the function restricted on the interval $$[-\lambda/2, \lambda/2)$$:
 - its integral sums to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
 - for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
@@ -161,9 +161,17 @@ To better understand those patterns, we derive below the closed-form expression 
 
 ### For the Linear type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$:
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we define the following condition:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+$$\Delta(x, \sigma, \lambda) := \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)},$$
+
+and we have:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(x, \sigma, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+
+For the values for which $$g_{\sigma}$$ is defined, we deduce:
+
+$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(x)}{\sigma^2} \mathbf{1}_{\Delta(x, \sigma, \lambda)}.$$
 
 {::options parse_block_html="true" /}
 
@@ -334,6 +342,8 @@ S_{\lambda}f_{\sigma}(x) =& -\frac{\lvert x \rvert}{\sigma^2} \Delta + \frac{1}{
 =& \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \Delta  \frac{\lvert \tilde{\sigma} \rvert - \lvert x \rvert}{\sigma^2}.
 \end{align*}
 $$
+
+The form for the derivative is directly deduced.
 
 </details>
 <br/>
