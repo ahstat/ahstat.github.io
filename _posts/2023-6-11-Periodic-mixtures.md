@@ -369,6 +369,23 @@ S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e
 \end{align*}
 $$
 
+Restricting on $$x \in [0, lambda/2]$$, we have $$M^0=0$$, so on this interval:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[ - \frac{e^{\frac{x}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +   \frac{e^{-\frac{x}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]$$
+
+Since the function is even, we deduce for $$x \in [-lambda/2, lambda/2)$$:
+
+$$S_{\lambda}f_{\sigma}(x) = -\frac{1}{2\sigma} \left[\frac{e^{\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} - \frac{e^{-\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right],$$
+
+which is extended on the whole real line using $$\tilde{x}$$.
+By putting on the same denominator, we deduce:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert x \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+
+By taking the derivative, we finally obtain:
+
+$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(x)}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert x \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+
 </details>
 <br/>
 
