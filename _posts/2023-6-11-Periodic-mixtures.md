@@ -364,7 +364,7 @@ The sum $$S_{\lambda}f_{\sigma}(x)$$ can be written:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{\frac{-x-k\lambda}{\sigma}} \\
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{\frac{-x-k\lambda}{\sigma}} \right] \\
 =& \frac{1}{2\sigma} \left[ e^{\frac{x}{\sigma}} \frac{-e^{-\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +  e^{-\frac{x}{\sigma}} \frac{e^{\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]
 \end{align*}
 $$
