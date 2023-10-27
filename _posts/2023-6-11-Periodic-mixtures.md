@@ -383,10 +383,10 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[ - \frac{e^{\frac{x}{\sigma
 
 Since the function is even, we deduce for $$x \in [-\lambda/2, \lambda/2)$$:
 
-$$S_{\lambda}f_{\sigma}(x) = -\frac{1}{2\sigma} \left[\frac{e^{\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} - \frac{e^{-\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right],$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[-\frac{e^{\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} + \frac{e^{-\frac{\lvert x \rvert}{\sigma}}}{1 - e^{-\frac{\lambda}{\sigma}}} \right],$$
 
 which is extended on the whole real line using $$\tilde{x}$$.
-By putting on the same denominator, we deduce:
+By multiplying the first term by $$\frac{e^{-\frac{\lambda}{2\sigma}}}{e^{-\frac{\lambda}{2\sigma}}}$$ and the second term by $$\frac{e^{\frac{\lambda}{2\sigma}}}{e^{\frac{\lambda}{2\sigma}}}$$, we deduce:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
 
