@@ -163,15 +163,15 @@ To better understand those patterns, we derive below the closed-form expression 
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we define the following condition:
 
-$$\Delta(x, \sigma, \lambda) := \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)},$$
+$$\Delta(\tilde{x}, \tilde{\sigma}, \lambda) := \mathbf{1}_{(\lvert \tilde{x} \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert \tilde{x} \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (\tilde{x} = 0)},$$
 
 and we have:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(x, \sigma, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
 For the values for which $$g_{\sigma}$$ is defined, we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(x)}{\sigma^2} \mathbf{1}_{\Delta(x, \sigma, \lambda)}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}.$$
 
 {::options parse_block_html="true" /}
 
@@ -353,6 +353,14 @@ The form for the derivative is directly deduced.
 
 ### For the Exponential type
 
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+
+For the values for which $$g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$), we deduce:
+
+$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
@@ -365,26 +373,26 @@ The sum $$S_{\lambda}f_{\sigma}(x)$$ can be written:
 $$
 \begin{align*}
 S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{\frac{-x-k\lambda}{\sigma}} \right] \\
-=& \frac{1}{2\sigma} \left[ e^{\frac{x}{\sigma}} \frac{-e^{-\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +  e^{-\frac{x}{\sigma}} \frac{e^{\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]
+=& \frac{1}{2\sigma} \left[ e^{\frac{x}{\sigma}} \frac{-e^{-\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +  e^{-\frac{x}{\sigma}} \frac{e^{\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right].
 \end{align*}
 $$
 
-Restricting on $$x \in [0, lambda/2]$$, we have $$M^0=0$$, so on this interval:
+Restricting on $$x \in [0, \lambda/2]$$, we have $$M^0=0$$, so on this interval:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[ - \frac{e^{\frac{x}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +   \frac{e^{-\frac{x}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]$$
 
-Since the function is even, we deduce for $$x \in [-lambda/2, lambda/2)$$:
+Since the function is even, we deduce for $$x \in [-\lambda/2, \lambda/2)$$:
 
 $$S_{\lambda}f_{\sigma}(x) = -\frac{1}{2\sigma} \left[\frac{e^{\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} - \frac{e^{-\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right],$$
 
 which is extended on the whole real line using $$\tilde{x}$$.
 By putting on the same denominator, we deduce:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert x \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
 
 By taking the derivative, we finally obtain:
 
-$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(x)}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert x \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
 
 </details>
 <br/>
