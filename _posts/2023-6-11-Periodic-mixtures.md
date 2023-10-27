@@ -171,7 +171,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2
 
 For the values for which $$g_{\sigma}$$ is defined, we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(x)}{\sigma^2} \mathbf{1}_{\Delta(x, \sigma, \lambda)}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(x)}{\sigma^2} \mathbf{1}_{\Delta(x, \sigma, \lambda)}.$$
 
 {::options parse_block_html="true" /}
 
@@ -356,7 +356,18 @@ The form for the derivative is directly deduced.
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
-We further 
+
+Let $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
+As for the linear case, we define $$M^0 := \left\lfloor \frac{x}{\lambda}\right\rfloor$$.
+
+The sum $$S_{\lambda}f_{\sigma}(x)$$ can be written:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{\frac{-x-k\lambda}{\sigma}} \\
+=& \frac{1}{2\sigma} \left[ e^{\frac{x}{\sigma}} \frac{-e^{-\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +  e^{-\frac{x}{\sigma}} \frac{e^{\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]
+\end{align*}
+$$
 
 </details>
 <br/>
