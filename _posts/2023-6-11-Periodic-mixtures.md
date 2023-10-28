@@ -161,13 +161,13 @@ To better understand those patterns, we derive below the closed-form expression 
 
 ### For the Linear type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we define the following condition:
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$\Delta(\tilde{x}, \tilde{\sigma}, \lambda) := \mathbf{1}_{(\lvert \tilde{x} \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert \tilde{x} \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (\tilde{x} = 0)},$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2},$$
 
-and we have:
+using the following condition:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+$$\Delta(\tilde{x}, \tilde{\sigma}, \lambda) := \mathbf{1}_{(\lvert \tilde{x} \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert \tilde{x} \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (\tilde{x} = 0)}.$$
 
 For the values for which $$g_{\sigma}$$ is defined, we deduce:
 
@@ -404,7 +404,18 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
-We further 
+
+Using the Poisson summation formula, we have:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\infty} \mathbf{1}_{\frac{k}{\lambda} \in \left[ -\frac{1}{2 \pi \sigma}, \frac{1}{2 \pi \sigma} \right]} \cos \left( 2\pi \frac{k}{\lambda} x \right)\\
+=& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{\left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor} \cos \left( 2\pi \frac{k}{\lambda} x \right) \\
+=& \frac{1}{\lambda} + \frac{2}{\lambda} \frac{1}{2} \left[ -1 + \frac{\sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) }{\sin \left( \frac{\pi x}{\lambda} \right)} \right] \\
+=& \frac{1}{\lambda} \frac{\sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) }{\sin \left( \frac{\pi x}{\lambda} \right)}.
+\end{align*}
+$$
+
 
 </details>
 <br/>
