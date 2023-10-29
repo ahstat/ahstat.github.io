@@ -416,6 +416,29 @@ S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\
 \end{align*}
 $$
 
+Taking the derivative:
+
+$$
+\begin{align*}
+S_{\lambda}g_{\sigma}(x) =& \frac{1}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \cos \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \sin \left( \frac{\pi x}{\lambda} \right) - \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \cos \left( \frac{\pi x}{\lambda} \right) \right] \\
+=& \frac{1}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ B \cos \left( AB \right) \sin \left( A \right) - \sin \left( AB \right) \cos \left( A \right) \right],
+\end{align*}
+$$
+
+with $$A:=\frac{\pi x}{\lambda}$$ and $$B:=2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1$$.
+Further using the identity:
+
+$$B \cos(AB)\sin(A) - \sin(AB)\cos(A) = \frac{1}{2} \left[ (B-1) \sin(A(B+1)) - (B+1) \sin (A(B-1)) \right],$$
+
+we obtain:
+
+$$
+\begin{align*}
+S_{\lambda}g_{\sigma}(x) =& \frac{1}{2\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ (B-1) \sin(A(B+1)) - (B+1) \sin (A(B-1)) \right] \\
+=& \frac{1}{2\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ (B-1) \sin(A(B+1)) - (B+1) \sin (A(B-1)) \right] \\
+=& \frac{1}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin\left( 2 \left( 1+\left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \right) \frac{\pi x}{\lambda} \right) - (1+\left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor) \sin \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{\pi x}{\lambda} \right) \right].
+\end{align*}
+$$
 
 </details>
 <br/>
