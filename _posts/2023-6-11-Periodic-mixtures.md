@@ -405,9 +405,9 @@ For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \left[ \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \right],$$
 
-and:
+and, defining $$\left\lfloor x \right\rfloor_{+} := \left\lfloor x \right\rfloor + 1$$ (which is the ceil function except for $$x$$ integer),
 
-$$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) \right].$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[  \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor_{+} \frac{2\pi x}{\lambda}  \right) \right].$$
 
 {::options parse_block_html="true" /}
 
