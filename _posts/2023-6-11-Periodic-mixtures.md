@@ -359,7 +359,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}
 
 For the values for which $$g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$), we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
 
 {::options parse_block_html="true" /}
 
@@ -400,6 +400,15 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 {::options parse_block_html="false" /}
 
 ### For the Sinc type
+
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \left[ \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \right].
+\end{align*},$$
+
+and:
+
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) \right].$$
 
 {::options parse_block_html="true" /}
 
@@ -445,8 +454,6 @@ S_{\lambda}g_{\sigma}(x) =& \frac{A}{2 \lambda \sin^2 \left( Ax \right)} \left[ 
 =& \frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) - \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) \right].
 \end{align*}
 $$
-
-\frac{\pi}{\lambda}
 
 
 </details>
