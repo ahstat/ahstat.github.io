@@ -420,7 +420,7 @@ Defining $$A:=\frac{\pi}{\lambda}$$ and $$B:=2 \left\lfloor\frac{\lambda}{2\pi\s
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x)= \frac{1}{\lambda} \frac{\sin \left( ABx \right) }{\sin \left( Ax\right)}.
+S_{\lambda}f_{\sigma}(x)= \frac{1}{\lambda} \frac{\sin \left( ABx \right) }{\sin \left( Ax\right)},
 \end{align*}
 $$
 
@@ -436,13 +436,13 @@ We further use the identity:
 
 $$B \cos(ABx)\sin(Ax) - \sin(ABx)\cos(Ax) = \frac{1}{2} \left[ (B-1) \sin(A(B+1)x) - (B+1) \sin (A(B-1)x) \right]$$
 
-to obtain:
+to derive:
 
 $$
 \begin{align*}
 S_{\lambda}g_{\sigma}(x) =& \frac{A}{2 \lambda \sin^2 \left( Ax \right)} \left[ (B-1) \sin(A(B+1)x) - (B+1) \sin (A(B-1)x) \right]\\
 =& \frac{A}{\lambda \sin^2 \left( Ax \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin(A(B+1)x) - \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin (A(B-1)x) \right] \\
-=& \frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin( 2 \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{\pi x}{\lambda}  ) - \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin ( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{\pi x}{\lambda}  ) \right]
+=& \frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) - \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) \right].
 \end{align*}
 $$
 
