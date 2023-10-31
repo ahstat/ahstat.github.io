@@ -403,7 +403,7 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \left[ \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \right],$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right),$$
 
 and, defining $$\left\lfloor x \right\rfloor_{+} := \left\lfloor x \right\rfloor + 1$$ (which is the ceil function except for $$x$$ integer),
 
