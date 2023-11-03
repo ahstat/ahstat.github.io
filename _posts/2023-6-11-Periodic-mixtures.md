@@ -401,11 +401,11 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 
 ### For the Sinc type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right),$$
 
-and, defining $$\left\lfloor x \right\rfloor_{+} := \left\lfloor x \right\rfloor + 1$$ (which is the ceil function except for $$x$$ integer),
+and, defining $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$, which is the ceil function except for $$z$$ integer, we obtain (the function is also extended by continuity):
 
 $$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[  \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor_{+} \frac{2\pi x}{\lambda}  \right) \right].$$
 
@@ -413,7 +413,7 @@ $$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\l
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-Using the Poisson summation formula, we have:
+Using the Poisson summation formula, we have for $$x \neq \lambda n$$ (this case can be directly done separately):
 
 $$
 \begin{align*}
@@ -453,7 +453,6 @@ S_{\lambda}g_{\sigma}(x) =& \frac{A}{2 \lambda \sin^2 \left( Ax \right)} \left[ 
 =& \frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) - \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\pi\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) \right].
 \end{align*}
 $$
-
 
 </details>
 <br/>
