@@ -80,7 +80,7 @@ There are three ways to compute $$S_{\lambda}f(x)$$:
 3. by determining, when available, a *closed*-form expression.
 
 Regarding the second way, the purpose in using the Fourier transforms lies in the Poisson summation formula, which states under some assumptions that: $$S_{\lambda}f(x) = \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x}$$. 
-Since each $$f_{\sigma}$$ is an even and real function, we deduce that $$\mathcal{F}{f_{\sigma}}$$ is even and real too, while the transform of the derivative $$\mathcal{F}{g_{\sigma}}$$ is odd and purely imaginary, so that:
+Since each $$f_{\sigma}$$ is an even and real function, we deduce that $$\mathcal{F}{f_{\sigma}}$$ is even and real too (while the transform of the derivative $$\mathcal{F}{g_{\sigma}}$$ is odd and purely imaginary), so that:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right) \text{ and}$$ 
 
@@ -141,23 +141,12 @@ For all types, several observations can be made on the function restricted on th
 - for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
-We next briefly comment each type separatly, before deriving closed-form expressions for the Linear, Exponential, and Sinc types, along with a summarizing table.
-
-## Brief comment for each type
-
-### Linear type
-
-The linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$. Also, the function is exactly uniform for some values of $$\lambda$$, such as $$\lambda = 1/3$$ in the table above.
-
-### Exponential type
-
-### Polynomial and Gaussian types
-
-### Sinc type
+Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, hence does not converge, while it is exactly uniform for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type converges when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
+The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rightarrow 0$$, that look extremely close to cosinus (but still different). The Sinc type abruptly changes its shape for specific values of $$\lambda$$, and converges exactly to the uniform distribution for small values of $$\lambda$$.
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression for $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$. For the Linear and the Exponential types, we let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), and $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + j\lambda$$ ($$j$$ integer).
+To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the Linear, Exponential, and Sinc types, along with a summarizing table. For the Linear and the Exponential types, we let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), and $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + j\lambda$$ ($$j$$ integer).
 
 ### For the Linear type
 
@@ -349,7 +338,6 @@ The form for the derivative is directly deduced.
 <br/>
 
 {::options parse_block_html="false" /}
-
 
 ### For the Exponential type
 
