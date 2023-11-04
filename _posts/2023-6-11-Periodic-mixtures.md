@@ -47,18 +47,18 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \frac{1}{1 + \left( \pi \sigma \xi \right)^2}}$$</span></td>
 </tr>
 <tr>
-<td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \pi^{-1} \frac{1}{1 + \left( x/\sigma \right) ^2}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle -2 \sigma^{-3} \pi^{-1} \frac{1}{\left( 1 + \left( x/\sigma \right)^2 \right)^2} x}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-2\pi \sigma |\xi|}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-2\pi \sigma |\xi|}}$$</span></td>
+<td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \frac{1}{1 + \left( \pi x/\sigma \right) ^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle -2 \sigma^{-3} \pi^2 \frac{1}{\left( 1 + \left( \pi x/\sigma \right)^2 \right)^2} x}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-2 \sigma |\xi|}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/polynomial.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-2 \sigma |\xi|}}$$</span></td>
 </tr>
 <tr>
-<td align="center" style="vertical-align:middle">Gaussian$$(\sigma=1/\sqrt{2\pi})$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \left( 2 \pi \right)^{-1/2} \sigma^{-1} e^{-\frac{x^2}{2\sigma^2}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \left( 2 \pi \right)^{-1/2} \sigma^{-3} e^{-\frac{x^2}{2\sigma^2}} x}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-\frac{(2 \pi \sigma \xi)^2}{2}}}$$</span></td>
+<td align="center" style="vertical-align:middle">Gaussian$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} e^{-\frac{\pi x^2}{\sigma^2}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - 2 \pi \sigma^{-3} e^{-\frac{\pi x^2}{\sigma^2}} x}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle e^{-\pi \sigma^2 \xi^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/gaussian.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi e^{-\pi \sigma^2 \xi^2}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Sinc$$(\sigma=1/\pi)$$</td>
@@ -113,7 +113,7 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 <td align="center"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential.mp4"></video></td>
 </tr>
 <tr>
-<td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
+<td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_30.png"/></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_3.png"/></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial_0.33.png"/></td>
