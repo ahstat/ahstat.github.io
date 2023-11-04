@@ -21,7 +21,7 @@ In the following, we consider limitedly five types of functions $$f_{\sigma}$$, 
 
 For each type, we complement the table with additional columns derived from the function $$f_{\sigma}$$, by considering the derivative of the functions $$g(x) := f'(x)$$ and their Fourier transforms, where we use below the conventions $$\mathcal{F}f(\xi) := \int_{-\infty}^{+\infty} f(x) e^{-2i\pi x \xi} dx$$ and $$\text{sinc}(x) := \frac{\sin(\pi x)}{\pi x}.$$
 
-In the visual representations of the table, the value of $$\sigma$$ is set as indicated in the first column, and corresponds to the case where the Fourier transform is also a density function (or equivalently where $$f(0) = 1$$).
+In the visual representations of the table, the value of $$\sigma$$ is set to one, as indicated in the first column, and corresponds to the case where the Fourier transform is also a density function (or equivalently where $$f(0) = 1$$).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -40,11 +40,11 @@ In the visual representations of the table, the value of $$\sigma$$ is set as in
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/linear.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \text{sinc}^2(\sigma \xi)}$$</span></td>
 </tr>
 <tr>
-<td align="center" style="vertical-align:middle">Exponential$$(\sigma=1/2)$$</td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{2\sigma} e^{-\frac{|x|}{\sigma}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{1}{2 \sigma^2} e^{-\frac{|x|}{\sigma}}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \frac{1}{1 + \left( 2 \pi \sigma \xi \right)^2}}$$</span></td>
+<td align="center" style="vertical-align:middle">Exponential$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{\sigma} e^{-2\frac{|x|}{\sigma}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle - \text{sign}(x) \frac{2}{\sigma^2} e^{-2\frac{|x|}{\sigma}}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{1 + \left( \pi \sigma \xi \right)^2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/exponential.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \frac{1}{1 + \left( \pi \sigma \xi \right)^2}}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Polynomial$$(\sigma=1/\pi)$$</td>
@@ -106,7 +106,7 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 <td align="center"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/linear.mp4"></video></td>
 </tr>
 <tr>
-<td align="center" style="vertical-align:middle">Exponential$$(\sigma=1/2)$$</td>
+<td align="center" style="vertical-align:middle">Exponential$$(\sigma=1)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_30.png"/></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_3.png"/></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential_0.33.png"/></td>
@@ -343,11 +343,11 @@ The form for the derivative is directly deduced.
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
 For the values for which $$g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$), we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
 {::options parse_block_html="true" /}
 
@@ -360,27 +360,27 @@ The sum $$S_{\lambda}f_{\sigma}(x)$$ can be written:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) =& \frac{1}{2\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{\frac{-x-k\lambda}{\sigma}} \right] \\
-=& \frac{1}{2\sigma} \left[ e^{\frac{x}{\sigma}} \frac{-e^{-\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +  e^{-\frac{x}{\sigma}} \frac{e^{\frac{\lambda M^0}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right].
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\sigma} \left[ \sum_{k=-\infty}^{-M^0-1} e^{2\frac{x+k\lambda}{\sigma}} + \sum_{k=-M^0}^{+\infty} e^{2\frac{-x-k\lambda}{\sigma}} \right] \\
+=& \frac{1}{\sigma} \left[ e^{\frac{2x}{\sigma}} \frac{-e^{-\frac{2\lambda M^0}{\sigma}}}{1 - e^{\frac{2\lambda}{\sigma}}} +  e^{-\frac{2x}{\sigma}} \frac{e^{\frac{2\lambda M^0}{\sigma}}}{1 - e^{\frac{-2\lambda}{\sigma}}} \right].
 \end{align*}
 $$
 
 Restricting on $$x \in [0, \lambda/2]$$, we have $$M^0=0$$, so on this interval:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[ - \frac{e^{\frac{x}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} +   \frac{e^{-\frac{x}{\sigma}}}{1 - e^{\frac{-\lambda}{\sigma}}} \right]$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \left[ - \frac{e^{\frac{2x}{\sigma}}}{1 - e^{\frac{2\lambda}{\sigma}}} +   \frac{e^{-\frac{2x}{\sigma}}}{1 - e^{\frac{-2\lambda}{\sigma}}} \right]$$
 
 Since the function is even, we deduce for $$x \in [-\lambda/2, \lambda/2)$$:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \left[-\frac{e^{\frac{\lvert x \rvert}{\sigma}}}{1 - e^{\frac{\lambda}{\sigma}}} + \frac{e^{-\frac{\lvert x \rvert}{\sigma}}}{1 - e^{-\frac{\lambda}{\sigma}}} \right],$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \left[-\frac{e^{\frac{2\lvert x \rvert}{\sigma}}}{1 - e^{\frac{2\lambda}{\sigma}}} + \frac{e^{-\frac{2\lvert x \rvert}{\sigma}}}{1 - e^{-\frac{2\lambda}{\sigma}}} \right],$$
 
 which is extended on the whole real line using $$\tilde{x}$$.
-By multiplying the first term by $$\frac{e^{-\frac{\lambda}{2\sigma}}}{e^{-\frac{\lambda}{2\sigma}}}$$ and the second term by $$\frac{e^{\frac{\lambda}{2\sigma}}}{e^{\frac{\lambda}{2\sigma}}}$$, we deduce:
+By multiplying the first term by $$\frac{e^{-\frac{\lambda}{\sigma}}}{e^{-\frac{\lambda}{\sigma}}}$$ and the second term by $$\frac{e^{\frac{\lambda}{\sigma}}}{e^{\frac{\lambda}{\sigma}}}$$, we deduce:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{2\sigma} \frac{\cosh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
 By taking the derivative, we finally obtain:
 
-$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{2\sigma} - \frac{\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{2\sigma}\right)}.$$
+$$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{\sigma} - \frac{2 \lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
 </details>
 <br/>
