@@ -21,7 +21,7 @@ In the following, we consider seven types of functions $$f_{\sigma}$$, each type
 
 For each type, we complement the table with additional columns derived from the function $$f_{\sigma}$$, by considering the derivative of the functions $$g(x) := f'(x)$$ and their Fourier transforms, where we use below the conventions $$\mathcal{F}f(\xi) := \int_{-\infty}^{+\infty} f(x) e^{-2i\pi x \xi} dx$$ and $$\text{sinc}(x) := \frac{\sin(\pi x)}{\pi x}.$$
 
-In the visual representations of the table, the value of $$\sigma$$ is set to one, as indicated in the first column, and corresponds to the case where the Fourier transform is also a density function (or equivalently where $$f(0) = 1$$).
+In the visual representations of the table, the value of $$\sigma$$ is set to one, as indicated in the first column, and corresponds to the case where the Fourier transform also sums to one (or equivalently where $$f(0) = 1$$).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -101,7 +101,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
 The following table shows the shape of the summation for a fixed $$\sigma$$ as a function of $$\lambda$$. The $$x$$-axis is always set on $$[-\lambda, \lambda]$$ (i.e., two periods), while the $$y$$-axis is adapted to the figure. The last column shows the video for decreasing $$\lambda$$. 
-The sum is either approximated using the Fourier transform (for the Polynomial and the Gaussian types) or computed with the closed-form expression (for Linear, Exponential, and Sinc types; see also proofs after the table).
+The sum is either approximated using the Fourier transform (for the Polynomial and the Gaussian types) or computed with the closed-form expression (for Rectangular, Linear, Exponential, Sinc, and Sincsquare types; see also proofs after the table).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -155,7 +155,7 @@ For all types, several observations can be made on the function restricted on th
 - for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
-Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, hence does not converge, while it is exactly uniform for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type converges when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
+Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, while it is exactly uniform for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type stabilizes without oscillations when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
 The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rightarrow 0$$, that look extremely close to cosinus (but still different). The Sinc type abruptly changes its shape for specific values of $$\lambda$$, and converges exactly to the uniform distribution for small values of $$\lambda$$.
 
 ## Closed-form expressions
