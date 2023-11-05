@@ -17,7 +17,7 @@ For some specific functions such as the Gaussian density, we derive expressions,
 
 ## Base functions $$f_{\sigma}$$
 
-In the following, we consider limitedly five types of functions $$f_{\sigma}$$, each type being parametrized by $$\sigma>0$$ representing a kind of deviation. The types are named Linear, Exponential, Polynomial, Gaussian, and Sinc, and correspond to family of densities, except for Sinc that however still sums to one. The definition of the functions is provided in the table below. As you can see, each function is adjusted to peak at $$x=0$$ and then symmetrically fade to zero.
+In the following, we consider seven types of functions $$f_{\sigma}$$, each type being parametrized by $$\sigma>0$$ representing a kind of deviation. The types are named Rectangular, Linear, Exponential, Polynomial, Gaussian, Sinc, and Sincsquare, and correspond to family of densities, except for Sinc that however still sums to one. The definition of the functions is provided in the table below. As you can see, each function is adjusted to peak at $$x=0$$ and then symmetrically fade to zero.
 
 For each type, we complement the table with additional columns derived from the function $$f_{\sigma}$$, by considering the derivative of the functions $$g(x) := f'(x)$$ and their Fourier transforms, where we use below the conventions $$\mathcal{F}f(\xi) := \int_{-\infty}^{+\infty} f(x) e^{-2i\pi x \xi} dx$$ and $$\text{sinc}(x) := \frac{\sin(\pi x)}{\pi x}.$$
 
@@ -31,6 +31,13 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <td>$$g_{\sigma}(x)$$</td>
 <td>$$\mathcal{F}f_{\sigma}(\xi)$$</td>
 <td>$$\mathcal{F}g_{\sigma}(\xi)$$</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Rectangular$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \mathbf{1}_{|x| \leq \sigma/2}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 0 TODO}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{sinc}(\sigma \xi)}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \text{sinc}(\sigma \xi)}$$</span></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Linear$$(\sigma=1)$$</td>
@@ -66,6 +73,13 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{1}{\sigma x} \cos \left( \frac{\pi x}{\sigma} \right) - \frac{1}{\pi x^2} \sin \left( \frac{\pi x}{\sigma} \right)}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \sigma}, \frac{1}{2 \sigma} \right]}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/sinc.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2 \pi i \xi \mathbf{1}_{\xi \in \left[ -\frac{1}{2 \sigma}, \frac{1}{2 \sigma} \right]}}$$</span></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sincsquare$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \text{sinc}^2 (x / \sigma)}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/sinc2.png"/><span \style="display:block; margin-top:-30px;">$${\scriptstyle \frac{\sin \left( 2 \pi x / \sigma \right)}{\pi x^2} - 2 \sigma \frac{\sin^2 \left( \pi x / \sigma \right)}{\pi^2 x^3}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \left( 1- |\xi| \sigma \right) \mathbf{1}_{|\xi| \leq 1/\sigma}}$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2 \pi i \xi \left( 1- |\xi| \sigma \right) \mathbf{1}_{|\xi| \leq 1/\sigma}}$$</span></td>
 </tr>
 </tbody>
 </table>
