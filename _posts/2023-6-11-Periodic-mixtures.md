@@ -164,15 +164,15 @@ To better understand those patterns, we derive below the closed-form expression 
 
 For the Rectangular, Linear, and Exponential types, we let:
 
-$$\tilde{x} \in [-\lambda/2, \lambda/2) \text{~such that~} x = \tilde{x} + i\lambda \text{~(}i\text{~integer).}
+$$\tilde{x} \in [-\lambda/2, \lambda/2) \text{~such that~} x = \tilde{x} + i\lambda \text{~(}i\text{~integer).}$$
 
 For the Rectangular type, we let:
 
-$$\breve{\sigma} \in [-\lambda, \lambda) \text{~such that~} \sigma = \breve{\sigma} + 2i\lambda \text{~(}i\text{~integer).}
+$$\breve{\sigma} \in [-\lambda, \lambda) \text{~such that~} \sigma = \breve{\sigma} + 2i\lambda \text{~(}i\text{~integer).}$$
 
 For the Linear and the Exponential types, we let:
 
-$$\tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{~such that~} \sigma = \tilde{\sigma} + i\lambda \text{~(}i\text{~integer).}
+$$\tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{~such that~} \sigma = \tilde{\sigma} + i\lambda \text{~(}i\text{~integer).}$$
 
 For the Rectangular and the Linear types, we let the following condition:
 
