@@ -160,17 +160,41 @@ The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rig
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the Linear, Exponential, and Sinc types, along with a summarizing table. For the Linear and the Exponential types, we let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), and $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + j\lambda$$ ($$j$$ integer).
+To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the Rectangular, Linear, Exponential, and Sinc types, along with a summarizing table. 
+For the Rectangular type, we let $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2l\lambda$$ ($$l$$ integer).
+For the Linear and the Exponential types, we let $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), and $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + j\lambda$$ ($$j$$ integer).
+For the Rectangular and the Linear types, we let the following condition:
+
+$$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}.$$
+
+<!-- using the following condition:
+$$\Delta(\tilde{x}, \tilde{\sigma}, \lambda) := \mathbf{1}_{(\lvert \tilde{x} \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert \tilde{x} \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (\tilde{x} = 0)}.$$ -->
+
+### For the Rectangular type
+
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2, \lambda)}  \frac{(-1)^{\breve{\sigma} \geq 0}}{\sigma}.$$
+
+For the values for which $$g_{\sigma}$$ is defined (we don't use distributions here), we deduce:
+
+$$S_{\lambda}g_{\sigma}(x) = 0.$$
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+Please refer to the Linear case for details. This proof follows the same strategy, using $$\breve{\sigma}$$ instead of $$\tilde{\sigma}$$ because of the form of the base function.
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 
 ### For the Linear type
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2},$$
-
-using the following condition:
-
-$$\Delta(\tilde{x}, \tilde{\sigma}, \lambda) := \mathbf{1}_{(\lvert \tilde{x} \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert \tilde{x} \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (\tilde{x} = 0)}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
 For the values for which $$g_{\sigma}$$ is defined, we deduce:
 
