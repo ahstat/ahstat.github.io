@@ -35,7 +35,7 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <tr>
 <td align="center" style="vertical-align:middle">Rectangular$$(\sigma=1)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \mathbf{1}_{|x| \leq \sigma/2}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \left( \mathbf{1}_{x = -\sigma/2} - \mathbf{1}_{x = \sigma/2} \right) }$$</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \left( \delta_{x = -\sigma/2} - \delta_{x = \sigma/2} \right) }$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \text{sinc}(\sigma \xi)}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/rectangular.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2\pi i \xi \text{sinc}(\sigma \xi)}$$</span></td>
 </tr>
@@ -162,29 +162,24 @@ The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rig
 
 To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the Rectangular, Linear, Exponential, and Sinc types, along with a summarizing table. 
 
-For the Rectangular, Linear, and Exponential types, we let:
+We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types):
 
-$$\tilde{x} \in [-\lambda/2, \lambda/2) \text{ such that } x = \tilde{x} + i\lambda \text{~(}i\text{ integer).}$$
-
-For the Rectangular type, we let:
-
-$$\breve{\sigma} \in [-\lambda, \lambda) \text{ such that } \sigma = \breve{\sigma} + 2i\lambda \text{ (}i\text{ integer).}$$
-
-For the Linear and the Exponential types, we let:
-
-$$\tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{ such that } \sigma = \tilde{\sigma} + i\lambda \text{ (}i\text{ integer).}$$
-
-For the Rectangular and the Linear types, we let the following condition:
-
-$$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}.$$
+$$
+\begin{align*}
+\tilde{x} \in [-\lambda/2, \lambda/2) \text{ such that } x = \tilde{x} + i\lambda \text{~(}i\text{ integer),}\\
+\breve{\sigma} \in [-\lambda, \lambda) \text{ such that } \sigma = \breve{\sigma} + 2i\lambda \text{ (}i\text{ integer),}\\
+\tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{ such that } \sigma = \tilde{\sigma} + i\lambda \text{ (}i\text{ integer),}\\
+\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}.
+\end{align*}
+$$
 
 ### For the Rectangular type
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2, \lambda)}  \frac{(-1)^{\breve{\sigma} \geq 0}}{\sigma}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2, \lambda)}  \frac{(-1)^{\breve{\sigma} < 0}}{\sigma}.$$
 
-For the values for which $$g_{\sigma}$$ is defined (we don't use distributions here), we deduce:
+For the values for which $$S_{\lambda}g_{\sigma}$$ is defined (we don't use distributions here), we deduce:
 
 $$S_{\lambda}g_{\sigma}(x) = 0.$$
 
@@ -206,7 +201,7 @@ For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
-For the values for which $$g_{\sigma}$$ is defined, we deduce:
+For the values for which $$S_{\lambda}g_{\sigma}$$ is defined, we deduce:
 
 $$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}.$$
 
@@ -393,7 +388,7 @@ For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
-For the values for which $$g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$), we deduce:
+For the values for which $$S_{\lambda}g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$ in this case), we deduce:
 
 $$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{2} \frac{\sinh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right)}{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
