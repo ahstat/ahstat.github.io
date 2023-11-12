@@ -101,7 +101,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
 The following table shows the shape of the summation for a fixed $$\sigma$$ as a function of $$\lambda$$. The $$x$$-axis is always set on $$[-\lambda, \lambda]$$ (i.e., two periods), while the $$y$$-axis is adapted to the figure. The last column shows the video for decreasing $$\lambda$$. 
-The sum is either approximated using the Fourier transform (for the Polynomial and the Gaussian types) or computed with the closed-form expression (for Rectangular, Linear, Exponential, Sinc, and Sincsquare types; see also proofs after the table).
+The sum is here always computed with the closed-form expression (see also proofs after the table).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -111,6 +111,13 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 <td>$$\lambda=3$$</td>
 <td>$$\lambda=1/3$$</td>
 <td>$$\text{video}$$</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Rectangular$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/rectangular_30.png"/></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/rectangular_3.png"/></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/rectangular_0.33.png"/></td>
+<td align="center"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/rectangular.mp4"></video></td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Linear$$(\sigma=1)$$</td>
@@ -147,6 +154,13 @@ The sum is either approximated using the Fourier transform (for the Polynomial a
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc_0.33.png"/></td>
 <td align="center"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc.mp4"></video></td>
 </tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sincsquare$$(\sigma=1)$$</td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2_30.png"/></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2_3.png"/></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2_0.33.png"/></td>
+<td align="center"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2.mp4"></video></td>
+</tr>
 </tbody>
 </table>
 
@@ -166,7 +180,7 @@ We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, an
 
 $$
 \begin{align*}
-\tilde{x} \in [-\lambda/2, \lambda/2) \text{ such that } x = \tilde{x} + i\lambda \text{~(}i\text{ integer),}\\
+\tilde{x} \in [-\lambda/2, \lambda/2) \text{ such that } x = \tilde{x} + i\lambda \text{ (}i\text{ integer),}\\
 \breve{\sigma} \in [-\lambda, \lambda) \text{ such that } \sigma = \breve{\sigma} + 2i\lambda \text{ (}i\text{ integer),}\\
 \tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{ such that } \sigma = \tilde{\sigma} + i\lambda \text{ (}i\text{ integer),}\\
 \Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}.
@@ -187,8 +201,7 @@ $$S_{\lambda}g_{\sigma}(x) = 0.$$
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-Please refer to the Linear case for details. This proof follows the same strategy, using $$\breve{\sigma}$$ instead of $$\tilde{\sigma}$$ because of the form of the base function.
-
+Please refer to the Linear case for details. This proof follows the same strategy, using $$\breve{\sigma}$$ instead of $$\tilde{\sigma}$$, because of the form of the base function. The specific section to look for the Linear case is the computation of $$\frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right)$$.
 </details>
 <br/>
 

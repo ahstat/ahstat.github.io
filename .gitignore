@@ -1,9 +1,11 @@
 # folders with many files
-images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential/*
-images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian/*
+images/2023-6-11-Periodic-mixtures/plot2/Sf/rectangular/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/linear/*
+images/2023-6-11-Periodic-mixtures/plot2/Sf/exponential/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial/*
+images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc/*
+images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2/*
 
 _site
 .DS_Store
