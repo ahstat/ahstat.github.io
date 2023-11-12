@@ -86,7 +86,7 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 
 ## Sum of the base functions $$S_{\lambda}f_{\sigma}$$
 
-In each case, we are interested in wrapping the function around a circle of circumference $$\lambda > 0$$, that is to let, for $$x \in [0,\lambda)$$, $$S_{\lambda}f(x) := \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$. This function is extended by shifts of $$\lambda$$ on the whole real line (which, by periodicity, is also equal to $$S_{\lambda}f(x)$$ for $$x \in \mathbb{R}$$).
+In each case, we are interested in wrapping the function around a circle of circumference $$\lambda > 0$$, that is to let, for $$x \in [-\lambda/2,\lambda/2)$$, $$S_{\lambda}f(x) := \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$. This function is extended by shifts of $$\lambda$$ on the whole real line (which, by periodicity, is also equal to $$S_{\lambda}f(x)$$ for $$x \in \mathbb{R}$$).
 
 There are three ways to compute $$S_{\lambda}f(x)$$:
 1. by *direct* approximation of the sum, 
@@ -101,7 +101,7 @@ $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
 The following table shows the shape of the summation for a fixed $$\sigma$$ as a function of $$\lambda$$. The $$x$$-axis is always set on $$[-\lambda, \lambda]$$ (i.e., two periods), while the $$y$$-axis is adapted to the figure. The last column shows the video for decreasing $$\lambda$$. 
-The sum is here always computed with the closed-form expression (see also proofs after the table).
+The sum is here always computed with the closed-form expression (proofs are found after the table).
 
 <table border="0" cellspacing="0" cellpadding="0">
 <tbody>
@@ -169,23 +169,19 @@ For all types, several observations can be made on the function restricted on th
 - for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
-Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Linear type has an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, while it is exactly uniform for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type stabilizes without oscillations when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
-The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rightarrow 0$$, that look extremely close to cosinus (but still different). The Sinc type abruptly changes its shape for specific values of $$\lambda$$, and converges exactly to the uniform distribution for small values of $$\lambda$$.
+Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Rectangular and Linear types have an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, while are uniformly distributed almost everywhere for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type stabilizes without oscillations when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
+The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rightarrow 0$$, that look visually extremely close to cosinus. The Sinc and Sincsquare types abruptly change their shapes for specific values of $$\lambda$$, and are exactly uniformly distributed for small values of $$\lambda$$.
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the Rectangular, Linear, Exponential, and Sinc types, along with a summarizing table. 
+To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the different types, along with a summarizing table. 
 
 We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types):
 
-$$
-\begin{align*}
-\tilde{x} \in [-\lambda/2, \lambda/2) \text{ such that } x = \tilde{x} + i\lambda \text{ (}i\text{ integer),}\\
-\breve{\sigma} \in [-\lambda, \lambda) \text{ such that } \sigma = \breve{\sigma} + 2i\lambda \text{ (}i\text{ integer),}\\
-\tilde{\sigma} \in [-\lambda/2, \lambda/2) \text{ such that } \sigma = \tilde{\sigma} + i\lambda \text{ (}i\text{ integer),}\\
-\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}.
-\end{align*}
-$$
+- $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer),
+- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),\\
+- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),\\
+- $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$.
 
 ### For the Rectangular type
 
