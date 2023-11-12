@@ -179,8 +179,8 @@ To better understand those patterns, we derive below the closed-form expression 
 We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types):
 
 - $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer),
-- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),\\
-- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),\\
+- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),
+- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),
 - $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$.
 
 ### For the Rectangular type
@@ -439,6 +439,45 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 
 {::options parse_block_html="false" /}
 
+### For the Polynomial type
+
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+
+$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+TODO
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+### For the Gaussian type
+
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+
+$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+TODO
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
 ### For the Sinc type
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
@@ -493,6 +532,25 @@ S_{\lambda}g_{\sigma}(x) =& \frac{A}{2 \lambda \sin^2 \left( Ax \right)} \left[ 
 =& \frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[ \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \sin \left( \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor + 1 \right) \frac{2\pi x}{\lambda}  \right) - \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor + 1 \right) \sin \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) \right].
 \end{align*}
 $$
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+### For the Sincsquare type
+
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+
+$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+
+$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+TODO
 
 </details>
 <br/>
