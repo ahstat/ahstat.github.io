@@ -443,15 +443,30 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)},$$
 
-$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+$$S_{\lambda}g_{\sigma}(x) = - \frac{2 \pi}{\lambda^2} \frac{\sin \left( \frac{2\pi x}{\lambda} \right) \sinh \left( \frac{2 \sigma}{\lambda} \right) }{\left( \cosh \left( \frac{2 \sigma}{\lambda} \right) - \cos \left( \frac{2\pi x}{\lambda} \right) \right)^2}.$$
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-TODO
+Using the Poisson summation formula, we have for $$x \in \mathbb{R}$$, with $$A:=\frac{2\pi x}{\lambda}$$ and $$B:= \frac{2 \sigma}{\lambda}$$:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} e^{- \lvert k \rvert B} e^{ikA}\\
+=& \frac{1}{\lambda} \left[ \sum_{k=1}^{+\infty} \left( e^{-B-iA} \right)^k + \sum_{k=1}^{+\infty} \left( e^{-B+iA} \right)^k + 1 \right] \\
+=& \frac{1}{\lambda} \left[ \frac{e^{-B-iA}}{1 - e^{-B-iA}} + \frac{e^{-B+iA}}{1 - e^{-B+iA}} + 1 \right] \\
+=& \frac{1}{\lambda} \left[ \frac{(1 - e^{-B+iA})e^{-B-iA} + (1 - e^{-B-iA})e^{-B+iA}}{(1 - e^{-B-iA})(1 - e^{-B+iA})} + 1 \right] \\
+=& \frac{1}{\lambda} \left[ \frac{e^{-B-iA} + e^{-B+iA} - 2e^{-2B}}{1 - e^{-B-iA}-e^{-B+iA}+e^{-2B}} + 1 \right] \\
+=& \frac{1}{\lambda} \left[ \frac{e^{-iA} + e^{+iA} - 2e^{-B}}{e^B - e^{-iA}-e^{+iA}+e^{-B}} + \frac{e^B - e^{-iA}-e^{+iA}+e^{-B}}{e^B - e^{-iA}-e^{+iA}+e^{-B}} \right] \\
+=& \frac{1}{\lambda} \frac{e^B-e^{-B}}{e^B+e^{-B}-e^{iA}-e^{-iA}} \\
+=& \frac{1}{\lambda} \frac{\sinh(B)}{\cosh(B)-\cos(A)} \\
+\end{align*}
+$$
+
+The derivative can be deduced easily.
 
 </details>
 <br/>
