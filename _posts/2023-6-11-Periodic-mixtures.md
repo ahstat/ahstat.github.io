@@ -573,7 +573,7 @@ and we have:
 $$
 \begin{align*}
 S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda}\right)} \left[ \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right]\\
-+& \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) D_c  + \sin \left( \frac{\pi x}{\lambda} \right) D_s \right].
+&+ \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) D_c  + \sin \left( \frac{\pi x}{\lambda} \right) D_s \right].
 \end{align*}
 $$
 
@@ -591,17 +591,17 @@ S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\
 \end{align*}
 $$
 
-The two first terms correspond to the Sinc case above with $$\sigma/2$$, while the other term is a [classical sum](https://math.stackexchange.com/questions/364631). With $$N:=\left\lfloor\frac{\lambda}{\sigma}\right\rfloor$$ and $$A := 2 \pi x / \lambda$$:
+The two first terms correspond to the Sinc case above with $$\sigma/2$$, while the other term is a [classical sum](https://math.stackexchange.com/questions/364631). With $$N:=\left\lfloor\frac{\lambda}{\sigma}\right\rfloor$$ and $$A := 2 \pi x / \lambda$$, we obtain:
 
 $$
 \begin{align*}
 S_{\lambda}f_{\sigma}(x) =& \left[ \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) \right] - \frac{2\sigma}{\lambda^2} \sum_{k=1}^{N} k \cos \left( Ak\right)\\
 =& \left[ \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) \right] - \frac{2\sigma}{\lambda^2} \frac{1}{4 \sin^2 \left(A/2 \right)} \left( \left(N + 1\right) \cos \left(N A \right) - N \cos \left( \left(N+1 \right) A \right) -1 \right) \\
-=& \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) - \frac{sigma}{2\lambda^2 \sin^2 \left(A/2 \right)} \left( (N+1) \cos \left( N A \right) - N \cos \left( \left(N+1 \right) A \right) - 1 \right).
+=& \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) - \frac{\sigma}{2\lambda^2 \sin^2 \left(A/2 \right)} \left( (N+1) \cos \left( N A \right) - N \cos \left( \left(N+1 \right) A \right) - 1 \right).
 \end{align*}
 $$
 
-The derivative is them obtained term by term.
+The derivative is then obtained term by term.
 
 </details>
 <br/>
