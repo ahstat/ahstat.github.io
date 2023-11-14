@@ -572,7 +572,7 @@ and we have:
         
 $$
 \begin{align*}
-S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda}\right)} \left[ \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \sin \left( K \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right]\\
+S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda}\right)} \left[ \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right]\\
 +& \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) D_c  + \sin \left( \frac{\pi x}{\lambda} \right) D_s \right].
 \end{align*}
 $$
