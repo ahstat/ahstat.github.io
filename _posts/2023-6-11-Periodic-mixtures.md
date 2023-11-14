@@ -176,12 +176,13 @@ The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rig
 
 To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the different types, along with a summarizing table. 
 
-We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types):
+We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
 
 - $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer),
 - $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),
 - $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),
-- $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$.
+- $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$,
+- $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$ (which is the ceil function except for $$z$$ integer).
 
 ### For the Rectangular type
 
@@ -202,7 +203,6 @@ Please refer to the Linear case for details. This proof follows the same strateg
 <br/>
 
 {::options parse_block_html="false" /}
-
 
 ### For the Linear type
 
@@ -495,11 +495,9 @@ TODO
 
 ### For the Sinc type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the functions are extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right),$$
-
-and, defining $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$, which is the ceil function except for $$z$$ integer, we obtain (the function is also extended by continuity):
 
 $$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[  \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor_{+} \frac{2\pi x}{\lambda}  \right) \right].$$
 
@@ -555,7 +553,6 @@ $$
 
 ### For the Sincsquare type
 
-As for the Sinc type, we define $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$.
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
 
 $$
