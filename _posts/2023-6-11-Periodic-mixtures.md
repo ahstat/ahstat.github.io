@@ -445,7 +445,7 @@ For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)},$$
 
-$$S_{\lambda}g_{\sigma}(x) = - \frac{2 \pi}{\lambda^2} \frac{\sin \left( \frac{2\pi x}{\lambda} \right) \sinh \left( \frac{2 \sigma}{\lambda} \right) }{\left( \cosh \left( \frac{2 \sigma}{\lambda} \right) - \cos \left( \frac{2\pi x}{\lambda} \right) \right)^2}.$$
+$$S_{\lambda}g_{\sigma}(x) = - \frac{2 \pi}{\lambda^2} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right) \sin \left( \frac{2\pi x}{\lambda} \right)}{\left( \cosh \left( \frac{2 \sigma}{\lambda} \right) - \cos \left( \frac{2\pi x}{\lambda} \right) \right)^2}.$$
 
 {::options parse_block_html="true" /}
 
@@ -555,17 +555,51 @@ $$
 
 ### For the Sincsquare type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+As for the Sinc type, we define $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$.
+For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
 
-$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi \x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{\sigma}\right\rfloor + 1\right) \frac{\pi \x}{\lambda} \right) - \frac{sigma}{2\lambda^2 \sin^2 \left( \frac{\pi \x}{\lambda} \right)} \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi \x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi \x}{\lambda} \right) - 1 \right).$$
 
-$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+For the derivative, we first define:
+$$D_c := \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right),$$
+$$D_s := \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right),$$
+
+and we have:
+        
+$$
+\begin{align*}
+S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda}\right)} \left[ \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \sin \left( K \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right]\\
+=& + frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \times \\
+=& \left[ \cos \left( \frac{\pi x}{\lambda} \right) \left( \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) + D_c - 1 \right) \right. \\
+=& \left. + \sin \left( \frac{\pi x}{\lambda} \right) \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} D_s \right].
+\end{align*}
+$$        
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-TODO
+Using the Poisson summation formula, we have for $$x \neq \lambda n$$ (this case can be directly done separately):
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\infty} \left( 1 - \frac{k}{\lambda} \sigma \right) \mathbf{1}_{\frac{k}{\lambda} \leq \frac{1}{\sigma}} \cos \left( 2\pi \frac{k}{\lambda} x \right)\\
+=& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{\left\lfloor\frac{\lambda}{\sigma}\right\rfloor} \left( 1 - \frac{k \sigma}{\lambda}  \right) \cos \left( 2\pi \frac{k}{\lambda} x \right) \\
+=& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{\left\lfloor\frac{\lambda}{\sigma}\right\rfloor} \cos \left( 2\pi \frac{k}{\lambda} x \right) - \frac{2\sigma}{\lambda^2} \sum_{k=1}^{\left\lfloor\frac{\lambda}{\sigma}\right\rfloor} k \cos \left( 2\pi \frac{k}{\lambda} x \right).
+\end{align*}
+$$
+
+The two first terms correspond to the Sinc case above with $$\sigma/2$$, while the other term is a [classical sum](https://math.stackexchange.com/questions/364631). With $$N:=\left\lfloor\frac{\lambda}{\sigma}\right\rfloor$$ and $$A := 2 \pi \x / \lambda$$:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \left[ \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) \right] - \frac{2\sigma}{\lambda^2} \sum_{k=1}^{N} k \cos \left( Ak\right)\\
+=& \left[ \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) \right] - \frac{2\sigma}{\lambda^2} \frac{1}{4 \sin^2 \left(A/2 \right)} \left( \left(N + 1\right) \cos \left(N A \right) - N \cos \left( \left(N+1 \right) A \right) -1 \right) \\
+=& \frac{1}{\lambda \sin \left( A/2 \right)} \sin \left( \left( 2 N + 1\right) A/2 \right) - \frac{sigma}{2\lambda^2 \sin^2 \left(A/2 \right)} \left( (N+1) \cos \left( N A \right) - N \cos \left( \left(N+1 \right) A \right) - 1 \right).
+\end{align*}
+$$
+
+The derivative is them obtained term by term.
 
 </details>
 <br/>
