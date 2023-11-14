@@ -558,22 +558,22 @@ For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is e
 $$
 \begin{align*}
 S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \\
-&- \frac{\sigma}{2\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) - 1 \right).
+-& \frac{\sigma}{2\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) - 1 \right).
 \end{align*}
 $$
 
 For the derivative, we first define:
 
-$$D_c := \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right),$$
+$$D_c := \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) + \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right) - 1,$$
 
-$$D_s := \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right),$$
+$$D_s := \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \left( \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right)- \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right),$$
 
 and we have:
         
 $$
 \begin{align*}
 S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda}\right)} \left[ \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \sin \left( K \frac{2 \pi x}{\lambda} \right) - \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} \frac{2 \pi x}{\lambda} \right) \right]\\
-& + \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) \left( \cos \left( \left\lfloor\frac{\lambda}{\sigma}\right\rfloor \frac{2 \pi x}{\lambda} \right) + D_c - 1 \right) + \sin \left( \frac{\pi x}{\lambda} \right) \left\lfloor\frac{\lambda}{\sigma}\right\rfloor_{+} D_s \right].
++& \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) D_c  + \sin \left( \frac{\pi x}{\lambda} \right) D_s \right].
 \end{align*}
 $$
 
