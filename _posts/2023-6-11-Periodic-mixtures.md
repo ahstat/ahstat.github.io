@@ -176,12 +176,13 @@ The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rig
 
 To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the different types, along with a summarizing table. 
 
-We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
+We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\vartheta_3$$ is used for the Gaussian type; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
 
 - $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer),
 - $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),
 - $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),
 - $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$,
+- $$\vartheta_3(z,q) := \sum_{k=-\infty}^{+\infty} q^{k^2} e^{2kiz}$$ (for $$z \in \mathbb{R}$$ and $$q > 0$$) the [Jacobi theta 3 function](https://mathworld.wolfram.com/JacobiThetaFunctions.html),
 - $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$ (which is the ceil function except for $$z$$ integer).
 
 ### For the Rectangular type
@@ -477,15 +478,32 @@ The derivative can be deduced easily.
 
 For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
-$$S_{\lambda}f_{\sigma}(x) = TODO,$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \vartheta_3(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}),$$
 
-$$S_{\lambda}g_{\sigma}(x) = TODO.$$
+$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3'(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}).$$
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-TODO
+Using the Poisson summation formula, we have for $$x \in \mathbb{R}$$, with $$z:=\frac{\pi x}{\lambda}$$ and $$q:= e^{-\frac{\pi\sigma^2}{\lambda^2}}$$ (in particular $$q>0$$):
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\infty} e^{-\pi \sigma^2 \frac{k^2}{\lambda^2}} \cos \left( 2\pi \frac{k}{\lambda} x \right)\\
+=& \frac{1}{\lambda} + \frac{2}{\lambda} \sum_{k=1}^{+\infty} q^{k^2} \cos \left( 2kz \right) \\
+=& \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} q^{k^2} e^{2kiz} \\
+=& \frac{1}{\lambda} \vartheta_3(z,q).\\
+\end{align*}
+$$
+
+The derivative in $$z$$ of the Jacobi theta 3 function is given by:
+
+$$\vartheta_3'(z,q) = -4 \sum_{k=1}^{+\infty} k q^{k^2} \sin \left( 2kz \right),$$
+
+and the derivative in $$x$$ of $$S_{\lambda}f_{\sigma}(x)$$ is given by:
+
+$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3'(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}).$$
 
 </details>
 <br/>
