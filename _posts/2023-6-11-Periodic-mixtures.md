@@ -185,9 +185,9 @@ We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, an
 - $$\vartheta_3(z,q) := \sum_{k=-\infty}^{+\infty} q^{k^2} e^{2kiz}$$ (for $$z \in \mathbb{R}$$ and $$q > 0$$) the [Jacobi theta 3 function](https://mathworld.wolfram.com/JacobiThetaFunctions.html),
 - $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$ (which is the ceil function except for $$z$$ integer).
 
-### For the Rectangular type
+The following formulas for $$S_{\lambda}f_{\sigma}(x)$$ and $$S_{\lambda}g_{\sigma}(x)$$ are defined for $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$.
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+### For the Rectangular type
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2, \lambda)}  \frac{(-1)^{\breve{\sigma} < 0}}{\sigma}.$$
 
@@ -206,8 +206,6 @@ Please refer to the Linear case for details. This proof follows the same strateg
 {::options parse_block_html="false" /}
 
 ### For the Linear type
-
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
 
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
@@ -394,8 +392,6 @@ The form for the derivative is directly deduced.
 
 ### For the Exponential type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
-
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\sigma} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2\lvert \tilde{x} \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)}.$$
 
 For the values for which $$S_{\lambda}g_{\sigma}$$ is defined ($$\tilde{x} \neq 0$$ in this case), we deduce:
@@ -442,8 +438,6 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{-\text{sign}(\tilde{x})}{2} \frac{\sinh \left
 
 ### For the Polynomial type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
-
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)},$$
 
 $$S_{\lambda}g_{\sigma}(x) = - \frac{2 \pi}{\lambda^2} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right) \sin \left( \frac{2\pi x}{\lambda} \right)}{\left( \cosh \left( \frac{2 \sigma}{\lambda} \right) - \cos \left( \frac{2\pi x}{\lambda} \right) \right)^2}.$$
@@ -476,11 +470,9 @@ The derivative can be deduced easily.
 
 ### For the Gaussian type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have:
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \vartheta_3 \left( \frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}} \right),$$
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \vartheta_3(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}),$$
-
-$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3'(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}).$$
+$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3' \left( \frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}} \right).$$
 
 {::options parse_block_html="true" /}
 
@@ -501,9 +493,9 @@ The derivative in $$z$$ of the Jacobi theta 3 function is given by:
 
 $$\vartheta_3'(z,q) = -4 \sum_{k=1}^{+\infty} k q^{k^2} \sin \left( 2kz \right),$$
 
-and the derivative in $$x$$ of $$S_{\lambda}f_{\sigma}(x)$$ is given by:
+and the derivative in $$x$$ of $$S_{\lambda}f_{\sigma}(x)$$ is:
 
-$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3'(\frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}}).$$
+$$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3' \left( \frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}} \right).$$
 
 </details>
 <br/>
@@ -513,11 +505,11 @@ $$S_{\lambda}g_{\sigma}(x) = \frac{\pi}{\lambda^2} \vartheta_3'(\frac{\pi x}{\la
 
 ### For the Sinc type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the functions are extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
-
 $$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right),$$
 
 $$S_{\lambda}g_{\sigma}(x) = -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\lambda} \right)} \left[  \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor_{+} \sin \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \frac{2\pi x}{\lambda}  \right) - \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor \sin \left( \left\lfloor\frac{\lambda}{2\sigma}\right\rfloor_{+} \frac{2\pi x}{\lambda}  \right) \right].$$
+
+Note that those functions are extended by continuity for all undefined $$x$$, e.g. in $$x=0$$.
 
 {::options parse_block_html="true" /}
 
@@ -571,8 +563,6 @@ $$
 
 ### For the Sincsquare type
 
-For $$x \in \mathbb{R}$$ and $$\sigma, \lambda > 0$$, we have (the function is extended by continuity for all undefined $$x$$, e.g. in $$x=0$$):
-
 $$
 \begin{align*}
 S_{\lambda}f_{\sigma}(x) =& \frac{1}{\lambda \sin \left( \frac{\pi x}{\lambda} \right)} \sin \left( \left( 2 \left\lfloor\frac{\lambda}{\sigma}\right\rfloor + 1\right) \frac{\pi x}{\lambda} \right) \\
@@ -594,6 +584,8 @@ S_{\lambda}g_{\sigma}(x) =& -\frac{\pi}{\lambda^2 \sin^2 \left( \frac{\pi x}{\la
 &+ \frac{\pi \sigma}{\lambda^3 \sin^3 \left( \frac{\pi x}{\lambda} \right)} \left[ \cos \left( \frac{\pi x}{\lambda} \right) D_c  + \sin \left( \frac{\pi x}{\lambda} \right) D_s \right].
 \end{align*}
 $$
+
+Note that those functions are extended by continuity for all undefined $$x$$, e.g. in $$x=0$$, as for the Sinc type.
 
 {::options parse_block_html="true" /}
 
