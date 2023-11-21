@@ -178,17 +178,11 @@ To better understand those patterns, we derive below the closed-form expression 
 
 We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\vartheta_3$$ is used for the Gaussian type; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
 
-- $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer), i.e.
+- $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer), i.e. $$\tilde{x} := x - \lambda \left\lfloor \frac{x}{\lambda} + \frac{1}{2} \right\rfloor,$$
 
-$$\tilde{x} = x - \lambda \left\lfloor \frac{x}{\lambda} + \frac{1}{2} \right\rfloor,$$
+- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer), i.e. $$\breve{\sigma} := \sigma - 2 \lambda \left\lfloor \frac{\sigma}{2\lambda} + \frac{1}{2} \right\rfloor,$$
 
-- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer), i.e.
-
-$$\breve{\sigma} = \sigma - 2 \lambda \left\lfloor \frac{\sigma}{2\lambda} + \frac{1}{2} \right\rfloor,$$
-
-- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), i.e.
-
-$$\tilde{\sigma} = \sigma - \lambda \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor.$$
+- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), i.e. $$\tilde{\sigma} := \sigma - \lambda \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor.$$
 
 - $$\Delta(x', \sigma') := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$,
 - $$\vartheta_3(z,q) := \sum_{k=-\infty}^{+\infty} q^{k^2} e^{2kiz}$$ (for $$z \in \mathbb{R}$$ and $$q > 0$$) the [Jacobi theta 3 function](https://mathworld.wolfram.com/JacobiThetaFunctions.html),
