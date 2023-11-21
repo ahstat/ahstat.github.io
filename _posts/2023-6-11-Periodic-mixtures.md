@@ -178,10 +178,19 @@ To better understand those patterns, we derive below the closed-form expression 
 
 We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\vartheta_3$$ is used for the Gaussian type; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
 
-- $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer),
-- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer),
-- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer),
-- $$\Delta(x', \sigma', \lambda) := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$,
+- $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer), i.e.
+
+$$\tilde{x} = x - \lambda \left\lfloor \frac{x}{\lambda} + \frac{1}{2} \right\rfloor,$$
+
+- $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer), i.e.
+
+$$\breve{\sigma} = \sigma - 2 \lambda \left\lfloor \frac{\sigma}{2\lambda} + \frac{1}{2} \right\rfloor,$$
+
+- $$\tilde{\sigma} \in [-\lambda/2, \lambda/2)$$ such that $$\sigma = \tilde{\sigma} + i\lambda$$ ($$i$$ integer), i.e.
+
+$$\tilde{\sigma} = \sigma - \lambda \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor.$$
+
+- $$\Delta(x', \sigma') := \mathbf{1}_{(\lvert x' \rvert<\lvert \sigma' \rvert)\text{ or } (\lvert x' \rvert=\lvert \sigma' \rvert \text{ and } \sigma'>0) \text{ or } (x' = 0)}$$,
 - $$\vartheta_3(z,q) := \sum_{k=-\infty}^{+\infty} q^{k^2} e^{2kiz}$$ (for $$z \in \mathbb{R}$$ and $$q > 0$$) the [Jacobi theta 3 function](https://mathworld.wolfram.com/JacobiThetaFunctions.html),
 - $$\left\lfloor z \right\rfloor_{+} := \left\lfloor z \right\rfloor + 1$$ (which is the ceil function except for $$z$$ integer).
 
@@ -189,7 +198,7 @@ The following formulas for $$S_{\lambda}f_{\sigma}(x)$$ and $$S_{\lambda}g_{\sig
 
 ### For the Rectangular type
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2, \lambda)}  \frac{(-1)^{\breve{\sigma} < 0}}{\sigma}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2)}  \frac{(-1)^{\breve{\sigma} < 0}}{\sigma}.$$
 
 For the values for which $$S_{\lambda}g_{\sigma}$$ is defined (we don't use distributions here), we deduce:
 
@@ -207,11 +216,11 @@ Please refer to the Linear case for details. This proof follows the same strateg
 
 ### For the Linear type
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
 For the values for which $$S_{\lambda}g_{\sigma}$$ is defined, we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma}, \lambda)}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})}.$$
 
 {::options parse_block_html="true" /}
 
@@ -371,7 +380,7 @@ $$
 
 We let $$\Delta$$ the following condition:
 
-$$\Delta := \Delta(x, \sigma, \lambda) := \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)}.$$
+$$\Delta := \Delta(x, \tilde{\sigma}) := \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert\tilde{\sigma}\rvert \text{ and } \tilde{\sigma}>0) \text{ or } (x = 0)}.$$
 
 
 $$S_{\lambda}f_{\sigma}(x)$$ is the sum of the terms $$S_1$$ and $$S_2$$ computed previously:
