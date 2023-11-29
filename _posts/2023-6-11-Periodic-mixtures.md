@@ -654,8 +654,7 @@ Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we o
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\lambda} \right)
-\end{align*} \\
+Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
 =& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert - \lvert z \rvert \right).
 \end{align*}
 $$
@@ -678,7 +677,10 @@ Z_t f_{\sigma}(z) =& - \left( t^2 - 2 t \left\lfloor t + \frac{1}{2} \right\rflo
 \end{align*}
 $$
 
-We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$; Or, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
+We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$
+
+Or otherwise, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
+
 In both cases, we obtain (when the condition $$\Delta$$ is fulfilled):
 
 $$
