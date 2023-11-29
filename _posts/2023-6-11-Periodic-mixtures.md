@@ -619,7 +619,82 @@ The derivative is then obtained term by term.
 {::options parse_block_html="false" /}
 
 
-## Summarizing table
+## Dynamics
+
+We are interested in the dynamics of $$S_{\lambda}f_{\sigma}$$ when $$\lambda \to 0$$ (with $$\sigma$$ assumed to be fixed).
+
+To simplify and better understand the expressions, we perform normalizations and scalings:
+- the sum is normalized using the shift $$1 / \lambda$$, that is common for all types, and a scaling term $$N(\lambda, \sigma)$$ that changes from type to type,
+- the time is defined by $$t := \sigma/\lambda$$,
+- the space is scaled with: $$z = x/ \lambda$$.
+
+The normalized sum is expressed as a function of $$t > 0$$ and $$z \in \mathbb{R}$$ :
+$$Z_t f_{\sigma}(z) := N(\lambda, \sigma) \left( S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} \right).$$
+
+As before, we explore the different types separately.
+
+### For the Linear type
+
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+We consider $$x \in [\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the linear type verifies:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
+\end{align*}
+$$
+
+Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\lambda} \right)
+\end{align*} \\
+=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert - \lvert z \rvert \right).
+\end{align*}
+$$
+
+When the condition $$\Delta$$ is not fulfilled:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 \\
+=& - \left(t -  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 \\
+=& - \lbrace t \rbrace^{2}_{-}.
+\end{align*}
+$$
+
+When the condition $$\Delta$$ is fulfilled:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& - \left( t^2 - 2 t \left\lfloor t + \frac{1}{2} \right\rfloor+ \left\lfloor t + \frac{1}{2} \right\rfloor^2 \right) + \lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert  - \lvert z \rvert
+\end{align*}
+$$
+
+We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$; Or, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
+In both cases, we obtain (when the condition $$\Delta$$ is fulfilled):
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& - \left( t - \left\lfloor t \right\rfloor \right) \left( t-\left\lfloor t \right\rfloor-1 \right) - \lvert z \rvert \\
+=& - \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right).
+\end{align*}
+$$
+
+The condition $$\Delta$$ is not fulfilled for $$t \in \mathbb{R}^{+}_{*} \lbrace k + [-\lvert z \rvert, \lvert z \rvert]~;~k \in \mathbb{N} \rbrace,$$ and is fulfilled otherwise (to develop)
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 
 
 ### References
