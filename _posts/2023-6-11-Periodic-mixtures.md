@@ -624,11 +624,12 @@ The derivative is then obtained term by term.
 We are interested in the dynamics of $$S_{\lambda}f_{\sigma}$$ when $$\lambda \to 0$$ (with $$\sigma$$ assumed to be fixed).
 
 To simplify and better understand the expressions, we perform normalizations and scalings:
-- the sum is normalized using the shift $$1 / \lambda$$, that is common for all types, and a scaling term $$N(\lambda, \sigma)$$ that changes from type to type,
-- the time is defined by $$t := \sigma/\lambda$$,
-- the space is scaled with: $$z = x/ \lambda$$.
+- the sum is normalized using the *shift* $$1 / \lambda$$, that is common for all types, and a *scaling* term $$N(\lambda, \sigma)$$ that changes from type to type,
+- the *time* is defined by $$t := \sigma/\lambda$$,
+- the *space* is scaled with: $$z = x/ \lambda$$.
 
-The normalized sum is expressed as a function of $$t > 0$$ and $$z \in \mathbb{R}$$ :
+The normalized sum is given, as a function of $$t > 0$$ and $$z \in \mathbb{R}$$, by:
+
 $$Z_t f_{\sigma}(z) := N(\lambda, \sigma) \left( S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} \right).$$
 
 As before, we explore the different types separately.
@@ -646,7 +647,7 @@ The closed-form expression for the linear type verifies:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
 \end{align*}
 $$
 
@@ -654,8 +655,8 @@ Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we o
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
-=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert - \lvert z \rvert \right).
+Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
+=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert \right).
 \end{align*}
 $$
 
@@ -663,9 +664,9 @@ When the condition $$\Delta$$ is not fulfilled:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 \\
-=& - \left(t -  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 \\
-=& - \lbrace t \rbrace^{2}_{-}.
+Z_t f_{\sigma}(z) = -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2
+= - \left(t -  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2
+= - \lbrace t \rbrace^{2}_{-}.
 \end{align*}
 $$
 
@@ -673,13 +674,13 @@ When the condition $$\Delta$$ is fulfilled:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& - \left( t^2 - 2 t \left\lfloor t + \frac{1}{2} \right\rfloor+ \left\lfloor t + \frac{1}{2} \right\rfloor^2 \right) + \lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert  - \lvert z \rvert
+Z_t f_{\sigma}(z) =& - \left( t^2 - 2 t \left\lfloor t + \frac{1}{2} \right\rfloor+ \left\lfloor t + \frac{1}{2} \right\rfloor^2 \right) + \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert  - \lvert z \rvert
 \end{align*}
 $$
 
-We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$
+We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$
 
-Or otherwise, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
+Or otherwise, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
 
 In both cases, we obtain (when the condition $$\Delta$$ is fulfilled):
 
