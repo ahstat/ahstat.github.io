@@ -91,12 +91,12 @@ In each case, we are interested in wrapping the function around a circle of circ
 There are three ways to compute $$S_{\lambda}f(x)$$:
 1. by *direct* approximation of the sum, 
 2. by using the *Fourier* transform,
-3. by determining, when available, a *closed*-form expression.
+3. by determining a *closed*-form expression.
 
-Regarding the second way, the purpose in using the Fourier transforms lies in the Poisson summation formula, which states under some assumptions that: $$S_{\lambda}f(x) = \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x}$$. 
+Regarding the second way, the purpose in using the Fourier transform lies in the Poisson summation formula, which states under some assumptions that: $$S_{\lambda}f(x) = \frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x}$$. 
 Since each $$f_{\sigma}$$ is an even and real function, we deduce that $$\mathcal{F}{f_{\sigma}}$$ is even and real too (while the transform of the derivative $$\mathcal{F}{g_{\sigma}}$$ is odd and purely imaginary), so that:
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right) \text{ and}$$ 
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \mathcal{F}{f_{\sigma}} \left( 0 \right) + \frac{2}{\lambda} \sum_{k=1}^{+\infty}  \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \cos \left( 2\pi \frac{k}{\lambda} x \right), $$ 
 
 $$S_{\lambda}g_{\sigma}(x) =  -\frac{4\pi}{\lambda^2} \sum_{k=1}^{+\infty} k \mathcal{F}{f_{\sigma}} \left( \frac{k}{\lambda} \right) \sin \left( 2\pi \frac{k}{\lambda} x \right).$$
 
@@ -189,7 +189,7 @@ The following formulas for $$S_{\lambda}f_{\sigma}(x)$$ and $$S_{\lambda}g_{\sig
 
 ### For the Rectangular type
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \mathbf{1}_{\Delta(\tilde{x}, \breve{\sigma}/2)}  \frac{(-1)^{\breve{\sigma} < 0}}{\sigma}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\breve{\sigma}}{\sigma} \right) + \Delta(\tilde{x}, \breve{\sigma}/2)  \frac{(-1)^{\mathbf{1}_{\breve{\sigma} < 0}}}{\sigma}.$$
 
 For the values for which $$S_{\lambda}g_{\sigma}$$ is defined (we don't use distributions here), we deduce:
 
@@ -199,7 +199,7 @@ $$S_{\lambda}g_{\sigma}(x) = 0.$$
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-Please refer to the Linear case for details. This proof follows the same strategy, using $$\breve{\sigma}$$ instead of $$\tilde{\sigma}$$, because of the form of the base function. The specific section to look for the Linear case is the computation of $$\frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right)$$.
+Please refer to the Linear case for details. This proof follows the same strategy, using $$\breve{\sigma}$$ instead of $$\tilde{\sigma}$$, because of the form of the base function. The specific section to look at in the Linear case proof is the computation of $$\frac{1}{\sigma} \left(M^{-}+M^{+}+1 \right)$$.
 </details>
 <br/>
 
@@ -207,11 +207,11 @@ Please refer to the Linear case for details. This proof follows the same strateg
 
 ### For the Linear type
 
-$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})}  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
+$$S_{\lambda}f_{\sigma}(x) = \frac{1}{\lambda} \left( 1 - \frac{\tilde{\sigma}^2}{\sigma^2} \right) + \Delta(\tilde{x}, \tilde{\sigma})  \frac{\lvert \tilde{\sigma} \rvert - \lvert \tilde{x} \rvert}{\sigma^2}.$$
 
 For the values for which $$S_{\lambda}g_{\sigma}$$ is defined, we deduce:
 
-$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})}.$$
+$$S_{\lambda}g_{\sigma}(x) = -\frac{\text{sign}(\tilde{x})}{\sigma^2} \Delta(\tilde{x}, \tilde{\sigma}).$$
 
 {::options parse_block_html="true" /}
 
@@ -642,12 +642,12 @@ As before, we explore the different types separately.
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-We consider $$x \in [\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+For $$\lambda > 0$$, we consider $$x \in [\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
 The closed-form expression for the linear type verifies:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
 \end{align*}
 $$
 
@@ -655,8 +655,8 @@ Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we o
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
-=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \mathbf{1}_{\Delta(\tilde{x}, \tilde{\sigma})} \left( \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert \right).
+Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
+=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert \right).
 \end{align*}
 $$
 
@@ -678,20 +678,16 @@ Z_t f_{\sigma}(z) =& - \left( t^2 - 2 t \left\lfloor t + \frac{1}{2} \right\rflo
 \end{align*}
 $$
 
-We further separate in two cases. Either $$t \in [0, 0.5] \cup [1, 1.5] \cup \ldots$$, and on those intervals, we have $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$
-
-Or otherwise, for $$t \in [0.5, 1] \cup [1.5, 2] \cup \ldots$$, we have $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$.
-
-In both cases, we obtain (when the condition $$\Delta$$ is fulfilled):
+We further separate in two cases. Either $$t \in (0, 1/2] \cup [1, 3/2] \cup \ldots$$, and on those intervals, we have $$t - \left\lfloor t + \frac{1}{2} \right\rfloor \geq 0$$ and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor$$. Otherwise, for $$t \in [1/2, 1] \cup [3/2, 2] \cup \ldots$$, we have $$t - \left\lfloor t + \frac{1}{2} \right\rfloor \leq 0$$, and $$\left\lfloor t + \frac{1}{2} \right\rfloor = \left\lfloor t \right\rfloor + 1$$. In both cases, we obtain (when the condition $$\Delta$$ is fulfilled):
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& - \left( t - \left\lfloor t \right\rfloor \right) \left( t-\left\lfloor t \right\rfloor-1 \right) - \lvert z \rvert \\
-=& - \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right).
+Z_t f_{\sigma}(z) = - \left( t - \left\lfloor t \right\rfloor \right) \left( t-\left\lfloor t \right\rfloor-1 \right) - \lvert z \rvert
+= - \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) - \lvert z \rvert.
 \end{align*}
 $$
 
-The condition $$\Delta$$ is not fulfilled for $$t \in \mathbb{R}^{+}_{*} \lbrace k + [-\lvert z \rvert, \lvert z \rvert]~;~k \in \mathbb{N} \rbrace,$$ and is fulfilled otherwise (to develop)
+The condition $$\Delta$$ is not fulfilled for $$t \in \mathbb{R}^{+}_{*} \cup \lbrace k + [-\lvert z \rvert, \lvert z \rvert]~;~k \in \mathbb{N} \rbrace,$$ and is fulfilled otherwise (to develop)
 
 </details>
 <br/>
