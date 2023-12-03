@@ -623,9 +623,9 @@ The derivative is then obtained term by term.
 
 ## Dynamics
 
-We are interested in the dynamics of $$S_{\lambda}f_{\sigma}$$ when $$\lambda \to 0$$ (with $$\sigma$$ assumed to be fixed).
+We are interested in the dynamics of $$S_{\lambda}f_{\sigma}$$ when $$\lambda \to 0$$ (with $$\sigma > 0$$ assumed to be fixed).
 
-To simplify and better understand the expressions, we perform normalizations and scalings:
+To simplify and gain a deeper comprehension of the closed-form expressions, we perform the following normalizations and scalings:
 - the sum is normalized using the *shift* $$1 / \lambda$$, that is common for all types, and a *scaling* term $$N(\lambda, \sigma)$$ that changes from type to type,
 - the *time* is defined by $$t := \sigma/\lambda$$,
 - the *space* is scaled with: $$z = x/ \lambda$$.
@@ -636,24 +636,16 @@ $$Z_t f_{\sigma}(z) := N(\lambda, \sigma) \left( S_{\lambda}f_{\sigma}(x) - \fra
 
 As before, we explore the different types separately.
 
-We define the following definitions for the rest of the section:
+For the rest of the section, we define:
 - $$\lbrace t \rbrace \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace := t - \left\lfloor t \right\rfloor$$,
 - $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$,
-- $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
+- $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}$$.
+
+The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $$z \in \mathbb{R}$$.
 
 ### For the Linear type
 
-For $$t > 0$$ and $$z \in \mathbb{R}$$, using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda} = \sigma t$$, we have:
-
-$$
-\begin{equation}
-  Z_t f_{\sigma}(z) =
-    \begin{cases}
-      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
-      -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
-    \end{cases}
-\end{equation}
-$$
+Using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda} = \sigma t$$, we have:
 
 $$
 \begin{align*}
@@ -662,7 +654,7 @@ $$
       -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
       -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
     \end{cases} \\
-  =& \max \left( -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert, -\lbrace t \rbrace^{2}_{-} \right)
+  =& - \min \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert, \lbrace t \rbrace^{2}_{-} \right)
 \end{align*}
 $$
 
