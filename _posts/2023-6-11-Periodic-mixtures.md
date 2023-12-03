@@ -635,19 +635,26 @@ The normalized sum is given, as a function of $$t > 0$$ and $$z \in \mathbb{R}$$
 $$Z_t f_{\sigma}(z) := N(\lambda, \sigma) \left( S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} \right).$$
 
 As before, we explore the different types separately.
-We define the following definitions for the rest of the section:
-- $$\lbrace t \rbrace_{+} \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace_{+} := t - \left\lfloor t \right\rfloor$$,
-- $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$.
 
-TODO:say what is $$t=0$$
+We define the following definitions for the rest of the section:
+- $$\lbrace t \rbrace \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace := t - \left\lfloor t \right\rfloor$$,
+- $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$,
+- $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
 
 ### For the Linear type
 
+For $$t > 0$$ and $$z \in \mathbb{R}$$, using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda} = \sigma t$$, we have:
 
-For $$t \in [0,1)$$ and $$z \in [-1/2, 1/2)$$, 
-
-$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(t, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(t, z) \left( t  \left( t - 1 \right) + \lvert z \rvert \right).$$
-
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) =&
+    \begin{cases}
+      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } $$\Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1$$\\
+      -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
+    \end{cases} \\
+  =& \max \left( -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert, -\lbrace t \rbrace^{2}_{-} \right)
+\end{align*}
+$$
 
 {::options parse_block_html="true" /}
 
@@ -696,7 +703,7 @@ We further separate in two cases. Either $$t \in (0, 1/2] \cup [1, 3/2] \cup \ld
 $$
 \begin{align*}
 Z_t f_{\sigma}(z) = - \left( t - \left\lfloor t \right\rfloor \right) \left( t-\left\lfloor t \right\rfloor-1 \right) - \lvert z \rvert
-= - \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) - \lvert z \rvert.
+= - \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert z \rvert.
 \end{align*}
 $$
 
@@ -704,7 +711,7 @@ $$
 
 From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, and further using that: 
 
-$$\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert = 1/2 - \lvert t - \left\lfloor t \right\rfloor - 1/2 \rvert = 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert,$$
+$$\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert = 1/2 - \lvert t - \left\lfloor t \right\rfloor - 1/2 \rvert = 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert,$$
 
 we obtain:
 
@@ -712,22 +719,22 @@ $$
 \begin{align*}
 \Delta(x, \tilde{\sigma}) =& \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert \tilde{\sigma} \rvert \text{ and } \tilde{\sigma} >0) \text{ or } (x = 0)} \\
 =& \mathbf{1}_{(\lvert z \rvert<\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert)\text{ or } (\lvert z \rvert=\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert \text{ and } t - \left\lfloor t + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
-=& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert )\text{ or } (\lvert z \rvert= 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert \text{ and } t - \left\lfloor t + 1/2 \right\rfloor >0) \text{ or } (z = 0)}.
+=& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert )\text{ or } (\lvert z \rvert= 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert \text{ and } t - \left\lfloor t + 1/2 \right\rfloor >0) \text{ or } (z = 0)}.
 \end{align*}
 $$
 
 We let $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
-We have $$\Delta_{0}(\lbrace t \rbrace_{+}, z) = \Delta(x, \tilde{\sigma})$$ when $$\lvert t - 1/2 \rvert + \lvert z \rvert < 1/2$$ (in particular, there is equality when $$z = 0$$. In the remaining case where $$\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2$$, we may have $$\Delta_{0}(\lbrace t \rbrace_{+}, z) \neq \Delta(x, \tilde{\sigma})$$, but in this case the term that is multiplied by $$\Delta$$ is always null, since in that case $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert = 0$$.
+We have $$\Delta_{0}(\lbrace t \rbrace, z) = \Delta(x, \tilde{\sigma})$$ when $$\lvert t - 1/2 \rvert + \lvert z \rvert < 1/2$$. There is also equality when $$z = 0$$. In the remaining case where $$\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2$$, we may have $$\Delta_{0}(\lbrace t \rbrace, z) \neq \Delta(x, \tilde{\sigma})$$, but in this case the term that is multiplied by $$\Delta$$ is always null, since in that case $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert = 0$$.
 
 **Global form**
 
 For $$\lambda > 0$$, and $$x \in [-\lambda/2, \lambda/2)$$, we have $$z \in [-1/2, 1/2)$$ and:
 
-$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace_{+}, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace_{+}, z) \left( \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) + \lvert z \rvert \right).$$
+$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace, z) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert z \rvert \right).$$
 
 In the general case where $$x \in \mathbb{R}$$, we have $$\lbrace z \rbrace_{-} \in [-1/2, 1/2)$$ and:
 
-$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace_{+}, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace_{+}, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
+$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
 
 </details>
 <br/>
