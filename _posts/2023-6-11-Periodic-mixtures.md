@@ -646,10 +646,20 @@ We define the following definitions for the rest of the section:
 For $$t > 0$$ and $$z \in \mathbb{R}$$, using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda} = \sigma t$$, we have:
 
 $$
+\begin{equation}
+  Z_t f_{\sigma}(z) =
+    \begin{cases}
+      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
+      -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
+    \end{cases}
+\end{equation}
+$$
+
+$$
 \begin{align*}
   Z_t f_{\sigma}(z) =&
     \begin{cases}
-      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } $$\Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1$$\\
+      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
       -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
     \end{cases} \\
   =& \max \left( -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert, -\lbrace t \rbrace^{2}_{-} \right)
