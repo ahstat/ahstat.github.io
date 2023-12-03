@@ -166,7 +166,7 @@ The sum is here always computed with the closed-form expression (proofs are foun
 
 For all types, several observations can be made on the function restricted on the interval $$[-\lambda/2, \lambda/2)$$:
 - its integral sums to one by construction, for any positive values of $$\sigma$$ and $$\lambda$$,
-- for $$\lambda$$ large, its distribution is almost the same as the original function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
+- for $$\lambda$$ large, its distribution is almost the same as the initial base function (cf the column with $$\lambda=30$$, viewed at a distance on the x-axis),
 - for $$\lambda$$ tiny, its distribution is almost the same as the uniform distribution (cf the column with $$\lambda=1/3$$, viewed at a close range on the y-axis; observe that the whole range is always close to $$1/\lambda$$).
 
 Each type has also specific shapes for the sum $$S_{\lambda}f$$. The Rectangular and Linear types have an interesting accelerating oscillating pattern when $$\lambda \rightarrow 0$$, while are uniformly distributed almost everywhere for some values of $$\lambda$$ (such as $$\lambda = 1/3$$ in the table above). The Exponential type stabilizes without oscillations when $$\lambda \rightarrow 0$$, while keeping a peak in $$x=0$$. 
@@ -635,21 +635,30 @@ The normalized sum is given, as a function of $$t > 0$$ and $$z \in \mathbb{R}$$
 $$Z_t f_{\sigma}(z) := N(\lambda, \sigma) \left( S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} \right).$$
 
 As before, we explore the different types separately.
+We define the following definitions for the rest of the section:
+- $$\lbrace t \rbrace_{+} \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace_{+} := t - \left\lfloor t \right\rfloor$$,
+- $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$.
+
+TODO:say what is $$t=0$$
 
 ### For the Linear type
 
+
+For $$t \in [0,1)$$ and $$z \in [-1/2, 1/2)$$, 
+
+$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(t, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(t, z) \left( t  \left( t - 1 \right) + \lvert z \rvert \right).$$
 
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-For $$\lambda > 0$$, we consider $$x \in [\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
 The closed-form expression for the linear type verifies:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = -\frac{1}{\lambda} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(x, \tilde{\sigma}) \left( \left\lvert \sigma^{-1} - \frac{\lambda}{\sigma^2} \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\sigma^2} \right).
 \end{align*}
 $$
 
@@ -657,10 +666,12 @@ Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we o
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
-=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \Delta(\tilde{x}, \tilde{\sigma}) \left( \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert \right).
+Z_t f_{\sigma}(z) =& -\frac{\sigma^2}{\lambda^2} \left( 1 - \frac{\lambda}{\sigma}  \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right)^2 + \Delta(x, \tilde{\sigma}) \left( \left\lvert \frac{\sigma}{\lambda} - \left\lfloor \frac{\sigma}{\lambda} + \frac{1}{2} \right\rfloor \right\rvert - \frac{\lvert x \rvert}{\lambda} \right) \\
+=& -t^2 \left( 1 - \frac{1}{t}  \left\lfloor t + \frac{1}{2} \right\rfloor \right)^2 + \Delta(x, \tilde{\sigma}) \left( \left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert \right).
 \end{align*}
 $$
+
+**Form depending whether the condition $$\Delta$$ is fulfilled or not**
 
 When the condition $$\Delta$$ is not fulfilled:
 
@@ -689,7 +700,34 @@ Z_t f_{\sigma}(z) = - \left( t - \left\lfloor t \right\rfloor \right) \left( t-\
 \end{align*}
 $$
 
-The condition $$\Delta$$ is not fulfilled for $$t \in \mathbb{R}^{+}_{*} \cup \lbrace k + [-\lvert z \rvert, \lvert z \rvert]~;~k \in \mathbb{N} \rbrace,$$ and is fulfilled otherwise (to develop)
+**Condition $$\Delta$$ as a function of $$t$$ and $$z$$**
+
+From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, and further using that: 
+
+$$\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert = 1/2 - \lvert t - \left\lfloor t \right\rfloor - 1/2 \rvert = 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert,$$
+
+we obtain:
+
+$$
+\begin{align*}
+\Delta(x, \tilde{\sigma}) =& \mathbf{1}_{(\lvert x \rvert<\lvert \tilde{\sigma} \rvert)\text{ or } (\lvert x \rvert=\lvert \tilde{\sigma} \rvert \text{ and } \tilde{\sigma} >0) \text{ or } (x = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert<\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert)\text{ or } (\lvert z \rvert=\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert \text{ and } t - \left\lfloor t + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert )\text{ or } (\lvert z \rvert= 1/2 - \lvert \lbrace t \rbrace_{+} - 1/2 \rvert \text{ and } t - \left\lfloor t + 1/2 \right\rfloor >0) \text{ or } (z = 0)}.
+\end{align*}
+$$
+
+We let $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
+We have $$\Delta_{0}(\lbrace t \rbrace_{+}, z) = \Delta(x, \tilde{\sigma})$$ when $$\lvert t - 1/2 \rvert + \lvert z \rvert < 1/2$$ (in particular, there is equality when $$z = 0$$. In the remaining case where $$\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2$$, we may have $$\Delta_{0}(\lbrace t \rbrace_{+}, z) \neq \Delta(x, \tilde{\sigma})$$, but in this case the term that is multiplied by $$\Delta$$ is always null, since in that case $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert = 0$$.
+
+**Global form**
+
+For $$\lambda > 0$$, and $$x \in [-\lambda/2, \lambda/2)$$, we have $$z \in [-1/2, 1/2)$$ and:
+
+$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace_{+}, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace_{+}, z) \left( \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) + \lvert z \rvert \right).$$
+
+In the general case where $$x \in \mathbb{R}$$, we have $$\lbrace z \rbrace_{-} \in [-1/2, 1/2)$$ and:
+
+$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace_{+}, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace_{+}, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace_{+} \left( \lbrace t \rbrace_{+} - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
 
 </details>
 <br/>
