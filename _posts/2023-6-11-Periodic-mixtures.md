@@ -740,7 +740,7 @@ $$Z_t f_{\sigma}(z) = - (1 - \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrac
 
 **Form as a minimum**
 
-We are looking at which condition we have: $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-}$$. Using the formula (*) again, we have:
+We are looking at which condition we have: $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq \lbrace t \rbrace^{2}_{-}$$. Using the formula (*) again, we have:
 
 $$
 \begin{align*}
@@ -751,7 +751,7 @@ $$
 \end{align*}
 $$
 
-It follows that $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-}$$ is equivalent to $$\mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) = 1$$, from which the form as a minimum follows.
+It follows that $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq \lbrace t \rbrace^{2}_{-}$$ is equivalent to $$\mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) = 1$$, from which the form as a minimum follows.
 
 </details>
 <br/>
