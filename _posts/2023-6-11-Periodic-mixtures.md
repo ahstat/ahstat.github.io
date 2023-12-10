@@ -662,6 +662,22 @@ $$
 
 {::options parse_block_html="true" /}
 
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+The colors of this video are not linked with the colors of the previous video.
+
+<video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_space.mp4"></video>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
+{::options parse_block_html="true" /}
+
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
