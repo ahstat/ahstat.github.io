@@ -658,6 +658,8 @@ $$
 \end{align*}
 $$
 
+<video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_time.mp4"></video>
+
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
@@ -745,9 +747,9 @@ We are looking at which condition we have: $$\lbrace t \rbrace \left( \lbrace t 
 $$
 \begin{align*}
 \lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-} \\
-\leq& \left( t - \left\lfloor t + 1/2 \right\rfloor \right)^{2} \\
-\leq& \left( 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert \right)^{2} \\
-\leq& 1/4 - \lvert \lbrace t \rbrace - 1/2 \rvert + \lbrace t \rbrace^2 - \lbrace t \rbrace + 1/4 \\
+=& \left( t - \left\lfloor t + 1/2 \right\rfloor \right)^{2} \\
+=& \left( 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert \right)^{2} \\
+=& 1/4 - \lvert \lbrace t \rbrace - 1/2 \rvert + \lbrace t \rbrace^2 - \lbrace t \rbrace + 1/4 \\
 \end{align*}
 $$
 
