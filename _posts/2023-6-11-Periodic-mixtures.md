@@ -645,7 +645,7 @@ The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $
 
 ### For the Linear type
 
-Using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda} = \sigma t$$, we have:
+Using the normalization $$N(\lambda, \sigma) = \sigma^2 / \lambda = \sigma t$$, we have:
 
 $$
 \begin{align*}
@@ -711,7 +711,7 @@ $$
 
 **Condition $$\Delta$$ as a function of $$t$$ and $$z$$**
 
-From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, and further using that: 
+From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, and further using that (*): 
 
 $$\lvert t - \left\lfloor t + 1/2 \right\rfloor \rvert = 1/2 - \lvert t - \left\lfloor t \right\rfloor - 1/2 \rvert = 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert,$$
 
@@ -737,6 +737,21 @@ $$Z_t f_{\sigma}(z) = - (1 - \mathbf{\Delta}(\lbrace t \rbrace, z)) \lbrace t \r
 In the general case where $$x \in \mathbb{R}$$, we have $$\lbrace z \rbrace_{-} \in [-1/2, 1/2)$$ and:
 
 $$Z_t f_{\sigma}(z) = - (1 - \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
+
+**Form as a minimum**
+
+We are looking at which condition we have: $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-}$$. Using the formula (*) again, we have:
+
+$$
+\begin{align*}
+\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-} \\
+\leq& \left( t - \left\lfloor t + 1/2 \right\rfloor \right)^{2} \\
+\leq& \left( 1/2 - \lvert \lbrace t \rbrace - 1/2 \rvert \right)^{2} \\
+\leq& 1/4 - \lvert \lbrace t \rbrace - 1/2 \rvert + \lbrace t \rbrace^2 - \lbrace t \rbrace + 1/4 \\
+\end{align*}
+$$
+
+It follows that $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \leq& \lbrace t \rbrace^{2}_{-}$$ is equivalent to $$\mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) = 1$$, from which the form as a minimum follows.
 
 </details>
 <br/>
