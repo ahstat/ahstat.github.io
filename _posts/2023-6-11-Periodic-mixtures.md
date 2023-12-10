@@ -639,7 +639,7 @@ As before, we explore the different types separately.
 For the rest of the section, we define:
 - $$\lbrace t \rbrace \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace := t - \left\lfloor t \right\rfloor$$,
 - $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$,
-- $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}$$.
+- $$\mathbf{\Delta}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}$$.
 
 The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $$z \in \mathbb{R}$$.
 
@@ -651,7 +651,7 @@ $$
 \begin{align*}
   Z_t f_{\sigma}(z) =&
     \begin{cases}
-      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
+      -\lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) - \lvert \lbrace z \rbrace_{-} \rvert & \text{if } \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-})=1\\
       -\lbrace t \rbrace^{2}_{-} & \text{otherwise}
     \end{cases} \\
   =& - \min \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert, \lbrace t \rbrace^{2}_{-} \right)
@@ -725,18 +725,18 @@ $$
 \end{align*}
 $$
 
-We let $$\Delta_{0}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
-We have $$\Delta_{0}(\lbrace t \rbrace, z) = \Delta(x, \tilde{\sigma})$$ when $$\lvert t - 1/2 \rvert + \lvert z \rvert < 1/2$$. There is also equality when $$z = 0$$. In the remaining case where $$\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2$$, we may have $$\Delta_{0}(\lbrace t \rbrace, z) \neq \Delta(x, \tilde{\sigma})$$, but in this case the term that is multiplied by $$\Delta$$ is always null, since in that case $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert = 0$$.
+We let $$\mathbf{\Delta}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}.$$
+We have $$\mathbf{\Delta}(\lbrace t \rbrace, z) = \Delta(x, \tilde{\sigma})$$ when $$\lvert t - 1/2 \rvert + \lvert z \rvert < 1/2$$. There is also equality when $$z = 0$$. In the remaining case where $$\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2$$, we may have $$\mathbf{\Delta}(\lbrace t \rbrace, z) \neq \Delta(x, \tilde{\sigma})$$, but in this case the term that is multiplied by $$\Delta$$ is always null, since in that case $$\left\lvert t - \left\lfloor t + \frac{1}{2} \right\rfloor \right\rvert - \lvert z \rvert = 0$$.
 
 **Global form**
 
 For $$\lambda > 0$$, and $$x \in [-\lambda/2, \lambda/2)$$, we have $$z \in [-1/2, 1/2)$$ and:
 
-$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace, z)) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace, z) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert z \rvert \right).$$
+$$Z_t f_{\sigma}(z) = - (1 - \mathbf{\Delta}(\lbrace t \rbrace, z)) \lbrace t \rbrace^{2}_{-} - \mathbf{\Delta}(\lbrace t \rbrace, z) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert z \rvert \right).$$
 
 In the general case where $$x \in \mathbb{R}$$, we have $$\lbrace z \rbrace_{-} \in [-1/2, 1/2)$$ and:
 
-$$Z_t f_{\sigma}(z) = - (1 - \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \Delta_{0}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
+$$Z_t f_{\sigma}(z) = - (1 - \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-})) \lbrace t \rbrace^{2}_{-} - \mathbf{\Delta}(\lbrace t \rbrace, \lbrace z \rbrace_{-}) \left( \lbrace t \rbrace \left( \lbrace t \rbrace - 1 \right) + \lvert \lbrace z \rbrace_{-} \rvert \right).$$
 
 </details>
 <br/>
