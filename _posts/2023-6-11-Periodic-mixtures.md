@@ -643,6 +643,90 @@ For the rest of the section, we define:
 
 The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $$z \in \mathbb{R}$$.
 
+### For the Rectangular type
+
+XXX
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) = xxx.
+\end{align*}
+$$
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the rectangular type verifies:
+
+
+$$S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = - \frac{\breve{\sigma}}{\lambda\sigma} + \Delta(x, \breve{\sigma}/2)  \frac{(-1)^{\mathbf{1}_{\breve{\sigma}/\lambda < 0}}}{\sigma}.$$
+
+Using the normalization: $$N(\lambda, \sigma) = \sigma$$, and $$\frac{\breve{\sigma}}{\lambda} = t - 2 \left\lfloor \frac{t}{2} + \frac{1}{2} \right\rfloor$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& - \frac{\breve{\sigma}}{\lambda} + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{\breve{\sigma} < 0}} \\
+=& -t + 2 \left\lfloor t/2 + 1/2 \right\rfloor + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{t - 2 \left\lfloor t/2 + 1/2 \right\rfloor < 0}}.
+\end{align*}
+$$
+
+**Case when $$t \in (0, 1) \cup [2, 3) \cup [4, 5) \cup \ldots$$**
+
+In this case, we have $$t - 2 \left\lfloor t/2+1/2 \right\rfloor = 2 \lbrace t/2 \rbrace$$ and:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& -2 \lbrace t/2 \rbrace + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{2 \lbrace t/2 \rbrace < 0}} \\
+=& -2 \lbrace t/2 \rbrace + \Delta(x, \breve{\sigma}/2).
+\end{align*}
+$$
+
+**Case when $$t \in [1, 2) \cup [3, 4) \cup [5, 6) \cup \ldots$$**
+
+In this case, we have $$t - 2 \left\lfloor t/2+1/2 \right\rfloor = 2 \lbrace t/2 \rbrace - 2$$ and:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& -2 \lbrace t/2 \rbrace + 2 + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{2 \lbrace t/2 \rbrace - 2 < 0}} \\
+=& -2 \lbrace t/2 \rbrace + 2 - \Delta(x, \breve{\sigma}/2).
+\end{align*}
+$$
+
+**In all cases, we obtain:**
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) =&
+    \begin{cases}
+      -2 \lbrace t/2 \rbrace + 1 & \text{if } \Delta(x, \breve{\sigma}/2)=1\\
+      -2 \lbrace t/2 \rbrace + 2 \left\lfloor 2 \lbrace t/2 \rbrace \right\rfloor & \text{otherwise}
+    \end{cases}.
+\end{align*}
+$$
+
+**Simplification of $$\Delta$$**
+ 
+From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, using that $$\frac{\breve{\sigma}}{2\lambda} = t/2 - \left\lfloor t/2 + 1/2 \right\rfloor$$, and further using that $$\lvert t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \rvert = 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert$$, we obtain:
+
+$$
+\begin{align*}
+\Delta(x, \breve{\sigma}/2) =& \mathbf{1}_{(\lvert x \rvert<\lvert \breve{\sigma}/2 \rvert)\text{ or } (\lvert x \rvert=\lvert \breve{\sigma}/2 \rvert \text{ and } \breve{\sigma}/2 >0) \text{ or } (x = 0)}\\
+=& \mathbf{1}_{(\lvert z \rvert<\lvert \frac{\breve{\sigma}}{2\lambda} \rvert)\text{ or } (\lvert z \rvert=\lvert \frac{\breve{\sigma}}{2\lambda} \rvert \text{ and } \frac{\breve{\sigma}}{2\lambda} >0) \text{ or } (z = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert)\text{ or } (\lvert z \rvert=1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert < 1/2)\text{ or } (\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert =1/2 \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
+\end{align*}
+$$
+
+TODO: square with L1 norm, with 3 cases, giving either +0 (top and bottom left), +1 (center) or +2 (top and bottom right).
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
 ### For the Linear type
 
 Using the normalization $$N(\lambda, \sigma) = \sigma^2 / \lambda = \sigma t$$, we have:
