@@ -663,11 +663,11 @@ The closed-form expression for the rectangular type verifies:
 
 $$S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = - \frac{\breve{\sigma}}{\lambda\sigma} + \Delta(x, \breve{\sigma}/2)  \frac{(-1)^{\mathbf{1}_{\breve{\sigma}/\lambda < 0}}}{\sigma}.$$
 
-Using the normalization: $$N(\lambda, \sigma) = \sigma$$, and $$\frac{\breve{\sigma}}{\lambda} = t - 2 \left\lfloor \frac{t}{2} + \frac{1}{2} \right\rfloor$$, we obtain:
+Using the normalization: $$N(\lambda, \sigma) = \sigma$$, and $$\breve{\sigma}/\lambda = t - 2 \left\lfloor \frac{t}{2} + \frac{1}{2} \right\rfloor$$, we obtain:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& - \frac{\breve{\sigma}}{\lambda} + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{\breve{\sigma} < 0}} \\
+Z_t f_{\sigma}(z) =& - \breve{\sigma}/\lambda + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{\breve{\sigma} < 0}} \\
 =& -t + 2 \left\lfloor t/2 + 1/2 \right\rfloor + \Delta(x, \breve{\sigma}/2) (-1)^{\mathbf{1}_{t - 2 \left\lfloor t/2 + 1/2 \right\rfloor < 0}}.
 \end{align*}
 $$
@@ -701,19 +701,19 @@ $$
   Z_t f_{\sigma}(z) =&
     \begin{cases}
       -2 \lbrace t/2 \rbrace + 1 & \text{if } \Delta(x, \breve{\sigma}/2)=1\\
-      -2 \lbrace t/2 \rbrace + 2 \left\lfloor 2 \lbrace t/2 \rbrace \right\rfloor & \text{otherwise}
-    \end{cases}.
+      -2 \lbrace t/2 \rbrace + 2 \left\lfloor 2 \lbrace t/2 \rbrace \right\rfloor & \text{otherwise}.
+    \end{cases}
 \end{align*}
 $$
 
 **Simplification of $$\Delta$$**
  
-From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, using that $$\frac{\breve{\sigma}}{2\lambda} = t/2 - \left\lfloor t/2 + 1/2 \right\rfloor$$, and further using that $$\lvert t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \rvert = 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert$$, we obtain:
+From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, using that $$\breve{\sigma}/(2\lambda) = t/2 - \left\lfloor t/2 + 1/2 \right\rfloor$$, and further using that $$\lvert t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \rvert = 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert$$, we obtain:
 
 $$
 \begin{align*}
 \Delta(x, \breve{\sigma}/2) =& \mathbf{1}_{(\lvert x \rvert<\lvert \breve{\sigma}/2 \rvert)\text{ or } (\lvert x \rvert=\lvert \breve{\sigma}/2 \rvert \text{ and } \breve{\sigma}/2 >0) \text{ or } (x = 0)}\\
-=& \mathbf{1}_{(\lvert z \rvert<\lvert \frac{\breve{\sigma}}{2\lambda} \rvert)\text{ or } (\lvert z \rvert=\lvert \frac{\breve{\sigma}}{2\lambda} \rvert \text{ and } \frac{\breve{\sigma}}{2\lambda} >0) \text{ or } (z = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert<\lvert \breve{\sigma}/(2\lambda) \rvert)\text{ or } (\lvert z \rvert=\lvert \breve{\sigma}/(2\lambda) \rvert \text{ and } \breve{\sigma}/(2\lambda) >0) \text{ or } (z = 0)} \\
 =& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert)\text{ or } (\lvert z \rvert=1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
 =& \mathbf{1}_{(\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert < 1/2)\text{ or } (\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert =1/2 \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
 \end{align*}
