@@ -639,17 +639,18 @@ As before, we explore the different types separately.
 For the rest of the section, we define:
 - $$\lbrace t \rbrace \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace := t - \left\lfloor t \right\rfloor$$,
 - $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$,
+- $$\mathbf{\Lambda}(t, z) := \mathbf{1}_{(\lvert t - 1/2 \rvert + \lvert z \rvert< 1/2)\text{ or } (\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2 \text{ and } t < 1/2)}$$
 - $$\mathbf{\Delta}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}$$.
 
 The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $$z \in \mathbb{R}$$.
 
 ### For the Rectangular type
 
-XXX
+Using the normalization $$N(\lambda, \sigma) = \sigma$$, we have:
 
 $$
 \begin{align*}
-  Z_t f_{\sigma}(z) = xxx.
+  Z_t f_{\sigma}(z) = \left( 1-2 \lbrace t/2 \rbrace \right) + \left(1-\mathbf{\Lambda}(\lbrace t/2 \rbrace, \lbrace z \rbrace_{-})\right) (-1)^{\mathbf{1}_{\lbrace t/2 \rbrace < 1/2}}.
 \end{align*}
 $$
 
@@ -701,7 +702,7 @@ $$
   Z_t f_{\sigma}(z) =&
     \begin{cases}
       -2 \lbrace t/2 \rbrace + 1 & \text{if } \Delta(x, \breve{\sigma}/2)=1\\
-      -2 \lbrace t/2 \rbrace + 2 \left\lfloor 2 \lbrace t/2 \rbrace \right\rfloor & \text{otherwise}.
+      -2 \lbrace t/2 \rbrace + 2 \mathbf{1}_{\lbrace t/2 \rbrace \geq 1/2} & \text{otherwise}.
     \end{cases}
 \end{align*}
 $$
@@ -716,10 +717,22 @@ $$
 =& \mathbf{1}_{(\lvert z \rvert<\lvert \breve{\sigma}/(2\lambda) \rvert)\text{ or } (\lvert z \rvert=\lvert \breve{\sigma}/(2\lambda) \rvert \text{ and } \breve{\sigma}/(2\lambda) >0) \text{ or } (z = 0)} \\
 =& \mathbf{1}_{(\lvert z \rvert< 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert)\text{ or } (\lvert z \rvert=1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
 =& \mathbf{1}_{(\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert < 1/2)\text{ or } (\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert =1/2 \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor >0) \text{ or } (z = 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert < 1/2)\text{ or } (\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert =1/2 \text{ and } t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \geq 0)} \\
+=& \mathbf{1}_{(\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert < 1/2)\text{ or } (\lvert z \rvert + \lvert \lbrace t/2 \rbrace - 1/2 \rvert =1/2 \text{ and } \lbrace t/2 \rbrace < 1/2)}
 \end{align*}
 $$
 
-TODO: square with L1 norm, with 3 cases, giving either +0 (top and bottom left), +1 (center) or +2 (top and bottom right).
+We let $$\mathbf{\Lambda}(t, z) := \mathbf{1}_{(\lvert t - 1/2 \rvert + \lvert z \rvert< 1/2)\text{ or } (\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2 \text{ and } t < 1/2)}$$.
+
+**Final form**
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& -2 \lbrace t/2 \rbrace + \mathbf{\Lambda}(\lbrace t/2 \rbrace, z) + 2 (1-\mathbf{\Lambda}(\lbrace t/2 \rbrace, z)) \mathbf{1}_{\lbrace t/2 \rbrace \geq 1/2}\\
+=& \left( 1-2 \lbrace t/2 \rbrace \right) + \left( \mathbf{\Lambda}(\lbrace t/2 \rbrace, z) + 2 (1-\mathbf{\Lambda}(\lbrace t/2 \rbrace, z)) \mathbf{1}_{\lbrace t/2 \rbrace \geq 1/2} - 1 \right) \\
+=& \left( 1-2 \lbrace t/2 \rbrace \right) + \left(1-\mathbf{\Lambda}(\lbrace t/2 \rbrace, z)\right) (-1)^{\mathbf{1}_{\lbrace t/2 \rbrace < 1/2}}.
+\end{align*}
+$$
 
 </details>
 <br/>
