@@ -639,7 +639,7 @@ As before, we explore the different types separately.
 For the rest of the section, we define:
 - $$\lbrace t \rbrace \in [0, 1)$$ the *fractional* part, i.e. $$\lbrace t \rbrace := t - \left\lfloor t \right\rfloor$$,
 - $$\lbrace t \rbrace_{-} \in [-1/2, 1/2)$$ the shifted fractional part, i.e. $$\lbrace t \rbrace_{-} := t -  \left\lfloor t + \frac{1}{2} \right\rfloor$$,
-- $$\mathbf{\Lambda}(t, z) := \mathbf{1}_{(\lvert t - 1/2 \rvert + \lvert z \rvert< 1/2)\text{ or } (\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2 \text{ and } t < 1/2)}$$
+- $$\mathbf{\Lambda}(t, z) := \mathbf{1}_{(\lvert t - 1/2 \rvert + \lvert z \rvert< 1/2)\text{ or } (\lvert t - 1/2 \rvert + \lvert z \rvert = 1/2 \text{ and } t < 1/2)}$$,
 - $$\mathbf{\Delta}(t, z) := \mathbf{1}_{\lvert t - 1/2 \rvert + \lvert z \rvert \leq 1/2}$$.
 
 The following formulas for $$Z_t f_{\sigma}(z)$$ are defined for $$t > 0$$ and $$z \in \mathbb{R}$$.
@@ -664,7 +664,7 @@ The closed-form expression for the rectangular type verifies:
 
 $$S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = - \frac{\breve{\sigma}}{\lambda\sigma} + \Delta(x, \breve{\sigma}/2)  \frac{(-1)^{\mathbf{1}_{\breve{\sigma}/\lambda < 0}}}{\sigma}.$$
 
-Using the normalization: $$N(\lambda, \sigma) = \sigma$$, and $$\breve{\sigma}/\lambda = t - 2 \left\lfloor \frac{t}{2} + \frac{1}{2} \right\rfloor$$, we obtain:
+Using the normalization: $$N(\lambda, \sigma) = \sigma$$, and since $$\breve{\sigma}/\lambda = t - 2 \left\lfloor \frac{t}{2} + \frac{1}{2} \right\rfloor$$, we obtain:
 
 $$
 \begin{align*}
@@ -709,7 +709,7 @@ $$
 
 **Simplification of $$\Delta$$**
  
-From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, using that $$\breve{\sigma}/(2\lambda) = t/2 - \left\lfloor t/2 + 1/2 \right\rfloor$$, and further using that $$\lvert t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \rvert = 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert$$, we obtain:
+From the original definition of $$\Delta$$, by dividing each element of the condition by $$\lambda$$, using that $$\breve{\sigma}/(2\lambda) = t/2 - \left\lfloor t/2 + 1/2 \right\rfloor$$, and $$\lvert t/2 - \left\lfloor t/2 + 1/2 \right\rfloor \rvert = 1/2 - \lvert \lbrace t/2 \rbrace - 1/2 \rvert$$, we obtain:
 
 $$
 \begin{align*}
@@ -733,6 +733,34 @@ Z_t f_{\sigma}(z) =& -2 \lbrace t/2 \rbrace + \mathbf{\Lambda}(\lbrace t/2 \rbra
 =& \left( 1-2 \lbrace t/2 \rbrace \right) + \left(1-\mathbf{\Lambda}(\lbrace t/2 \rbrace, z)\right) (-1)^{\mathbf{1}_{\lbrace t/2 \rbrace < 1/2}}.
 \end{align*}
 $$
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+We observe that under this form, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). The function is also $$2$$-periodic in time and $$1$$-periodic in space.
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z=\pm 1/8$$ (yellow) and $$z=0$$ (gray); we observe [TODO] as expected a shape composed with linear segments,
+- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe [TODO] as expected different shapes composed with quadratic arcs,
+- (right) the condition $$(t, z) \mapsto \mathbf{\Delta}(t, z)$$ represented by [TODO] a gray square (that in also $$1$$-periodic), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_space.mp4"></video></center>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/unnormalized.mp4"></video></center>
 
 </details>
 <br/>
@@ -855,7 +883,7 @@ It follows that $$\lbrace t \rbrace \left( \lbrace t \rbrace -1 \right) + \lvert
 
 {::options parse_block_html="false" /}
 
-We observe that under this form, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). The function is also $$1$$-periodic both in time and in space.
+We observe again that under this form, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). For this type, the function is also $$1$$-periodic both in time and in space.
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
 - (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z=\pm 1/8$$ (yellow) and $$z=0$$ (gray); we observe as expected a shape composed with linear segments,

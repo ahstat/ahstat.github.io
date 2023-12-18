@@ -6,9 +6,12 @@ images/2023-6-11-Periodic-mixtures/plot2/Sf/polynomial/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/gaussian/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc/*
 images/2023-6-11-Periodic-mixtures/plot2/Sf/sinc2/*
-images/2023-6-11-Periodic-mixtures/plot3/function_of_time/*
-images/2023-6-11-Periodic-mixtures/plot3/function_of_space/*
-images/2023-6-11-Periodic-mixtures/plot3/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/rectangular/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized/*
 
 _site
 .DS_Store
