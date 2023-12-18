@@ -746,7 +746,7 @@ Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the follow
 - (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe [TODO] as expected different shapes composed with quadratic arcs,
 - (right) the condition $$(t, z) \mapsto \mathbf{\Delta}(t, z)$$ represented by [TODO] a gray square (that in also $$1$$-periodic), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone.
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_time.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_time.mp4"></video></center>
 
 Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
 
@@ -756,11 +756,11 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 - Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video.
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_space.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_space.mp4"></video></center>
 
 - Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/unnormalized.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/unnormalized.mp4"></video></center>
 
 </details>
 <br/>
@@ -890,7 +890,7 @@ Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the follow
 - (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe as expected different shapes composed with quadratic arcs,
 - (right) the condition $$(t, z) \mapsto \mathbf{\Delta}(t, z)$$ represented by a gray square (that in also $$1$$-periodic), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone.
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_time.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_time.mp4"></video></center>
 
 Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
 
@@ -900,11 +900,11 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 - Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video.
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/function_of_space.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_space.mp4"></video></center>
 
 - Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/unnormalized.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized.mp4"></video></center>
 
 </details>
 <br/>
