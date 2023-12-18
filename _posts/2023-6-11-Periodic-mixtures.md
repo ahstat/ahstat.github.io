@@ -742,9 +742,9 @@ $$
 We observe that under this form, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). The function is also $$2$$-periodic in time and $$1$$-periodic in space.
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
-- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z=\pm 1/8$$ (yellow) and $$z=0$$ (gray); we observe [TODO] as expected a shape composed with linear segments,
-- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe [TODO] as expected different shapes composed with quadratic arcs,
-- (right) the condition $$(t, z) \mapsto \mathbf{\Delta}(t, z)$$ represented by [TODO] a gray square (that in also $$1$$-periodic), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone.
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z=\pm 1/8$$ (yellow) and $$z=0$$ (gray); we observe a decreasing motion driven by $$t \mapsto 1-t$$, with two separate and symmetric phases before and after $$t=1$$,
+- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe that the marked points jump from the three curves $$t \mapsto 2-t$$, $$t \mapsto 1-t$$, and $$t \mapsto -t$$,
+- (right) the condition $$(t, z) \mapsto \mathbf{\Lambda}(t/2, z)$$ represented by a gray square (that in also $$1$$-periodic in space and $$2$$-periodic in time), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone. On this figure, the numbers correspond to the whole right term of the $$Z_t f_{\sigma}(z)$$ formula above. The value is $$0$$ inside the gray zone, including the whole axis $$z=0$$ but excluding the border for $$2 \lbrace t/2 \rbrace \geq 1$$. The value is $$1$$ outside the zone for $$2 \lbrace t/2 \rbrace \geq 1$$. The value is $$-1$$ outside the zone for $$2 \lbrace t/2 \rbrace < 1$$. Note that we always have $$2 \lbrace t/2 \rbrace \in [0,2)$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_time.mp4"></video></center>
 
@@ -758,7 +758,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_space.mp4"></video></center>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, we observe as expected a shape equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. In addition, the range is constant and equal to $$2/\sigma$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/unnormalized.mp4"></video></center>
 
