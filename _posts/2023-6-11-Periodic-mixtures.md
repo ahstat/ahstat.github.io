@@ -743,7 +743,7 @@ We observe that under this form, the normalized sum $$Z_t f_{\sigma}(z)$$ does n
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
 - (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z=\pm 1/8$$ (yellow) and $$z=0$$ (gray); we observe a decreasing motion driven by $$t \mapsto 1-t$$, with two separate and symmetric phases before and after $$t=1$$,
-- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe that the marked points jump from the three curves $$t \mapsto 2-t$$, $$t \mapsto 1-t$$, and $$t \mapsto -t$$,
+- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; we observe that the marked points jump over the three curves $$t \mapsto 2-t$$, $$t \mapsto 1-t$$, and $$t \mapsto -t$$,
 - (right) the condition $$(t, z) \mapsto \mathbf{\Lambda}(t/2, z)$$ represented by a gray square (that in also $$1$$-periodic in space and $$2$$-periodic in time), with the marked points and the space segment $$[-1/2, 1/2)$$ over time; we observe as expected a change in the behavior of each marked point when entering or leaving the gray zone. On this figure, the numbers correspond to the whole right term of the $$Z_t f_{\sigma}(z)$$ formula above. The value is $$0$$ inside the gray zone, including the whole axis $$z=0$$ but excluding the border for $$2 \lbrace t/2 \rbrace \geq 1$$. The value is $$1$$ outside the zone for $$2 \lbrace t/2 \rbrace \geq 1$$. The value is $$-1$$ outside the zone for $$2 \lbrace t/2 \rbrace < 1$$. Note that we always have $$2 \lbrace t/2 \rbrace \in [0,2)$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_time.mp4"></video></center>
@@ -758,7 +758,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/function_of_space.mp4"></video></center>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, we observe as expected a shape equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. In addition, the range is constant and equal to $$2/\sigma$$.
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, we observe as expected a shape equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. The range of the figure is constant and equal to $$2/\sigma$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/rectangular/unnormalized.mp4"></video></center>
 
@@ -905,6 +905,65 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 - Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+### For the Exponential type
+
+Using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we have:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) = t \frac{\cosh \left( \frac{1-2 \lvert \lbrace z \rbrace_{-} \rvert}{t} \right)}{\sinh \left( \frac{1}{t} \right)} - t^2.
+\end{align*}
+$$
+
+We also have:
+$$\lim_{t \shortrightarrow +\infty} Z_t f_{\sigma}(z) = 2 \lbrace z \rbrace_{-}^2-2 \lvert \lbrace z \rbrace_{-} \rvert + 1/3.$$
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the linear type verifies:
+
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} = \frac{1}{\sigma} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2\lvert x \rvert}{\sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)} - \frac{1}{\lambda}.
+\end{align*}
+$$
+
+Using the normalization: $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& \frac{\sigma}{\lambda} \frac{\cosh \left( \frac{\lambda}{\sigma} - \frac{2 \lambda \lvert x \rvert}{\lambda \sigma} \right) }{\sinh \left( \frac{\lambda}{\sigma}\right)} - \frac{\sigma^2}{\lambda^2} \\
+=& t \frac{\cosh \left( \frac{1}{t} - \frac{2 \lvert z \rvert}{t} \right) }{\sinh \left( \frac{1}{t}\right)} - t^2 \\
+=& t \frac{\cosh \left( \frac{1-2 \lvert z \rvert}{t} \right) }{\sinh \left( \frac{1}{t}\right)} - t^2.
+\end{align*}
+$$
+
+***Form when $$t \rightarrow +\infty$$***
+
+With $$u:=1-2 \lvert z \rvert$$, we use (the $$o$$ notation is in $$+\infty$$ here) that
+$$\cosh(u/t)=1+u^2/(2t^2)+o(1/t^2)$$ and $$1/\sinh(1/t)=t-1/(6t)+o(1/t)$$ so:
+
+$$
+\begin{align*}
+\cosh(u/t)/\sinh(1/t) =& (1 + u^2/(2t^2) + o(1/t^2))(t - 1/(6t) + o(1/t)) \\
+=& (t - 1/(6t) + o(1/t)) + u^2/(2t) \\
+=& t + (1/6)(3u^2-1)/t + o(1/t).
+\end{align*}
+$$
+
+Hence $$Z_t f_{\sigma}(z) = (1/6)(3u^2-1) + o(1)$$. Replacing $$u$$ by its value, we obtain that: $$\lim_{t \shortrightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$ for $$z \in [-1/2, 1/2)$$.
+
 
 </details>
 <br/>
