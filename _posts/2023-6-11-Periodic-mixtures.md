@@ -923,7 +923,7 @@ $$
 $$
 
 We also have:
-$$\lim_{t \shortrightarrow +\infty} Z_t f_{\sigma}(z) = 2 \lbrace z \rbrace_{-}^2-2 \lvert \lbrace z \rbrace_{-} \rvert + 1/3.$$
+$$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 \lbrace z \rbrace_{-}^2-2 \lvert \lbrace z \rbrace_{-} \rvert + 1/3$$ and $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$.
 
 {::options parse_block_html="true" /}
 
@@ -962,7 +962,7 @@ $$
 \end{align*}
 $$
 
-Hence $$Z_t f_{\sigma}(z) = (1/6)(3u^2-1) + o(1)$$. Replacing $$u$$ by its value, we obtain that: $$\lim_{t \shortrightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$ for $$z \in [-1/2, 1/2)$$.
+Hence $$Z_t f_{\sigma}(z) = (1/6)(3u^2-1) + o(1)$$. Replacing $$u$$ by its value, we obtain that: $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$ for $$z \in [-1/2, 1/2)$$.
 
 
 </details>
