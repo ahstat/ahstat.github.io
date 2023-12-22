@@ -922,8 +922,11 @@ $$
 \end{align*}
 $$
 
-We also have:
-$$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 \lbrace z \rbrace_{-}^2-2 \lvert \lbrace z \rbrace_{-} \rvert + 1/3$$ and $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$.
+We also have the following (for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
+- $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t))$$, with in particular 
+$$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 = 1/2-1/(2\sqrt{3}) - 1/(180 \sqrt{3} t^2) + o_{t \rightarrow +\infty}(1/t^2)$$.
 
 {::options parse_block_html="true" /}
 
@@ -949,7 +952,7 @@ Z_t f_{\sigma}(z) =& \frac{\sigma}{\lambda} \frac{\cosh \left( \frac{\lambda}{\s
 \end{align*}
 $$
 
-***Form when $$t \rightarrow +\infty$$***
+**Form when $$t \rightarrow +\infty$$**
 
 With $$u:=1-2 \lvert z \rvert$$, we use (the $$o$$ notation is in $$+\infty$$ here) that
 $$\cosh(u/t)=1+u^2/(2t^2)+o(1/t^2)$$ and $$1/\sinh(1/t)=t-1/(6t)+o(1/t)$$ so:
@@ -964,13 +967,25 @@ $$
 
 Hence $$Z_t f_{\sigma}(z) = (1/6)(3u^2-1) + o(1)$$. Replacing $$u$$ by its value, we obtain that: $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$ for $$z \in [-1/2, 1/2)$$.
 
+**Form when $$t \rightarrow 0$$**
+
+The convergence to $$0$$ is straightforward using the definitions of $$\sinh$$ and $$\cosh$$.
+
+**Roots for $$t>0$$**
+
+For $$z \in [-1/2, 1/2)$$, we have $$Z_t f_{\sigma}(z) = 0$$ when (*) $$\cosh(u/t)  = t \sinh(1/t)$$.
+The final form is obtained by taking the inverse function $$\cosh^{-1}(x) = \log (x + \sqrt{x^2 -1})$$ and replacing $$\pm z = (1-u)/2$$.
+
+We consider the smallest positive root $$z_0$$ in the following (the negative is also a root, along with the translations by $$1$$).
+
+When $$t \rightarrow 0$$, we use $$\cosh(u/t) \sim exp(u/t)$$ and $$\sinh(1/t) \sim exp(1/t)$$ to get $$z_0 \sim - t \log{t}/2$$.
+
+When $$t \rightarrow +\infty$$, the development is $$z_0 = 1/2-1/(2\sqrt{3}) - 1/(180 \sqrt{3} t^2) + o(1/t^2)$$, giving in particular the limit $$z_0 \rightarrow_{t \rightarrow +\infty} = 1/2-1/(2\sqrt{3})$$.
 
 </details>
 <br/>
 
 {::options parse_block_html="false" /}
-
-
 
 ### References
 
