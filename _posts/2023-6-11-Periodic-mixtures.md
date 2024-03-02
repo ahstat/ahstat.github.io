@@ -27,10 +27,10 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <tbody>
 <tr>
 <td align="center">$$\text{type}$$</td>
-<td>$$~~~~~~~~~~~f_{\sigma}(x)~~~~~~~~~~~$$</td>
-<td>$$~~~~~~~~~~~g_{\sigma}(x)~~~~~~~~~~~$$</td>
-<td>$$~~~~~~~~~~\mathcal{F}f_{\sigma}(\xi)~~~~~~~~~~$$</td>
-<td>$$~~~~~~~~~~\mathcal{F}g_{\sigma}(\xi)~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~~f_{\sigma}(x)~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~~g_{\sigma}(x)~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~\mathcal{F}f_{\sigma}(\xi)~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~\mathcal{F}g_{\sigma}(\xi)~~~~~~~~~$$</td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Rectangular$$(\sigma=1)$$</td>
