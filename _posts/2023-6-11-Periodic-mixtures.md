@@ -174,9 +174,9 @@ The Polynomial and Gaussian types have similar regular shapes for $$\lambda \rig
 
 ## Closed-form expressions
 
-To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the different types, along with a summarizing table. 
+To better understand those patterns, we derive below the closed-form expression of $$S_{\lambda}f_{\sigma}$$ and $$S_{\lambda}g_{\sigma}$$ for the different types. 
 
-We first define the following ($$\tilde{x}$$ is used for Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and the Exponential types; $$\Delta$$ is used for the Rectangular and the Linear types; $$\vartheta_3$$ is used for the Gaussian type; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and the Sincsquare types):
+We first define the following ($$\tilde{x}$$ is used for the Rectangular, Linear, and Exponential types; $$\breve{\sigma}$$ is used for the Rectangular type; $$\tilde{\sigma}$$ is used for the Linear and Exponential types; $$\Delta$$ is used for the Rectangular and Linear types; $$\vartheta_3$$ is used for the Gaussian type; $$\left\lfloor z \right\rfloor_{+}$$ is used for the Sinc and Sincsquare types):
 
 - $$\tilde{x} \in [-\lambda/2, \lambda/2)$$ such that $$x = \tilde{x} + i\lambda$$ ($$i$$ integer), i.e. $$\tilde{x} := x - \lambda \left\lfloor \frac{x}{\lambda} + \frac{1}{2} \right\rfloor,$$
 - $$\breve{\sigma} \in [-\lambda, \lambda)$$ such that $$\sigma = \breve{\sigma} + 2i\lambda$$ ($$i$$ integer), i.e. $$\breve{\sigma} := \sigma - 2 \lambda \left\lfloor \frac{\sigma}{2\lambda} + \frac{1}{2} \right\rfloor,$$
@@ -620,15 +620,14 @@ The derivative is then obtained term by term.
 
 {::options parse_block_html="false" /}
 
-
 ## Dynamics
 
 We are interested in the dynamics of $$S_{\lambda}f_{\sigma}$$ when $$\lambda \to 0$$ (with $$\sigma > 0$$ assumed to be fixed).
 
-To simplify and gain a deeper comprehension of the closed-form expressions, we perform the following normalizations and scalings:
+To simplify and gain a deeper comprehension of the closed-form expressions, we perform the following normalizations:
 - the sum is normalized using the *shift* $$1 / \lambda$$, that is common for all types, and a *scaling* term $$N(\lambda, \sigma)$$ that changes from type to type,
 - the *time* is defined by $$t := \sigma/\lambda$$,
-- the *space* is scaled with: $$z = x/ \lambda$$.
+- the *space* is scaled with: $$z := x/ \lambda$$.
 
 The normalized sum is given, as a function of $$t > 0$$ and $$z \in \mathbb{R}$$, by:
 
@@ -902,7 +901,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_space.mp4"></video></center>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed, while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $t$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized.mp4"></video></center>
 
@@ -914,7 +913,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 ### For the Exponential type
 
-Using the normalization $$N(\lambda, \sigma) = \frac{\sigma^2}{\lambda}$$, we have:
+Using the normalization $$N(\lambda, \sigma) = \sigma^2 / \lambda = \sigma t$$, we have:
 
 $$
 \begin{align*}
@@ -926,7 +925,7 @@ We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
 - The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t))$$, with in particular 
-$$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 = 1/2-1/(2\sqrt{3}) - 1/(180 \sqrt{3} t^2) + o_{t \rightarrow +\infty}(1/t^2)$$.
+$$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 \rightarrow +\infty 1/2-1/(2\sqrt{3})$$.
 
 {::options parse_block_html="true" /}
 
