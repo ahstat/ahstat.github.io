@@ -27,10 +27,10 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <tbody>
 <tr>
 <td align="center">$$\text{type}$$</td>
-<td>$$f_{\sigma}(x)$$</td>
-<td>$$g_{\sigma}(x)$$</td>
-<td>$$\mathcal{F}f_{\sigma}(\xi)$$</td>
-<td>$$\mathcal{F}g_{\sigma}(\xi)$$</td>
+<td>$$~~~~~~~~~~~f_{\sigma}(x)~~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~~~g_{\sigma}(x)~~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~~\mathcal{F}f_{\sigma}(\xi)~~~~~~~~~~$$</td>
+<td>$$~~~~~~~~~~\mathcal{F}g_{\sigma}(\xi)~~~~~~~~~~$$</td>
 </tr>
 <tr>
 <td align="center" style="vertical-align:middle">Rectangular$$(\sigma=1)$$</td>
@@ -78,7 +78,7 @@ In the visual representations of the table, the value of $$\sigma$$ is set to on
 <td align="center" style="vertical-align:middle">Sincsquare$$(\sigma=1)$$</td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/f/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \sigma^{-1} \text{sinc}^2 (x / \sigma)}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/g/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle \frac{\sin \left( 2 \pi x / \sigma \right)}{\pi x^2} - 2 \sigma \frac{\sin^2 \left( \pi x / \sigma \right)}{\pi^2 x^3}}$$</span></td>
-<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/sinc2.png"/><span style="display:block; margin-top:-30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$${\scriptstyle\left( 1- |\xi| \sigma \right) \mathbf{1}_{|\xi| \leq 1/\sigma}}$$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+<td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱf/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle\left( 1- |\xi| \sigma \right) \mathbf{1}_{|\xi| \leq 1/\sigma}}$$</span></td>
 <td align="center"><img src="../images/2023-6-11-Periodic-mixtures/plot1/ℱg/sinc2.png"/><span style="display:block; margin-top:-30px;">$${\scriptstyle 2 \pi i \xi \left( 1- |\xi| \sigma \right) \mathbf{1}_{|\xi| \leq 1/\sigma}}$$</span></td>
 </tr>
 </tbody>
