@@ -986,6 +986,37 @@ When $$t \rightarrow +\infty$$, the development is $$z_0 = 1/2-1/(2\sqrt{3}) - 1
 
 {::options parse_block_html="false" /}
 
+As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/2-1/(2\sqrt{3}) \approx 0.211$$ (green), $$z=\pm 1/2-1/\sqrt{6} \approx 0.092$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to a quadratic function,
+- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1/6$$, $$0$$, $$1/6$$, $$1/3$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing,
+- (right) the functions $$(t, z) \mapsto \pm 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t))$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm z_0$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/8, 1/4, 1 \rbrace$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_space.mp4"></video></center>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $t$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
 ### References
 
 - [Wikipedia page on classic Fourier transforms](https://en.wikipedia.org/wiki/Fourier_transform#Square-integrable_functions,_one-dimensional),
