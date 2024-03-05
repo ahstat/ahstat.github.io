@@ -12,7 +12,9 @@ images/2023-6-11-Periodic-mixtures/plot3/rectangular/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/linear/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized/*
-images/2023-6-11-Periodic-mixtures/plot3/exponential/*
+images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/exponential/unnormalized/*
 
 _site
 .DS_Store

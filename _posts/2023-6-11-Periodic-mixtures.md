@@ -925,7 +925,7 @@ We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 2 z^2-2 \lvert z \rvert + 1/3$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
 - The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t))$$, with in particular 
-$$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 \rightarrow +\infty 1/2-1/(2\sqrt{3})$$.
+$$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/2-1/(2\sqrt{3})$$.
 
 {::options parse_block_html="true" /}
 
