@@ -995,7 +995,7 @@ Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the follow
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_time.mp4"></video></center>
 
-Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab. Other noteworthy points are also highlighted.
 
 {::options parse_block_html="true" /}
 
@@ -1023,7 +1023,7 @@ $$\texttt{-(u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}$$
 
 For other $$t$$, there does not seem to exist a closed-form expression of $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ but good approximates can be obtained. For instance $$t_0 \approx 0.229$$ is such that $$\partial{Z_t f_{\sigma}}/\partial{t}(z_0) = 0$$
 
-- The following picture summarizes the previous observations. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region also is negative and decreasing. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/2-1/(2\sqrt{3}) \approx 0.211$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$, for which $$Z_t f(z) = 1/3-\sqrt{2/15} \approx -0.032$$ (the root of $$2z^2-2z+1/3$$). The blue point is located at $$t_0 \approx 0.2294541$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) \approx -0.01603669$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+- The following picture summarizes the previous observations. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/2-1/(2\sqrt{3}) \approx 0.211$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$, for which $$Z_t f(z) = 1/3-\sqrt{2/15} \approx -0.032$$ (the root of $$2z^2-2z+1/3$$). The blue point is located at $$t_0 \approx 0.2294541$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) \approx -0.01603669$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
 
 <img src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/roots_and_derivative_roots.png"/>
 
