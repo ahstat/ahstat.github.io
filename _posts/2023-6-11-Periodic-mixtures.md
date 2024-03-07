@@ -1001,18 +1001,28 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <details><summary markdown="span">Additional videos (click to expand).</summary>
 
-- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/8, 1/4, 1 \rbrace$$. We observe as before that $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/2-1/(2\sqrt{3}) \approx 0.21$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.24$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/8, 1/4, 1 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/2-1/(2\sqrt{3}) \approx 0.21$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.24$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_space.mp4"></video></center>
 
-- We have, for $$z \in [-1/2, 1/2)$$, using $$u = 1-2|z|$$,
+- We have, for $$z \in [-1/2, 1/2)$$, using $$u = 1-2 \lvert z \rvert$$,
 
 <!-- $$\partial{Z_t f_{\sigma}}/\partial{z}(z) = -2 \text{sign}(z) \sinh(u/t)/\sinh(1/t).$$ -->
 
-$$\partial{Z_t f_{\sigma}}/\partial{t}(z) = \cosh(u/t)/\sinh(1/t) - (u/t)\sinh(u/t)/\sinh(1/t) + (1/t)\cosh(1/t) \cosh(u/t)/ \sinh^2(1/t) - 2t.$$
+$$
+\begin{align*}
+\partial{Z_t f_{\sigma}}/\partial{t}(z) =& \cosh(u/t)/\sinh(1/t) - (u/t)\sinh(u/t)/\sinh(1/t)\\
++& (1/t)\cosh(1/t) \cosh(u/t)/ \sinh^2(1/t) - 2t.
+\end{align*}
+$$
 
 For large $$t$$, $$\partial{Z_t f_{\sigma}}/\partial{t}(z) \sim (-15 u^4+30 u^2-7)/(180 t^3)$$, which has a root $$u'_0 = \sqrt{1-2 \sqrt{2/15}}$$ from which we derive $$z'_0 := (1-u'_0)/2 = 1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$. The initial equivalence for large $$t$$ was obtained by typing the following in WA:
-$$\texttt{series -2*t + cosh(u/t)/sinh(1/t) + (1/t)*cosh(u/t)*cosh(1/t)/sinh(1/t)^2 - (u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}.$$
+$$
+\begin{align*}
+\texttt{series -&2*t + cosh(u/t)/sinh(1/t) + (1/t)*cosh(u/t)*cosh(1/t)/sinh(1/t)^2} \\
+\texttt{-&(u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}}.
+\end{align*}
+$$
 
 For other $$t$$, there does not seem to exist a closed-form expression of $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ but good approximates can be obtained. For instance $$t_0 \approx 0.229$$ is such that $$\partial{Z_t f_{\sigma}}/\partial{t}(z_0) = 0$$
 
