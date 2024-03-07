@@ -1018,12 +1018,8 @@ $$
 
 For large $$t$$, $$\partial{Z_t f_{\sigma}}/\partial{t}(z) \sim (-15 u^4+30 u^2-7)/(180 t^3)$$, which has a root $$u'_0 = \sqrt{1-2 \sqrt{2/15}}$$ from which we derive $$z'_0 := (1-u'_0)/2 = 1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$. The initial equivalence for large $$t$$ was obtained by typing the following in WA:
 
-$$
-\begin{align*}
 \texttt{series -2*t + cosh(u/t)/sinh(1/t) + (1/t)*cosh(u/t)*cosh(1/t)/sinh(1/t)^2} \\
 \texttt{-(u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}}.
-\end{align*}
-$$
 
 For other $$t$$, there does not seem to exist a closed-form expression of $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ but good approximates can be obtained. For instance $$t_0 \approx 0.229$$ is such that $$\partial{Z_t f_{\sigma}}/\partial{t}(z_0) = 0$$
 
