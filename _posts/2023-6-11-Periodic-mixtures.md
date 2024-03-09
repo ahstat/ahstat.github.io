@@ -932,7 +932,7 @@ $$z_0 \sim_{t \rightarrow 0} - t \log{t}/2$$ and $$z_0 \rightarrow_{t \rightarro
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
-The closed-form expression for the linear type verifies:
+The closed-form expression for the exponential type verifies:
 
 
 $$
@@ -1036,6 +1036,123 @@ For other $$t$$, there does not seem to exist a closed-form expression of $$\par
 
 {::options parse_block_html="false" /}
 
+
+### For the Polynomial type
+
+Using the normalization $$N(\lambda, \sigma) = e^{2 \sigma / \lambda} \lambda / 2 = \sigma e^{2t}/(2t)$$, we have:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) = \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
+\end{align*}
+$$
+
+
+We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
+- $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = XXX$$, with in particular 
+$$z_0 \sim_{t \rightarrow 0} XXX$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the polynomial type verifies:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)} - \frac{1}{\lambda} \\
+=& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right)
+\end{align*}
+$$
+
+Using the normalization: $$N(\lambda, \sigma) = \sigma e^{2t}/(2t)$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& \frac{e^{2t}}{2} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
+=& \frac{e^{2t}}{2}  \frac{\sinh (2t) - \cosh (2t) + \cos ( 2\pi z )}{\cosh (2t)-\cos ( 2\pi z )} \\
+=& \frac{e^{2t}}{2}  \frac{ -e^{-2t} + \cos ( 2\pi z )}{e^{2t}/2 + e^{-2t}/2 -\cos ( 2\pi z )} \\
+=& e^{2t} \frac{ -e^{-2t} + \cos ( 2\pi z )}{e^{2t} + e^{-2t} - 2 \cos ( 2\pi z )} \\
+=& \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t} - 2 \cos ( 2\pi z ) + e^{-2t} }
+\end{align*}
+$$
+
+**Form when $$t \rightarrow +\infty$$**
+
+When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwise only terms in $$e^{2t}$$ are important and the limit is $$\cos(2 \pi z)$$. Overall, we obtain $$\cos(2 \pi z)$$ for all $$z$$.
+
+**Form when $$t \rightarrow 0$$**
+
+XXX TODO after this line (currently it is a copy of the exponential case) XXX
+
+**Roots for $$t>0$$**
+
+For $$z \in [-1/2, 1/2)$$, we have $$Z_t f_{\sigma}(z) = 0$$ when $$\cosh(u/t)  = t \sinh(1/t)$$.
+The final form is obtained by taking the inverse function $$\cosh^{-1}(x) = \log (x + \sqrt{x^2 -1})$$ and using $$\pm z = (1-u)/2$$.
+
+We consider the smallest positive root $$z_0$$ in the following (the negative is also a root, along with the translations by $$1$$).
+
+When $$t \rightarrow 0$$, we use $$\cosh(u/t) \sim \exp(u/t)$$ and $$\sinh(1/t) \sim \exp(1/t)$$ to get $$z_0 \sim - t \log{t}/2$$.
+
+When $$t \rightarrow +\infty$$, the development is $$z_0 = 1/2-1/(2\sqrt{3}) - 1/(180 \sqrt{3} t^2) + o(1/t^2)$$, giving in particular the limit $$z_0 \rightarrow_{t \rightarrow +\infty} = 1/2-1/(2\sqrt{3})$$.
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$\pm z=1/2-1/(2\sqrt{3}) \approx 0.211$$ (green), $$\pm z= 1/2-1/\sqrt{6} \approx 0.092$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to a quadratic function,
+- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1/6$$, $$0$$, $$1/6$$, $$1/3$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing,
+- (right) the functions $$(t, z) \mapsto \pm \left[ 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t)) \right]$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm z_0$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab. Other noteworthy points are also highlighted.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/8, 1/4, 1 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/2-1/(2\sqrt{3}) \approx 0.21$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.24$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space.mp4"></video></center>
+
+- We have, for $$z \in [-1/2, 1/2)$$, using $$u = 1-2 \lvert z \rvert$$,
+
+<!-- $$\partial{Z_t f_{\sigma}}/\partial{z}(z) = -2 \text{sign}(z) \sinh(u/t)/\sinh(1/t).$$ -->
+
+$$
+\begin{align*}
+\partial{Z_t f_{\sigma}}/\partial{t}(z) =~&\cosh(u/t)/\sinh(1/t) - (u/t)\sinh(u/t)/\sinh(1/t)\\
++& (1/t)\cosh(1/t) \cosh(u/t)/ \sinh^2(1/t) - 2t.
+\end{align*}
+$$
+
+For large $$t$$, $$\partial{Z_t f_{\sigma}}/\partial{t}(z) \sim (-15 u^4+30 u^2-7)/(180 t^3)$$, which has a root $$u'_0 = \sqrt{1-2 \sqrt{2/15}}$$ and from which we derive the point $$z'_0 := (1-u'_0)/2 = 1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$. The initial equivalence for large $$t$$ was obtained by typing the following in WA:
+
+$$\texttt{series -2*t + cosh(u/t)/sinh(1/t) + (1/t)*cosh(u/t)*cosh(1/t)/sinh(1/t)^2}$$
+$$\texttt{-(u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}$$
+
+For other $$t$$, there does not seem to exist a closed-form expression of $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ but good approximates can be obtained. For instance $$t_0 \approx 0.229$$ is such that $$\partial{Z_t f_{\sigma}}/\partial{t}(z_0) = 0$$
+
+- The following picture summarizes the previous observations. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/2-1/(2\sqrt{3}) \approx 0.211$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$, for which $$Z_t f(z) = 1/3-\sqrt{2/15} \approx -0.032$$ (the root of $$2z^2-2z+1/3$$). The blue point is located at $$t_0 \approx 0.2294541$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) \approx -0.01603669$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+
+<img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 
 

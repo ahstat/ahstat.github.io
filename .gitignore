@@ -15,6 +15,9 @@ images/2023-6-11-Periodic-mixtures/plot3/linear/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/exponential/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized/*
 
 _site
 .DS_Store
