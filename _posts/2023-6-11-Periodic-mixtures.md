@@ -1045,7 +1045,7 @@ Using this normalization, we have:
 
 $$
 \begin{align*}
-  Z_t f_{\sigma}(z) = \left( 1-e^{-2t}\left( 1+2t \right) \right \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
+  Z_t f_{\sigma}(z) = \left( 1-e^{-2t}\left( 1+2t \right) \right) \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
 \end{align*}
 $$
 
@@ -1086,7 +1086,7 @@ When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwis
 
 **Form when $$t \rightarrow 0$$**
 
-When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) = \frac{e^{2t} - 1}{e^{2t} - 2 + e^{-2t} }$$. When we further take $$t \rightarrow 0$$, the dominant term becomes $$1/(2t)$$.
+When $$z=0$$, we obtain XXX $$Z_t f_{\sigma}(0) = \frac{e^{2t} - 1}{e^{2t} - 2 + e^{-2t} }$$. When we further take $$t \rightarrow 0$$, the dominant term becomes $$1/(2t)$$.
 
 Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and the function evaluates in $$t=0$$ to: $$Z_t f_{\sigma}(z) = -\frac{1}{2} \frac{\cos(2 \pi z) - 1}{\cos ( 2\pi z ) -1} = -1/2$$.
 
