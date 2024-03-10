@@ -1039,7 +1039,7 @@ For other $$t$$, there does not seem to exist a closed-form expression of $$\par
 
 ### For the Polynomial type
 
-We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$. 
+We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$. 
 This choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
 Using this normalization, we have:
 
@@ -1068,7 +1068,7 @@ S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \l
 =& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
 =& \frac{1}{\lambda} \left ( \frac{e^{2t}-e^{-2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} - 1 \right) \\
 =& \frac{2}{\lambda}  \frac{-e^{-2t}+\cos ( 2\pi z )}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} \\
-=& \frac{2e^{-2t}}{\lambda}  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}
+=& \frac{2e^{-2t}}{\lambda}  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
 \end{align*}
 $$
 
@@ -1076,7 +1076,7 @@ Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =&  \left( 1 - e^{-2t}(1+2t) \right) \frac{\cos ( 2\pi z )e^{2t} -1 }{e^{2t}-2\cos ( 2\pi z )+e^{-2t}}
+Z_t f_{\sigma}(z) =&  \left( 1 - e^{-2t}(1+2t) \right) \frac{\cos ( 2\pi z )e^{2t} -1 }{e^{2t}-2\cos ( 2\pi z )+e^{-2t}}.
 \end{align*}
 $$
 
