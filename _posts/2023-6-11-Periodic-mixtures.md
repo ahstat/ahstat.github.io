@@ -1040,7 +1040,7 @@ For other $$t$$, there does not seem to exist a closed-form expression of $$\par
 ### For the Polynomial type
 
 We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$. 
-This choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
+The choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the normalization function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
 Using this normalization, we have:
 
 $$
@@ -1052,8 +1052,8 @@ $$
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
-- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = XXX$$, with in particular 
-$$z_0 \sim_{t \rightarrow 0} XXX$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
+$$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
 
 {::options parse_block_html="true" /}
 
@@ -1086,22 +1086,16 @@ When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwis
 
 **Form when $$t \rightarrow 0$$**
 
-When $$z=0$$, we obtain XXX $$Z_t f_{\sigma}(0) = \frac{e^{2t} - 1}{e^{2t} - 2 + e^{-2t} }$$. When we further take $$t \rightarrow 0$$, the dominant term becomes $$1/(2t)$$.
+When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) = \sim t$$ for small $$t$$ (the left term is equivalent to $$2t^2$$ while the right fraction is equivalent to $$1/(2t)$$). When we further take $$t \rightarrow 0$$, we obtain the limit of $$0$$.
 
-Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and the function evaluates in $$t=0$$ to: $$Z_t f_{\sigma}(z) = -\frac{1}{2} \frac{\cos(2 \pi z) - 1}{\cos ( 2\pi z ) -1} = -1/2$$.
+Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and we obtain $$Z_t f_{\sigma}(0) = \sim -t^2$$ for small $$t$$ (the right fraction is now equivalent to $$-1/2$$). We also obtain the limit of $$0$$.
 
 **Roots for $$t>0$$**
 
-XXX TODO after this line (currently it is a copy of the exponential case) XXX
-
-For $$z \in [-1/2, 1/2)$$, we have $$Z_t f_{\sigma}(z) = 0$$ when $$\cosh(u/t)  = t \sinh(1/t)$$.
-The final form is obtained by taking the inverse function $$\cosh^{-1}(x) = \log (x + \sqrt{x^2 -1})$$ and using $$\pm z = (1-u)/2$$.
-
-We consider the smallest positive root $$z_0$$ in the following (the negative is also a root, along with the translations by $$1$$).
-
-When $$t \rightarrow 0$$, we use $$\cosh(u/t) \sim \exp(u/t)$$ and $$\sinh(1/t) \sim \exp(1/t)$$ to get $$z_0 \sim - t \log{t}/2$$.
-
-When $$t \rightarrow +\infty$$, the development is $$z_0 = 1/2-1/(2\sqrt{3}) - 1/(180 \sqrt{3} t^2) + o(1/t^2)$$, giving in particular the limit $$z_0 \rightarrow_{t \rightarrow +\infty} = 1/2-1/(2\sqrt{3})$$.
+For $$t>0$$, the left and the denominator terms are always positive, so the
+root $$z_0$$ verifies: $$\cos(2\pi z)=e^{-2t}$$. We deduce that the positive
+root is: $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$. We can also
+see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
 
 </details>
 <br/>
