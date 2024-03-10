@@ -1039,14 +1039,15 @@ For other $$t$$, there does not seem to exist a closed-form expression of $$\par
 
 ### For the Polynomial type
 
-Using the normalization $$N(\lambda, \sigma) = e^{2 \sigma / \lambda} \lambda / 2 = \sigma e^{2t}/(2t)$$, we have:
+We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$. 
+This choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
+Using this normalization, we have:
 
 $$
 \begin{align*}
-  Z_t f_{\sigma}(z) = \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
+  Z_t f_{\sigma}(z) = \left( 1-e^{-2t}\left( 1+2t \right) \right \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
 \end{align*}
 $$
-
 
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
@@ -1064,19 +1065,18 @@ The closed-form expression for the polynomial type verifies:
 $$
 \begin{align*}
 S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)} - \frac{1}{\lambda} \\
-=& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right)
+=& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
+=& \frac{1}{\lambda} \left ( \frac{e^{2t}-e^{-2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} - 1 \right) \\
+=& \frac{2}{\lambda}  \frac{-e^{-2t}+\cos ( 2\pi z )}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} \\
+=& \frac{2e^{-2t}}{\lambda}  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}
 \end{align*}
 $$
 
-Using the normalization: $$N(\lambda, \sigma) = \sigma e^{2t}/(2t)$$, we obtain:
+Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$, we obtain:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& \frac{e^{2t}}{2} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
-=& \frac{e^{2t}}{2}  \frac{\sinh (2t) - \cosh (2t) + \cos ( 2\pi z )}{\cosh (2t)-\cos ( 2\pi z )} \\
-=& \frac{e^{2t}}{2}  \frac{ -e^{-2t} + \cos ( 2\pi z )}{e^{2t}/2 + e^{-2t}/2 -\cos ( 2\pi z )} \\
-=& e^{2t} \frac{ -e^{-2t} + \cos ( 2\pi z )}{e^{2t} + e^{-2t} - 2 \cos ( 2\pi z )} \\
-=& \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t} - 2 \cos ( 2\pi z ) + e^{-2t} }
+Z_t f_{\sigma}(z) =&  \left( 1 - e^{-2t}(1+2t) \right) \frac{\cos ( 2\pi z )e^{2t} -1 }{e^{2t}-2\cos ( 2\pi z )+e^{-2t}}
 \end{align*}
 $$
 
@@ -1086,9 +1086,13 @@ When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwis
 
 **Form when $$t \rightarrow 0$$**
 
-XXX TODO after this line (currently it is a copy of the exponential case) XXX
+When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) = \frac{e^{2t} - 1}{e^{2t} - 2 + e^{-2t} }$$. When we further take $$t \rightarrow 0$$, the dominant term becomes $$1/(2t)$$.
+
+Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and the function evaluates in $$t=0$$ to: $$Z_t f_{\sigma}(z) = -\frac{1}{2} \frac{\cos(2 \pi z) - 1}{\cos ( 2\pi z ) -1} = -1/2$$.
 
 **Roots for $$t>0$$**
+
+XXX TODO after this line (currently it is a copy of the exponential case) XXX
 
 For $$z \in [-1/2, 1/2)$$, we have $$Z_t f_{\sigma}(z) = 0$$ when $$\cosh(u/t)  = t \sinh(1/t)$$.
 The final form is obtained by taking the inverse function $$\cosh^{-1}(x) = \log (x + \sqrt{x^2 -1})$$ and using $$\pm z = (1-u)/2$$.
