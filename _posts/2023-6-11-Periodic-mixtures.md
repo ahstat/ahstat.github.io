@@ -1128,14 +1128,14 @@ $$
 \partial{Z_t f_{\sigma}}/\partial{t}(z) =~& \frac{2}{\left(-2 A e^{2t} + e^{4t} +1 \right)^2} \times   \\
 & \left( e^{4t} \left( 2 A^2+2 A-4 t-1 \right) 
 + e^{6t} \left( -2 A^2+2 A t+1 \right) 
-+ \left. e^{2t} \left( 2 A (t-1)-1 \right) +1 \right).
++ e^{2t} \left( 2 A (t-1)-1 \right) +1 \right).
 \end{align*}
 $$
 
 For large $$t$$, the root of $$\partial{Z_t f_{\sigma}}/\partial{t}(z)$$ converges to $$z_0=1/4$$. For the other point of interest in the behavior of the function, we rely on numerical approximations.
 
 - The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. The remaining region is negative and decreasing in time. Contrary to the exponential case, there is the zone $$z \in (0.25, 0.28]$$ for which the function is decreasing, increasing and finally decreasing again over time.
-Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is the smallest positive value for which the function is always decreasing, and $$z_0' \approx 0.2808306$$. The corresponding time value is $$t_0' \approx 1.750595$$, for which $$Z_{t_0'} f(z_0') \approx -0.1925$$, and $$\partial{Z_{t_0'} f}/\partial{t}(z_0')=0$$ by construction. The blue point is located at $$t_0 \approx 0.6835852$$, $$z=z_0=1/4$$, for which $$Z_{t_0} f(z_0) \approx -0.0949451$$.
+Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is the smallest positive value $$z_0'$$ for which the function is always decreasing, and $$z_0' \approx 0.2808306$$. The corresponding time value is $$t_0' \approx 1.750595$$, for which $$Z_{t_0'} f(z_0') \approx -0.1925$$, and $$\partial{Z_{t_0'} f}/\partial{t}(z_0')=0$$ by construction. The blue point is located at $$t_0 \approx 0.6835852$$, $$z_0=1/4$$, for which $$Z_{t_0} f(z_0) \approx -0.0949451$$ and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
 
 <center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/></center>
 
