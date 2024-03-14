@@ -990,7 +990,7 @@ As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
 - (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$\pm z=1/2-1/(2\sqrt{3}) \approx 0.211$$ (green), $$\pm z= 1/2-1/\sqrt{6} \approx 0.092$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to a quadratic function,
-- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1/6$$, $$0$$, $$1/6$$, $$1/3$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing,
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1/6$$, $$0$$, $$1/6$$, $$1/3$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing,
 - (right) the functions $$(t, z) \mapsto \pm \left[ 1/2 - (t/2) \cosh^{-1}(t \sinh(1/t)) \right]$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm z_0$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/exponential/function_of_time.mp4"></video></center>
@@ -1106,7 +1106,7 @@ As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
 - (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to the cosinus function,
-- (center) the mapping $$\lbrace t \rbrace \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing,
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is however more complex than in the exponential case, cf. the additional content below),
 - (right) the functions $$t \mapsto \pm \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time.mp4"></video></center>
@@ -1117,33 +1117,29 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <details><summary markdown="span">Additional videos (click to expand).</summary>
 
-- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/2, 1, 2 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/4$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.28XXX$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/2, 1, 2 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/4$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.28$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space.mp4"></video></center>
 
-- We have, for $$z \in [-1/2, 1/2)$$, using $$u = 1-2 \lvert z \rvert$$,
-
-<!-- $$\partial{Z_t f_{\sigma}}/\partial{z}(z) = -2 \text{sign}(z) \sinh(u/t)/\sinh(1/t).$$ -->
+- We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$,
 
 $$
 \begin{align*}
-\partial{Z_t f_{\sigma}}/\partial{t}(z) =~&\cosh(u/t)/\sinh(1/t) - (u/t)\sinh(u/t)/\sinh(1/t)\\
-+& (1/t)\cosh(1/t) \cosh(u/t)/ \sinh^2(1/t) - 2t.
+\partial{Z_t f_{\sigma}}/\partial{t}(z) =~& \frac{2}{\left(-2 A e^{2t} + e^{4t} +1 \right)^2} \times  \\
+\left[& e^{4t} \left( 2 A^2+2 A-4 t-1 \right) \right.\\
++& e^{6t} \left( -2 A^2+2 A t+1 \right) \\
++& \left. e^{2t} \left( 2 A (t-1)-1 \right) +1 \right].
 \end{align*}
 $$
 
-For large $$t$$, $$\partial{Z_t f_{\sigma}}/\partial{t}(z) \sim (-15 u^4+30 u^2-7)/(180 t^3)$$, which has a root $$u'_0 = \sqrt{1-2 \sqrt{2/15}}$$ and from which we derive the point $$z'_0 := (1-u'_0)/2 = 1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$. The initial equivalence for large $$t$$ was obtained by typing the following in WA:
+For large $$t$$, the root of $$\partial{Z_t f_{\sigma}}/\partial{t}(z)$$ converges to $$z_0=1/4$$. For the other point of interest in the behavior of the function, we rely on numerical approximations.
 
-$$\texttt{series -2*t + cosh(u/t)/sinh(1/t) + (1/t)*cosh(u/t)*cosh(1/t)/sinh(1/t)^2}$$
-$$\texttt{-(u/t)*sinh(u/t)/sinh(1/t) at t=+Inf}$$
-
-For other $$t$$, there does not seem to exist a closed-form expression of $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ but good approximates can be obtained. For instance $$t_0 \approx 0.229$$ is such that $$\partial{Z_t f_{\sigma}}/\partial{t}(z_0) = 0$$
-
-- The following picture summarizes the previous observations. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/2-1/(2\sqrt{3}) \approx 0.211$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/2-\sqrt{1-2\sqrt{2/15}}/2 \approx 0.240$$, for which $$Z_t f(z) = 1/3-\sqrt{2/15} \approx -0.032$$ (the root of $$2z^2-2z+1/3$$). The blue point is located at $$t_0 \approx 0.2294541$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) \approx -0.01603669$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. The remaining region is negative and decreasing in time. Contrary to the exponential case, there is the zone $$z \in (0.25, 0.28]$$ for which the function is decreasing, increasing and finally decreasing again over time.
+Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is the smallest positive value for which the function is always decreasing, and $$z_0' \approx 0.2808306$$. The corresponding time value is $$t_0' \approx 1.750595$$, for which $$Z_{t_0'} f(z_0') \approx -0.1925$$, and $$\partial{Z_{t_0'} f}/\partial{t}(z_0')=0$$ by construction. The blue point is located at $$t_0 \approx 0.6835852$$, $$z=z_0=1/4$$, for which $$Z_{t_0} f(z_0) \approx -0.0949451$$.
 
 <img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX TODO the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized.mp4"></video></center>
 
