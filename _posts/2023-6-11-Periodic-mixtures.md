@@ -1125,7 +1125,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 $$
 \begin{align*}
-\partial{Z_t f_{\sigma}}/\partial{t}(z) =~& \frac{2}{\left(-2 A e^{2t} + e^{4t} +1 \right)^2} \times   \\
+& \partial{Z_t f_{\sigma}}/\partial{t}(z) = \frac{2}{\left(-2 A e^{2t} + e^{4t} +1 \right)^2} \times   \\
 & \left( e^{4t} \left( 2 A^2+2 A-4 t-1 \right) 
 + e^{6t} \left( -2 A^2+2 A t+1 \right) 
 + e^{2t} \left( 2 A (t-1)-1 \right) +1 \right).
