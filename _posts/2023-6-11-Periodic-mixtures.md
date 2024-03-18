@@ -1150,6 +1150,49 @@ Three points are marked on the figure (colors not linked with the previous figur
 
 
 
+
+{::options parse_block_html="true" /}
+
+
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} e^{2t}$$ (click to expand).</summary>
+ 
+- Here some light details
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_time.mp4"></video></center>
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_space.mp4"></video></center>
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/roots_and_derivative_roots.png"/></center>
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1\right)$$ (click to expand).</summary>
+ 
+- Here some light details
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_time.mp4"></video></center>
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_space.mp4"></video></center>
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/roots_and_derivative_roots.png"/></center>
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
 ### References
 
 - [Wikipedia page on classic Fourier transforms](https://en.wikipedia.org/wiki/Fourier_transform#Square-integrable_functions,_one-dimensional),

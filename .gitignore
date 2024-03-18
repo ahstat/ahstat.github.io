@@ -18,6 +18,12 @@ images/2023-6-11-Periodic-mixtures/plot3/exponential/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/unnormalized/*
 
 _site
 .DS_Store
