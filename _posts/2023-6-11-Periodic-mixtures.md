@@ -1101,16 +1101,51 @@ see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
 
 As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
 
-TODO XXX
-
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
-- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to the cosinus function,
-- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is however more complex than in the exponential case, cf. the additional content below),
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe an interesting flattening of the peak towards the cosinus function,
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue and gray curves, while intermediate yellow and green curves increase,
 - (right) the functions $$t \mapsto \pm \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time.mp4"></video></center>
 
-Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab. Other noteworthy points are also highlighted.
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 0.35, 0.55, 2 \rbrace$$ (the peak at $$z=0$$ is $$2$$ at $$t = \log(2)/2 \approx 0.35$$, and is $$1.5$$ at $$\log(3)/2 \approx 0.55$$).
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space.mp4"></video></center>
+
+- We compute next the derivative w.r.t time. We have for $$z \in [-1/2, 1/2)$$, with $$A = \cos \left( 2 \pi z \right)$$:
+
+$$
+\begin{align*}
+\partial{Z_t f_{\sigma}}/\partial{t}(z) =~&2 e^{2t} \frac{-2A^2 e^{4t}+2Ae^{2t}+e^{4t}-1}{(-2Ae^{2t}+e^{4t}+1)^2}.
+\end{align*}
+$$
+
+In particular, $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$ when $$A^2-Ae^{-2t}-1/2+e^{-4t}/2 = 0$$, which is quadratic in $$A$$, and for which we deduce the roots of the form $$t = f(z)$$.
+
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$. The orange curves represent the positions where $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$.
+Different points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The bottom-right orange point is the smallest positive value $$z=1/8=0.125$$ for which the function is always increasing. The top-right orange point is the smallest positive value $$z=3/8=0.375$$ for which the function is always decreasing. The other orange points on the left are located at $$z=0$$ and $$z=1/4$$.
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/></center>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX TODO the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
 
 
 
