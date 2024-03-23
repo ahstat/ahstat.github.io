@@ -1134,7 +1134,7 @@ Different points are marked on the figure (colors not linked with the previous f
 
 <center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/></center>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX TODO the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking exponentially. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized.mp4"></video></center>
 
