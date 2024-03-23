@@ -1102,7 +1102,7 @@ see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
 As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
-- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe an interesting flattening of the peak towards the cosinus function,
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe an interesting flattening of the initial peak towards the cosinus function,
 - (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue and gray curves, while intermediate yellow and green curves increase,
 - (right) the functions $$t \mapsto \pm \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
 
@@ -1144,30 +1144,35 @@ Different points are marked on the figure (colors not linked with the previous f
 {::options parse_block_html="false" /}
 
 
+TODO below
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1\right)$$ (click to expand).</summary>
+ 
+- Here some light details
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_time.mp4"></video></center>
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_space.mp4"></video></center>
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/roots_and_derivative_roots.png"/></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 
 
+{::options parse_block_html="true" /}
 
 
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$ (click to expand).</summary>
+ 
+This normalization has the advantage to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$ of the original normalization), that keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
 
-
-
-
-
-TODO next
-
-
-
-- Alternative normalization
-
-
-
-
-
-We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$. 
-The choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the normalization function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
-Using this normalization, we have:
-
+<!--
 Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$, we obtain:
 
 $$
@@ -1182,25 +1187,17 @@ We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
 $$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
 
+-->
 
-Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
-- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to the cosinus function,
-- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is however more complex than in the exponential case, cf. the additional content below),
-- (right) the functions $$t \mapsto \pm \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is more complex than for the original normalization of even compared to the exponential case, cf. the additional content below). In the right plot, the representation is similar to the original normalization.
 
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time.mp4"></video></center>
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_time.mp4"></video></center>
 
-Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab. Other noteworthy points are also highlighted.
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/2, 1, 2 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/4$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.28$$ seems to be the smallest positive value for which the function is always decreasing.
 
-{::options parse_block_html="true" /}
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_space.mp4"></video></center>
 
-<details><summary markdown="span">Additional videos (click to expand).</summary>
-
-- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/2, 1, 2 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/4$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.28$$ seems to be the smallest positive value for which the function is always decreasing. We compute next the derivative w.r.t time to obtain those values.
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_space.mp4"></video></center>
-
-- We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$,
+- We compute next the derivative w.r.t time for this normalization. We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$
 
 $$
 \begin{align*}
@@ -1216,59 +1213,13 @@ For large $$t$$, the root of $$\partial{Z_t f_{\sigma}}/\partial{t}(z)$$ converg
 - The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. The remaining region is negative and decreasing in time. Contrary to the exponential case, there is the zone $$z \in (0.25, 0.28]$$ for which the function is decreasing, increasing and finally decreasing again over time.
 Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is the smallest positive value $$z_0'$$ for which the function is always decreasing, and $$z_0' \approx 0.2808306$$. The corresponding time value is $$t_0' \approx 1.750595$$, for which $$Z_{t_0'} f(z_0') \approx -0.1925$$, and $$\partial{Z_{t_0'} f}/\partial{t}(z_0')=0$$ by construction. The blue point is located at $$t_0 \approx 0.6835852$$, $$z_0=1/4$$, for which $$Z_{t_0} f(z_0) \approx -0.0949451$$ and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
 
-<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/roots_and_derivative_roots.png"/></center>
-
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX TODO the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/unnormalized.mp4"></video></center>
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/roots_and_derivative_roots.png"/></center>
 
 </details>
 <br/>
 
 {::options parse_block_html="false" /}
 
-
-
-
-{::options parse_block_html="true" /}
-
-
-<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} e^{2t}$$ (click to expand).</summary>
- 
-- Here some light details
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_time.mp4"></video></center>
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/function_of_space.mp4"></video></center>
-
-<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/roots_and_derivative_roots.png"/></center>
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_no_shift/unnormalized.mp4"></video></center>
-
-</details>
-<br/>
-
-{::options parse_block_html="false" /}
-
-
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1\right)$$ (click to expand).</summary>
- 
-- Here some light details
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_time.mp4"></video></center>
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/function_of_space.mp4"></video></center>
-
-<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/roots_and_derivative_roots.png"/></center>
-
-<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_constant_shift/unnormalized.mp4"></video></center>
-
-</details>
-<br/>
-
-{::options parse_block_html="false" /}
 
 
 
