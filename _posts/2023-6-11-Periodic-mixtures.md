@@ -1039,19 +1039,17 @@ For other $$t$$, there does not seem to exist a closed-form expression of $$\par
 
 ### For the Polynomial type
 
-We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$. 
-The choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the normalization function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
-Using this normalization, we have:
+Using the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2}  e^{2 \sigma / \lambda} = \sigma \frac{e^{2t}}{2t}$$, we have:
 
 $$
 \begin{align*}
-  Z_t f_{\sigma}(z) = \left( 1-e^{-2t}\left( 1+2t \right) \right) \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
+  Z_t f_{\sigma}(z) = \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t} - 2 \cos(2 \pi z) + e^{-2t}}.
 \end{align*}
 $$
 
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
-- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = -1/2$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = +\infty$$,
 - The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
 $$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
 
@@ -1072,11 +1070,11 @@ S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \l
 \end{align*}
 $$
 
-Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$, we obtain:
+Using the normalization: $$N(\lambda, \sigma) = \sigma e^{2t}/(2t)$$, we obtain:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =&  \left( 1 - e^{-2t}(1+2t) \right) \frac{\cos ( 2\pi z )e^{2t} -1 }{e^{2t}-2\cos ( 2\pi z )+e^{-2t}}.
+Z_t f_{\sigma}(z) =&  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
 \end{align*}
 $$
 
@@ -1086,16 +1084,15 @@ When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwis
 
 **Form when $$t \rightarrow 0$$**
 
-When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) \sim t$$ for small $$t$$ (the left term is equivalent to $$2t^2$$ while the right fraction is equivalent to $$1/(2t)$$). When we further take $$t \rightarrow 0$$, we obtain the limit of $$0$$.
-
-Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and we obtain $$Z_t f_{\sigma}(0) \sim -t^2$$ for small $$t$$ (the right fraction is now equivalent to $$-1/2$$). We also obtain the limit of $$0$$.
+When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) \sim 1/(2t)$$ for small $$t$$. Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and we obtain $$Z_t f_{\sigma}(0) \sim -1/2$$ for small $$t$$.
 
 **Roots**
 
-For $$t>0$$, the left and the denominator terms are always positive, so the
+For $$t>0$$, the denominator term is always positive, so the
 root $$z_0$$ verifies: $$\cos(2\pi z)=e^{-2t}$$. We deduce that the positive
 root is: $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$. We can also
 see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
+
 
 </details>
 <br/>
@@ -1103,6 +1100,53 @@ see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
 {::options parse_block_html="false" /}
 
 As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
+
+TODO XXX
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to the cosinus function,
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is however more complex than in the exponential case, cf. the additional content below),
+- (right) the functions $$t \mapsto \pm \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$ represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab. Other noteworthy points are also highlighted.
+
+
+
+
+
+
+
+
+TODO next
+
+
+
+- Alternative normalization
+
+
+
+
+
+We use the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{2 \sigma / \lambda} - \frac{\lambda}{2} - \sigma = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$. 
+The choice of the normalization is driven by two factors: first the dominant term for $$t$$ large should be proportional to $$\sigma e^{2t}/(2t)$$ to allow non degenerate convergence; then we prefer the normalization function to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$) to keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
+Using this normalization, we have:
+
+Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$, we obtain:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) = \left( 1-e^{-2t}\left( 1+2t \right) \right) \frac{\cos(2 \pi z) e^{2t} - 1}{e^{2t}-2 \cos(2 \pi z)+e^{-2t}}.
+\end{align*}
+$$
+
+We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
+- $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$,
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
+$$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
+
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
 - (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a mostly increasing shape that converges to the cosinus function,
