@@ -1144,17 +1144,31 @@ Different points are marked on the figure (colors not linked with the previous f
 {::options parse_block_html="false" /}
 
 
-TODO below
-
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1\right)$$ (click to expand).</summary>
  
-- Here some light details
+This normalization allows the function to be bounded for $$t$$ small (instead of being equivalent to $$1/(2t)$$ in $$z=0$$ for the original normalization).
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (this behavior is similar to the exponential case, cf. also the additional content below). In the right plot, the representation is unchanged compared to the original normalization.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_time.mp4"></video></center>
 
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 0.26, 0.55, 2 \rbrace$$ (the value at $$z=-1/2$$ is $$-1/4$$ at $$t = \log(5/3)/2 \approx 0.26$$, and is $$-1/2$$ at $$\log(3)/2 \approx 0.55$$).
+
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_space.mp4"></video></center>
+
+- We compute next the derivative w.r.t time for this normalization. We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$
+
+$$
+\begin{align*}
+& \partial{Z_t f_{\sigma}}/\partial{t}(z) = -2 (A-1) e^{2t} \frac{(2A+1) e^{4t} - 2 e^{2t} -1}{(-2A e^{2t} + e^{4t}+1)^2}.
+\end{align*}
+$$
+
+We obtain that $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ when $$z = \text{Arccos}\left( e^{-4t}/2 + e^{-2t} - 1/2 \right) / (2 \pi)$$
+
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$, that is qualitatively similar to the one described for the Exponential type. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/3$$, for which $$Z_t f(z) = -1/2$$. The blue point is located at $$t_0 = \log \left( 1 + \sqrt{2} \right) / 2 \approx 0.44$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) = 1/2-\sqrt{2}/2 \approx -0.21$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
 
 <center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/roots_and_derivative_roots.png"/></center>
 
@@ -1170,7 +1184,7 @@ TODO below
 
 <details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$ (click to expand).</summary>
  
-This normalization has the advantage to be asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$ of the original normalization), that keep the shape consistent with the normalizations applied in the Linear and the Exponential types.
+This normalization has the advantage to make $$Z_t f_{\sigma}(0)$$ asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$ of the original normalization), so that the shape remains consistent with the normalizations applied in the Linear and the Exponential types.
 
 <!--
 Using the normalization: $$N(\lambda, \sigma) = \sigma \frac{e^{2t} - 1 - 2t}{2t}$$, we obtain:
@@ -1189,7 +1203,7 @@ $$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\i
 
 -->
 
-- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is more complex than for the original normalization of even compared to the exponential case, cf. the additional content below). In the right plot, the representation is similar to the original normalization.
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is more complex than for the original normalization of even compared to the exponential case, cf. the additional content below).  In the right plot, the representation is unchanged compared to the original normalization.
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_time.mp4"></video></center>
 
