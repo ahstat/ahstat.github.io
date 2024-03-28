@@ -1168,7 +1168,7 @@ $$
 
 We obtain that $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ when $$z = \text{Arccos}\left( e^{-4t}/2 + e^{-2t} - 1/2 \right) / (2 \pi)$$
 
-- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$, that is qualitatively similar to the one described for the Exponential type. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/3$$, for which $$Z_t f(z) = -1/2$$. The blue point is located at $$t_0 = \log \left( 1 + \sqrt{2} \right) / 2 \approx 0.44$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) = 1/2-\sqrt{2}/2 \approx -0.21$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$, that is qualitatively similar to the one described for the Exponential type. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/3$$, for which $$Z_t f(z'_0) = -1/2$$. The blue point is located at $$t_0 = \log \left( 1 + \sqrt{2} \right) / 2 \approx 0.44$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) = 1/2-\sqrt{2}/2 \approx -0.21$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
 
 <center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/roots_and_derivative_roots.png"/></center>
 
@@ -1234,7 +1234,190 @@ Three points are marked on the figure (colors not linked with the previous figur
 
 {::options parse_block_html="false" /}
 
+### For the Gaussian type
 
+Using the normalization $$N(\lambda, \sigma) = \frac{\lambda}{2} e^{\pi \sigma^2 / \lambda^2} = \sigma \frac{e^{\pi t^2}}{2t}$$, we have:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) = \cos(2 \pi z) + \sum_{k=2}^{+\infty} e^{-\pi t^2 (k^2 -1)} \cos \left( 2 k \pi z \right).
+\end{align*}
+$$
+
+<!--
+We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
+- $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = -1/2$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = +\infty$$,
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$XXXz_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
+$$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the polynomial type verifies:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)} - \frac{1}{\lambda} \\
+=& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
+=& \frac{1}{\lambda} \left ( \frac{e^{2t}-e^{-2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} - 1 \right) \\
+=& \frac{2}{\lambda}  \frac{-e^{-2t}+\cos ( 2\pi z )}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} \\
+=& \frac{2e^{-2t}}{\lambda}  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
+\end{align*}
+$$
+
+Using the normalization: $$N(\lambda, \sigma) = \sigma e^{2t}/(2t)$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =&  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
+\end{align*}
+$$
+
+**Form when $$t \rightarrow +\infty$$**
+
+When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwise only terms in $$e^{2t}$$ are important and the limit is $$\cos(2 \pi z)$$. Overall, we obtain $$\cos(2 \pi z)$$ for all $$z$$.
+
+**Form when $$t \rightarrow 0$$**
+
+When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) \sim 1/(2t)$$ for small $$t$$. Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and we obtain $$Z_t f_{\sigma}(0) \sim -1/2$$ for small $$t$$.
+
+**Roots**
+
+For $$t>0$$, the denominator term is always positive, so the
+root $$z_0$$ verifies: $$\cos(2\pi z)=e^{-2t}$$. We deduce that the positive
+root is: $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$. We can also
+see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
+
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+-->
+As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe a sharp flattening of the initial peak towards the cosinus function,
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time; the points $$z$$ have been selected to converge for large $$t$$ to $$-1$$, $$0$$, $$1/2$$, $$1$$ respectively; we observe a decreasing function for the blue and gray curves, while the other yellow and green curves seem to decrease before increasing,
+- (right) the functions represented by two gray lines and corresponding to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. We observe as expected that the green points $$\pm 1/4$$ approach the frontier of the region when $$t \rightarrow +\infty$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/4, 1/3, 1 \rbrace$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/function_of_space.mp4"></video></center>
+
+- TODO We compute next the derivative w.r.t time. We have for $$z \in [-1/2, 1/2)$$, with $$A = \cos \left( 2 \pi z \right)$$:
+
+$$
+\begin{align*}
+\partial{Z_t f_{\sigma}}/\partial{t}(z) =~&2 e^{2t} \frac{-2A^2 e^{4t}+2Ae^{2t}+e^{4t}-1}{(-2Ae^{2t}+e^{4t}+1)^2}.
+\end{align*}
+$$
+
+In particular, $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$ when $$A^2-Ae^{-2t}-1/2+e^{-4t}/2 = 0$$, which is quadratic in $$A$$, and for which we deduce the roots of the form $$t = f(z)$$.
+
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$. The orange curves represent the positions where $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$.
+Different points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The bottom-right orange point is the smallest positive value $$z=1/8=0.125$$ for which the function is always increasing. The top-right orange point is the smallest positive value $$z=3/8=0.375$$ for which the function is always decreasing. The other orange points on the left are located at $$z=0$$ and $$z=1/4$$.
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/roots_and_derivative_roots.png"/></center>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking exponentially. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+<!--
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1\right)$$ (click to expand).</summary>
+ 
+This normalization allows the function to be bounded for $$t$$ small (instead of being equivalent to $$1/(2t)$$ in $$z=0$$ for the original normalization).
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (this behavior is similar to the exponential case, cf. also the additional content below). In the right plot, the representation is unchanged compared to the original normalization.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_time.mp4"></video></center>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 0.26, 0.55, 2 \rbrace$$ (the value at $$z=-1/2$$ is $$-1/4$$ at $$t = \log(5/3)/2 \approx 0.26$$, and is $$-1/2$$ at $$\log(3)/2 \approx 0.55$$).
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/function_of_space.mp4"></video></center>
+
+- We compute next the derivative w.r.t time for this normalization. We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$
+
+$$
+\begin{align*}
+& \partial{Z_t f_{\sigma}}/\partial{t}(z) = -2 (A-1) e^{2t} \frac{(2A+1) e^{4t} - 2 e^{2t} -1}{(-2A e^{2t} + e^{4t}+1)^2}.
+\end{align*}
+$$
+
+We obtain that $$\partial{Z_t f_{\sigma}}/\partial{t}(z) = 0$$ when $$z = \text{Arccos}\left( e^{-4t}/2 + e^{-2t} - 1/2 \right) / (2 \pi)$$
+
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$, that is qualitatively similar to the one described for the Exponential type. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. Finally, the remaining region is negative and decreasing in time. Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is located at $$t=+\infty$$, $$z'_0=1/3$$, for which $$Z_t f(z'_0) = -1/2$$. The blue point is located at $$t_0 = \log \left( 1 + \sqrt{2} \right) / 2 \approx 0.44$$, $$z=z_0$$, for which $$Z_{t_0} f(z_0) = 1/2-\sqrt{2}/2 \approx -0.21$$, and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/roots_and_derivative_roots.png"/></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+{::options parse_block_html="true" /}
+
+
+<details><summary markdown="span">Alternative normalization $$N(\lambda, \sigma) = \frac{\sigma}{2t} \left( e^{2t} - 1 - 2t \right)$$ (click to expand).</summary>
+ 
+This normalization has the advantage to make $$Z_t f_{\sigma}(0)$$ asymptotically equivalent to $$t$$ for $$t$$ small (instead of $$1/(2t)$$ of the original normalization), so that the shape remains consistent with the normalizations applied in the Linear and the Exponential types.
+
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray). In the middle plot, we observe a decreasing function for the blue curve, an increasing function for the gray curve, while intermediate curves decrease before increasing (the behavior is more complex than for the original normalization of even compared to the exponential case, cf. the additional content below).  In the right plot, the representation is unchanged compared to the original normalization.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_time.mp4"></video></center>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/2, 1, 2 \rbrace$$. We observe as before that, when $$t$$ is large, $$Z_t f_{\sigma}(z) = 0$$ for $$z_0=1/4$$. For this value, the function decreases until a certain $$t_0$$ before increasing. Additionally, $$z_0' \approx 0.28$$ seems to be the smallest positive value for which the function is always decreasing.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_space.mp4"></video></center>
+
+- We compute next the derivative w.r.t time for this normalization. We have, for $$z \in [-1/2, 1/2)$$, using $$A = \cos(2 \pi z)$$
+
+$$
+\begin{align*}
+& \partial{Z_t f_{\sigma}}/\partial{t}(z) = \frac{2}{\left(-2 A e^{2t} + e^{4t} +1 \right)^2} \times   \\
+& \left( e^{4t} \left( 2 A^2+2 A-4 t-1 \right) 
++ e^{6t} \left( -2 A^2+2 A t+1 \right) 
++ e^{2t} \left( 2 A (t-1)-1 \right) +1 \right).
+\end{align*}
+$$
+
+For large $$t$$, the root of $$\partial{Z_t f_{\sigma}}/\partial{t}(z)$$ converges to $$z_0=1/4$$. For the other point of interest in the behavior of the function, we rely on numerical approximations.
+
+- The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$, for which the function is always increasing w.r.t time. Outside, there is an intermediate region for which $$Z_t f_{\sigma}(z)$$ is negative but increasing in time. The remaining region is negative and decreasing in time. Contrary to the exponential case, there is the zone $$z \in (0.25, 0.28]$$ for which the function is decreasing, increasing and finally decreasing again over time.
+Three points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The orange point is the smallest positive value $$z_0'$$ for which the function is always decreasing, and $$z_0' \approx 0.2808306$$. The corresponding time value is $$t_0' \approx 1.750595$$, for which $$Z_{t_0'} f(z_0') \approx -0.1925$$, and $$\partial{Z_{t_0'} f}/\partial{t}(z_0')=0$$ by construction. The blue point is located at $$t_0 \approx 0.6835852$$, $$z_0=1/4$$, for which $$Z_{t_0} f(z_0) \approx -0.0949451$$ and $$\partial{Z_{t_0} f}/\partial{t}(z_0)=0$$ by construction.
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/roots_and_derivative_roots.png"/></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+-->
 
 
 ### References

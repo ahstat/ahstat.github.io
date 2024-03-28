@@ -24,6 +24,9 @@ images/2023-6-11-Periodic-mixtures/plot3/polynomial_one_shift/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/polynomial_two_shifts/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/gaussian/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/gaussian/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/gaussian/unnormalized/*
 
 _site
 .DS_Store
