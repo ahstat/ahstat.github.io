@@ -1244,12 +1244,11 @@ $$
 \end{align*}
 $$
 
-<!--
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = -1/2$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = +\infty$$,
-- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ is $$XXXz_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$, with in particular 
-$$z_0 \rightarrow_{t \rightarrow 0} 0$$ and $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ verifies $$z_0 \sim_{t \mapsto 0} \sqrt{- t^2  \log(t) / \pi}$$, with in particular 
+$$z_0 \rightarrow_{t \rightarrow 0} 0$$, while $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
 
 {::options parse_block_html="true" /}
 
@@ -1260,44 +1259,83 @@ The closed-form expression for the polynomial type verifies:
 
 $$
 \begin{align*}
-S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \frac{\sinh \left( \frac{2 \sigma}{\lambda} \right)}{\cosh \left( \frac{2 \sigma}{\lambda} \right)-\cos \left( \frac{2\pi x}{\lambda} \right)} - \frac{1}{\lambda} \\
-=& \frac{1}{\lambda} \left ( \frac{\sinh (2t)}{\cosh (2t)-\cos ( 2\pi z )} - 1 \right) \\
-=& \frac{1}{\lambda} \left ( \frac{e^{2t}-e^{-2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} - 1 \right) \\
-=& \frac{2}{\lambda}  \frac{-e^{-2t}+\cos ( 2\pi z )}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )} \\
-=& \frac{2e^{-2t}}{\lambda}  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{1}{\lambda} \left( \vartheta_3 \left( \frac{\pi x}{\lambda}, e^{-\frac{\pi \sigma^2}{\lambda^2}} \right) - 1 \right) \\
+=& \frac{t}{\sigma} \left( \vartheta_3 \left( \pi z, e^{-\pi t^2} \right) - 1 \right) \\
+=& \frac{t}{\sigma} \left( -1 + \sum_{k=-\infty}^{+\infty} e^{-\pi k^2 t^2} e^{2ik \pi z} \right) \\
+=& \frac{2t}{\sigma} \left( \sum_{k=1}^{+\infty} e^{-\pi k^2 t^2} \cos ( 2k \pi z) \right).
 \end{align*}
 $$
 
-Using the normalization: $$N(\lambda, \sigma) = \sigma e^{2t}/(2t)$$, we obtain:
+Using the normalization: $$N(\lambda, \sigma) = \sigma e^{\pi t^2}/(2t)$$, we obtain:
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =&  \frac{-1+\cos ( 2\pi z )e^{2t}}{e^{2t}+e^{-2t}-2\cos ( 2\pi z )}.
+Z_t f_{\sigma}(z) =& \left( \sum_{k=1}^{+\infty} e^{\pi t^2} e^{-\pi k^2 t^2} \cos ( 2k \pi z) \right) \\
+=& \cos(2 \pi z) + \sum_{k=2}^{+\infty} e^{-\pi t^2 (k^2 -1)} \cos \left( 2 k \pi z \right).
 \end{align*}
 $$
 
 **Form when $$t \rightarrow +\infty$$**
 
-When $$t$$ is large, either $$\cos(2 \pi z)=0$$ and the limit is $$0$$, otherwise only terms in $$e^{2t}$$ are important and the limit is $$\cos(2 \pi z)$$. Overall, we obtain $$\cos(2 \pi z)$$ for all $$z$$.
+When $$t$$ is large, the only dominant term is the first term $$\cos(2 \pi z)$$ for all $$z$$.
 
 **Form when $$t \rightarrow 0$$**
 
-When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) \sim 1/(2t)$$ for small $$t$$. Otherwise, $$z \neq 0$$ and $$\cos(2 \pi z) \neq 1$$, and we obtain $$Z_t f_{\sigma}(0) \sim -1/2$$ for small $$t$$.
+For $$t$$ small, the formula obtained for $$Z_t f_{\sigma}$$ is not convenient, and we need to apply the Poisson summation formula again, now with $$h: x \mapsto e^{-\pi x^2}$$, for which $$\mathcal{F}h = h$$.
+In details, we can apply formally (i.e. replacing arbitrary the free parameters) the original formula:
+
+$$\frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x} = \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$
+
+with $$x=z/t$$, $$\lambda = 1/t$$, and $$f = h$$, to retrieve:
+
+$$
+\begin{align*}
+t \sum_{k=-\infty}^{+\infty} h(tk) e^{2i\pi t k z/t} =& \sum_{k=-\infty}^{+\infty} h(z/t +k/t)\\
+t \sum_{k=-\infty}^{+\infty} e^{-\pi t^2 k^2} e^{2i\pi k z} =& \sum_{k=-\infty}^{+\infty} e^{-\pi (z+k)^2/t^2}\\
+\vartheta_3 \left( \pi z, e^{-\pi t^2} \right) =& \frac{1}{t} \sum_{k=-\infty}^{+\infty} e^{-\pi (z+k)^2/t^2}.
+\end{align*}
+$$
+
+We then deduce:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{t}{\sigma} \left( \vartheta_3 \left( \pi z, e^{-\pi t^2} \right) - 1 \right) \\
+=& \frac{t}{\sigma} \left( - 1 + \frac{1}{t} \sum_{k=-\infty}^{+\infty} e^{-\pi (z+k)^2/t^2} \right)
+\end{align*}
+$$
+
+and:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& \frac{e^{\pi t^2}}{2} \left( -1 + \frac{1}{t} \sum_{k=-\infty}^{+\infty} e^{-\pi (z+k)^2/t^2} \right) \\
+=& e^{\pi t^2} \left( -\frac{1}{2} + \frac{1}{2t} e^{-\pi z^2/t^2} + \frac{1}{t} \sum_{k=1}^{+\infty} e^{-\pi (z+k)^2/t^2} \right).
+\end{align*}
+$$
+
+When $$z=0$$, we obtain $$Z_t f_{\sigma}(0) \sim 1/(2t)$$ for small $$t$$. Otherwise, $$z \neq 0$$ and we obtain $$Z_t f_{\sigma}(0) \sim -1/2$$ for small $$t$$.
 
 **Roots**
 
-For $$t>0$$, the denominator term is always positive, so the
-root $$z_0$$ verifies: $$\cos(2\pi z)=e^{-2t}$$. We deduce that the positive
-root is: $$z_0 = \text{Arccos} \left( e^{-2t} \right) / (2\pi)$$. We can also
-see that $$t = -\frac{1}{2} \log \cos ( 2 \pi z)$$.
+For $$t$$ positive and small, we can use the formula obtained in the previous paragraph and solve the equation:
 
+$$e^{\pi t^2} \left( -\frac{1}{2} + \frac{1}{2t} e^{-\pi z^2/t^2} \right) = 0,$$
+
+for which we obtain that the positive root verifies: 
+$$z_0 \sim_{t \mapsto 0} \sqrt{-t^2 \log(t) / \pi},$$
+
+which is remarkably accurate until $$t \approx 0.5$$. 
+In particular the limit in $$t = 0$$ is $$z_0 \rightarrow 0$$.
+
+For $$t$$ large, we use the initial formula that shows that the dominant term is $$\cos(2 \pi z)$$ for all $$z$$, for which we deduce that the limit in $$t = +\infty$$ is $$z_0 \rightarrow 1/4$$.
 
 </details>
 <br/>
 
 {::options parse_block_html="false" /}
 
--->
+
 As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
 
 Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
