@@ -1247,7 +1247,7 @@ $$
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = \cos(2 \pi z)$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = -1/2$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = +\infty$$,
-- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ verifies $$z_0 \sim_{t \mapsto 0} \sqrt{- t^2  \log(t) / \pi}$$, with in particular 
+- The smallest positive root of $$Z_t f_{\sigma}(z) = 0$$ verifies $$z_0 \sim_{t \rightarrow 0} \sqrt{- t^2  \log(t) / \pi}$$ with in particular 
 $$z_0 \rightarrow_{t \rightarrow 0} 0$$, while $$z_0 \rightarrow_{t \rightarrow +\infty} 1/4$$.
 
 {::options parse_block_html="true" /}
@@ -1255,7 +1255,7 @@ $$z_0 \rightarrow_{t \rightarrow 0} 0$$, while $$z_0 \rightarrow_{t \rightarrow 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
 For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
-The closed-form expression for the polynomial type verifies:
+The closed-form expression for the Gaussian type verifies:
 
 $$
 \begin{align*}
@@ -1270,7 +1270,7 @@ Using the normalization: $$N(\lambda, \sigma) = \sigma e^{\pi t^2}/(2t)$$, we ob
 
 $$
 \begin{align*}
-Z_t f_{\sigma}(z) =& \left( \sum_{k=1}^{+\infty} e^{\pi t^2} e^{-\pi k^2 t^2} \cos ( 2k \pi z) \right) \\
+Z_t f_{\sigma}(z) =& \sum_{k=1}^{+\infty} e^{\pi t^2} e^{-\pi k^2 t^2} \cos ( 2k \pi z) \\
 =& \cos(2 \pi z) + \sum_{k=2}^{+\infty} e^{-\pi t^2 (k^2 -1)} \cos \left( 2 k \pi z \right).
 \end{align*}
 $$
@@ -1282,11 +1282,11 @@ When $$t$$ is large, the only dominant term is the first term $$\cos(2 \pi z)$$ 
 **Form when $$t \rightarrow 0$$**
 
 For $$t$$ small, the formula obtained for $$Z_t f_{\sigma}$$ is not convenient, and we need to apply the Poisson summation formula again, now with $$h: x \mapsto e^{-\pi x^2}$$, for which $$\mathcal{F}h = h$$.
-In details, we can apply formally (i.e. replacing arbitrary the free parameters) the original formula:
+In details, we can apply formally the original formula:
 
 $$\frac{1}{\lambda} \sum_{k=-\infty}^{+\infty} \mathcal{F}f \left( \frac{k}{\lambda} \right) e^{2i\pi \frac{k}{\lambda} x} = \sum_{k=-\infty}^{+\infty} f(x+k\lambda)$$
 
-with $$x=z/t$$, $$\lambda = 1/t$$, and $$f = h$$, to retrieve:
+by replacing arbitrary the free parameters with $$x=z/t$$, $$\lambda = 1/t$$, and $$f = h$$, to retrieve:
 
 $$
 \begin{align*}
@@ -1323,7 +1323,7 @@ For $$t$$ positive and small, we can use the formula obtained in the previous pa
 $$e^{\pi t^2} \left( -\frac{1}{2} + \frac{1}{2t} e^{-\pi z^2/t^2} \right) = 0,$$
 
 for which we obtain that the positive root verifies: 
-$$z_0 \sim_{t \mapsto 0} \sqrt{-t^2 \log(t) / \pi},$$
+$$z_0 \sim_{t \rightarrow 0} \sqrt{-t^2 \log(t) / \pi},$$
 
 which is remarkably accurate until $$t \approx 0.5$$. 
 In particular the limit in $$t = 0$$ is $$z_0 \rightarrow 0$$.
