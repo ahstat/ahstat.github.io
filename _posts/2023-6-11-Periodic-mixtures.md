@@ -1356,18 +1356,10 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/function_of_space.mp4"></video></center>
 
-- TODO We compute next the derivative w.r.t time. We have for $$z \in [-1/2, 1/2)$$, with $$A = \cos \left( 2 \pi z \right)$$:
-
-$$
-\begin{align*}
-\partial{Z_t f_{\sigma}}/\partial{t}(z) =~&2 e^{2t} \frac{-2A^2 e^{4t}+2Ae^{2t}+e^{4t}-1}{(-2Ae^{2t}+e^{4t}+1)^2}.
-\end{align*}
-$$
-
-In particular, $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$ when $$A^2-Ae^{-2t}-1/2+e^{-4t}/2 = 0$$, which is quadratic in $$A$$, and for which we deduce the roots of the form $$t = f(z)$$.
+- We rely on numerical approximations for solving $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$.
 
 - The following picture summarizes the information regarding $$Z_t f_{\sigma}$$. As before, the gray zone is the region where $$Z_t f_{\sigma}(z) \geq 0$$. The orange curves represent the positions where $$\partial{Z_t f_{\sigma}}/\partial{t}(z)=0$$.
-Different points are marked on the figure (colors not linked with the previous figures). The gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$. The bottom-right orange point is the smallest positive value $$z=1/8=0.125$$ for which the function is always increasing. The top-right orange point is the smallest positive value $$z=3/8=0.375$$ for which the function is always decreasing. The other orange points on the left are located at $$z=0$$ and $$z=1/4$$.
+Different points are marked on the figure (colors not linked with the previous figures). Since the behavior for large $$t$$ is similar to the polynomial case, the marked points on the right part of the figure are identical: the gray point is located at $$t=+\infty$$, $$z_0=1/4$$, for which $$Z_t f(z)=0$$; the bottom-right orange point is the smallest positive value $$z=1/8=0.125$$ for which the function is always increasing; and the top-right orange point is the smallest positive value $$z=3/8=0.375$$ for which the function is always decreasing. The remaining orange point on the left is located at $$z=0$$.
 
 <center><img src="../images/2023-6-11-Periodic-mixtures/plot3/gaussian/roots_and_derivative_roots.png"/></center>
 
