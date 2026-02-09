@@ -70,7 +70,12 @@ I code in R ![]({{site.baseurl}}/images/R_logo.png) and Python ![]({{site.baseur
 
 -->
 
+<br>
+<br>
+
 ---
+
+<br>
 
 ### Posts about deep learning
 
