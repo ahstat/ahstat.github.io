@@ -70,6 +70,8 @@ I code in R ![]({{site.baseurl}}/images/R_logo.png) and Python ![]({{site.baseur
 
 -->
 
+---
+
 ### Posts about deep learning
 
 - [RNN with Keras: Predicting time series](https://ahstat.github.io/RNN-Keras-time-series/) ![]({{site.baseurl}}/images/Python_logo.png) Complete introduction of time series prediction with RNN. This tutorial has been written for answering a [stackoverflow post](https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu/48521460#48521460), and has been used later [in a real-world context](https://stackoverflow.com/questions/48929272/non-linear-multivariate-time-series-response-prediction-using-rnn/49666510#49666510).
