@@ -37,7 +37,7 @@ alexis.huet.phd@gmail.com
 These are some papers I enjoyed writing. I like when other researchers use the algorithms, benchmarks, or metrics we built, and take them further. I care most about methodological aspects, metrics, and evaluation.
 
 <h4 style="margin-bottom: 0">Episodic memory generation and evaluation benchmark for large language models</h4>
-(ICLR 2025) • [[paper]]({{site.baseurl}}/images/2025-llm1-iclr-paper.pdf) • [[poster]]({{site.baseurl}}/images/2025-llm1-iclr-poster.png) • [[code]](https://github.com/ahstat/episodic-memory-benchmark)
+<p style="margin-top: 0">(ICLR 2025) • <a href="{{site.baseurl}}/images/2025-llm1-iclr-paper.pdf">[paper]</a> • <a href="{{site.baseurl}}/images/2025-llm1-iclr-poster.png">[poster]</a> • <a href="https://github.com/ahstat/episodic-memory-benchmark">[code]</a></p>
 
 A benchmark for evaluating episodic memory in long-context LLMs. Questions require retrieving multiple events across chapters, for example all entities seen at a given location. I enjoyed the modeling of events as (time, space, entity, content) tuples and the metric design. For the broader vision connecting episodic memory to computational neuroscience, see [Zied's home page](https://bendiogene.github.io).
 
