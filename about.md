@@ -16,9 +16,9 @@ alexis.huet.phd@gmail.com
 
 ### Reviewing
 
-*Conferences:* KDD (2024–2026, Excellence Award), ICLR (2025-2026), ACML (2024-2025), CIKM (2025)
+**Conferences**: KDD (2024–2026, Excellence Award), ICLR (2025-2026), ACML (2024-2025), CIKM (2025)
 
-*Journals:* IEEE TPAMI, ACM TKDD, IEEE TNSM, Springer Machine Learning
+**Journals**: IEEE TPAMI, ACM TKDD, IEEE TNSM, Springer Machine Learning
 
 ### Invited talks
 
@@ -36,27 +36,27 @@ alexis.huet.phd@gmail.com
 
 These are some papers I enjoyed writing. I like when other researchers use the algorithms, benchmarks, or metrics we built, and take them further. I care most about methodological aspects, metrics, and evaluation.
 
-#### Episodic Memory Generation and Evaluation Benchmark for Large Language Models (ICLR 2025)
-{: style="margin-bottom: 0"}
-[[paper]]({{site.baseurl}}/images/2025-llm1-iclr-paper.pdf)/[[poster]]({{site.baseurl}}/images/2025-llm1-iclr-poster.png)/[[code]](https://github.com/ahstat/episodic-memory-benchmark)
+#### Episodic memory generation and evaluation benchmark for large language models
+{: style="margin-bottom: 0; padding-bottom: 0"}
+**ICLR 2025** • [[paper]]({{site.baseurl}}/images/2025-llm1-iclr-paper.pdf) • [[poster]]({{site.baseurl}}/images/2025-llm1-iclr-poster.png) • [[code]](https://github.com/ahstat/episodic-memory-benchmark)
 
 A benchmark for evaluating episodic memory in long-context LLMs. Questions require retrieving multiple events across chapters, for example all entities seen at a given location. I enjoyed the modeling of events as (time, space, entity, content) tuples and the metric design. For the broader vision connecting episodic memory to computational neuroscience, see [Zied's home page](https://bendiogene.github.io).
 
-#### Changepoint detection via subset chains (PAKDD 2025)
-{: style="margin-bottom: 0"}
-[[paper]]({{site.baseurl}}/images/2025-anomaly8-pakdd-paper.pdf)/[[presentation]]({{site.baseurl}}/images/2025-anomaly8-pakdd-presentation.pdf)/[[code]](https://github.com/ahstat/scoth-segmentation)
+#### Changepoint detection via subset chains
+{: style="margin-bottom: 0; padding-bottom: 0"}
+**PAKDD 2025** • [[paper]]({{site.baseurl}}/images/2025-anomaly8-pakdd-paper.pdf) • [[presentation]]({{site.baseurl}}/images/2025-anomaly8-pakdd-presentation.pdf) • [[code]](https://github.com/ahstat/scoth-segmentation)
 
 A method for detecting change points in time series at multiple levels of granularity. Existing methods require setting a threshold or penalty that is hard to choose well. The idea here is to split the problem in two: first score every point by how important it is as a potential change, then threshold recursively to reveal changes level by level, from major to minor. This also matches how humans see it: different annotators label different levels of detail, and each finds a level that fits.
 
-#### Local evaluation of time series anomaly detection algorithms (KDD 2022)
-{: style="margin-bottom: 0"}
-[[paper]]({{site.baseurl}}/images/2022-anomaly1-kdd-paper.pdf)/[[poster]]({{site.baseurl}}/images/2022-anomaly1-kdd-poster.pdf)/[[code]](https://github.com/ahstat/affiliation-metrics-py)
+#### Local evaluation of time series anomaly detection algorithms
+{: style="margin-bottom: 0; padding-bottom: 0"}
+**KDD 2022** • [[paper]]({{site.baseurl}}/images/2022-anomaly1-kdd-paper.pdf) • [[poster]]({{site.baseurl}}/images/2022-anomaly1-kdd-poster.pdf) • [[code]](https://github.com/ahstat/affiliation-metrics-py)
 
 A parameter-free metric for evaluating time series anomaly detection algorithms. Each ground truth event gets its own precision and recall with interpretable distances, which makes it easy to visualize what the detector actually got right or wrong. The metric verifies theoretical properties that ensure discriminative ranking between algorithms (that can be tested e.g. with [autorank](https://github.com/sherbold/autorank)).
 
-#### Web QoE from encrypted traffic (IFIP Networking 2020, IEEE TNSM 2021)
-{: style="margin-bottom: 0"}
-[[paper]]({{site.baseurl}}/images/2020-qoe5-networking-paper.pdf)/[[poster]]({{site.baseurl}}/images/2019-qoe2-sigcomm-poster.pdf)/[[demo]](https://huawei-webqoe.shinyapps.io/sigcommdemo)
+#### Web QoE from encrypted traffic
+{: style="margin-bottom: 0; padding-bottom: 0"}
+**IFIP Networking 2020, IEEE TNSM 2021** • [[paper]]({{site.baseurl}}/images/2020-qoe5-networking-paper.pdf) • [[poster]]({{site.baseurl}}/images/2019-qoe2-sigcomm-poster.pdf) • [[demo]](https://huawei-webqoe.shinyapps.io/sigcommdemo)
 
 A way to estimate web browsing quality from encrypted traffic, building on the Byte Index metric introduced in [Bocchi et al., 2016](https://webqoe.telecom-paristech.fr/metrics/). An interesting feature is that the session-level Byte Index decomposes exactly into per-flow contributions (proof in the journal version), enabling routers to compute it online from simple operations.
 
