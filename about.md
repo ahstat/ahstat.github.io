@@ -6,31 +6,15 @@ permalink: /about/
 
 I'm Alexis Huet. [I got a PhD in mathematics](https://www.theses.fr/2014LYO10126) in 2014 from the University of Lyon, France (after passing the [agrégation de mathématiques](https://en.wikipedia.org/wiki/Agr%C3%A9gation) in 2009). I work in data science, and have been at Huawei since 2018, after three years in Nanjing. I primarily code in Python ![]({{site.baseurl}}/images/Python_logo.png) and R ![]({{site.baseurl}}/images/R_logo.png). On this site, I write detailed posts about maths, machine learning, and some of my own projects.
 
-### Contact me
+**Contact me** alexis.huet.phd@gmail.com
 
-alexis.huet.phd@gmail.com
+**Profiles** [Google Scholar](https://scholar.google.com/citations?user=l31QllYAAAAJ) • [LinkedIn](https://fr.linkedin.com/in/ahstat) • [GitHub](https://github.com/ahstat) • [X](https://x.com/ahstat)
 
-### Profiles
+**Reviewing** *Conferences*: KDD (2024–2026, Excellence Award), ICLR (2025-2026), ACML (2024-2025), CIKM (2025) • *Journals*: IEEE TPAMI, ACM TKDD, IEEE TNSM, Springer Machine Learning
 
-- [Google Scholar](https://scholar.google.com/citations?user=l31QllYAAAAJ)
-- [LinkedIn](https://fr.linkedin.com/in/ahstat)
-- [GitHub](https://github.com/ahstat)
-- [X](https://x.com/ahstat)
+**Invited talks** Keynote, XTempLLMs Workshop @ COLM 2025
 
-
-### Reviewing
-
-**Conferences:** KDD (2024–2026, Excellence Award), ICLR (2025-2026), ACML (2024-2025), CIKM (2025)
-
-**Journals:** IEEE TPAMI, ACM TKDD, IEEE TNSM, Springer Machine Learning
-
-### Invited talks
-
-- Keynote, XTempLLMs Workshop @ COLM 2025
-
-### Patents
-
-- 15+ patents filed
+**Patents** 15+ patents filed
 
 ### 语言
 
