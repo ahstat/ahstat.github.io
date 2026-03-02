@@ -1423,6 +1423,7 @@ $$
 We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
 - $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 0$$,
 - $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = 1$$,
+- We observe the cosinus function for $$t=1/2$$ and the null function after this value.
 
 {::options parse_block_html="true" /}
 
