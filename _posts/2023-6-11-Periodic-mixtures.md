@@ -1480,7 +1480,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc/function_of_space.mp4"></video></center>
 
-- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking exponentially. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc/unnormalized.mp4"></video></center>
 
@@ -1489,7 +1489,65 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 {::options parse_block_html="false" /}
 
+{::options parse_block_html="true" /}
 
+<details><summary markdown="span">Border position and total area of the positive zones (click to expand).</summary>
+
+This paragraph refers to the right plot of the Sinc video, showing the positive zones. We detail the border between negative and positive zones, followed by the area of the positive zones. We rely on Claude Opus 4.6 (the proof seems right, but I haven't fully verified it).
+
+First, using the simplified formulation for the Sinc type (the one outside the proof), we have:
+
+$$Z_t f_{\sigma}(z) = t \left[ \frac{\sin \left( \left( 2 \left\lfloor\frac{1}{2t}\right\rfloor + 1\right) \pi z \right)}{\sin \left( \pi z \right)} - 1 \right].$$
+
+Since $$t > 0$$, we have $$Z_t f_{\sigma}(z) = 0$$ if and only if:
+
+$$\frac{\sin \left( N \pi z \right)}{\sin \left( \pi z \right)} = 1,$$
+
+with $$N:= 2 \left\lfloor 1/(2t) \right\rfloor + 1$$ an odd positive integer (that increases when $$t$$ decreases; note that $$N$$ is constant on each interval $$\frac{1}{N+1} < t < \frac{1}{N-1}$$).
+
+When $$N=1$$ (i.e., $$t > 1/2$$), the whole zone is null.
+
+The following is from Claude Opus 4.6:
+
+**Setup**
+
+Let $$N \geq 3$$ be an odd integer and define the Dirichlet kernel
+
+$$D_N(z) = \frac{\sin(N\pi z)}{\sin(\pi z)}.$$
+
+For $$t > 0$$, set $$N(t) = 2\lfloor 1/(2t)\rfloor + 1$$ and consider the sign of $$D_{N(t)}(z) - 1$$ on the strip $$(t, z) \in (0, 1/2] \times (-1/2, 1/2)$$.
+
+**Sign structure**
+
+On each band $$\frac{1}{N+1} < t \leq \frac{1}{N-1}$$, the equation $$D_N(z) = 1$$ reduces to $$\sin(N\pi z) = \sin(\pi z)$$, whose solutions on $$(0, 1/2)$$ form two families:
+
+$$z = \frac{2k}{N-1} \quad (k \geq 1), \qquad z = \frac{2k+1}{N+1} \quad (k \geq 0),$$
+
+restricted to $$(0, 1/2)$$. The sign of $$D_N(z) - 1$$ is positive near $$z = 0$$ and alternates at each zero. By symmetry, the picture extends to $$z < 0$$.
+
+**Area of the positive zone**
+
+In each $$N$$-band the total $$z$$-length of positive intervals (on both sides of $$z = 0$$) times the band width $$\frac{2}{N^2 - 1}$$ gives the area contribution
+
+$$a(N) = \frac{4(M+1)(N - 1 - 2M)}{(N^2 - 1)^2}, \qquad M = \left\lfloor\frac{N-3}{4}\right\rfloor.$$
+
+Splitting into the two residue classes of odd $$N$$:
+
+- $$N = 4m+3$$: $$\ a = \dfrac{1}{8(2m+1)^2}$$,
+- $$N = 4m+1$$: $$\ a = \dfrac{m+1}{8m(2m+1)^2} = \dfrac{1}{8}\left(\dfrac{1}{m} - \dfrac{2}{2m+1} - \dfrac{1}{(2m+1)^2}\right)$$.
+
+Summing over all bands:
+
+$$A_+ = \frac{1}{8}\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} + \frac{1}{8}\sum_{m=1}^{\infty}\left(\frac{1}{m} - \frac{2}{2m+1} - \frac{1}{(2m+1)^2}\right).$$
+
+Using the classical identities $$\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} = \frac{\pi^2}{8}$, $\sum_{m=1}^{\infty}\frac{1}{m(2m+1)} = 2(1 - \ln 2)$$, the $$\pi^2$$ contributions cancel and one obtains
+
+$$\boxed{A_+ = \frac{3}{8} - \frac{\ln 2}{4} \approx 0.2017.}$$
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 ### References
 
