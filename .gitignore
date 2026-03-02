@@ -30,6 +30,9 @@ images/2023-6-11-Periodic-mixtures/plot3/gaussian/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/gaussian_one_shift/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/gaussian_one_shift/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/gaussian_one_shift/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot3/sinc/function_of_time/*
+images/2023-6-11-Periodic-mixtures/plot3/sinc/function_of_space/*
+images/2023-6-11-Periodic-mixtures/plot3/sinc/unnormalized/*
 
 _site
 .DS_Store

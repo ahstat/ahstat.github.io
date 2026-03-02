@@ -1410,6 +1410,84 @@ This normalization allows the function to have a flat shape for small $$t$$, as 
 
 
 
+### For the Sinc type
+
+Using the normalization $$N(\lambda, \sigma) = \sigma$$, we have:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) =& 2 t \sum_{k=1}^{\lfloor \frac{1}{2t} \rfloor} \cos \left( 2 k \pi z \right).
+\end{align*}
+$$
+
+We also have the following for $$t > 0$$ and $$z \in [-1/2,1/2)$$:
+- $$\lim_{t \rightarrow +\infty} Z_t f_{\sigma}(z) = 0$$,
+- $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(z) = 0$$ for $$z \neq 0$$, while $$\lim_{t \rightarrow 0} Z_t f_{\sigma}(0) = 1$$,
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
+
+For $$\lambda > 0$$, we consider $$x \in [-\lambda/2, \lambda/2)$$, or equivalently $$z \in [-1/2, 1/2)$$.
+The closed-form expression for the Sinc type verifies, from the previous proof:
+
+$$
+\begin{align*}
+S_{\lambda}f_{\sigma}(x) - \frac{1}{\lambda} =& \frac{2}{\lambda} \sum_{k=1}^{\lfloor \frac{\lambda}{2\sigma} \rfloor} \cos \left( 2 \pi k x / \lambda \right) \\
+=& \frac{1}{\sigma} 2 t \sum_{k=1}^{\lfloor \frac{1}{2t} \rfloor} \cos \left( 2 k \pi z \right).
+\end{align*}
+$$
+
+Using the normalization: $$N(\lambda, \sigma) = \sigma$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& 2 t \sum_{k=1}^{\lfloor \frac{1}{2t} \rfloor} \cos \left( 2 k \pi z \right).
+\end{align*}
+$$
+
+<!--
+Using the normalization: $$N(\lambda, \sigma) = \lambda$$, we obtain:
+
+$$
+\begin{align*}
+Z_t f_{\sigma}(z) =& 2 \sum_{k=1}^{\lfloor \frac{1}{2t} \rfloor} \cos \left( 2 k \pi z \right).
+\end{align*}
+$$
+-->
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+As before, the normalized sum $$Z_t f_{\sigma}(z)$$ does not depend on $$\sigma$$ (given $$t$$ and $$z$$). 
+
+Restricting on the single period $$z \in [-1/2, 1/2)$$, we observe in the following video:
+- (left) the mapping $$z \mapsto Z_t f_{\sigma}(z)$$ over time, with marked points for $$z=-1/2$$ (blue), $$z=\pm 1/4$$ (green), $$z= \pm 1/6$$ (yellow) and $$z=0$$ (gray); we observe the cosinus function for $$t=1/2$$ and the null function for larger values of $$t$$.
+- (center) the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ for the $$6$$ previous marked points over time,
+- (right) the gray borders correspond to the points were $$Z_t f_{\sigma}(z) = 0$$. The inner gray region corresponds to $$Z_t f_{\sigma}(z) \geq 0$$, while the outside verifies $$Z_t f_{\sigma}(z) \leq 0$$. The zone on the right is when the function is null.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc/function_of_time.mp4"></video></center>
+
+Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and of the unnormalized mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time are provided by expanding the following tab.
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Additional videos (click to expand).</summary>
+
+- Mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space. Note that the colors of this video are not linked with the colors of the previous video, and the colors correspond to $$t \in \lbrace 0, 1/4, 1/2, 1 \rbrace$$.
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc/function_of_space.mp4"></video></center>
+
+- Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. In this unnormalized form, XXX the $$y$$-axis is going up at a constant speed (w.r.t. $$t$$), while the $$y$$-range is shrinking exponentially. As expected, the shape is equivalent to $$z \mapsto Z_t f_{\sigma}(z)$$ over time. 
+
+<center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 
 
