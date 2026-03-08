@@ -1540,7 +1540,7 @@ Summing over all bands:
 
 $$A_+ = \frac{1}{8}\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} + \frac{1}{8}\sum_{m=1}^{\infty}\left(\frac{1}{m} - \frac{2}{2m+1} - \frac{1}{(2m+1)^2}\right).$$
 
-Using the classical identities $$\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} = \frac{\pi^2}{8}$, $\sum_{m=1}^{\infty}\frac{1}{m(2m+1)} = 2(1 - \ln 2)$$, the $$\pi^2$$ contributions cancel and one obtains
+Using the classical identities $$\sum_{m=0}^{\infty}\frac{1}{(2m+1)^2} = \frac{\pi^2}{8}$$, $$\sum_{m=1}^{\infty}\frac{1}{m(2m+1)} = 2(1 - \ln 2)$$, the $$\pi^2$$ contributions cancel and one obtains
 
 $$\boxed{A_+ = \frac{3}{8} - \frac{\ln 2}{4} \approx 0.2017.}$$
 
@@ -1609,6 +1609,42 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 - Mapping $$x \mapsto S_{\lambda}f_{\sigma}(x)$$ over time. 
 
 <center><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot3/sinc2/unnormalized.mp4"></video></center>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Inner lobes position.</summary>
+
+We observe inner thin lobes for small values of $$t$$, that we describe in this paragraph.
+
+By monotony argument in the shape of $$Z_t f_{\sigma}$$, the cusps can only occur for $$t=1/N$$ with $$N$$ integer.
+
+Then, for $$N$$ integer, the function can be simplified using Fejér kernel identity:
+
+$$
+\begin{align*}
+  Z_t f_{\sigma}(z) =& 2 t \sum_{k=1}^{N} \left( 1 - k/N \right) \cos \left( 2 k \pi z \right) \\
+  =& 2 t \sum_{k=1}^{N-1} \left( 1 - k/N \right) \cos \left( 2 k \pi z \right) \\
+  =& 2 t \frac{1}{2} \left[ \frac{\sin^2 \left( N \pi z \right)}{N \sin^{2} \left( \pi z \right)} - 1 \right].  
+\end{align*}
+$$
+
+To find the position of the cusp, we solve $$Z_t f_{\sigma}(z)=0$$ for those integer values, i.e. $$\sin^2(N \pi z) = N \sin^2 (\pi z)$$.
+
+Numerically, we find that $$N=21$$ is the first cusp (in yellow at position $$t_0 = 0.04762$$, $$z_0 = 0.06937$$), which is also the highest $$z$$ position of the first inner lobe. The highest $$t$$ position of the first inner lobe can be found numerically (in blue at position $$t_0 = 0.04779$$, $$z_0 = 0.06838$$): in that case, $$t$$ has not the form $$1/N$$ and the formula does not simplify.
+
+The cusp of the following smaller lobes (in gray) occur for $$N=61, 120, 199$$.
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/sinc2/lobes.png"/></center>
+
+<center><img src="../images/2023-6-11-Periodic-mixtures/plot3/sinc2/lobes_zoom.png"/></center>
 
 </details>
 <br/>
