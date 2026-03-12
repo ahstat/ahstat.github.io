@@ -1669,7 +1669,7 @@ $$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{
 
 After normalizing both components so that the first mode traces a unit circle (area $$\pi$$), the geometric area is:
 
-$$\frac{|\mathcal{A}|}{\pi} = \sum_{k=1}^{\infty} k\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)}.$$
+$$\mathcal{A}_{N} := \sum_{k=1}^{\infty} k^2\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)}.$$
 
 <details>
 <summary>Proof (click to expand).</summary>
@@ -1722,7 +1722,7 @@ $$\mathcal{A}_N := \frac{|\mathcal{A}|}{\frac{8\pi^2}{\lambda^3}a_1^2} = \sum_{k
 
 $$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma\left(\frac{1}{\lambda}\right)\right]^2 \cdot \mathcal{A}_N.$$
 
-<p>The prefactor \(\frac{8\pi^2}{\lambda^3}\) is universal (independent of the base function type), while the dependence on the type enters only through \(a_1 = \mathcal{F}f_\sigma(1/\lambda)\) as an overall scale and through the ratios \(r_k\) in the sum. By construction, \(\mathcal{A}_N = 1\) when only the fundamental survives (\(r_k = 0\) for \(k \geq 2\)), corresponding to the regime \(t = \sigma/\lambda \to \infty\) where all higher modes are suppressed.</p>
+<p>The prefactor \(\frac{8\pi^2}{\lambda^3}\) is universal (independent of the base function type), while the dependence on the type enters only through \(a_1 = \mathcal{F}f_\sigma(1/\lambda)\) as an overall scale and through the ratios \(r_k\) in the sum. By construction, \(\mathcal{A}_N = 1\) when only the fundamental survives (\(r_k = 0\) for \(k \geq 2\)), sometimes corresponding to the regime \(t = \sigma/\lambda \to \infty\) where all higher modes are suppressed.</p>
 
 </details>
 
