@@ -1714,13 +1714,15 @@ $$\int_{-\lambda/2}^{\lambda/2}\left(\widetilde{X}\frac{dY}{dx} - Y\frac{d\widet
 
 $$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
-<p><b>Normalization.</b> The \(k\)-th mode of the parametric curve traces an ellipse with horizontal semi-axis \(\frac{2}{\lambda}a_k\) (from the cosine component in \(S_\lambda f_\sigma\)) and vertical semi-axis \(\frac{4\pi k}{\lambda^2}a_k\) (from the sine component in \(S_\lambda g_\sigma\), which carries the extra factor \(k\) from differentiation). The first mode (\(k=1\)) encloses area \(\pi \cdot \frac{2}{\lambda}a_1 \cdot \frac{4\pi}{\lambda^2}a_1 = \frac{8\pi^2}{\lambda^3}a_1^2\).</p>
+<p><b>Normalization.</b> The \(k=1\) term in the sum is \(\frac{8\pi^2}{\lambda^3}a_1^2\). We define the normalized area by dividing by this first-mode contribution:</p>
 
-<p>If we rescale both components so that the first mode traces a unit circle of area \(\pi\), i.e. we set each semi-axis to \(1\), then the \(k\)-th mode has equal semi-axes \(r_k = a_k/a_1\) in both components, and each mode contributes an area proportional to \(k\,r_k^2\) (the factor \(k\) arising from the winding number of the \(k\)-th harmonic). Dividing the geometric area by the first-mode area gives:</p>
+$$\mathcal{A}_N := \frac{|\mathcal{A}|}{\frac{8\pi^2}{\lambda^3}a_1^2} = \sum_{k=1}^{\infty} k^2\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)},$$
 
-$$\frac{|\mathcal{A}|}{\pi} = \sum_{k=1}^{\infty} k\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)}.$$
+<p>so that:</p>
 
-<p><b>Sanity check.</b> When only the fundamental survives (\(r_k = 0\) for \(k \geq 2\)), the curve is a circle and \(|\mathcal{A}|/\pi = 1\). This corresponds to the regime \(t = \sigma/\lambda \to \infty\), where all higher modes are suppressed.</p>
+$$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma\left(\frac{1}{\lambda}\right)\right]^2 \cdot \mathcal{A}_N.$$
+
+<p>The prefactor \(\frac{8\pi^2}{\lambda^3}\) is universal (independent of the base function type), while the dependence on the type enters only through \(a_1 = \mathcal{F}f_\sigma(1/\lambda)\) as an overall scale and through the ratios \(r_k\) in the sum. By construction, \(\mathcal{A}_N = 1\) when only the fundamental survives (\(r_k = 0\) for \(k \geq 2\)), corresponding to the regime \(t = \sigma/\lambda \to \infty\) where all higher modes are suppressed.</p>
 
 </details>
 
