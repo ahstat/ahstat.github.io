@@ -1622,7 +1622,7 @@ Additional videos of the mapping $$t \mapsto Z_t f_{\sigma}(z)$$ over space, and
 
 <details><summary markdown="span">Inner lobes position.</summary>
 
-We observe inner thin lobes for small values of $$t$$, that we describe in this paragraph.
+This paragraph refers to the right plot of the Sincsquare video, showing the positive zones. The border between negative and positive zones contain inner thin lobes for small values of $$t$$, that we describe in this paragraph.
 
 By monotony argument in the shape of $$Z_t f_{\sigma}$$, the cusps can only occur for $$t=1/N$$ with $$N$$ integer.
 
@@ -1650,6 +1650,81 @@ The cusp of the following smaller lobes (in gray) occur for $$N=61, 120, 199$$.
 <br/>
 
 {::options parse_block_html="false" /}
+
+
+
+
+
+### Area of the parametric curve $$(S_\lambda f_\sigma, S_\lambda g_\sigma)$$
+
+The following paragraphs are written with the help of Claude Opus 4.6.
+
+The parametric curve $$(S_\lambda f_\sigma(x), S_\lambda g_\sigma(x))$$ for $$x \in [-\lambda/2, \lambda/2)$$ encloses an area given by Green's theorem:
+
+$$|\mathcal{A}| = \frac{1}{2}\left|\int_{-\lambda/2}^{\lambda/2}\left(S_\lambda f_\sigma \frac{d(S_\lambda g_\sigma)}{dx} - S_\lambda g_\sigma \frac{d(S_\lambda f_\sigma)}{dx}\right)dx\right|.$$
+
+The unnormalized area is:
+
+$$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
+
+After normalizing both components so that the first mode traces a unit circle (area $$\pi$$), the geometric area is:
+
+$$\frac{|\mathcal{A}|}{\pi} = \sum_{k=1}^{\infty} k\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)}.$$
+
+<details>
+<summary>Proof (click to expand).</summary>
+
+<p>We write \(X(x) = S_\lambda f_\sigma(x) = \frac{1}{\lambda} + \widetilde{X}(x)\) where:</p>
+
+$$\widetilde{X}(x) = \frac{2}{\lambda}\sum_{j=1}^{\infty} \mathcal{F}f_\sigma\left(\frac{j}{\lambda}\right) \cos\left(2\pi \frac{j}{\lambda}x\right),$$
+
+$$Y(x) = S_\lambda g_\sigma(x) = -\frac{4\pi}{\lambda^2}\sum_{j=1}^{\infty} j\,\mathcal{F}f_\sigma\left(\frac{j}{\lambda}\right) \sin\left(2\pi \frac{j}{\lambda}x\right).$$
+
+<p>Since \(\frac{1}{\lambda}\) is constant, \(\frac{dX}{dx} = \frac{d\widetilde{X}}{dx}\), and:</p>
+
+$$X \frac{dY}{dx} - Y \frac{dX}{dx} = \frac{1}{\lambda}\frac{dY}{dx} + \widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx}.$$
+
+<p>The first term integrates to zero over a full period by periodicity: \(\int_{-\lambda/2}^{\lambda/2}\frac{dY}{dx}\,dx = Y(\lambda/2) - Y(-\lambda/2) = 0\).</p>
+
+<p>The derivatives with respect to \(x\) are:</p>
+
+$$\frac{d\widetilde{X}}{dx} = -\frac{4\pi}{\lambda^2}\sum_{k=1}^{\infty} k\,\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\sin\left(2\pi\frac{k}{\lambda}x\right),$$
+
+$$\frac{dY}{dx} = -\frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\,\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\cos\left(2\pi\frac{k}{\lambda}x\right).$$
+
+<p>Writing \(a_k := \mathcal{F}f_\sigma(k/\lambda)\) for brevity, the two products are:</p>
+
+$$\widetilde{X}\frac{dY}{dx} = -\frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} k^2\,a_j\,a_k\,\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right),$$
+
+$$Y\frac{d\widetilde{X}}{dx} = \frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} jk\,a_j\,a_k\,\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right).$$
+
+<p>Combining:</p>
+
+$$\widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx} = -\frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} a_j\,a_k\left[k^2\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right) + jk\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right)\right].$$
+
+<p>Integrating over \([-\lambda/2, \lambda/2)\) using the orthogonality relations:</p>
+
+$$\int_{-\lambda/2}^{\lambda/2}\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right)dx = \frac{\lambda}{2}\,\delta_{jk}, \qquad \int_{-\lambda/2}^{\lambda/2}\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right)dx = \frac{\lambda}{2}\,\delta_{jk},$$
+
+<p>all cross terms (\(j \neq k\)) vanish. For \(j = k\), the cosine integral contributes \(k^2 a_k^2 \cdot \lambda/2\) and the sine integral contributes \(k^2 a_k^2 \cdot \lambda/2\), giving:</p>
+
+$$\int_{-\lambda/2}^{\lambda/2}\left(\widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx}\right)dx = -\frac{16\pi^2}{\lambda^4} \cdot 2 \cdot \frac{\lambda}{2} \sum_{k=1}^{\infty} k^2\,a_k^2 = -\frac{16\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\,a_k^2.$$
+
+<p>Therefore the area is:</p>
+
+$$|\mathcal{A}| = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
+
+<p><b>Normalization.</b> The \(k\)-th mode of the parametric curve traces an ellipse with horizontal semi-axis \(\frac{2}{\lambda}a_k\) (from the cosine component in \(S_\lambda f_\sigma\)) and vertical semi-axis \(\frac{4\pi k}{\lambda^2}a_k\) (from the sine component in \(S_\lambda g_\sigma\), which carries the extra factor \(k\) from differentiation). The first mode (\(k=1\)) encloses area \(\pi \cdot \frac{2}{\lambda}a_1 \cdot \frac{4\pi}{\lambda^2}a_1 = \frac{8\pi^2}{\lambda^3}a_1^2\).</p>
+
+<p>If we rescale both components so that the first mode traces a unit circle of area \(\pi\), i.e. we set each semi-axis to \(1\), then the \(k\)-th mode has equal semi-axes \(r_k = a_k/a_1\) in both components, and each mode contributes an area proportional to \(k\,r_k^2\) (the factor \(k\) arising from the winding number of the \(k\)-th harmonic). Dividing the geometric area by the first-mode area gives:</p>
+
+$$\frac{|\mathcal{A}|}{\pi} = \sum_{k=1}^{\infty} k\,r_k^2, \qquad r_k = \frac{\mathcal{F}f_\sigma(k/\lambda)}{\mathcal{F}f_\sigma(1/\lambda)}.$$
+
+<p><b>Sanity check.</b> When only the fundamental survives (\(r_k = 0\) for \(k \geq 2\)), the curve is a circle and \(|\mathcal{A}|/\pi = 1\). This corresponds to the regime \(t = \sigma/\lambda \to \infty\), where all higher modes are suppressed.</p>
+
+</details>
+
+
 
 
 
