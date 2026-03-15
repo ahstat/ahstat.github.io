@@ -1669,8 +1669,10 @@ This (unnormalized) area is:
 $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
 
-<details>
-<summary>Proof (click to expand).</summary>
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Proof (click to expand).</summary>
 
 We write $$X(x) = S_\lambda f_\sigma(x) = \frac{1}{\lambda} + \widetilde{X}(x)$$ where:
 
@@ -1713,6 +1715,10 @@ Therefore the (unnormalized) area is:
 $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
 </details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 
 The following table shows the closed-form expression of $$\sigma^3 \mathcal{A}$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
@@ -1785,9 +1791,10 @@ For the Exponential type, $$r_k \to 1/k^2$$, so $$\mathcal{A}_{N} \to \pi \sum_{
 
 
 
+{::options parse_block_html="true" /}
 
-<details>
-<summary>Proof (click to expand).</summary>
+<details><summary markdown="span">Proof (click to expand).</summary>
+
 <b>Normalized area.</b> We write $$U(z) := \text{Ƶ}_t f_\sigma(z) = \sum_{k=1}^{\infty} r_k \cos(2\pi k z)$$ and $$V(z) := -\frac{1}{2\pi}\text{Ƶ}_t f_\sigma'(z) = \sum_{k=1}^{\infty} k\,r_k \sin(2\pi k z)$$. The enclosed area is:
 
 $$\mathcal{A}_N = \frac{1}{2}\left|\int_{-1/2}^{1/2}\left(U \frac{dV}{dz} - V \frac{dU}{dz}\right)dz\right|.$$
@@ -1803,8 +1810,9 @@ $$\mathcal{A}_N = \frac{1}{2}\left|2\pi\sum_{k=1}^{\infty} k^2\,r_k^2\right| = \
 The two areas are related by $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma(1/\lambda)\right]^2 \cdot \frac{\mathcal{A}_N}{\pi}$$.
 
 </details>
+<br/>
 
-
+{::options parse_block_html="false
 
 ### References
 
