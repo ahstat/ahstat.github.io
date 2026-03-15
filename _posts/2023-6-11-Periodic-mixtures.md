@@ -1772,47 +1772,76 @@ so $$\sigma^3 \mathcal{A} = \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$. For $$t$
 {::options parse_block_html="false" /}
 
 
-### Normalized area
 
 
-For the Polynomial and Gaussian types, the normalized sum $$Z_t f_\sigma(z)$$ converges to $$\cos(2\pi z)$$ when $$t \to \infty$$. This suggests normalizing $$S_\lambda f_\sigma$$ itself so that the parametric curve traces a unit circle in this limit. We define:
+#### Normalized area of the parametric curve
 
-$$\text{Ƶ}_t f_\sigma(z) := \frac{\lambda}{2\,\mathcal{F}f_\sigma(1/\lambda)} \left( S_\lambda f_\sigma(x) - \frac{1}{\lambda} \right) = \sum_{k=1}^{\infty} r_k \cos\left(2\pi k z\right),$$
+Setting $$\theta := 2\pi z = 2\pi x/\lambda \in [-\pi, \pi)$$, the parametric curve $$\left(Z_t f_\sigma(\theta),\; \frac{d}{d\theta} Z_t f_\sigma(\theta)\right)$$ for $$\theta \in [-\pi, \pi)$$ encloses an area (provided that the right-term sum converges, which holds for all types except Rectangular):
 
-where $$r_k := \mathcal{F}f_\sigma(k/\lambda) / \mathcal{F}f_\sigma(1/\lambda)$$, so that $$r_1 = 1$$. For the Polynomial and Gaussian types, $$\text{Ƶ}_t f_\sigma = Z_t f_\sigma$$ (the normalizations coincide).
+$$\mathcal{A}_N = \frac{N(\lambda,\sigma)^2\, \lambda}{2\pi}\, \mathcal{A} = \pi \sum_{k=1}^{\infty} k^2\, r_k^2,$$
 
-The parametric curve $$\left(\text{Ƶ}_t f_\sigma(z),\; -\frac{1}{2\pi}\text{Ƶ}_t f_\sigma'(z)\right)$$ traces $$(\cos\theta, -\sin\theta)$$ in the cosine limit, enclosing area:
+where $$r_k := \frac{2\, N(\lambda,\sigma)}{\lambda}\, \mathcal{F}f_\sigma(k/\lambda)$$ are the Fourier cosine coefficients of $$Z_t f_\sigma$$ in $$\theta$$.
 
-$$\mathcal{A}_{N} = \pi \sum_{k=1}^{\infty} k^2\,r_k^2,$$
+The following table shows the closed-form expression of $$\mathcal{A}_N$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
-with $$\mathcal{A}_{N} \to \pi$$ for the Polynomial and Gaussian types ($$t \to \infty$$).
+| Type | $$\mathcal{A}_N$$ | $$\mathcal{A}_N$$ for $$t \to \infty$$ |
+|:---:|:---:|:---:|
+| Rectangular | $$0$$ (degenerate) | $$0$$ |
+| Linear | $$\displaystyle \frac{\min\left(\lbrace t \rbrace,\, 1{-}\lbrace t \rbrace\right)}{\pi}$$ | oscillates in $$\displaystyle\left[0, \frac{1}{2\pi}\right]$$ |
+| Exponential | $$\displaystyle \frac{t}{\pi}\left(\coth \frac{1}{t} - \frac{1}{t\,\sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \frac{2}{3\pi}$$ |
+| Polynomial | $$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$ | $$\pi$$ |
+| Gaussian | $$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$ | $$\pi$$ |
+| Sinc | $$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$0$$ for $$t > 1/2$$ |
+| Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ |
 
-For the Exponential type, $$r_k \to 1/k^2$$, so $$\mathcal{A}_{N} \to \pi \sum_{k=1}^{\infty} 1/k^2 = \pi^3/6$$. The remaining types (Rectangular, Linear, Sinc, Sincsquare) do not converge to cosine.
-
-
+For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
 
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
 
-<b>Normalized area.</b> We write $$U(z) := \text{Ƶ}_t f_\sigma(z) = \sum_{k=1}^{\infty} r_k \cos(2\pi k z)$$ and $$V(z) := -\frac{1}{2\pi}\text{Ƶ}_t f_\sigma'(z) = \sum_{k=1}^{\infty} k\,r_k \sin(2\pi k z)$$. The enclosed area is:
+**Derivation of the general formula**
 
-$$\mathcal{A}_N = \frac{1}{2}\left|\int_{-1/2}^{1/2}\left(U \frac{dV}{dz} - V \frac{dU}{dz}\right)dz\right|.$$
+We write $$U(\theta) := Z_t f_\sigma(\theta) = \sum_{k=1}^{\infty} r_k \cos(k\theta)$$ and $$W(\theta) := \frac{d}{d\theta} Z_t f_\sigma(\theta) = -\sum_{k=1}^{\infty} k\, r_k \sin(k\theta)$$. The enclosed area is:
 
-The derivatives are $$\frac{dU}{dz} = -2\pi\sum_k k\,r_k \sin(2\pi k z)$$ and $$\frac{dV}{dz} = 2\pi\sum_k k^2\,r_k \cos(2\pi k z)$$. Expanding the products and integrating over $$[-1/2, 1/2)$$ using the orthogonality relations $$\int \cos(2\pi j z)\cos(2\pi k z)\,dz = \int \sin(2\pi j z)\sin(2\pi k z)\,dz = \frac{1}{2}\delta_{jk}$$, all cross terms vanish. The diagonal terms give:
+$$\mathcal{A}_N = \frac{1}{2}\left|\int_{-\pi}^{\pi}\left(U \frac{dW}{d\theta} - W \frac{dU}{d\theta}\right)d\theta\right|.$$
 
-$$\int_{-1/2}^{1/2} U\frac{dV}{dz}\,dz = \pi \sum_{k=1}^{\infty} k^2\,r_k^2, \qquad \int_{-1/2}^{1/2} V\frac{dU}{dz}\,dz = -\pi \sum_{k=1}^{\infty} k^2\,r_k^2.$$
+The derivatives are $$\frac{dU}{d\theta} = -\sum_k k\,r_k \sin(k\theta)$$ and $$\frac{dW}{d\theta} = -\sum_k k^2\,r_k \cos(k\theta)$$. Expanding the products and integrating over $$[-\pi, \pi)$$ using the orthogonality relations $$\int_{-\pi}^{\pi} \cos(j\theta)\cos(k\theta)\,d\theta = \int_{-\pi}^{\pi} \sin(j\theta)\sin(k\theta)\,d\theta = \pi\delta_{jk}$$, all cross terms vanish. The diagonal terms give:
+
+$$\int_{-\pi}^{\pi} U\frac{dW}{d\theta}\,d\theta = -\pi \sum_{k=1}^{\infty} k^2\,r_k^2, \qquad \int_{-\pi}^{\pi} W\frac{dU}{d\theta}\,d\theta = -\pi \sum_{k=1}^{\infty} k^2\,r_k^2.$$
 
 Therefore:
 
-$$\mathcal{A}_N = \frac{1}{2}\left|2\pi\sum_{k=1}^{\infty} k^2\,r_k^2\right| = \pi\sum_{k=1}^{\infty} k^2\,r_k^2.$$
+$$\mathcal{A}_N = \frac{1}{2}\left|-2\pi\sum_{k=1}^{\infty} k^2\,r_k^2\right| = \pi\sum_{k=1}^{\infty} k^2\,r_k^2.$$
 
-The two areas are related by $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma(1/\lambda)\right]^2 \cdot \frac{\mathcal{A}_N}{\pi}$$.
+The relationship with the unnormalized area follows from $$r_k = \frac{2\,N(\lambda,\sigma)}{\lambda}\,\mathcal{F}f_\sigma(k/\lambda)$$, so that:
+
+$$\mathcal{A}_N = \pi \cdot \frac{4 N^2}{\lambda^2} \sum_{k=1}^{\infty} k^2 \left[\mathcal{F}f_\sigma(k/\lambda)\right]^2 = \frac{N^2 \lambda}{2\pi} \mathcal{A}.$$
+
+**Per-type computations**
+
+In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma^3 \mathcal{A})$$ with the values of $$N(\lambda,\sigma)$$ and $$\sigma^3 \mathcal{A}$$ from the previous tables.
+
+**Rectangular.** $$\sigma^3 \mathcal{A} = 0$$, so $$\mathcal{A}_N = 0$$.
+
+**Linear.** $$N = \sigma t$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{t}{2\pi}$$. Then $$\mathcal{A}_N = \frac{t}{2\pi} \cdot \frac{2\min(\lbrace t \rbrace, 1-\lbrace t \rbrace)}{t} = \frac{\min(\lbrace t \rbrace, 1-\lbrace t \rbrace)}{\pi}$$. For $$t \to \infty$$: oscillates in $$[0, 1/(2\pi)]$$.
+
+**Exponential.** $$N = \sigma t$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{t}{2\pi}$$. Then $$\mathcal{A}_N = \frac{t}{2\pi} \cdot 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right) = \frac{t}{\pi}\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right)$$. For $$t \to \infty$$: using $$\coth(u) - 1/(u \sinh^2 u) \approx 2u/3$$ with $$u = 1/t$$, we obtain $$\mathcal{A}_N \to 2/(3\pi)$$.
+
+**Polynomial.** $$N = \frac{\sigma e^{2t}}{2t}$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{e^{4t}}{8\pi t^3}$$. Then $$\mathcal{A}_N = \frac{e^{4t}}{8\pi t^3} \cdot \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)} = \frac{\pi e^{4t} \cosh(2t)}{4 \sinh^3(2t)}$$. For $$t \to \infty$$: $$e^{4t} \cosh(2t) / \sinh^3(2t) \to e^{4t} \cdot (e^{2t}/2) / (e^{6t}/8) = 4$$, so $$\mathcal{A}_N \to \pi$$.
+
+**Gaussian.** $$N = \frac{\sigma e^{\pi t^2}}{2t}$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{e^{2\pi t^2}}{8\pi t^3}$$. Then $$\mathcal{A}_N = \frac{e^{2\pi t^2}}{8\pi t^3} \cdot 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2} = \pi e^{2\pi t^2} \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$. For $$t \to \infty$$: the dominant $$k=1$$ term gives $$\pi e^{2\pi t^2} \cdot e^{-2\pi t^2} = \pi$$.
+
+**Sinc.** $$N(\lambda,\sigma) = \sigma$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{1}{2\pi t}$$. With $$N := \lfloor 1/(2t) \rfloor$$: $$\mathcal{A}_N = \frac{1}{2\pi t} \cdot \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3} = \frac{2\pi t^2 N(N+1)(2N+1)}{3}$$. For $$t > 1/2$$: $$N = 0$$, so $$\mathcal{A}_N = 0$$.
+
+**Sincsquare.** $$N(\lambda,\sigma) = \sigma$$, so $$\frac{N^2}{2\pi \sigma^2 t} = \frac{1}{2\pi t}$$. Then $$\mathcal{A}_N = \frac{1}{2\pi t} \cdot 8\pi^2 t^3 \sum_{k=1}^{\lfloor 1/t \rfloor} k^2 (1-kt)^2 = 4\pi t^2 \sum_{k=1}^{\lfloor 1/t \rfloor} k^2 (1-kt)^2$$. For $$t \geq 1$$: $$\mathcal{A}_N = 0$$.
 
 </details>
 <br/>
 
-{::options parse_block_html="false}
+{::options parse_block_html="false" /}
+
+
 
 ### References
 
