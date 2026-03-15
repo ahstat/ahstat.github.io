@@ -1672,43 +1672,43 @@ $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}
 <details>
 <summary>Proof (click to expand).</summary>
 
-<p>We write $$X(x) = S_\lambda f_\sigma(x) = \frac{1}{\lambda} + \widetilde{X}(x)$$ where:</p>
+We write $$X(x) = S_\lambda f_\sigma(x) = \frac{1}{\lambda} + \widetilde{X}(x)$$ where:
 
 $$\widetilde{X}(x) = \frac{2}{\lambda}\sum_{j=1}^{\infty} \mathcal{F}f_\sigma\left(\frac{j}{\lambda}\right) \cos\left(2\pi \frac{j}{\lambda}x\right),$$
 
 $$Y(x) = S_\lambda g_\sigma(x) = -\frac{4\pi}{\lambda^2}\sum_{j=1}^{\infty} j\,\mathcal{F}f_\sigma\left(\frac{j}{\lambda}\right) \sin\left(2\pi \frac{j}{\lambda}x\right).$$
 
-<p>Since $$\frac{1}{\lambda}$$ is constant, $$\frac{dX}{dx} = \frac{d\widetilde{X}}{dx}$$, and:</p>
+Since $$\frac{1}{\lambda}$$ is constant, $$\frac{dX}{dx} = \frac{d\widetilde{X}}{dx}$$, and:
 
 $$X \frac{dY}{dx} - Y \frac{dX}{dx} = \frac{1}{\lambda}\frac{dY}{dx} + \widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx}.$$
 
-<p>The first term integrates to zero over a full period by periodicity: $$\int_{-\lambda/2}^{\lambda/2}\frac{dY}{dx}\,dx = Y(\lambda/2) - Y(-\lambda/2) = 0$$.</p>
+The first term integrates to zero over a full period by periodicity: $$\int_{-\lambda/2}^{\lambda/2}\frac{dY}{dx}\,dx = Y(\lambda/2) - Y(-\lambda/2) = 0$$.
 
-<p>The derivatives with respect to $$x$$ are:</p>
+The derivatives with respect to $$x$$ are:
 
 $$\frac{d\widetilde{X}}{dx} = -\frac{4\pi}{\lambda^2}\sum_{k=1}^{\infty} k\,\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\sin\left(2\pi\frac{k}{\lambda}x\right),$$
 
 $$\frac{dY}{dx} = -\frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\,\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\cos\left(2\pi\frac{k}{\lambda}x\right).$$
 
-<p>Writing $$a_k := \mathcal{F}f_\sigma(k/\lambda)$$ for brevity, the two products are:</p>
+Writing $$a_k := \mathcal{F}f_\sigma(k/\lambda)$$ for brevity, the two products are:
 
 $$\widetilde{X}\frac{dY}{dx} = -\frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} k^2\,a_j\,a_k\,\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right),$$
 
 $$Y\frac{d\widetilde{X}}{dx} = \frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} jk\,a_j\,a_k\,\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right).$$
 
-<p>Combining:</p>
+Combining:
 
 $$\widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx} = -\frac{16\pi^2}{\lambda^4}\sum_{j,k=1}^{\infty} a_j\,a_k\left[k^2\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right) + jk\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right)\right].$$
 
-<p>Integrating over $$[-\lambda/2, \lambda/2)$$ using the orthogonality relations:</p>
+Integrating over $$[-\lambda/2, \lambda/2)$$ using the orthogonality relations:
 
 $$\int_{-\lambda/2}^{\lambda/2}\cos\left(2\pi\frac{j}{\lambda}x\right)\cos\left(2\pi\frac{k}{\lambda}x\right)dx = \frac{\lambda}{2}\,\delta_{jk}, \qquad \int_{-\lambda/2}^{\lambda/2}\sin\left(2\pi\frac{j}{\lambda}x\right)\sin\left(2\pi\frac{k}{\lambda}x\right)dx = \frac{\lambda}{2}\,\delta_{jk},$$
 
-<p>all cross terms ($$j \neq k$$) vanish. For $$j = k$$, the cosine integral contributes $$k^2 a_k^2 \cdot \lambda/2$$ and the sine integral contributes $$k^2 a_k^2 \cdot \lambda/2$$, giving:</p>
+all cross terms ($$j \neq k$$) vanish. For $$j = k$$, the cosine integral contributes $$k^2 a_k^2 \cdot \lambda/2$$ and the sine integral contributes $$k^2 a_k^2 \cdot \lambda/2$$, giving:
 
 $$\int_{-\lambda/2}^{\lambda/2}\left(\widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx}\right)dx = -\frac{16\pi^2}{\lambda^4} \cdot 2 \cdot \frac{\lambda}{2} \sum_{k=1}^{\infty} k^2\,a_k^2 = -\frac{16\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\,a_k^2.$$
 
-<p>Therefore the (unnormalized) area is:</p>
+Therefore the (unnormalized) area is:
 
 $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
@@ -1788,19 +1788,19 @@ For the Exponential type, $$r_k \to 1/k^2$$, so $$\mathcal{A}_{N} \to \pi \sum_{
 
 <details>
 <summary>Proof (click to expand).</summary>
-<p><b>Normalized area.</b> We write $$U(z) := \text{Ƶ}_t f_\sigma(z) = \sum_{k=1}^{\infty} r_k \cos(2\pi k z)$$ and $$V(z) := -\frac{1}{2\pi}\text{Ƶ}_t f_\sigma'(z) = \sum_{k=1}^{\infty} k\,r_k \sin(2\pi k z)$$. The enclosed area is:</p>
+<b>Normalized area.</b> We write $$U(z) := \text{Ƶ}_t f_\sigma(z) = \sum_{k=1}^{\infty} r_k \cos(2\pi k z)$$ and $$V(z) := -\frac{1}{2\pi}\text{Ƶ}_t f_\sigma'(z) = \sum_{k=1}^{\infty} k\,r_k \sin(2\pi k z)$$. The enclosed area is:
 
 $$\mathcal{A}_N = \frac{1}{2}\left|\int_{-1/2}^{1/2}\left(U \frac{dV}{dz} - V \frac{dU}{dz}\right)dz\right|.$$
 
-<p>The derivatives are $$\frac{dU}{dz} = -2\pi\sum_k k\,r_k \sin(2\pi k z)$$ and $$\frac{dV}{dz} = 2\pi\sum_k k^2\,r_k \cos(2\pi k z)$$. Expanding the products and integrating over $$[-1/2, 1/2)$$ using the orthogonality relations $$\int \cos(2\pi j z)\cos(2\pi k z)\,dz = \int \sin(2\pi j z)\sin(2\pi k z)\,dz = \frac{1}{2}\delta_{jk}$$, all cross terms vanish. The diagonal terms give:</p>
+The derivatives are $$\frac{dU}{dz} = -2\pi\sum_k k\,r_k \sin(2\pi k z)$$ and $$\frac{dV}{dz} = 2\pi\sum_k k^2\,r_k \cos(2\pi k z)$$. Expanding the products and integrating over $$[-1/2, 1/2)$$ using the orthogonality relations $$\int \cos(2\pi j z)\cos(2\pi k z)\,dz = \int \sin(2\pi j z)\sin(2\pi k z)\,dz = \frac{1}{2}\delta_{jk}$$, all cross terms vanish. The diagonal terms give:
 
 $$\int_{-1/2}^{1/2} U\frac{dV}{dz}\,dz = \pi \sum_{k=1}^{\infty} k^2\,r_k^2, \qquad \int_{-1/2}^{1/2} V\frac{dU}{dz}\,dz = -\pi \sum_{k=1}^{\infty} k^2\,r_k^2.$$
 
-<p>Therefore:</p>
+Therefore:
 
 $$\mathcal{A}_N = \frac{1}{2}\left|2\pi\sum_{k=1}^{\infty} k^2\,r_k^2\right| = \pi\sum_{k=1}^{\infty} k^2\,r_k^2.$$
 
-<p>The two areas are related by $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma(1/\lambda)\right]^2 \cdot \frac{\mathcal{A}_N}{\pi}$$.</p>
+The two areas are related by $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\left[\mathcal{F}f_\sigma(1/\lambda)\right]^2 \cdot \frac{\mathcal{A}_N}{\pi}$$.
 
 </details>
 
