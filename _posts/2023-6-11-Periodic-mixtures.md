@@ -1742,6 +1742,49 @@ $$\mathcal{A}_N = \frac{1}{2}\left|2\pi\sum_{k=1}^{\infty} k^2\,r_k^2\right| = \
 For the Exponential type, $$r_k \to 1/k^2$$, so $$\mathcal{A}_{N} \to \pi \sum_{k=1}^{\infty} 1/k^2 = \pi^3/6$$. The remaining types (Rectangular, Linear, Sinc, Sincsquare) do not converge to cosine.
 
 
+### Table 1: Unnormalized area $$\mathcal{A}$$
+
+The unnormalized area is $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2$$, with $$t := \sigma/\lambda$$.
+
+| Type | $$\sigma^3 \mathcal{A}$$ | $$\sigma^3 \mathcal{A}$$ for $$t \to \infty$$ |
+|:---:|:---:|:---:|
+| Rectangular | $$0$$ (degenerate) | $$0$$ |
+| Linear | $$\displaystyle \frac{2 \min\left(\lbrace t \rbrace, 1-\lbrace t \rbrace\right)}{t}$$ | oscillates in $$\displaystyle \left[0, \frac{1}{t}\right]$$ |
+| Exponential | $$\displaystyle 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \sim \frac{4}{3t}$$ |
+| Polynomial | $$\displaystyle \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$ | $$\sim 8\pi^2 t^3 e^{-4t}$$ |
+| Gaussian | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$ | $$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$ |
+| Sinc | $$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$= 0$$ for $$t > 1/2$$ |
+| Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ |
+
+**Details and proofs.**
+
+**Rectangular.** Since $$S_{\lambda}g_{\sigma}(x) = 0$$ for all regular $$x$$, the parametric curve $$(S_{\lambda}f_{\sigma}, S_{\lambda}g_{\sigma})$$ is degenerate (it traces a segment on the horizontal axis), so the enclosed area is $$\mathcal{A} = 0$$. Note that the Fourier-based sum $$\sum k^2 \text{sinc}^2(kt) = \frac{1}{\pi^2 t^2} \sum \sin^2(\pi k t)$$ diverges, so the Fourier area formula does not apply to this type.
+
+**Linear.** Using $$\sin^4(\pi k t) = \frac{3}{8} - \frac{1}{2}\cos(2\pi k t) + \frac{1}{8}\cos(4\pi k t)$$ and the identity $$\sum_{k=1}^{\infty} \frac{\cos(2\pi k \alpha)}{k^2} = \pi^2 B_2(\lbrace \alpha \rbrace)$$ where $$B_2(x) = x^2-x+\frac{1}{6}$$, we obtain:
+
+$$\sigma^3 \mathcal{A} = \frac{1}{t}\left[\frac{1}{2} - 4 B_2(\lbrace t \rbrace) + B_2(\lbrace 2t \rbrace)\right].$$
+
+A case analysis on $$\lbrace t \rbrace \in [0, \frac{1}{2})$$ versus $$[\frac{1}{2}, 1)$$ shows that $$\frac{1}{2} - 4B_2(\lbrace t \rbrace) + B_2(\lbrace 2t \rbrace) = 2\min(\lbrace t \rbrace, 1-\lbrace t \rbrace)$$, which is the tent function, $$1$$-periodic, vanishing at integers and peaking at half-integers. Hence $$\mathcal{A}$$ oscillates with period $$1$$ in $$t$$: it equals $$0$$ when $$t \in \mathbb{Z}$$ (i.e. $$\lambda = \sigma/n$$), and reaches the maximum $$1/(\sigma^3 t)$$ when $$t \in \mathbb{Z}+\frac{1}{2}$$ (i.e. $$\lambda = 2\sigma/(2n+1)$$).
+
+**Exponential.** From the identity $$\sum_{k=1}^{\infty} \frac{k^2}{(1+b^2 k^2)^2} = \frac{\pi}{4b^4}\left(\frac{b}{\tanh(\pi/b)} - \frac{\pi}{\sinh^2(\pi/b)}\right)$$ with $$b = \pi t$$, we derive:
+
+$$\sigma^3 \mathcal{A} = 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right).$$
+
+The series expansion $$\coth u - u/\sinh^2 u = \frac{2u}{3} - \frac{4u^3}{45} + \cdots$$ with $$u = 1/t$$ gives $$\mathcal{A} \sim \frac{4}{3\sigma^3 t}$$ for $$t$$ large. For $$t \to 0$$: $$\mathcal{A} \to \frac{2}{\sigma^3}$$.
+
+**Polynomial.** Using $$\mathcal{F}f_\sigma(k/\lambda) = e^{-2kt}$$ and the generating function $$\sum_{k=1}^{\infty} k^2 q^k = q(1+q)/(1-q)^3$$:
+
+$$\sigma^3 \mathcal{A} = \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}.$$
+
+For $$t$$ large: $$\cosh(v)/\sinh^3(v) \sim 4 e^{-2v}$$ so $$\mathcal{A} \sim \frac{8\pi^2 t^3}{\sigma^3} e^{-4t}$$. For $$t \to 0$$: $$\mathcal{A} \to \frac{\pi^2}{4\sigma^3}$$.
+
+**Gaussian.** No closed form beyond the theta function: $$\sigma^3 \mathcal{A} = -\pi^2 t^3 \vartheta_3''\left(0, e^{-2\pi t^2}\right)$$. For $$t$$ large: the dominant $$k=1$$ term gives $$\mathcal{A} \sim \frac{8\pi^2 t^3}{\sigma^3} e^{-2\pi t^2}$$. For $$t \to 0$$: $$\mathcal{A} \to \frac{\pi\sqrt{2}}{2\sigma^3}$$.
+
+**Sinc.** From $$\mathcal{F}f_\sigma(k/\lambda) = \mathbf{1}_{k \leq 1/(2t)}$$, the sum has $$N = \left\lfloor 1/(2t) \right\rfloor$$ terms. For $$t > 1/2$$: $$N = 0$$ and $$\mathcal{A} = 0$$. The area jumps discontinuously at each $$t = 1/(2n)$$, with jump magnitude $$\pi^2/(n\sigma^3)$$. For $$t \to 0$$: $$\mathcal{A} \to \frac{\pi^2}{3\sigma^3}$$.
+
+**Sincsquare.** From $$\mathcal{F}f_\sigma(k/\lambda) = (1-kt)\mathbf{1}_{k \leq 1/t}$$: for $$t \geq 1$$, $$\mathcal{A} = 0$$ exactly. Continuous onset: $$\mathcal{A} \sim \frac{8\pi^2 (1-t)^2}{\sigma^3 t}$$ for $$t \lesssim 1$$. For $$t \to 0$$: $$\mathcal{A} \to \frac{4\pi^2}{15\sigma^3}$$.
+
+
 
 
 
