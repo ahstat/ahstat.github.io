@@ -1664,7 +1664,7 @@ The parametric curve $$(S_\lambda f_\sigma(x), S_\lambda g_\sigma(x))$$ for $$x 
 
 $$\mathcal{A} = \frac{1}{2}\left|\int_{-\lambda/2}^{\lambda/2}\left(S_\lambda f_\sigma \frac{d(S_\lambda g_\sigma)}{dx} - S_\lambda g_\sigma \frac{d(S_\lambda f_\sigma)}{dx}\right)dx\right|.$$
 
-This (unnormalized) area is:
+This area is (provided that the right-term sum converges, which holds for all types except Rectangular):
 
 $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
@@ -1710,7 +1710,7 @@ all cross terms ($$j \neq k$$) vanish. For $$j = k$$, the cosine integral contri
 
 $$\int_{-\lambda/2}^{\lambda/2}\left(\widetilde{X}\frac{dY}{dx} - Y\frac{d\widetilde{X}}{dx}\right)dx = -\frac{16\pi^2}{\lambda^4} \cdot 2 \cdot \frac{\lambda}{2} \sum_{k=1}^{\infty} k^2\,a_k^2 = -\frac{16\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\,a_k^2.$$
 
-Therefore the (unnormalized) area is:
+Therefore the area (unsigned and without further normalization) is:
 
 $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}f_\sigma\left(\frac{k}{\lambda}\right)\right]^2.$$
 
@@ -1812,7 +1812,7 @@ The two areas are related by $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\left[\math
 </details>
 <br/>
 
-{::options parse_block_html="false
+{::options parse_block_html="false}
 
 ### References
 
