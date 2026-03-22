@@ -1722,6 +1722,7 @@ $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}
 
 The following table shows the closed-form expression of $$\sigma^3 \mathcal{A}$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
+<!--
 | Type | $$\sigma^3 \mathcal{A}$$ | $$\sigma^3 \mathcal{A}$$ for $$t \to \infty$$ | $$\text{video}$$ |
 |:---:|:---:|:---:|:---:|
 | Rectangular | $$0$$ (degenerate) | $$0$$ | |
@@ -1731,6 +1732,60 @@ The following table shows the closed-form expression of $$\sigma^3 \mathcal{A}$$
 | Gaussian | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$ | $$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized.mp4"></video> |
 | Sinc | $$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$= 0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized.mp4"></video> |
 | Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_unnormalized.mp4"></video> |
+-->
+
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="center" style="vertical-align:middle">$$\text{Type}$$</td>
+<td align="center" style="vertical-align:middle">$$\sigma^3 \mathcal{A}$$</td>
+<td align="center" style="vertical-align:middle">$$\sigma^3 \mathcal{A}$$ for $$t \to \infty$$</td>
+<td align="center" style="vertical-align:middle">$$\text{video}$$</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Rectangular</td>
+<td align="center" style="vertical-align:middle">$$0$$ (degenerate)</td>
+<td align="center" style="vertical-align:middle">$$0$$</td>
+<td align="center" style="vertical-align:middle"></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Linear</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{2 \min\left(\lbrace t \rbrace, 1-\lbrace t \rbrace\right)}{t}$$</td>
+<td align="center" style="vertical-align:middle">oscillates in $$\displaystyle \left[0, \frac{1}{t}\right]$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/linear/area_unnormalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Exponential</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right)$$</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \sim \frac{4}{3t}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/exponential/area_unnormalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$</td>
+<td align="center" style="vertical-align:middle">$$\sim 8\pi^2 t^3 e^{-4t}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_unnormalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Gaussian</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$</td>
+<td align="center" style="vertical-align:middle">$$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sinc</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$</td>
+<td align="center" style="vertical-align:middle">$$= 0$$ for $$t > 1/2$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sincsquare</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$</td>
+<td align="center" style="vertical-align:middle">$$= 0$$ for $$t \geq 1$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_unnormalized.mp4"></video></td>
+</tr>
+</tbody>
+</table>
 
 {::options parse_block_html="true" /}
 
@@ -1799,6 +1854,7 @@ where $$r_k := \frac{2\, N(\lambda,\sigma)}{\lambda}\, \mathcal{F}f_\sigma(k/\la
 
 The following table shows the closed-form expression of $$\mathcal{A}_N$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
+<!--
 | Type | $$\mathcal{A}_N$$ | $$\mathcal{A}_N$$ for $$t \to \infty$$ | $$\text{video}$$ |
 |:---:|:---:|:---:|:---:|
 | Rectangular | $$0$$ (degenerate) | $$0$$ | |
@@ -1808,6 +1864,60 @@ The following table shows the closed-form expression of $$\mathcal{A}_N$$ and it
 | Gaussian | $$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$ | $$\pi$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized.mp4"></video> |
 | Sinc | $$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized.mp4"></video> |
 | Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_normalized.mp4"></video> |
+-->
+
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="center" style="vertical-align:middle">$$\text{Type}$$</td>
+<td align="center" style="vertical-align:middle">$$\mathcal{A}_N$$</td>
+<td align="center" style="vertical-align:middle">$$\mathcal{A}_N$$ for $$t \to \infty$$</td>
+<td align="center" style="vertical-align:middle">$$\text{video}$$</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Rectangular</td>
+<td align="center" style="vertical-align:middle">$$0$$ (degenerate)</td>
+<td align="center" style="vertical-align:middle">$$0$$</td>
+<td align="center" style="vertical-align:middle"></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Linear</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{\min\left(\lbrace t \rbrace,\, 1{-}\lbrace t \rbrace\right)}{\pi}$$</td>
+<td align="center" style="vertical-align:middle">oscillates in $$\displaystyle\left[0, \frac{1}{2\pi}\right]$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/linear/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Exponential</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{t}{\pi}\left(\coth \frac{1}{t} - \frac{1}{t\,\sinh^2 \frac{1}{t}}\right)$$</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{2}{3\pi}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/exponential/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$</td>
+<td align="center" style="vertical-align:middle">$$\pi$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Gaussian</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$</td>
+<td align="center" style="vertical-align:middle">$$\pi$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sinc</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$</td>
+<td align="center" style="vertical-align:middle">$$0$$ for $$t > 1/2$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Sincsquare</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$</td>
+<td align="center" style="vertical-align:middle">$$0$$ for $$t \geq 1$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_normalized.mp4"></video></td>
+</tr>
+</tbody>
+</table>
 
 For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
 
