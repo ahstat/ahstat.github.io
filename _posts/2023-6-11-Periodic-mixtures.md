@@ -1730,7 +1730,7 @@ The following table shows the closed-form expression of $$\sigma^3 \mathcal{A}$$
 | Polynomial | $$\displaystyle \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$ | $$\sim 8\pi^2 t^3 e^{-4t}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_unnormalized.mp4"></video> |
 | Gaussian | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$ | $$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized.mp4"></video> |
 | Sinc | $$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$= 0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized.mp4"></video> |
-| Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sincsquare/area_unnormalized.mp4"></video> |
+| Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_unnormalized.mp4"></video> |
 
 {::options parse_block_html="true" /}
 
@@ -1807,7 +1807,7 @@ The following table shows the closed-form expression of $$\mathcal{A}_N$$ and it
 | Polynomial | $$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$ | $$\pi$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized.mp4"></video> |
 | Gaussian | $$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$ | $$\pi$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized.mp4"></video> |
 | Sinc | $$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized.mp4"></video> |
-| Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sincsquare/area_normalized.mp4"></video> |
+| Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_normalized.mp4"></video> |
 
 For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
 
