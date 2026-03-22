@@ -1722,15 +1722,15 @@ $$\mathcal{A} = \frac{8\pi^2}{\lambda^3}\sum_{k=1}^{\infty} k^2\left[\mathcal{F}
 
 The following table shows the closed-form expression of $$\sigma^3 \mathcal{A}$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
-| Type | $$\sigma^3 \mathcal{A}$$ | $$\sigma^3 \mathcal{A}$$ for $$t \to \infty$$ |
-|:---:|:---:|:---:|
-| Rectangular | $$0$$ (degenerate) | $$0$$ |
-| Linear | $$\displaystyle \frac{2 \min\left(\lbrace t \rbrace, 1-\lbrace t \rbrace\right)}{t}$$ | oscillates in $$\displaystyle \left[0, \frac{1}{t}\right]$$ |
-| Exponential | $$\displaystyle 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \sim \frac{4}{3t}$$ |
-| Polynomial | $$\displaystyle \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$ | $$\sim 8\pi^2 t^3 e^{-4t}$$ |
-| Gaussian | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$ | $$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$ |
-| Sinc | $$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$= 0$$ for $$t > 1/2$$ |
-| Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ |
+| Type | $$\sigma^3 \mathcal{A}$$ | $$\sigma^3 \mathcal{A}$$ for $$t \to \infty$$ | $$\text{video}$$ |
+|:---:|:---:|:---:|:---:|
+| Rectangular | $$0$$ (degenerate) | $$0$$ | |
+| Linear | $$\displaystyle \frac{2 \min\left(\lbrace t \rbrace, 1-\lbrace t \rbrace\right)}{t}$$ | oscillates in $$\displaystyle \left[0, \frac{1}{t}\right]$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/linear/area_unnormalized.mp4"></video> |
+| Exponential | $$\displaystyle 2\left(\coth \frac{1}{t} - \frac{1}{t \sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \sim \frac{4}{3t}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/exponential/area_unnormalized.mp4"></video> |
+| Polynomial | $$\displaystyle \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$ | $$\sim 8\pi^2 t^3 e^{-4t}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_unnormalized.mp4"></video> |
+| Gaussian | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\infty} k^2 e^{-2\pi k^2 t^2}$$ | $$\sim 8\pi^2 t^3 e^{-2\pi t^2}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized.mp4"></video> |
+| Sinc | $$\displaystyle \frac{4\pi^2 t^3 N(N+1)(2N+1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$= 0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized.mp4"></video> |
+| Sincsquare | $$\displaystyle 8\pi^2 t^3 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 \left(1-kt\right)^2$$ | $$= 0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sincsquare/area_unnormalized.mp4"></video> |
 
 {::options parse_block_html="true" /}
 
@@ -1772,6 +1772,21 @@ so $$\sigma^3 \mathcal{A} = \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$. For $$t$
 {::options parse_block_html="false" /}
 
 
+We describe all the curves in the unnormalized case for the setting $$\sigma=1$$. For $$\sigma \neq 1$$, the $$x$$-axis part scales in $$\sigma$$ and the $$y$$-axis part scales in $$\sigma^2$$, explaining the $$\sigma^3$$ term in the area. The videos keep an aspect ratio of 1.
+
+- For the Linear type, the parametric curve is a rectangle that drifts rightward over time. From $$t=0$$ to $$t=0.5$$, it is a fixed rectangle $$[0,1] \times [-1,1]$$. Then it shrinks from the left (the peak stays at $$1$$) until $$t=1$$, where it collapses to a vertical segment. It then re-expands and resumes drifting, with maximum width at half-integers $$t = 1/2, 3/2, 5/2, \ldots$$ and zero width at integers $$t = 1, 2, 3, \ldots$$ The maximum width decays as $$1/(2t)$$, so the oscillations become smaller and smaller.
+
+- For the Exponential type, the parametric curve starts as a triangle with vertex at $$(0,0)$$ and base segment $$\lbrace 1 \rbrace \times [-1/2, 1/2]$$. From around $$t \approx 0.3$$, the vertex squishes into a rounded cusp, with the profile progressively shaping into a parabola. From around $$t \approx 0.5$$, the base segment begins drifting rightward (at position $$\coth(1/t) \approx 1.04$$ at $$t=0.5$$ as $$t$$ is small, then approximately $$t$$ for larger values). The parabola gets closer to the segment, and the area decays as $$4/(3t)$$. Unlike the Linear type, there are no oscillations, the width decreases monotonically.
+
+- For the Polynomial type, the parametric curve is a smooth closed loop. For small $$t$$, the curve shows a vertical spike peaking at $$(0,0)$$ and a rounder cap with height $$[-2,2]$$ near $$(1,0)$$. From around $$t \approx 0.5$$, the curve smooths into an ellipse shape that is then shrinking. Regarding width, the left side initially moves towards the right side, then both sides drift rightward while the width reduces, and both converge towards $$t$$. The height starts at $$[-2,2]$$, crosses $$[-1,1]$$ around $$t=1.9$$ and keeps shrinking. Both width and height decay exponentially.
+
+- For the Gaussian type, the curve is similar to the Polynomial type but with much faster shrinking. Initially, the curve has height $$[-\sqrt{2\pi/e}, \sqrt{2\pi/e}] \approx [-1.52, 1.52]$$ and width $$[0,1]$$. Unlike the Polynomial case, there is almost no visible spike at $$(0,0)$$. The shrinking starts around $$t = 0.5$$ and is super-exponential. By $$t = 1.5$$, the curve is essentially a point drifting at position $$t$$.
+
+- For the Sinc type, for $$t>1/2$$, the curve collapses to a single point. For $$1/4 < t \leq 1/2$$, the curve is a single smooth ellipse. For smaller $$t$$, the curve self-intersects and traces multiple oscillating loops. The area given by Green's theorem is the algebraic (signed) area of these overlapping loops, not the area of a single enclosed region.
+
+- For the Sincsquare type, for $$t \geq 1$$, the curve is a single point. For $$1/2 \leq t < 1$$, the curve is a single smooth ellipse. For smaller $$t$$, the main ellipse is accompanied by small petal-like loops near the origin that grow in number as $$t$$ decreases. Unlike the Sinc type, $$S_\lambda f$$ stays non-negative. The area is again algebraic (signed over the overlapping loops).
+
+
 
 
 #### Normalized area of the parametric curve
@@ -1784,15 +1799,15 @@ where $$r_k := \frac{2\, N(\lambda,\sigma)}{\lambda}\, \mathcal{F}f_\sigma(k/\la
 
 The following table shows the closed-form expression of $$\mathcal{A}_N$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
-| Type | $$\mathcal{A}_N$$ | $$\mathcal{A}_N$$ for $$t \to \infty$$ |
-|:---:|:---:|:---:|
-| Rectangular | $$0$$ (degenerate) | $$0$$ |
-| Linear | $$\displaystyle \frac{\min\left(\lbrace t \rbrace,\, 1{-}\lbrace t \rbrace\right)}{\pi}$$ | oscillates in $$\displaystyle\left[0, \frac{1}{2\pi}\right]$$ |
-| Exponential | $$\displaystyle \frac{t}{\pi}\left(\coth \frac{1}{t} - \frac{1}{t\,\sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \frac{2}{3\pi}$$ |
-| Polynomial | $$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$ | $$\pi$$ |
-| Gaussian | $$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$ | $$\pi$$ |
-| Sinc | $$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$0$$ for $$t > 1/2$$ |
-| Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ |
+| Type | $$\mathcal{A}_N$$ | $$\mathcal{A}_N$$ for $$t \to \infty$$ | $$\text{video}$$ |
+|:---:|:---:|:---:|:---:|
+| Rectangular | $$0$$ (degenerate) | $$0$$ | |
+| Linear | $$\displaystyle \frac{\min\left(\lbrace t \rbrace,\, 1{-}\lbrace t \rbrace\right)}{\pi}$$ | oscillates in $$\displaystyle\left[0, \frac{1}{2\pi}\right]$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/linear/area_normalized.mp4"></video> |
+| Exponential | $$\displaystyle \frac{t}{\pi}\left(\coth \frac{1}{t} - \frac{1}{t\,\sinh^2 \frac{1}{t}}\right)$$ | $$\displaystyle \frac{2}{3\pi}$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/exponential/area_normalized.mp4"></video> |
+| Polynomial | $$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$ | $$\pi$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized.mp4"></video> |
+| Gaussian | $$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$ | $$\pi$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized.mp4"></video> |
+| Sinc | $$\displaystyle \frac{2\pi t^2\, N(N{+}1)(2N{+}1)}{3}$$, $$N := \left\lfloor \frac{1}{2t} \right\rfloor$$ | $$0$$ for $$t > 1/2$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized.mp4"></video> |
+| Sincsquare | $$\displaystyle 4\pi t^2 \sum_{k=1}^{\left\lfloor 1/t \right\rfloor} k^2 (1{-}kt)^2$$ | $$0$$ for $$t \geq 1$$ | <video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/sincsquare/area_normalized.mp4"></video> |
 
 For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
 
@@ -1841,7 +1856,17 @@ In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma
 
 {::options parse_block_html="false" /}
 
+- For the Linear type, the normalized shape is $$1$$-periodic in $$t$$, collapsing at integer $$t$$ and reaching its maximum extent at half-integer.
 
+- For the Exponential type, the normalized curve converges monotonically toward a fixed limiting shape, with the segment settling at $$Z_t f = 1/3$$ and the cusp at $$Z_t f = -1/6$$. The derivative range is always $$[-1/\pi, 1/\pi]$$.
+
+- For the Polynomial type, the normalized shape converges to a unit circle, already nearly circular around $$t=2$$.
+
+- For the Gaussian type, as for the Polynomial type, the normalized shape converges to a unit circle.
+
+- For the Sinc type, the normalized curve is null for $$t > 1/2$$, a single ellipse for $$1/4 < t \leq 1/2$$, and increasingly tangled for smaller $$t$$.
+
+- For the Sincsquare type, the normalized curve is null for $$t \geq 1$$, a single ellipse for $$1/2 \leq t < 1$$, and develops additional petals for smaller $$t$$.
 
 ### References
 
