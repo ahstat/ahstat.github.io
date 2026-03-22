@@ -36,6 +36,18 @@ images/2023-6-11-Periodic-mixtures/plot3/sinc/unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot3/sinc2/function_of_time/*
 images/2023-6-11-Periodic-mixtures/plot3/sinc2/function_of_space/*
 images/2023-6-11-Periodic-mixtures/plot3/sinc2/unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/linear/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/linear/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/exponential/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/exponential/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_unnormalized/*
 
 _site
 .DS_Store
