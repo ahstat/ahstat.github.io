@@ -1827,7 +1827,7 @@ so $$\sigma^3 \mathcal{A} = \frac{2\pi^2 t^3 \cosh(2t)}{\sinh^3(2t)}$$. For $$t$
 {::options parse_block_html="false" /}
 
 
-We describe all the curves in the unnormalized case for the setting $$\sigma=1$$. For $$\sigma \neq 1$$, the $$x$$-axis part scales in $$\sigma$$ and the $$y$$-axis part scales in $$\sigma^2$$, explaining the $$\sigma^3$$ term in the area. The videos keep an aspect ratio of 1.
+We describe all the curves above (area of the parametric curve $$(Sf, Sg)$$ without any normalization) for the setting $$\sigma=1$$. For $$\sigma \neq 1$$, the $$x$$-axis part scales in $$\sigma$$ and the $$y$$-axis part scales in $$\sigma^2$$, explaining the $$\sigma^3$$ term in the area. The videos keep an aspect ratio of 1.
 
 - For the Linear type, the parametric curve is a rectangle that drifts rightward over time. From $$t=0$$ to $$t=0.5$$, it is a fixed rectangle $$[0,1] \times [-1,1]$$. Then it shrinks from the left (the peak stays at $$1$$) until $$t=1$$, where it collapses to a vertical segment. It then re-expands and resumes drifting, with maximum width at half-integers $$t = 1/2, 3/2, 5/2, \ldots$$ and zero width at integers $$t = 1, 2, 3, \ldots$$ The maximum width decays as $$1/(2t)$$, so the oscillations become smaller and smaller.
 
@@ -1850,7 +1850,7 @@ Setting $$\theta := 2\pi z = 2\pi x/\lambda \in [-\pi, \pi)$$, the parametric cu
 
 $$\mathcal{A}_N = \frac{N(\lambda,\sigma)^2\, \lambda}{2\pi}\, \mathcal{A} = \pi \sum_{k=1}^{\infty} k^2\, r_k^2,$$
 
-where $$r_k := \frac{2\, N(\lambda,\sigma)}{\lambda}\, \mathcal{F}f_\sigma(k/\lambda)$$ are the Fourier cosine coefficients of $$Z_t f_\sigma$$ in $$\theta$$.
+where $$r_k := \frac{2\, N(\lambda,\sigma)}{\lambda}\, \mathcal{F}f_\sigma(k/\lambda)$$ are the Fourier cosine coefficients of $$Z_t f_\sigma$$ in $$\theta$$, and  $$N(\lambda,\sigma)$$ is a normalization that changes from type to type defined before.
 
 The following table shows the closed-form expression of $$\mathcal{A}_N$$ and its behavior for $$t \to \infty$$, with $$t := \sigma/\lambda$$.
 
@@ -1919,8 +1919,6 @@ The following table shows the closed-form expression of $$\mathcal{A}_N$$ and it
 </tbody>
 </table>
 
-For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
-
 {::options parse_block_html="true" /}
 
 <details><summary markdown="span">Proof (click to expand).</summary>
@@ -1970,9 +1968,7 @@ In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma
 
 - For the Exponential type, the normalized curve converges monotonically toward a fixed limiting shape, with the segment settling at $$Z_t f = 1/3$$ and the cusp at $$Z_t f = -1/6$$. The derivative range is always $$[-1/\pi, 1/\pi]$$.
 
-- For the Polynomial type, the normalized shape converges to a unit circle, already nearly circular around $$t=2$$.
-
-- For the Gaussian type, as for the Polynomial type, the normalized shape converges to a unit circle.
+- For the Polynomial and Gaussian types, $$Z_t f_\sigma(\theta) \to \cos\theta$$ when $$t \to \infty$$, so the parametric curve traces $$(\cos\theta, -\sin\theta)$$ in this limit. The convergence $$\mathcal{A}_N \to \pi$$ confirms that the curve approaches the unit circle.
 
 - For the Sinc type, the normalized curve is null for $$t > 1/2$$, a single ellipse for $$1/4 < t \leq 1/2$$, and increasingly tangled for smaller $$t$$.
 
