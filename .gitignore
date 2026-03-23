@@ -42,8 +42,11 @@ images/2023-6-11-Periodic-mixtures/plot4/exponential/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/exponential/area_unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/polynomial_one_shift/area_normalized/*
+images/2023-6-11-Periodic-mixtures/plot4/polynomial_two_shifts/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_unnormalized/*
+images/2023-6-11-Periodic-mixtures/plot4/gaussian_one_shift/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/sinc/area_normalized/*
 images/2023-6-11-Periodic-mixtures/plot4/sinc/area_unnormalized/*
 images/2023-6-11-Periodic-mixtures/plot4/sinc2/area_normalized/*
