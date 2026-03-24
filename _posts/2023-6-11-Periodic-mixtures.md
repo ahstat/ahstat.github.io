@@ -1974,7 +1974,8 @@ In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma
 
 - For the Sincsquare type, the normalized curve is null for $$t \geq 1$$, a single ellipse for $$1/2 \leq t < 1$$, and develops additional petals for smaller $$t$$.
 
-
+<br/>
+<br/>
 
 
 
@@ -1983,7 +1984,7 @@ In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma
 
 {::options parse_block_html="true" /}
 
-<details><summary markdown="span">Alternative normalizations (for Polynomial and Gaussian types).</summary>
+<details><summary markdown="span">Area for alternative normalizations (for Polynomial and Gaussian types).</summary>
 
 
 <table border="0" cellspacing="0" cellpadding="0">
