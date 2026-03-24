@@ -1974,6 +1974,63 @@ In each case, we use $$\mathcal{A}_N = \frac{N^2}{2\pi \sigma^2 t} \cdot (\sigma
 
 - For the Sincsquare type, the normalized curve is null for $$t \geq 1$$, a single ellipse for $$1/2 \leq t < 1$$, and develops additional petals for smaller $$t$$.
 
+
+
+
+
+
+
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Alternative normalizations (for Polynomial and Gaussian types).</summary>
+
+
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td align="center" style="vertical-align:middle">$$\text{Type}$$</td>
+<td align="center" style="vertical-align:middle">$$\mathcal{A}_N$$</td>
+<td align="center" style="vertical-align:middle">$$\text{video}$$</td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{\pi\, e^{4t}\cosh(2t)}{4\,\sinh^3(2t)}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial (one shift)</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{\pi\, (e^{2t}-1)^2\,\cosh(2t)}{4\,\sinh^3(2t)}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial_one_shift/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Polynomial (two shifts)</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \frac{\pi\, (e^{2t}-1-2t)^2\,\cosh(2t)}{4\,\sinh^3(2t)}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/polynomial_two_shifts/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Gaussian</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \pi\, e^{2\pi t^2}\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian/area_normalized.mp4"></video></td>
+</tr>
+<tr>
+<td align="center" style="vertical-align:middle">Gaussian (one shift)</td>
+<td align="center" style="vertical-align:middle">$$\displaystyle \pi\,(e^{\pi t^2}-1)^2\sum_{k=1}^{\infty} k^2\, e^{-2\pi k^2 t^2}$$</td>
+<td align="center" style="vertical-align:middle"><video controls autoplay=1 loop=1 src="../images/2023-6-11-Periodic-mixtures/plot4/gaussian_one_shift/area_normalized.mp4"></video></td>
+</tr>
+</tbody>
+</table>
+
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
+
+
+
+
+
 ### References
 
 - [Wikipedia page on classic Fourier transforms](https://en.wikipedia.org/wiki/Fourier_transform#Square-integrable_functions,_one-dimensional),
